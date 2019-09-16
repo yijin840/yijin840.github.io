@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2019-09-16T13:43:23.806Z</updated>
+  <updated>2019-09-16T14:06:53.910Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub学习笔记</title>
+    <link href="http://wysblogs.top/2019/09/16/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wysblogs.top/2019/09/16/GitHub学习笔记/</id>
+    <published>2019-09-16T13:59:08.000Z</published>
+    <updated>2019-09-16T14:06:53.910Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="GitHub学习笔记"><a href="#GitHub学习笔记" class="headerlink" title="GitHub学习笔记"></a>GitHub学习笔记</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h4 id="仓库（Repository）"><a href="#仓库（Repository）" class="headerlink" title="仓库（Repository）"></a>仓库（Repository）</h4><p>仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目存在多个仓库。</p><h4 id="收藏（Star）"><a href="#收藏（Star）" class="headerlink" title="收藏（Star）"></a>收藏（Star）</h4><p>收藏项目，方便查看</p><h4 id="复制克隆项目（Fork）"><a href="#复制克隆项目（Fork）" class="headerlink" title="复制克隆项目（Fork）"></a>复制克隆项目（Fork）</h4><p>点击之后，会别人的仓库完整的复制一份给你，该fork仓库之独立存在的，而且上面会有从哪个地方克隆的。</p><h4 id="发起合并请求（Push-Request）"><a href="#发起合并请求（Push-Request）" class="headerlink" title="发起合并请求（Push Request）"></a>发起合并请求（Push Request）</h4><p>这个是基于Fork的，如果想要克隆来源的地方也更新同样的代码，然后可以点击之后，会发起合并请求，查看同意之后就可以合并了。</p><h4 id="关注（Watch）"><a href="#关注（Watch）" class="headerlink" title="关注（Watch）"></a>关注（Watch）</h4><p>关注项目之后，项目更新可以接受到通知</p><h4 id="事物卡片（Issue）"><a href="#事物卡片（Issue）" class="headerlink" title="事物卡片（Issue）"></a>事物卡片（Issue）</h4><p>发现代码有BUG，但是目前没有成型代码，需要讨论时用</p><h4 id="Github主页"><a href="#Github主页" class="headerlink" title="Github主页"></a>Github主页</h4><p>账号登录成功之后，点击左上角就回到github主页，显示自己的动态和关注的动态，右边显示git库</p><h4 id="仓库主页"><a href="#仓库主页" class="headerlink" title="仓库主页"></a>仓库主页</h4><p>显示项目信息，如：项目代码，版本，收藏/关注/fork情况等</p><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480421564.png" alt="1564480421564"></p><h2 id="仓库主页-1"><a href="#仓库主页-1" class="headerlink" title="仓库主页"></a>仓库主页</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480586331.png" alt="1564480586331"></p><h2 id="仓库管理"><a href="#仓库管理" class="headerlink" title="仓库管理"></a>仓库管理</h2><p>点击create new file新建文件</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480936666.png" alt="1564480936666"></p><p>写好之后，填写提交的目的，原因：为了方便其他开发者知道本次添加或修改的原因</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481040480.png" alt="1564481040480"></p><p>创建完毕跳转到主页</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481093760.png" alt="1564481093760"></p><p>点击目的之后可以看到文件的详细描述，还有文件的修改内容</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481198895.png" alt="1564481198895"></p><h2 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481360468.png" alt="1564481360468"></p><p>点击之后回来到编辑模式之下</p><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>同上面一样</p><h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481580470.png" alt="1564481580470"></p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481603464.png" alt="1564481603464"></p><p>可以拖动文件也可以点击上传多个文件</p><p>下面是写上传文件的信息</p><h2 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481719616.png" alt="1564481719616"></p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481760391.png" alt="1564481760391"></p><p>输入文件名进行筛选</p><p>也可以按快捷键T就可以进行查找文件</p><h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%96%87%E6%A1%A3/1564481854918.png" alt="1564481854918"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="GitHub" scheme="http://wysblogs.top/categories/GitHub/"/>
+    
+    
+      <category term="GitHub" scheme="http://wysblogs.top/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>一些常用的网站</title>

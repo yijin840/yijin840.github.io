@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitHub学习笔记]]></title>
+    <url>%2F2019%2F09%2F16%2FGitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[GitHub学习笔记基本概念仓库（Repository）仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目存在多个仓库。 收藏（Star）收藏项目，方便查看 复制克隆项目（Fork）点击之后，会别人的仓库完整的复制一份给你，该fork仓库之独立存在的，而且上面会有从哪个地方克隆的。 发起合并请求（Push Request）这个是基于Fork的，如果想要克隆来源的地方也更新同样的代码，然后可以点击之后，会发起合并请求，查看同意之后就可以合并了。 关注（Watch）关注项目之后，项目更新可以接受到通知 事物卡片（Issue）发现代码有BUG，但是目前没有成型代码，需要讨论时用 Github主页账号登录成功之后，点击左上角就回到github主页，显示自己的动态和关注的动态，右边显示git库 仓库主页显示项目信息，如：项目代码，版本，收藏/关注/fork情况等 创建仓库 仓库主页 仓库管理点击create new file新建文件 写好之后，填写提交的目的，原因：为了方便其他开发者知道本次添加或修改的原因 创建完毕跳转到主页 点击目的之后可以看到文件的详细描述，还有文件的修改内容 编辑文件 点击之后回来到编辑模式之下 删除文件同上面一样 上传文件 可以拖动文件也可以点击上传多个文件 下面是写上传文件的信息 搜索文件 输入文件名进行筛选 也可以按快捷键T就可以进行查找文件 下载文件]]></content>
+      <categories>
+        <category>GitHub</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一些常用的网站]]></title>
     <url>%2F2019%2F09%2F16%2F%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99%2F</url>
     <content type="text"><![CDATA[一些常用的网站链接Spring官方文档（涵盖各个版本的）https://docs.spring.io/spring/docs/ Maven仓库https://mvnrepository.com/ Json格式化网站https://www.json.cn/ 不错的java学习网站http://how2j.cn/stage/39.html CMD Markdown网站https://www.zybuluo.com/mdeditor （可以在线记录markdown文档，缺点是有些功能收费） Leetcodehttps://leetcode-cn.com/ 站长工具http://tool.chinaz.com/ 谷歌网上应用商店https://chrome.google.com/webstore/category/extensions?h1=zh 慕课网https://www.imooc.com/ 牛客https://www.nowcoder.com/ 代码托管平台Githubhttps://github.com/ 待更新。。。。。。]]></content>
