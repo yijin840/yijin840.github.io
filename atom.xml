@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2019-09-16T13:06:14.501Z</updated>
+  <updated>2019-09-16T13:43:23.806Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些常用的网站</title>
+    <link href="http://wysblogs.top/2019/09/16/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+    <id>http://wysblogs.top/2019/09/16/一些常用的网站/</id>
+    <published>2019-09-16T13:42:32.000Z</published>
+    <updated>2019-09-16T13:43:23.806Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一些常用的网站链接"><a href="#一些常用的网站链接" class="headerlink" title="一些常用的网站链接"></a>一些常用的网站链接</h1><h2 id="Spring官方文档（涵盖各个版本的）"><a href="#Spring官方文档（涵盖各个版本的）" class="headerlink" title="Spring官方文档（涵盖各个版本的）"></a><strong>Spring官方文档</strong>（涵盖各个版本的）</h2><p><a href="https://docs.spring.io/spring/docs/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/</a></p><h2 id="Maven仓库"><a href="#Maven仓库" class="headerlink" title="Maven仓库"></a>Maven仓库</h2><p><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></p><h2 id="Json格式化网站"><a href="#Json格式化网站" class="headerlink" title="Json格式化网站"></a>Json格式化网站</h2><p><a href="https://www.json.cn/" target="_blank" rel="noopener">https://www.json.cn/</a></p><h2 id="不错的java学习网站"><a href="#不错的java学习网站" class="headerlink" title="不错的java学习网站"></a><strong>不错的java学习网站</strong></h2><p><a href="http://how2j.cn/stage/39.html" target="_blank" rel="noopener">http://how2j.cn/stage/39.html</a></p><h2 id="CMD-Markdown网站"><a href="#CMD-Markdown网站" class="headerlink" title="CMD Markdown网站"></a>CMD Markdown网站</h2><p><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">https://www.zybuluo.com/mdeditor</a></p><p>（可以在线记录markdown文档，缺点是有些功能收费）</p><h2 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h2><p><a href="https://leetcode-cn.com/" target="_blank" rel="noopener">https://leetcode-cn.com/</a></p><h2 id="站长工具"><a href="#站长工具" class="headerlink" title="站长工具"></a>站长工具</h2><p><a href="http://tool.chinaz.com/" target="_blank" rel="noopener">http://tool.chinaz.com/</a></p><h2 id="谷歌网上应用商店"><a href="#谷歌网上应用商店" class="headerlink" title="谷歌网上应用商店"></a>谷歌网上应用商店</h2><p><a href="https://chrome.google.com/webstore/category/extensions?h1=zh" target="_blank" rel="noopener">https://chrome.google.com/webstore/category/extensions?h1=zh</a></p><h2 id="慕课网"><a href="#慕课网" class="headerlink" title="慕课网"></a>慕课网</h2><p><a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a></p><h2 id="牛客"><a href="#牛客" class="headerlink" title="牛客"></a>牛客</h2><p><a href="https://www.nowcoder.com/" target="_blank" rel="noopener">https://www.nowcoder.com/</a></p><h2 id="代码托管平台Github"><a href="#代码托管平台Github" class="headerlink" title="代码托管平台Github"></a>代码托管平台Github</h2><p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p><h2 id="待更新。。。。。。"><a href="#待更新。。。。。。" class="headerlink" title="待更新。。。。。。"></a>待更新。。。。。。</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://wysblogs.top/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="网站" scheme="http://wysblogs.top/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>MyBatis配置文件整理</title>
