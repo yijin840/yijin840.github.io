@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="整合JUnit单元测试JUnit概述JUnit是一个基于java语言的单元测试框架，Junit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。 依赖所依赖的导包 1234567891011121314&amp;lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-test -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T13:41:08.117Z">
+<meta property="og:updated_time" content="2019-09-23T13:51:51.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Junit单元测试">
 <meta name="twitter:description" content="整合JUnit单元测试JUnit概述JUnit是一个基于java语言的单元测试框架，Junit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。 依赖所依赖的导包 1234567891011121314&amp;lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-test -">
@@ -393,10 +393,10 @@
 <p>spring-test是整合spring时所需要依赖的包</p>
 <p>junit就是进行单元测试所需要依赖的包</p>
 <p>还需要其他的Spring核心jar包，这就不一一列举了</p>
-<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h3 id="RunWith"><a href="#RunWith" class="headerlink" title="RunWith"></a>RunWith</h3><p>*<em>@RunWith： *</em>就是一个运行器</p>
-<p>*<em>@RunWith(JUnit4.class)： *</em>就是指用JUnit4来运行</p>
-<p><strong>@RunWith(SpringJUnit4ClassRunner.class)：</strong> 让测试运行于Spring测试环境</p>
-<p><strong>@RunWith(Suite.class)：</strong> 一套测试集合</p>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h3 id="RunWith"><a href="#RunWith" class="headerlink" title="RunWith"></a>RunWith</h3><p><strong>@RunWith</strong>：就是一个运行器</p>
+<p><strong>@RunWith(JUnit4.class)</strong>：就是指用JUnit4来运行</p>
+<p><strong>@RunWith(SpringJUnit4ClassRunner.class)</strong>： 让测试运行于Spring测试环境</p>
+<p><strong>@RunWith(Suite.class)</strong>： 一套测试集合</p>
 <h3 id="ContextConfiguration"><a href="#ContextConfiguration" class="headerlink" title="ContextConfiguration"></a>ContextConfiguration</h3><p><strong>概念：</strong> Spring整合JUnit4测试时，使用注解引入多个配置文件</p>
 <p><strong>单个文件：</strong></p>
 <p><code>@ContextConfiguration(Locations=&quot;classpath:spring-config.xml&quot;)</code></p>
