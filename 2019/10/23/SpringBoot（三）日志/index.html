@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JAVA代理,">
+  <meta name="keywords" content="Spring Boot,">
 
 
 
@@ -81,22 +81,21 @@
 
 
 
-<meta name="description" content="jAVA代理代理模式​        使用一个代理对象将对象包装起来，然后用该代理对象来取代该对象，任何对原始对象的调用都要通过代理，代理对象决定是否以及何时调用原始对象的方法 静态代理​        要求被代理类和代理类同时实现相应的一套接口，通过代理类调用重写接口的方法，实际上调用的是原始对象的同样的方法。如下图：  ​        Client调用Source的method()方法，实际">
-<meta name="keywords" content="JAVA代理">
+<meta name="description" content="Spring Boot（三）日志SpringBoot文档日志框架小张：开发一个大型系统： 1、 System.out.println(“”);将关键数据打印在控制台；老板要去掉？ 2、框架来记录系统的一些信息；日志框架；zhanglogging.jar； 3、高大上的几个功能？异步模式？自动归档？xxxx？zhanglogging-good.jar？ 4、将以前框架卸下来？换上新的框架，重新修改之">
+<meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA代理">
-<meta property="og:url" content="http://wysblogs.top/2019/09/18/JAVA代理/index.html">
+<meta property="og:title" content="SpringBoot（三）日志">
+<meta property="og:url" content="http://wysblogs.top/2019/10/23/SpringBoot（三）日志/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="jAVA代理代理模式​        使用一个代理对象将对象包装起来，然后用该代理对象来取代该对象，任何对原始对象的调用都要通过代理，代理对象决定是否以及何时调用原始对象的方法 静态代理​        要求被代理类和代理类同时实现相应的一套接口，通过代理类调用重写接口的方法，实际上调用的是原始对象的同样的方法。如下图：  ​        Client调用Source的method()方法，实际">
+<meta property="og:description" content="Spring Boot（三）日志SpringBoot文档日志框架小张：开发一个大型系统： 1、 System.out.println(“”);将关键数据打印在控制台；老板要去掉？ 2、框架来记录系统的一些信息；日志框架；zhanglogging.jar； 3、高大上的几个功能？异步模式？自动归档？xxxx？zhanglogging-good.jar？ 4、将以前框架卸下来？换上新的框架，重新修改之">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wysblogs.top/upload/JAVA%E4%BB%A3%E7%90%86/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86.jpg">
-<meta property="og:image" content="http://wysblogs.top/upload/JAVA%E4%BB%A3%E7%90%86/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E7%BB%93%E6%9E%9C.png">
-<meta property="og:image" content="http://wysblogs.top/upload/JAVA%E4%BB%A3%E7%90%86/JDK%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86%E5%9B%BE.png">
-<meta property="og:updated_time" content="2019-09-18T13:10:57.904Z">
+<meta property="og:image" content="http://wysblogs.top/upload/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/concrete-bindings.png">
+<meta property="og:image" content="http://wysblogs.top/upload/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1571820691783.png">
+<meta property="og:updated_time" content="2019-10-23T14:15:13.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA代理">
-<meta name="twitter:description" content="jAVA代理代理模式​        使用一个代理对象将对象包装起来，然后用该代理对象来取代该对象，任何对原始对象的调用都要通过代理，代理对象决定是否以及何时调用原始对象的方法 静态代理​        要求被代理类和代理类同时实现相应的一套接口，通过代理类调用重写接口的方法，实际上调用的是原始对象的同样的方法。如下图：  ​        Client调用Source的method()方法，实际">
-<meta name="twitter:image" content="http://wysblogs.top/upload/JAVA%E4%BB%A3%E7%90%86/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86.jpg">
+<meta name="twitter:title" content="SpringBoot（三）日志">
+<meta name="twitter:description" content="Spring Boot（三）日志SpringBoot文档日志框架小张：开发一个大型系统： 1、 System.out.println(“”);将关键数据打印在控制台；老板要去掉？ 2、框架来记录系统的一些信息；日志框架；zhanglogging.jar； 3、高大上的几个功能？异步模式？自动归档？xxxx？zhanglogging-good.jar？ 4、将以前框架卸下来？换上新的框架，重新修改之">
+<meta name="twitter:image" content="http://wysblogs.top/upload/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/concrete-bindings.png">
 
 
 
@@ -126,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://wysblogs.top/2019/09/18/JAVA代理/">
+  <link rel="canonical" href="http://wysblogs.top/2019/10/23/SpringBoot（三）日志/">
 
 
 
 
 
-  <title>JAVA代理 | wys'blogs</title>
+  <title>SpringBoot（三）日志 | wys'blogs</title>
   
 
 
@@ -301,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wysblogs.top/2019/09/18/JAVA代理/">
+    <link itemprop="mainEntityOfPage" href="http://wysblogs.top/2019/10/23/SpringBoot（三）日志/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wys">
@@ -318,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA代理</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot（三）日志</h1>
         
 
         <div class="post-meta">
@@ -330,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-18T21:08:47+08:00">
-                2019-09-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T22:12:46+08:00">
+                2019-10-23
               </time>
             
 
@@ -353,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA代理/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA代理</span>
+                  <a href="/categories/Spring-Boot学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring Boot学习笔记</span>
                   </a>
                 </span>
 
@@ -390,47 +389,97 @@
       
 
       
-        <h1 id="jAVA代理"><a href="#jAVA代理" class="headerlink" title="jAVA代理"></a>jAVA代理</h1><h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>​        使用一个代理对象将对象包装起来，然后用该代理对象来取代该对象，任何对原始对象的调用都要通过代理，代理对象决定是否以及何时调用原始对象的方法</p>
-<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p>​        要求被代理类和代理类同时实现相应的一套接口，通过代理类调用重写接口的方法，实际上调用的是原始对象的同样的方法。如下图：</p>
-<p><img src="/upload/JAVA%E4%BB%A3%E7%90%86/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86.jpg" alt="静态代理"></p>
-<p>​        Client调用Source的method()方法，实际上是Proxy来调用method()方法，静态代理中Source跟Proxy都要实现接口Sourceable。</p>
-<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p><strong>创建接口</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ClientDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 主体内容</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">content</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Spring-Boot（三）日志"><a href="#Spring-Boot（三）日志" class="headerlink" title="Spring Boot（三）日志"></a>Spring Boot（三）日志</h1><h2 id="SpringBoot文档"><a href="#SpringBoot文档" class="headerlink" title="SpringBoot文档"></a><a href="https://docs.spring.io/spring-boot/docs/2.2.0.RELEASE/reference/html/spring-boot-features.html#boot-features" target="_blank" rel="noopener">SpringBoot文档</a></h2><h2 id="日志框架"><a href="#日志框架" class="headerlink" title="日志框架"></a>日志框架</h2><p><strong>小张：开发一个大型系统</strong>：</p>
+<p>1、 System.out.println(“”);将关键数据打印在控制台；老板要去掉？</p>
+<p>2、框架来记录系统的一些信息；日志框架；zhanglogging.jar；</p>
+<p>3、高大上的几个功能？异步模式？自动归档？xxxx？zhanglogging-good.jar？</p>
+<p>4、将以前框架卸下来？换上新的框架，重新修改之前相关的API；zhanglooging-perfect.jar；</p>
+<p>5、JDBC—数据库驱动；</p>
+<p>写了一个统一的接口层；日志门面（日志的一个抽象层）；logging-abstract.jar；</p>
+<p>给项目中导入具体的日志实现就行了； 我们之前的日至框架都是实现的抽象层；</p>
+<p><strong>市面上的日志框架</strong>：</p>
+<p>JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j。。。。</p>
+<table>
+<thead>
+<tr>
+<th>日志门面</th>
+<th>日志实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><del>JCL（Jakarta Commons Logging）</del> SLF4j（Simple Logging Facade for java） <del>jboss-logging</del></td>
+<td>LOg4j JUL(java.util.logging)   Log4j2 Logback</td>
+</tr>
+</tbody></table>
+<p>左边选一个门面（抽象层）、右边来选一个实现；</p>
+<p>日志门面：SLF4j；</p>
+<p>日志实现：Logback；</p>
+<p>SpringBoot：底层是Spring框架，Spring框架默认使用的是JCL；</p>
+<p><strong>SpringBoot选用SLF4j和logback；</strong></p>
+<h2 id="SLF4j的使用"><a href="#SLF4j的使用" class="headerlink" title="SLF4j的使用"></a>SLF4j的使用</h2><h3 id="如何在系统中使用SLF4j"><a href="#如何在系统中使用SLF4j" class="headerlink" title="如何在系统中使用SLF4j"></a>如何在系统中使用SLF4j</h3><p>以后开发的时候，日志记录的方法调用，不应该直接调用日志的实现类，而是调用日志抽象层里面的方法；</p>
+<p>应该给系统里面导入slf4j的jar包和logback的实现jar</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(HelloWorld.class);</span><br><span class="line">    logger.info(<span class="string">"Hello World"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>创建实现类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientDaoImpl</span> <span class="keyword">implements</span> <span class="title">ClientDao</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">content</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是主体内容"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/upload/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/concrete-bindings.png" alt="imgage"></p>
+<p>每一个日志的实现框架都有自己的配置文件，使用slf4j以后，<strong>配置文件还是做成日志实现框架的配置文件</strong>；</p>
+<h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h3><p>a（slf4j+logback）；Spring（commons-logging）、Hibernate（jboss-logging）、MyBatis、xxxx</p>
+<p>统一日志记录，即使是别的框架和我一起统一使用slf4j进行输出；</p>
+<h3 id="如何让系统中所有日志都统一到slf4j"><a href="#如何让系统中所有日志都统一到slf4j" class="headerlink" title="如何让系统中所有日志都统一到slf4j"></a>如何让系统中所有日志都统一到slf4j</h3><p>1、 将系统中其他日志框架先排除出去</p>
+<p>2、用中间包来替换原有的日志框架</p>
+<p>3、我们导入slf4j其他的实现</p>
+<h2 id="SpringBoot日志关系"><a href="#SpringBoot日志关系" class="headerlink" title="SpringBoot日志关系"></a>SpringBoot日志关系</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>创建代理类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientStaticProxy</span> <span class="keyword">implements</span> <span class="title">ClientDao</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ClientDao clientDao;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setClientDao</span><span class="params">(ClientDao clientDao)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.clientDao = clientDao;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">content</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"对方法增强前"</span>);</span><br><span class="line">        clientDao.content();</span><br><span class="line">        System.out.println(<span class="string">"对方法增强后"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SpringBoot使用它来做日志功能：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>测试类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientDao;</span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientDaoImpl;</span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientStaticProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ClientStaticProxy clientStaticProxy = <span class="keyword">new</span> ClientStaticProxy();</span><br><span class="line">        ClientDao clientDao = <span class="keyword">new</span> ClientDaoImpl();</span><br><span class="line">        clientStaticProxy.setClientDao(clientDao);</span><br><span class="line">        clientStaticProxy.content();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>1、SpringBoot底层也是使用slf4j+logback的方式进行日志记录</p>
+<p>2、SpringBoot也把其他的日志都替换成了slf4j</p>
+<p>3、中间替换包？</p>
+<p><img src="/upload/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1571820691783.png" alt="1571820691783"></p>
+<p>4、如果我们要引入其他框架？一定要把这个框架的默认日子和依赖移除掉？</p>
+<p><strong>SpringBoot能自动适配所有日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，只需要把这个框架以来的日志框架排除掉；</strong></p>
+<h2 id="日志使用"><a href="#日志使用" class="headerlink" title="日志使用"></a>日志使用</h2><h3 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h3><p>SpringBoot帮我们配置好了日志；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 记录器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 日志的级别</span></span><br><span class="line"><span class="comment">     * 由低到高</span></span><br><span class="line"><span class="comment">     * trace&lt;debug&lt;warn&lt;error</span></span><br><span class="line"><span class="comment">     * 可以调整需要输出的日志级别；</span></span><br><span class="line"><span class="comment">     * 日志就只会在这个级别以后的高级别生效</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    logger.trace(<span class="string">"这是trace日志..."</span>);</span><br><span class="line">    logger.debug(<span class="string">"这是debug日志..."</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringBoot默认给我们使用的是info级别的</span></span><br><span class="line"><span class="comment">     * 没有指定级别的就用SpringBoot默认规定级别，root级别 </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    logger.info(<span class="string">"这是info日志..."</span>);</span><br><span class="line">    logger.warn(<span class="string">"这是warn日志..."</span>);</span><br><span class="line">    logger.error(<span class="string">"这是error日志..."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>结果</strong></p>
-<p><img src="/upload/JAVA%E4%BB%A3%E7%90%86/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E7%BB%93%E6%9E%9C.png" alt="1568804007322"></p>
-<p><strong>优点</strong></p>
-<p>可以做到不对目标对象进行修改的前提下，对目标对象进行功能的扩展和拦截</p>
-<p><strong>缺点</strong></p>
-<p>因为代理对象，需要实现与目标对象一样的接口，会导致代理类十分繁多，不易维护，同时一旦接口增强方法，则目标对象和代理类都需要维护。</p>
-<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><h3 id="JDK代理"><a href="#JDK代理" class="headerlink" title="JDK代理"></a>JDK代理</h3><p>​        动态代理是指动态在内存中构建代理对象（需要我们指定要代理的目标对象实现的接口类型），利用JDK的API生成指定接口的对象，也称为JDK代理或者接口代理。</p>
-<p>​        下面是原理图片：</p>
-<p><img src="/upload/JAVA%E4%BB%A3%E7%90%86/JDK%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="JDK代理原理图"></p>
-<p>​        因为上面创建过类了，所以现在只需要创建动态代理类即可</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 动态代理类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientAutoProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//被代理的对象</span></span><br><span class="line">    <span class="keyword">private</span> Object targetObject;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClientAutoProxy</span><span class="params">(Object targetObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetObject = targetObject;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxyInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(</span><br><span class="line">                <span class="comment">//代理对象的类加载器</span></span><br><span class="line">                targetObject.getClass().getClassLoader(),</span><br><span class="line">                <span class="comment">//目标对象实现的接口，因为需要根据接口动态生成对象</span></span><br><span class="line">                targetObject.getClass().getInterfaces(),</span><br><span class="line">                <span class="comment">//InvocationHandler:事件处理器，即对目标对象方法的执行进行处理</span></span><br><span class="line">                <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                        System.out.println(<span class="string">"方法增强前"</span>);</span><br><span class="line">                        Object resultValue = method.invoke(targetObject, args);</span><br><span class="line">                        System.out.println(<span class="string">"方法增强后"</span>);</span><br><span class="line">                        <span class="keyword">return</span> resultValue;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">日志和输出格式：</span><br><span class="line">	%d表示日期时间，</span><br><span class="line">	%thread表示线程名称，</span><br><span class="line">	%-5level：级别从左显示5个字符宽度</span><br><span class="line">	%logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分隔</span><br><span class="line">	%msg : 日志消息，</span><br><span class="line">	%n 是换行符</span><br><span class="line">	%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n</span><br></pre></td></tr></table></figure>
 
-<p><strong>测试类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientAutoProxy;</span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientDao;</span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientDaoImpl;</span><br><span class="line"><span class="keyword">import</span> com.proxy.ClientStaticProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ClientDao clientDao = <span class="keyword">new</span> ClientDaoImpl();</span><br><span class="line">        ClientAutoProxy clientAutoProxy = <span class="keyword">new</span> ClientAutoProxy(clientDao);</span><br><span class="line">        ClientDao clientDaoProxy = (ClientDao)clientAutoProxy.getProxyInstance();</span><br><span class="line">        clientDaoProxy.content();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SpringBoot修改日志的默认配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">logging.level.com.wys=trace</span><br><span class="line"></span><br><span class="line">#当前项目下生成springboot.log日志</span><br><span class="line">#支持绝对路径</span><br><span class="line">#可以指定完整的路径；</span><br><span class="line">#logging.file.name=springboot.log</span><br><span class="line"></span><br><span class="line">#在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；</span><br><span class="line">#使用spring.log作为默认文件</span><br><span class="line">logging.file.path=/spring/log</span><br><span class="line"></span><br><span class="line">#在控制台输出的日志格式</span><br><span class="line">logging.pattern.console=%d&#123;yyyy-MM-dd&#125; [%thread] %-5level %logger - %msg%n</span><br><span class="line">#指定文件中日志输出的格式</span><br><span class="line">logging.pattern.file=%d&#123;yyyy-MM-dd&#125; === [%thread] === %-5level === %logger&#123;50&#125; === %msg%n</span><br></pre></td></tr></table></figure>
 
-<p><strong>结果与之前一样</strong></p>
-<p><strong>需要注意的地方：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object resultValue = method.invoke(targetObject, args);</span><br></pre></td></tr></table></figure>
+<h3 id="指定配置"><a href="#指定配置" class="headerlink" title="指定配置"></a>指定配置</h3><p>给类路径下放上每个日志框架自己的配置文件即可；SpringBoot就不使用它默认的配置了；</p>
+<table>
+<thead>
+<tr>
+<th align="left">Logging System</th>
+<th align="left">Customization</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Logback</td>
+<td align="left"><code>logback-spring.xml</code>, <code>logback-spring.groovy</code>, <code>logback.xml</code>, or <code>logback.groovy</code></td>
+</tr>
+<tr>
+<td align="left">Log4j2</td>
+<td align="left"><code>log4j2-spring.xml</code> or <code>log4j2.xml</code></td>
+</tr>
+<tr>
+<td align="left">JDK (Java Util Logging)</td>
+<td align="left"><code>logging.properties</code></td>
+</tr>
+</tbody></table>
+<p><strong>logback.xml</strong> ：直接就被日志框架识别了；</p>
+<p><strong>logback-spring.xml</strong>：日志框架就不直接加载日志的配置项，</p>
+<p>由SpringBoot来解析日志配置，可以使用SpringBoot的高级Profile功能</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">springProfile</span> <span class="attr">name</span>=<span class="string">"staging"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- configuration to be enabled when the "staging" profile is active --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--可以指定某段配置只在某个环境中生效--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">springProfile</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>​        这条语句在执行的时候，一开始我把targetObject对象写成了proxy对象，导致程序进入了死循环，经百度之后，了解到，因为proxy对象表示当前代理对象，这么调用之后又会调用到<strong>SimpleInvocationHandler</strong>的invoke方法，这个就要涉及到底层原理知识了，现阶段不过多讨论。</p>
-<p>​        还有就是，在测试类中，因为返回类型为Object类型的对象，所以需要强转为所需要的类型。</p>
-<p><strong>优点</strong></p>
-<p>​        代理对象不需要实现接口，免去了编写很多代理类的烦恼，同时接口增加方法也无需再维护目标对象和代理对象，只需要在事件处理器中添加对方法的判断即可。</p>
-<p><strong>缺点</strong></p>
-<p>​        代理对象不需要实现接口，但是目标对象一定要实现接口，否则无法使用JDK动态代理。</p>
+<p>否则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no applicable action for [springProfile]</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换日志框架"><a href="#切换日志框架" class="headerlink" title="切换日志框架"></a>切换日志框架</h3><p>可以按照slf4j的日志适配图，进行相关的切换；</p>
+<p>slf4j + log4j的方式：排除不相关的依赖，导入自己需要的依赖就行；</p>
+<p>可以在官方文档中进行资料查找；</p>
+<p>切换为log4j2：导入log4j2的启动器依赖即可；</p>
 
       
     </div>
@@ -451,7 +500,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wysblogs.top/2019/09/18/JAVA代理/" title="JAVA代理">http://wysblogs.top/2019/09/18/JAVA代理/</a>
+    <a href="http://wysblogs.top/2019/10/23/SpringBoot（三）日志/" title="SpringBoot（三）日志">http://wysblogs.top/2019/10/23/SpringBoot（三）日志/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -466,7 +515,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JAVA代理/" rel="tag"># JAVA代理</a>
+            <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
           
         </div>
       
@@ -479,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/18/Maven课上学习（一）/" rel="next" title="Maven课上学习（一）">
-                <i class="fa fa-chevron-left"></i> Maven课上学习（一）
+              <a href="/2019/10/23/IDEA快捷键大全/" rel="next" title="IDEA快捷键大全">
+                <i class="fa fa-chevron-left"></i> IDEA快捷键大全
               </a>
             
           </div>
@@ -488,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/18/JAVAEE框架第一次作业/" rel="prev" title="JAVAEE框架第一次作业">
-                JAVAEE框架第一次作业 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jAVA代理"><span class="nav-number">1.</span> <span class="nav-text">jAVA代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式"><span class="nav-number">1.1.</span> <span class="nav-text">代理模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态代理"><span class="nav-number">1.2.</span> <span class="nav-text">静态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态代理"><span class="nav-number">1.3.</span> <span class="nav-text">动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK代理"><span class="nav-number">1.3.1.</span> <span class="nav-text">JDK代理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot（三）日志"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot（三）日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot文档"><span class="nav-number">1.1.</span> <span class="nav-text">SpringBoot文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志框架"><span class="nav-number">1.2.</span> <span class="nav-text">日志框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLF4j的使用"><span class="nav-number">1.3.</span> <span class="nav-text">SLF4j的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在系统中使用SLF4j"><span class="nav-number">1.3.1.</span> <span class="nav-text">如何在系统中使用SLF4j</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遗留问题"><span class="nav-number">1.3.2.</span> <span class="nav-text">遗留问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何让系统中所有日志都统一到slf4j"><span class="nav-number">1.3.3.</span> <span class="nav-text">如何让系统中所有日志都统一到slf4j</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot日志关系"><span class="nav-number">1.4.</span> <span class="nav-text">SpringBoot日志关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志使用"><span class="nav-number">1.5.</span> <span class="nav-text">日志使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置"><span class="nav-number">1.5.1.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定配置"><span class="nav-number">1.5.2.</span> <span class="nav-text">指定配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换日志框架"><span class="nav-number">1.5.3.</span> <span class="nav-text">切换日志框架</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
