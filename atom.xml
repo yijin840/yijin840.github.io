@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2019-10-23T14:15:13.343Z</updated>
+  <updated>2019-10-30T13:10:31.222Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="http://wysblogs.top/2019/10/30/Docker/"/>
+    <id>http://wysblogs.top/2019/10/30/Docker/</id>
+    <published>2019-10-30T13:09:21.000Z</published>
+    <updated>2019-10-30T13:10:31.222Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；</p><p><strong>Docker</strong>支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布出去，其他使用者可以直接使用这个镜像。</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><ul><li><strong>docker主机（Host）</strong>：安装了Docker程序的机器</li><li><strong>docker客户端（Client）</strong>：连接docker主机进行操作</li><li><strong>docker仓库（Registry）</strong>：用来保存各种打包好的软件镜像</li><li><strong>docker镜像（images）</strong>：软件打包好的镜像，放在docker仓库中</li><li><strong>docker容器（Container）</strong>：镜像启动后的一个实例称为一个容器</li></ul><p><strong>步骤</strong>：</p><p>1、安装Docker</p><p>2、去Docker仓库找到这个软件对应的镜像</p><p>3、使用Docker运行这个镜像，这个镜像就会生成一个Docker容器</p><p>4、对容器的启动停止就是对软件的启动停止</p><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1、检查内核版本必须是3.10及以上</span><br><span class="line">uname -r</span><br><span class="line">2、安装docker</span><br><span class="line">yum install docker</span><br><span class="line">3、按y确认</span><br><span class="line">4、启动docker</span><br><span class="line"><span class="meta">#</span> systemctl start docker</span><br><span class="line"><span class="meta">#</span> docker -v</span><br><span class="line">5、开机启动docker</span><br><span class="line"><span class="meta">#</span> systemctl enable docker</span><br><span class="line">6、停止docker</span><br><span class="line"><span class="meta">#</span> sytemctl stop docker</span><br><span class="line">7、进入docker镜像</span><br><span class="line"><span class="meta">#</span> docker exec -it 容器id  这种方式进入容器，退回到前台时，容器还在运行</span><br><span class="line"><span class="meta">#</span> docker attach 容器id 这种方式进入容器，退出时，容器也跟着退出</span><br><span class="line">8、退出docker镜像</span><br><span class="line"><span class="meta">#</span> exit</span><br></pre></td></tr></table></figure><h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>软件镜像（类似于安装程序）—-运行镜像—-产生一个容器（正在运行的软件）</p><p><strong>步骤</strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1、搜索镜像</span><br><span class="line"><span class="meta">#</span> docker search tomcat</span><br><span class="line">2、拉取镜像</span><br><span class="line"><span class="meta">#</span> docker pull tomcat</span><br><span class="line">3、根据镜像启动容器</span><br><span class="line"><span class="meta">#</span> docker run --name mytomcat -d tomcat:latest</span><br><span class="line">4、查看运行中的容器</span><br><span class="line"><span class="meta">#</span> docker ps</span><br><span class="line">5、停止运行中的容器</span><br><span class="line"><span class="meta">#</span> docker stop 容器id</span><br><span class="line">6、查看所有容器</span><br><span class="line"><span class="meta">#</span> docker ps -a</span><br><span class="line">7、启动容器</span><br><span class="line"><span class="meta">#</span> docker start 容器id</span><br><span class="line">8、删除一个容器</span><br><span class="line"><span class="meta">#</span> docker rm 容器id</span><br><span class="line">9、启动一个做了端口映射的tomcat</span><br><span class="line">-d：后台运行</span><br><span class="line">-p：将主机的端口映射到容器的一个端口   主机端口：容器内部的端口</span><br><span class="line">10、防火墙</span><br><span class="line"><span class="meta">#</span> service firewalld status 查看防火墙状态</span><br><span class="line"><span class="meta">#</span> service firewalld stop 关闭防火墙</span><br><span class="line">11、查看容器的日志</span><br><span class="line"><span class="meta">#</span> docker logs container -name/container -id</span><br><span class="line"></span><br><span class="line">更多命令可以上官网</span><br><span class="line">https://docs.docker.com/engine/reference/commandline/docker/</span><br><span class="line">可以参考文档</span><br></pre></td></tr></table></figure><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>docker官方镜像网站</p><p> <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a> </p><p><strong>安装mysql</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br></pre></td></tr></table></figure><p><strong>使用mysql</strong></p><p>必选按照人家给的文档来指定参数</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span><br></pre></td></tr></table></figure><p>做了端口映射</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span><br></pre></td></tr></table></figure><p>几个其他的高级操作</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run --name some-mysql -v /conf/mysql:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span><br><span class="line">把主机的/my/custom文件夹挂载到 mysqldocker容器的/ect/mysql/conf.d文件夹里面</span><br><span class="line">改mysql的配置文件就只需要把mysql配置文件放在/conf/mysql文件夹下</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span><br><span class="line"></span><br><span class="line">指定mysql的一些参数</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://wysblogs.top/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://wysblogs.top/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot（三）日志</title>
@@ -488,31 +513,6 @@
     
     
       <category term="Junit" scheme="http://wysblogs.top/tags/Junit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub学习笔记</title>
-    <link href="http://wysblogs.top/2019/09/16/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://wysblogs.top/2019/09/16/GitHub学习笔记/</id>
-    <published>2019-09-16T13:59:08.000Z</published>
-    <updated>2019-09-16T14:16:27.216Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="GitHub学习笔记"><a href="#GitHub学习笔记" class="headerlink" title="GitHub学习笔记"></a>GitHub学习笔记</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h4 id="仓库（Repository）"><a href="#仓库（Repository）" class="headerlink" title="仓库（Repository）"></a>仓库（Repository）</h4><p>仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目存在多个仓库。</p><h4 id="收藏（Star）"><a href="#收藏（Star）" class="headerlink" title="收藏（Star）"></a>收藏（Star）</h4><p>收藏项目，方便查看</p><h4 id="复制克隆项目（Fork）"><a href="#复制克隆项目（Fork）" class="headerlink" title="复制克隆项目（Fork）"></a>复制克隆项目（Fork）</h4><p>点击之后，会别人的仓库完整的复制一份给你，该fork仓库之独立存在的，而且上面会有从哪个地方克隆的。</p><h4 id="发起合并请求（Push-Request）"><a href="#发起合并请求（Push-Request）" class="headerlink" title="发起合并请求（Push Request）"></a>发起合并请求（Push Request）</h4><p>这个是基于Fork的，如果想要克隆来源的地方也更新同样的代码，然后可以点击之后，会发起合并请求，查看同意之后就可以合并了。</p><h4 id="关注（Watch）"><a href="#关注（Watch）" class="headerlink" title="关注（Watch）"></a>关注（Watch）</h4><p>关注项目之后，项目更新可以接受到通知</p><h4 id="事物卡片（Issue）"><a href="#事物卡片（Issue）" class="headerlink" title="事物卡片（Issue）"></a>事物卡片（Issue）</h4><p>发现代码有BUG，但是目前没有成型代码，需要讨论时用</p><h4 id="Github主页"><a href="#Github主页" class="headerlink" title="Github主页"></a>Github主页</h4><p>账号登录成功之后，点击左上角就回到github主页，显示自己的动态和关注的动态，右边显示git库</p><h4 id="仓库主页"><a href="#仓库主页" class="headerlink" title="仓库主页"></a>仓库主页</h4><p>显示项目信息，如：项目代码，版本，收藏/关注/fork情况等</p><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480421564.png" alt="1564480421564"></p><h2 id="仓库主页-1"><a href="#仓库主页-1" class="headerlink" title="仓库主页"></a>仓库主页</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480586331.png" alt="1564480586331"></p><h2 id="仓库管理"><a href="#仓库管理" class="headerlink" title="仓库管理"></a>仓库管理</h2><p>点击create new file新建文件</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564480936666.png" alt="1564480936666"></p><p>写好之后，填写提交的目的，原因：为了方便其他开发者知道本次添加或修改的原因</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481040480.png" alt="1564481040480"></p><p>创建完毕跳转到主页</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481093760.png" alt="1564481093760"></p><p>点击目的之后可以看到文件的详细描述，还有文件的修改内容</p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481198895.png" alt="1564481198895"></p><h2 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481360468.png" alt="1564481360468"></p><p>点击之后回来到编辑模式之下</p><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>同上面一样</p><h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481580470.png" alt="1564481580470"></p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481603464.png" alt="1564481603464"></p><p>可以拖动文件也可以点击上传多个文件</p><p>下面是写上传文件的信息</p><h2 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481719616.png" alt="1564481719616"></p><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481760391.png" alt="1564481760391"></p><p>输入文件名进行筛选</p><p>也可以按快捷键T就可以进行查找文件</p><h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p><img src="/upload/GitHub%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1564481854918.png" alt="1564481854918"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="GitHub" scheme="http://wysblogs.top/categories/GitHub/"/>
-    
-    
-      <category term="GitHub" scheme="http://wysblogs.top/tags/GitHub/"/>
     
   </entry>
   
