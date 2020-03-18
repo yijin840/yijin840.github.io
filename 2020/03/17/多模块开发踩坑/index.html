@@ -81,20 +81,19 @@
 
 
 
-<meta name="description" content="多模块开发踩坑 项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到">
+<meta name="description" content="多模块开发踩坑项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到底">
 <meta name="keywords" content="开发经验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多模块开发踩坑">
 <meta property="og:url" content="http://wysblogs.top/2020/03/17/多模块开发踩坑/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="多模块开发踩坑 项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到">
+<meta property="og:description" content="多模块开发踩坑项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到底">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wysblogs.top/upload/%E5%A4%9A%E6%A8%A1%E5%9D%97/%E5%A4%9A%E6%A8%A1%E5%9D%97.png">
-<meta property="og:image" content="c:%5CUsers%5CAdminstrator%5CDesktop%5C%E5%A4%9A%E6%A8%A1%E5%9D%97.png">
-<meta property="og:updated_time" content="2020-03-18T07:28:40.016Z">
+<meta property="og:updated_time" content="2020-03-18T07:32:07.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多模块开发踩坑">
-<meta name="twitter:description" content="多模块开发踩坑 项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到">
+<meta name="twitter:description" content="多模块开发踩坑项目结构介绍 我遇到的问题1、 父pom文件内容，该写什么，什么部分不需要 2、 子pom文件内容，怎么去继承父模块 3、 怎么规范版本号，以及怎么统一包的版本 4、 怎么启动项目，怎么打包，怎么发布 5、 每个模块之前的packaging怎么填，谁需要打包，谁需要war，谁需要jar 6、 模块的子模块中还有子模块，这样的情况怎么调用和使用。 7、 application的配置到底">
 <meta name="twitter:image" content="http://wysblogs.top/upload/%E5%A4%9A%E6%A8%A1%E5%9D%97/%E5%A4%9A%E6%A8%A1%E5%9D%97.png">
 
 
@@ -389,8 +388,7 @@
       
 
       
-        <h1 id="多模块开发踩坑"><a href="#多模块开发踩坑" class="headerlink" title="多模块开发踩坑"></a>多模块开发踩坑</h1><p><img src="/upload/%E5%A4%9A%E6%A8%A1%E5%9D%97/%E5%A4%9A%E6%A8%A1%E5%9D%97.png" alt="多模块"></p>
-<h2 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h2><p><img src="C:%5CUsers%5CAdminstrator%5CDesktop%5C%E5%A4%9A%E6%A8%A1%E5%9D%97.png" alt="1584500565866"></p>
+        <h1 id="多模块开发踩坑"><a href="#多模块开发踩坑" class="headerlink" title="多模块开发踩坑"></a>多模块开发踩坑</h1><h2 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h2><p><img src="/upload/%E5%A4%9A%E6%A8%A1%E5%9D%97/%E5%A4%9A%E6%A8%A1%E5%9D%97.png" alt="多模块"></p>
 <h2 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h2><p>1、 父pom文件内容，该写什么，什么部分不需要</p>
 <p>2、 子pom文件内容，怎么去继承父模块</p>
 <p>3、 怎么规范版本号，以及怎么统一包的版本</p>
