@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-04-21T02:50:32.745Z</updated>
+  <updated>2020-04-24T10:49:49.731Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里Redis规范</title>
+    <link href="http://wysblogs.top/2020/04/22/%E9%98%BF%E9%87%8CRedis%E8%A7%84%E8%8C%83/"/>
+    <id>http://wysblogs.top/2020/04/22/阿里Redis规范/</id>
+    <published>2020-04-22T02:47:35.000Z</published>
+    <updated>2020-04-24T10:49:49.731Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="阿里云Redis规范"><a href="#阿里云Redis规范" class="headerlink" title="阿里云Redis规范"></a>阿里云Redis规范</h1><h2 id="一、键值设计"><a href="#一、键值设计" class="headerlink" title="一、键值设计"></a>一、键值设计</h2><h3 id="1、key名设计"><a href="#1、key名设计" class="headerlink" title="1、key名设计"></a><strong>1、key名设计</strong></h3><p><strong>(1)【建议】: 可读性和可管理性</strong></p><blockquote><p>以业务名(或数据库名)为前缀(防止key冲突)，用冒号分隔，比如业务名:表名:id</p></blockquote><p>ugc:video:1</p><p><strong>(2)【建议】：简洁性</strong></p><blockquote><p>保证语义的前提下，控制key的长度，当key较多时，内存占用也不容忽视，例如：</p></blockquote><p>user:{uid}:friends:messages:{mid}简化为u:{uid}:fr:m:{mid}。</p><p><strong>(3)【强制】：不要包含特殊字符</strong></p><p>反例：包含空格、换行、单双引号以及其他转义字符</p><p>2、value设计</p><p><strong>(1)【强制】：拒绝bigkey(防止网卡流量、慢查询)</strong></p><p>string类型控制在10KB以内，hash、list、set、zset元素个数不要超过5000。</p><p>反例：一个包含200万个元素的list。</p><p>非字符串的bigkey，不要使用del删除，使用hscan、sscan、zscan方式渐进式删除，同时要注意防止bigkey过期时间自动删除问题(例如一个200万的zset设置1小时过期，会触发del操作，造成阻塞，而且该操作不会不出现在慢查询中(latency可查))，查找方法和删除方法</p><p><strong>(2)【推荐】：选择适合的数据类型。</strong></p><p>例如：实体类型(要合理控制和使用数据结构内存编码优化配置,例如ziplist，但也要注意节省内存和性能之间的平衡)</p><p>反例：</p><blockquote><p>setuser:1:nametom</p><p>setuser:1:age19</p><p>setuser:1:favor football</p></blockquote><p>正例:</p><blockquote><p>hmsetuser:1nametomage19favorfootball</p></blockquote><p>3、【推荐】：控制key的生命周期，redis不是垃圾桶。</p><p>建议使用expire设置过期时间(条件允许可以打散过期时间，防止集中过期)，不过期的数据重点关注idletime。</p><h2 id="二、命令使用"><a href="#二、命令使用" class="headerlink" title="二、命令使用"></a>二、命令使用</h2><p><strong>1.【推荐】 O(N)命令关注N的数量</strong></p><p>例如hgetall、lrange、smembers、zrange、sinter等并非不能使用，但是需要明确N的值。有遍历的需求可以使用hscan、sscan、zscan代替。</p><p><strong>2.【推荐】：禁用命令</strong></p><p>禁止线上使用keys、flushall、flushdb等，通过redis的rename机制禁掉命令，或者使用scan的方式渐进式处理。</p><p><strong>3.【推荐】合理使用select</strong></p><p>redis的多数据库较弱，使用数字进行区分，很多客户端支持较差，同时多业务用多数据库实际还是单线程处理，会有干扰。</p><p><strong>4.【推荐】使用批量操作提高效率</strong></p><blockquote><p>原生命令：例如mget、mset。</p><p>非原生命令：可以使用pipeline提高效率。</p></blockquote><p>但要注意控制一次批量操作的<strong>元素个数</strong>(例如500以内，实际也和元素字节数有关)。</p><p>注意两者不同：</p><blockquote><p>1、原生是原子操作，pipeline是非原子操作。</p><p>2、pipeline可以打包不同的命令，原生做不到</p><p>3、pipeline需要客户端和服务端同时支持。</p></blockquote><p><strong>5.【建议】Redis事务功能较弱，不建议过多使用</strong></p><p>Redis的事务功能较弱(不支持回滚)，而且集群版本(自研和官方)要求一次事务操作的key必须在一个slot上(可以使用hashtag功能解决)</p><p><strong>6.【建议】Redis集群版本在使用Lua上有特殊要求：</strong></p><p>1.所有key都应该由 KEYS 数组来传递，redis.call/pcall 里面调用的redis命令，key的位置，必须是KEYS array, 否则直接返回error，”-ERR bad lua script for redis cluster, all the keys that the script uses should be passed using the KEYS arrayrn”</p><p>2.所有key，必须在1个slot上，否则直接返回error, “-ERR eval/evalsha command keys must in same slotrn”</p><p><strong>7.【建议】必要情况下使用monitor命令时，要注意不要长时间使用。</strong></p><h2 id="三、客户端使用"><a href="#三、客户端使用" class="headerlink" title="三、客户端使用"></a>三、客户端使用</h2><p><strong>1.【推荐】</strong></p><p>避免多个应用使用一个Redis实例</p><p>正例：不相干的业务拆分，公共数据做服务化。</p><p><strong>2.【推荐】</strong></p><p>使用带有连接池的数据库，可以有效控制连接，同时提高效率，标准使用方式：</p><p><strong>3.【建议】</strong></p><p>高并发下建议客户端添加熔断功能(例如netflix hystrix)</p><p><strong>4.【推荐】</strong></p><p>设置合理的密码，如有必要可以使用SSL加密访问（阿里云Redis支持）</p><p><strong>5.【建议】</strong></p><p>根据自身业务类型，选好maxmemory-policy(最大内存淘汰策略)，设置好过期时间。</p><p>默认策略是volatile-lru，即超过最大内存后，在过期键中使用lru算法进行key的剔除，保证不过期数据不被删除，但是可能会出现OOM问题。</p><p>其他策略如下：</p><p>allkeys-lru：根据LRU算法删除键，不管数据有没有设置超时属性，直到腾出足够空间为止。</p><p>allkeys-random：随机删除所有键，直到腾出足够空间为止。</p><p>volatile-random:随机删除过期键，直到腾出足够空间为止。</p><p>volatile-ttl：根据键值对象的ttl属性，删除最近将要过期数据。如果没有，回退到noeviction策略。</p><p>noeviction：不会剔除任何数据，拒绝所有写入操作并返回客户端错误信息”(error) OOM command not allowed when used memory”，此时Redis只响应读操作。</p><h2 id="四、相关工具"><a href="#四、相关工具" class="headerlink" title="四、相关工具"></a>四、相关工具</h2><p><strong>1.【推荐】：数据同步</strong></p><p>redis间数据同步可以使用：redis-port</p><p><strong>2.【推荐】：big key搜索</strong></p><p><a href="https://link.jianshu.com?t=https%3A%2F%2Fyq.aliyun.com%2Farticles%2F117042" target="_blank" rel="noopener">redis大key搜索工具</a></p><p><strong>3.【推荐】：热点key寻找(内部实现使用monitor，所以建议短时间使用)</strong></p><p><a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ffacebookarchive%2Fredis-faina" target="_blank" rel="noopener">facebook的redis-faina</a></p><blockquote><p>阿里云Redis已经在内核层面解决热点key问题，欢迎使用。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://wysblogs.top/categories/redis/"/>
+    
+    
+      <category term="redis" scheme="http://wysblogs.top/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis初探</title>
@@ -488,31 +513,6 @@
     
     
       <category term="Spring和MyBatis整合" scheme="http://wysblogs.top/tags/Spring%E5%92%8CMyBatis%E6%95%B4%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maven课上学习（二）</title>
-    <link href="http://wysblogs.top/2019/10/11/Maven%E8%AF%BE%E4%B8%8A%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://wysblogs.top/2019/10/11/Maven课上学习（二）/</id>
-    <published>2019-10-10T23:15:39.000Z</published>
-    <updated>2019-10-20T13:14:48.039Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Maven课上学习（二）"><a href="#Maven课上学习（二）" class="headerlink" title="Maven课上学习（二）"></a>Maven课上学习（二）</h2><h2 id="课前提问"><a href="#课前提问" class="headerlink" title="课前提问"></a>课前提问</h2><p><strong>1. 介绍一下maven</strong>：</p><p>答：  maven是一个纯java编写的，具有开源，跨平台，标准化的项目管理工具。</p><p><strong>2. 跨平台的意思</strong>：</p><p>答：跨操作系统平台和IDE平台。</p><p><strong>3. IDE是什么</strong>：</p><p>答： IDE是一个集成开发环境，例如 eclipse，idea等工具。</p><p><strong>4. 标准化是什么意思</strong>：</p><p>答：项目构建标准化，可以跨操作系统平台，项目结构标准化，可以跨IDE平台</p><h2 id="上课内容"><a href="#上课内容" class="headerlink" title="上课内容"></a>上课内容</h2><h3 id="手工创建maven项目"><a href="#手工创建maven项目" class="headerlink" title="手工创建maven项目"></a>手工创建maven项目</h3><h4 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a><strong>包的命名</strong></h4><p>包的名称一般由四到五部分构成：</p><p><strong>第一部分</strong>：甲方公司域名的倒叙，开发方域名倒叙。原因是为了保证当前项目的全球唯一性。</p><p>例如：cn.edu.aynu </p><p>和 ip 对应一一关系，之前用的ipv4，不够用，现在都在用ipv6，用不完。</p><p><strong>第二部分</strong>：项目名称。为了保证在当前公司内部当前项目的唯一性。</p><p>例如： cn.edu.aynu.sms</p><p><strong>第三部分</strong>：模块名称。为了保证资源在当前项目中的唯一性。</p><p>例如： cn.edu.aynu.sms.aaa.bbb.ccc</p><p><strong>第四部分</strong>：功能顶层包。其是为了体现当前包中资源的功能特点。</p><p>例如：cn.edu.aynu.sms.aaa.bbb.ccc.service</p><p>例如：cn.edu.aynu.sms.aaa.bbb.ccc.dao</p><p><strong>第五部分</strong>：impl子包。用于存放其父包中接口的实现类。</p><p>例如：cn.edu.aynu.sms.aaa.bbb.ccc.service.impl</p><h4 id="项目结构标准化"><a href="#项目结构标准化" class="headerlink" title="项目结构标准化"></a>项目结构标准化</h4><p><img src="/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/maven%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86%E5%8C%96.png" alt="1570706408292"></p><h4 id="maven常用命令"><a href="#maven常用命令" class="headerlink" title="maven常用命令"></a>maven常用命令</h4><p>查看命令帮助    <code>mvn -h</code></p><p>清理target    <code>mvn clean</code>  （这个命令一般都是与其他命令结合使用的）</p><p>编译    <code>mvn clean compile</code></p><p>测试    <code>mvn clean test</code></p><p>打包    <code>mvn clean package</code></p><p>安装包    <code>mvn clean install</code></p><p>创建项目骨架（maven3）    <code>mvn archetype:generate</code>    </p><p>创建项目骨架（maven2）    <code>mvn org.apache.maven.plugins:maven-archetype-plugin:2.0-alpha-5:generate</code></p><p>查看当前项目已解析依赖    <code>mvn dependency:list</code></p><p>查看当前项目的依赖树    <code>mvn dependency:tree</code></p><p>分析当前项目的依赖    <code>mvn dependency:analyze</code></p><p>将项目构建输出的构建部署到配置对应的远程仓库    <code>mvn clean deploy</code></p><p>……</p><p>剩下的感觉都用不到，先不写，用到的时候再记录</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Maven学习" scheme="http://wysblogs.top/categories/Maven%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Maven学习" scheme="http://wysblogs.top/tags/Maven%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
