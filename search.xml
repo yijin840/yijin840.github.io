@@ -56,9 +56,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[并发知识点]]></title>
-    <url>%2F2020%2F07%2F01%2F%E5%B9%B6%E5%8F%91%E7%9F%A5%E8%AF%86%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[并发基础知识点]]></title>
+    <url>%2F2020%2F07%2F01%2F%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[并发基础知识点并发和并行 并发是多个事件在同一时刻，并行是多个事件在同一时间段 并行是多个实体的多个事件，并发是一个实体的多个事件 并行不会抢占资源，并发会抢占资源 线程和进程进程进程就是程序的一次执行过程，是系统运行的基本单位。 比如运行一次java程序，实际上就是启动了一次jvm进程 而main函数其实就是这个进程中的一个线程，也成为主线程。 进程进程和线程相似，但是线程是比进程更小的执行单位。 一个进程可以产生多个线程。 同类的多个线程共享进程的堆和方法区资源。 每个线程有自己的程序计数器、虚拟机栈、本地方法栈。 各个线程之间切换工作时负担比进程小，因此线程也被称为轻量级进程。 查看线程信息： 123456789101112131415161718192021package org.example.thread;import java.lang.management.ManagementFactory;import java.lang.management.ThreadInfo;import java.lang.management.ThreadMXBean;/** * @Author: wys * @Description: * @Date: 2020/7/17 10:26 * @FileName: ThreadInfoDemo */public class ThreadInfoDemo &#123; public static void main(String[] args) &#123; ThreadMXBean thread = ManagementFactory.getThreadMXBean(); ThreadInfo[] threadInfos = thread.dumpAllThreads(false,false); for(ThreadInfo i : threadInfos)&#123; System.out.println("ID:"+i.getThreadId()+",Name:"+i.getThreadName()); &#125; &#125;&#125; 123456ID:6,Name:Monitor Ctrl-BreakID:5,Name:Attach ListenerID:4,Name:Signal DispatcherID:3,Name:FinalizerID:2,Name:Reference HandlerID:1,Name:main 线程与进程的关系线程在JVM中的模型 线程的分类用户线程：程序中创建的线程 守护线程：为用户线程提供服务的线程，一般用户线程结束时才被终止，如JVM的垃圾回收 通过Thread.setDaemon(true)方法将用户进程变成守护进程。 线程周期和状态线程的生命周期 线程的状态 图中 wait到 runnable状态的转换中，join实际上是Thread类的方法，但这里写成了Object 线程常用的方法12345678//线程休眠：让当前线程暂时停止运行，一段时间后继续执行，保证线程安全Thread.sleep();//线程让步：主动放弃占用的cpu资源，转变为就绪状态，让其他线程先执行Thread.yield();//线程阻塞：让指定线程先执行，执行完之后才能执行，可以实现多个线程的顺序执行join();//获取当前线程状态Thread.currentThread(); 什么是上下文切换通俗来说，因为CPU在任意时刻只能被一个线程使用，为了保证每个线程都能充分的得到利用，因此采用分配时间片并轮转的方式来保证线程执行。 切换时间片时会保存当前执行状态，下次获取时间片的时候继续执行，这个过程称为上下文切换，就是任务保存并重新加载的过程就是一次上下文切换。 这个也是操作系统中最消耗时间的操作了。]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Serializable知识点]]></title>
