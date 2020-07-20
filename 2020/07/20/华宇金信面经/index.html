@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面经,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wys'blogs" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="华宇金信面经（第一次面试）毕竟是第一次面试，凉了也没关系，可以多学一些知识 重载和重写的区别 重载 被重载的方法必须改变参数列表 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符 被重载的方法可以声明新的或更广的检查异常 方法能够在同一个类中或者在一个子类中被重载 无法以返回值类型作为重载函数的区分标准   重写 参数列表必须完全与重写方法的相同 返回值类型与重写的返回值类型可以不相同">
+<meta name="keywords" content="面经">
+<meta property="og:type" content="article">
+<meta property="og:title" content="华宇金信面经">
+<meta property="og:url" content="http://wysblogs.top/2020/07/20/华宇金信面经/index.html">
+<meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="华宇金信面经（第一次面试）毕竟是第一次面试，凉了也没关系，可以多学一些知识 重载和重写的区别 重载 被重载的方法必须改变参数列表 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符 被重载的方法可以声明新的或更广的检查异常 方法能够在同一个类中或者在一个子类中被重载 无法以返回值类型作为重载函数的区分标准   重写 参数列表必须完全与重写方法的相同 返回值类型与重写的返回值类型可以不相同">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wysblogs.top/upload/git/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8.png">
+<meta property="og:updated_time" content="2020-07-20T05:24:48.359Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="华宇金信面经">
+<meta name="twitter:description" content="华宇金信面经（第一次面试）毕竟是第一次面试，凉了也没关系，可以多学一些知识 重载和重写的区别 重载 被重载的方法必须改变参数列表 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符 被重载的方法可以声明新的或更广的检查异常 方法能够在同一个类中或者在一个子类中被重载 无法以返回值类型作为重载函数的区分标准   重写 参数列表必须完全与重写方法的相同 返回值类型与重写的返回值类型可以不相同">
+<meta name="twitter:image" content="http://wysblogs.top/upload/git/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wysblogs.top/2020/07/20/华宇金信面经/">
+
+
+
+
+
+  <title>华宇金信面经 | wys'blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wys'blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wysblogs.top/2020/07/20/华宇金信面经/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wys">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wys'blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">华宇金信面经</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-20T11:26:30+08:00">
+                2020-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面经/" itemprop="url" rel="index">
+                    <span itemprop="name">面经</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="华宇金信面经（第一次面试）"><a href="#华宇金信面经（第一次面试）" class="headerlink" title="华宇金信面经（第一次面试）"></a>华宇金信面经（第一次面试）</h1><p>毕竟是第一次面试，凉了也没关系，可以多学一些知识</p>
+<h2 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h2><ul>
+<li><strong>重载</strong><ul>
+<li>被重载的方法必须改变<strong>参数列表</strong></li>
+<li>被重载的方法可以改变<strong>返回类型</strong></li>
+<li>被重载的方法可以改变访问<strong>修饰符</strong></li>
+<li>被重载的方法可以<strong>声明新的或更广的检查异常</strong></li>
+<li>方法能够在<strong>同一个类中</strong>或者在<strong>一个子类中被重载</strong></li>
+<li><strong>无法以返回值类型</strong>作为重载函数的区分标准</li>
+</ul>
+</li>
+<li><strong>重写</strong><ul>
+<li><strong>参数列表</strong>必须完全与重写方法的相同</li>
+<li><strong>返回值类型</strong>与重写的返回值类型可以不相同</li>
+<li><strong>访问权限</strong>不能比父类中被重写的方法访问权限更低</li>
+<li>父类的成员方法<strong>只能被子类重写</strong></li>
+<li>声明<strong>final</strong>的方法不能被重写</li>
+<li>声明<strong>static</strong>的方法不能被重写，但是能够被再次声明</li>
+<li>子类和父类在<strong>同一个包</strong>中，可以重写除了声明<strong>private</strong>和<strong>final</strong>的方法</li>
+<li>子类和父类<strong>不在同一个包</strong>中，只能够重写父类的声明<strong>public</strong>和<strong>protected</strong>的非<strong>final</strong>方法</li>
+<li>重写的方法可以<strong>抛出非强制性异常</strong>，无论被重写的方法是否抛出异常，但是不能抛出新的强制性异常，或者比重写方法声明更广泛的强制性异常。</li>
+<li><strong>构造方法</strong>不能被重写</li>
+<li>如果<strong>不能继承一个方法</strong>，就不能重写这个方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h2><ul>
+<li>抽象类和接口都不能<strong>直接</strong>被实例化</li>
+<li>抽象类要被子类继承，接口要被子类实现</li>
+<li>接口里面只能对方法进行声明，抽象类既可以声明也可以对方法进行实现</li>
+<li>抽象类中的抽象方法必须全部被子类实现，如果子类不能全部实现，那么子类必须也是抽象类，接口里面的方法必须全部被子类实现，如果子类不能实现那么子类必须是抽象类</li>
+<li>接口里面的方法只能声明，但是jdk1.8有了<code>default method</code>方式可以进行实现。</li>
+<li>抽象类里面可以没有抽象方法</li>
+<li>如果一个类里面有抽象方法，那么这个类一定是抽象类</li>
+<li>抽象类中的方法都要被实现，所以抽象方法不能是静态的static，也不能是私有的private。</li>
+<li>接口可以继承接口，甚至可以继承多个接口，但是类只能继承一个类</li>
+<li>抽象级别：接口 &gt; 抽象类 &gt; 实现类</li>
+<li>抽象类主要是用来抽象类别，接口主要是用来抽象方法功能，当你关注事物的本质的时候，请用抽象类，当你关注一种操作的时候，用接口。</li>
+<li>接口的设计具有更大的可扩展性，而抽象类的设计必须十分谨慎（要考虑到子类所具有的共同属性和方法）。</li>
+</ul>
+<h2 id="类的访问修饰符"><a href="#类的访问修饰符" class="headerlink" title="类的访问修饰符"></a>类的访问修饰符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//public 、 default 、 abstract 、 final</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Test</span><span class="params">()</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span>()</span>;</span><br><span class="line"><span class="function"><span class="keyword">abstract</span> class <span class="title">Test3</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">final</span> class <span class="title">Test4</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>public 表示任何位置都可以访问该类</li>
+<li>defalut 默认是不写的，只能在同一个包下被访问</li>
+<li>abstract表示是个抽象类，不能实例化该类，如果要使用，必须用子类继承</li>
+<li>final修饰的类不能给子类继承，改类为最终类，不能在被继承。</li>
+</ul>
+<p><strong>为什么 private 和 protected 不能修饰外部类</strong></p>
+<p>1、<strong>private：</strong>表示不能被其它类访问，这个类就失去了意义，所以private只能修饰内部类，被private修饰的类只能被该类的外部类内部使用</p>
+<p>2、<strong>protected：</strong>同理，外部类不能访问，所以这个也没有意义。</p>
+<p>3、内部类四种修饰符都可以被使用。</p>
+<h2 id="equals-和"><a href="#equals-和" class="headerlink" title="equals 和   =="></a>equals 和   ==</h2><p>1、基本数据类型用 == 比较的是值</p>
+<p>2、引用数据类型之间用 == 比较的内存引用地址</p>
+<p>3、引用数据类型之间使用equals比较的是地址所映射的值</p>
+<h2 id="SpringBoot-启动原理"><a href="#SpringBoot-启动原理" class="headerlink" title="SpringBoot 启动原理"></a>SpringBoot 启动原理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//核心注解</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span> </span><br><span class="line"><span class="comment">//这个注解包含了一下几种注解</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span>  <span class="comment">//主要配置信息</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguraiton</span> <span class="comment">//开启自动配置，会扫描符合的bean加载到ioc容器中</span></span><br><span class="line"><span class="meta">@ComponentScan</span> <span class="comment">//扫描所有的包</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>启动流程</strong></p>
+<p>1、首先执行main入口方法运行SpringAppliction.run，后面new了一个SpringApplication对象，然后执行run方法。</p>
+<p>2、初始化SpringApplication类，创建SpringApplication对象时，会自动调用初始化方法（initialize()方法）</p>
+<p>3、之后执行核心run()方法，然后启动SpringBoot项目。</p>
+<h2 id="SpringBoot内置容器"><a href="#SpringBoot内置容器" class="headerlink" title="SpringBoot内置容器"></a>SpringBoot内置容器</h2><p><strong>undertow</strong></p>
+<p><strong>tomcat</strong> 默认容器</p>
+<p><strong>jetty</strong></p>
+<h2 id="SpringBoot注解-RestController-和-Controller区别"><a href="#SpringBoot注解-RestController-和-Controller区别" class="headerlink" title="SpringBoot注解 RestController 和 Controller区别"></a>SpringBoot注解 RestController 和 Controller区别</h2><p>1、RestController 相当于 ResponseBody + Controller注解</p>
+<p>2、Controller 返回的是视图</p>
+<p>3、 RestController返回的是json或者xml格式的数据</p>
+<h2 id="MyBits相关的函数"><a href="#MyBits相关的函数" class="headerlink" title="MyBits相关的函数"></a>MyBits相关的函数</h2><p>没理解这个到底是什么玩意儿。</p>
+<p>可能是标签之类的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select ---查询</span><br><span class="line">update ---更新</span><br><span class="line">delete ---删除</span><br><span class="line">insert ---插入</span><br><span class="line">if test ---可以使用String 类的一些方法</span><br><span class="line">where  ---条件判断</span><br><span class="line">choose ---选择 </span><br><span class="line">--- resultType ---返回值的类型</span><br><span class="line">collection ---集合标签</span><br><span class="line">association ---关联标签</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx负载均衡-轮询机制"><a href="#Nginx负载均衡-轮询机制" class="headerlink" title="Nginx负载均衡 轮询机制"></a>Nginx负载均衡 轮询机制</h2><p>Nginx 是个反代服务器</p>
+<p><strong>负载均衡：</strong></p>
+<ul>
+<li>将单一的重负载分担到多个网络节点上做并行处理，每个节点处理结束后汇总给用户。</li>
+<li>将大量前端并发访问或数据流量分担到多个后端网络节点上分别处理（分流）</li>
+</ul>
+<p><strong>负载均衡策略：</strong></p>
+<ul>
+<li><p>内置策略</p>
+<ul>
+<li>轮询</li>
+</ul>
+<p>将每个前端按顺序逐一分配到后端节点上，出现问题的自动排除。</p>
+<ul>
+<li>加权轮询</li>
+</ul>
+<p>将每个前端按权值依次分配到后端节点上，根据权重的大小来判断每个节点被访问到的概率</p>
+<ul>
+<li>IP hash</li>
+</ul>
+<p>对访问ip进行hash操作，根据hash结果将请求分配到后端节点上。</p>
+</li>
+<li><p>扩展策略</p>
+<ul>
+<li>将前端的请转发到最近负载最小的节点</li>
+</ul>
+</li>
+</ul>
+<h2 id="算法名称"><a href="#算法名称" class="headerlink" title="算法名称"></a>算法名称</h2><p><strong>排序</strong></p>
+<ul>
+<li>快速排序</li>
+<li>堆排序</li>
+<li>桶排序</li>
+<li>冒泡排序</li>
+<li>希尔排序</li>
+<li>选择排序</li>
+<li>插入排序</li>
+</ul>
+<p><strong>DP算法</strong></p>
+<p><strong>KMP算法</strong></p>
+<p><strong>快速幂</strong></p>
+<p><strong>字典树</strong></p>
+<p><strong>线段树</strong></p>
+<p><strong>后缀数组</strong></p>
+<p><strong>DFS和BFS</strong></p>
+<p><strong>弗洛伊德算法，迪杰斯特拉算法</strong></p>
+<p><strong>最大流，最小流</strong></p>
+<p><strong>滑动窗口</strong></p>
+<h2 id="数据结构-B树-和-B-树区别"><a href="#数据结构-B树-和-B-树区别" class="headerlink" title="数据结构 B树 和 B+树区别"></a>数据结构 B树 和 B+树区别</h2><p><strong>B树：</strong>这个是一个多路平衡查找树</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>每个节点最多有m-1个关键字</li>
+<li>根节点最少可以只有1个关键字</li>
+<li>非根节点至少有m/2个关键字</li>
+<li>每个节点中的关键字都按照从小到大排序，每个左节点小于右节点</li>
+<li>所有叶子节点都位于同一层，叶子节点到根节点距离都相同</li>
+<li>每个节点都存有索引和数据，也就是对应的key和value值</li>
+<li>根节点的<strong>关键字</strong>数量范围：<code>1 &lt;= k &lt;= m-1</code>，非根节点的<strong>关键字</strong>数量范围：<code>m/2 &lt;= k &lt;= m-1</code>。</li>
+</ul>
+<p><strong>B+树：</strong>和B树非常相似</p>
+<p><strong>与B树相同点：</strong></p>
+<ul>
+<li>根节点至少有一个元素</li>
+<li>非根节点元素范围 m/2 &lt;= k &lt;= m-1</li>
+</ul>
+<p><strong>不同点：</strong></p>
+<ul>
+<li>B+树有两种类型的节点：内部节点（也称索引节点）和叶子节点</li>
+<li>每个叶子节点都存有相邻叶子节点的指针，叶子节点本身依关键字的大小自小而大顺序链接</li>
+<li>父节点存有右孩子的第一个元素的索引</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>单一节点存储的元素更多，使得查询的IO次数更少，比B树更适合做mysq的底层</li>
+<li>所有的查询都要查找到叶子节点，查询性能稳定，B树每个节点都可以查找到数据，不够稳定。</li>
+<li>所有的叶子节点形成了有序链表，更加便于查找。</li>
+</ul>
+<h2 id="git命令行"><a href="#git命令行" class="headerlink" title="git命令行"></a>git命令行</h2><p><img src="/upload/git/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8.png" alt="img"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基础知识差的太多了，一定要多看，多记，多理解。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    wys
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wysblogs.top/2020/07/20/华宇金信面经/" title="华宇金信面经">http://wysblogs.top/2020/07/20/华宇金信面经/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0ocal_search</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面经/" rel="tag"># 面经</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/20/单例模式/" rel="next" title="单例模式">
+                <i class="fa fa-chevron-left"></i> 单例模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="wys">
+            
+              <p class="site-author-name" itemprop="name">wys</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wyscoder" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:714133840@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tianhan1998.github.io/" title="Tian Blog" target="_blank">Tian Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yang295513.github.io/" title="Yang Blog" target="_blank">Yang Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#华宇金信面经（第一次面试）"><span class="nav-number">1.</span> <span class="nav-text">华宇金信面经（第一次面试）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重载和重写的区别"><span class="nav-number">1.1.</span> <span class="nav-text">重载和重写的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.2.</span> <span class="nav-text">接口和抽象类的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的访问修饰符"><span class="nav-number">1.3.</span> <span class="nav-text">类的访问修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#equals-和"><span class="nav-number">1.4.</span> <span class="nav-text">equals 和   ==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-启动原理"><span class="nav-number">1.5.</span> <span class="nav-text">SpringBoot 启动原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot内置容器"><span class="nav-number">1.6.</span> <span class="nav-text">SpringBoot内置容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot注解-RestController-和-Controller区别"><span class="nav-number">1.7.</span> <span class="nav-text">SpringBoot注解 RestController 和 Controller区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBits相关的函数"><span class="nav-number">1.8.</span> <span class="nav-text">MyBits相关的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx负载均衡-轮询机制"><span class="nav-number">1.9.</span> <span class="nav-text">Nginx负载均衡 轮询机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法名称"><span class="nav-number">1.10.</span> <span class="nav-text">算法名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构-B树-和-B-树区别"><span class="nav-number">1.11.</span> <span class="nav-text">数据结构 B树 和 B+树区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git命令行"><span class="nav-number">1.12.</span> <span class="nav-text">git命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.13.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wys</span>
+
+  
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+   
+  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+</body>
+</html>
