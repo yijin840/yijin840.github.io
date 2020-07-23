@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 优点 自带排序 快速查找  缺点 占用空间 降低更新表的速度  索引分类  普通索引 唯一索引 主键索引 组合索引 全文索引">
+<meta name="description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 索引的实质就是数据结构 优点 自带排序 快速查找 主键索引保证唯一性 表与表连接处添加索引，加速表与表的直接连接 分组和排序语句进行数据检索，减少查询时间中的分组和排序的时间 提高性能  缺点 占用空间 降低更新表的速度 需要动态维护，降低数据的维护速度 创建索引和维护索引会消耗时间，随着数据量的增加而增加  索引分类  普">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql索引">
+<meta property="og:title" content="Mysql索引基础">
 <meta property="og:url" content="http://wysblogs.top/2020/07/19/Mysql索引/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 优点 自带排序 快速查找  缺点 占用空间 降低更新表的速度  索引分类  普通索引 唯一索引 主键索引 组合索引 全文索引">
+<meta property="og:description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 索引的实质就是数据结构 优点 自带排序 快速查找 主键索引保证唯一性 表与表连接处添加索引，加速表与表的直接连接 分组和排序语句进行数据检索，减少查询时间中的分组和排序的时间 提高性能  缺点 占用空间 降低更新表的速度 需要动态维护，降低数据的维护速度 创建索引和维护索引会消耗时间，随着数据量的增加而增加  索引分类  普">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-20T05:06:18.516Z">
+<meta property="og:updated_time" content="2020-07-22T11:12:05.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql索引">
-<meta name="twitter:description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 优点 自带排序 快速查找  缺点 占用空间 降低更新表的速度  索引分类  普通索引 唯一索引 主键索引 组合索引 全文索引">
+<meta name="twitter:title" content="Mysql索引基础">
+<meta name="twitter:description" content="Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 索引的实质就是数据结构 优点 自带排序 快速查找 主键索引保证唯一性 表与表连接处添加索引，加速表与表的直接连接 分组和排序语句进行数据检索，减少查询时间中的分组和排序的时间 提高性能  缺点 占用空间 降低更新表的速度 需要动态维护，降低数据的维护速度 创建索引和维护索引会消耗时间，随着数据量的增加而增加  索引分类  普">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Mysql索引 | wys'blogs</title>
+  <title>Mysql索引基础 | wys'blogs</title>
   
 
 
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql索引</h1>
+          <h1 class="post-title" itemprop="name headline">Mysql索引基础</h1>
         
 
         <div class="post-meta">
@@ -387,13 +387,20 @@
 
       
         <h1 id="Mysql索引"><a href="#Mysql索引" class="headerlink" title="Mysql索引"></a>Mysql索引</h1><p>建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。</p>
+<p>索引的实质就是数据结构</p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
 <li>自带排序</li>
 <li>快速查找</li>
+<li>主键索引保证唯一性</li>
+<li>表与表连接处添加索引，加速表与表的直接连接</li>
+<li>分组和排序语句进行数据检索，<strong>减少查询时间中的分组和排序的时间</strong></li>
+<li>提高性能</li>
 </ul>
 <h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
 <li>占用空间</li>
 <li>降低更新表的速度</li>
+<li>需要动态维护，降低数据的维护速度</li>
+<li>创建索引和维护索引会消耗时间，随着数据量的增加而增加</li>
 </ul>
 <p><strong>索引分类</strong></p>
 <blockquote>
@@ -403,6 +410,58 @@
 <p>组合索引</p>
 <p>全文索引</p>
 </blockquote>
+<h2 id="单例索引"><a href="#单例索引" class="headerlink" title="单例索引"></a>单例索引</h2><p>一个索引只包含一个列，一个表可以有多个单例索引</p>
+<h3 id="1、普通索引"><a href="#1、普通索引" class="headerlink" title="1、普通索引"></a>1、普通索引</h3><p>最最最基本的索引，没有任何限制，</p>
+<p>sql格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX IndexName ON `table_name` (`字段名`(length))</span><br><span class="line">#或者</span><br><span class="line">ALTER TABLE table_name ADD INDEX IndexName(`字段名`(length));</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、唯一索引"><a href="#2、唯一索引" class="headerlink" title="2、唯一索引"></a>2、唯一索引</h3><p>与普通索引相似，只是唯一索引值是唯一的，和主键索引相似，但是唯一索引允许空值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE UNIQUE INDEX IndexName ON `table_name`(`字段名`(lenght));</span><br><span class="line">#或者</span><br><span class="line">ALTER TABLE `table_name` ADD UNIQUE (`字段名`(length));</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、主键索引"><a href="#3、主键索引" class="headerlink" title="3、主键索引"></a>3、主键索引</h3><p>不允许有空值，在B+树的InnoDB引擎中，主键索引起到了很重要的作用。</p>
+<p>主键索引建表规则是<strong>int大于varchar</strong>，一般在建表的时候创建。</p>
+<p>一般来说都会在首列，不会与其他列冲突，默认会设置成int类型，而且是<code>AUTO_INCREMENT</code>类型。</p>
+<h2 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a>组合索引</h2><p>一个组合索引包含两个或者两个以上的列。</p>
+<p>但是如果一个表中含有多个单例索引不代表是组合索引。</p>
+<p>通缩来说：包含多个字段但是只有索引名称。</p>
+<p>sql格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX ·索引名称· ON `表名`(`字段1`, `字段2`, `字段3`);</span><br></pre></td></tr></table></figure>
+
+<p>如果创建组合索引，实际包含的是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(`字段1`)</span><br><span class="line">(`字段1`，`字段2`)</span><br><span class="line">(`字段1`,`字段2`,`字段3`)</span><br></pre></td></tr></table></figure>
+
+<p>在查询的时候要遵循<code>最左前缀</code>原则，即索引<code>where</code>时，要对照创建时候的字段名顺序进行查询。</p>
+<p><strong>使用组合索引时，不能出现单例索引，否则可能会使用单例索引进行查询</strong></p>
+<h2 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h2><p>如果文本字段建立的是普通索引，那么只会对字段前面的字符进行索引。</p>
+<p>如果出现多个一样的字符，需要查找的话只能进行<code>where column like %xxxx%</code>，但是这样操作只会让索引失效。</p>
+<p>所以全文索引就出来了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE `table_name` ADD FULLTEXT(`column1`,`column2`);</span><br></pre></td></tr></table></figure>
+
+<p>有了全文索引，就能检索多个单词记录了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `table_name` WHERE MATCH(column1, column2) AGAINST(&apos;xxx&apos;, &apos;sss&apos;, &apos;ddd&apos;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引操作"><a href="#索引操作" class="headerlink" title="索引操作"></a>索引操作</h2><h3 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW INDEX FROM `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX IndexName ON `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h2 id="什么时候不需要创建索引"><a href="#什么时候不需要创建索引" class="headerlink" title="什么时候不需要创建索引"></a>什么时候不需要创建索引</h2><ul>
+<li>列很少使用，建立索引会影响整体的性能和增大空间需求。</li>
+<li>数据很少的列也不需要创建，比如性别，只有男女。</li>
+<li>定义位text和image和bit数据类型的列不应该增加索引。</li>
+<li>当update，insert，delete操作远大于检索select操作时不需要，因为需要一直维护索引，会降低性能。</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>负向条件不能使用索引</li>
+<li>前导模糊查询不能用索引，非前导模糊查询可以</li>
+<li>数据区分度不大不用使用索引</li>
+<li>属性上计算不能命中索引</li>
+<li>如果业务大部分是单条查询，使用Hash索引性能更好</li>
+<li>单列索引不存<code>null</code>值，组合索引不应该全存<code>null</code>值，不然可能会得到不符合预期的结果集。</li>
+<li>组合索引并不是需要一定要和字段顺序一样，mysql查询时会优化查询，比如 (a,b,c)，查询时使用(b,a)，也会优化成击中索引(a，b)。</li>
+<li>如果明确知道会返回一条结果，那么使用 <code>limit 1</code> 能够提高效率，原因是告诉mysql不需要再往下查询了。</li>
+<li>把计算放到业务层而不是数据库层，除了节省CPU，还会有查询缓存优化的作用。</li>
+<li>强制类型转换会进行全表扫描。</li>
+</ul>
 
       
     </div>
@@ -423,7 +482,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wysblogs.top/2020/07/19/Mysql索引/" title="Mysql索引">http://wysblogs.top/2020/07/19/Mysql索引/</a>
+    <a href="http://wysblogs.top/2020/07/19/Mysql索引/" title="Mysql索引基础">http://wysblogs.top/2020/07/19/Mysql索引/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -542,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,7 +612,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -564,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -637,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql索引"><span class="nav-number">1.</span> <span class="nav-text">Mysql索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql索引"><span class="nav-number">1.</span> <span class="nav-text">Mysql索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例索引"><span class="nav-number">1.3.</span> <span class="nav-text">单例索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、普通索引"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、普通索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、唯一索引"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、唯一索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、主键索引"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、主键索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合索引"><span class="nav-number">1.4.</span> <span class="nav-text">组合索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全文索引"><span class="nav-number">1.5.</span> <span class="nav-text">全文索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引操作"><span class="nav-number">1.6.</span> <span class="nav-text">索引操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询索引"><span class="nav-number">1.6.1.</span> <span class="nav-text">查询索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除索引"><span class="nav-number">1.6.2.</span> <span class="nav-text">删除索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候不需要创建索引"><span class="nav-number">1.7.</span> <span class="nav-text">什么时候不需要创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.8.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
             
 
           </div>

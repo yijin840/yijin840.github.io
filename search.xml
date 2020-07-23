@@ -1,6 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[面对对象三大特点]]></title>
+    <url>%2F2020%2F07%2F23%2F%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql索引底层原理]]></title>
+    <url>%2F2020%2F07%2F22%2Fmysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[mysql索引底层原理我们都知道索引可以提高查询效率，那么为什么会提高查询效率呢？ 我们可以从底层进行分析，因为mysql索引的底层是基于数据结构的。 假入我们没有索引，那么如果有5个数据，mysql在查询的时候就会比较5次，如果有1000w数据，那么就要比较100w次，很显然，这样的速度，我们肯定不能接受，所以就必须使用索引来进行优化查询速度。 mysql底层有以下几种数据结构： Hash表 二叉搜索树 AVL和红黑树 B树 B+树 mysql引擎也有两种常用的： InnoDB MyiSam Mysql底层数据结构Hash表 哈希表也叫散列表，是根据key和value直接进行访问的数据结构，是快速检索的好方法。 哈希算法：也叫散列算法，就是把任意的key值通过哈希函数变换成固定长度的key地址，然后通过这个地址存放数据的算法。 哈希碰撞：比如hash(7)和hash(199)值一样，如果只存放一个数据的话，会冲突，解决这种情况最常用的方法是链地址法，把碰撞的数据通过链表连接起来，但是计算完hash值之后还需要判断有没有产生hash碰撞，还得重新遍历一边链表，直到找到真正的key对应的数值。 hash算法的时间复杂度是O(1)，但是考虑到数据检索有一个范围性，hash算法对查询一个数据很高效，但是没办法做到高效查询范围，因此哈希索引不适合做Mysql底层索引。 二叉搜索树 二叉搜索树也是一支持数据快速检索的数据结构。 二叉搜索树左子树所有值小于根节点的值，右节点所有值大于根节点的值。 二叉搜索树的时间复杂度是O(logn)，二叉搜索树还能解决高效范围性查找数据。 普通的二叉搜索树有个致命缺点，在极端情况下会退化成线性链表，二分查找会变成线性查找，性能严重下降。 例如主键索引，因为一般情况下主键索引都是自增的，采用二叉搜索树作为底层索引的话会导致查询性能严重下降。 AVL树和红黑树由于二叉搜索树极端不平衡的情况，就提出了让树节点自动旋转和调整，以便于随时处于平衡的状态，也就能保证二叉搜索树的查询性能。 红黑树假入二叉搜索树处于一个严重不平衡的状态，那么红黑树就会自动调整节点，通过自动左旋右旋以及节点变色来调整树的形态，使其保持基本的平衡状态（时间复杂度O(logn)）。 红黑树保证了二叉搜索树不会处于一种极端情况（O(n)），但是又会引出一种新的问题，假入当我们顺序插入1~16个节点后，树形态会产生右倾，但是并没有像二叉搜索树那样的线性夸张，不过如果数据有几百万条的话，查询效率也会变得特别慢，对性能影响也是巨大的。 AVL树由于红黑树会产生右倾趋势，所以又引出了一种更为严格的二叉平衡树（AVL树），这个树是一个绝对平衡的二叉树，因此在调整形态上会花费更多的性能。 比如我们插入1~16个节点，最后AVL树的结构会如下： 从树的形态我们可以看出来，AVL树不会产生右倾的状态，我们查询16号节点，AVL树会比较四次，而红黑树会比较6次，这样就从根本上解决了红黑树的问题。 所以AVL树的优点有以下几点： 查找性能好（O(logn)），不会产生极端情况，严重降低性能 可以实现范围查找和数据排序 但是AVL树并不适合作为Mysql的底层索引的数据结构，主要是因为数据库查询的瓶颈在于磁盘IO，如果使用AVL树，每个节点只存放一个数据，我们一次磁盘IO只能把一个数据加载到内存中，比如查找节点7，就要进行三次IO，这样会特别耗时间，所以如果要设计数据库索引就要考虑很多情况，首先肯定是每个节点都存放多个数据，而且一次IO就可以加载多个数据到内存中，这就引出了B+树的设计原理。 磁盘IO有个特点，就是磁盘读取1K的数据和读取1B的数据所消耗的时间是一样的。 B树每个节点可以限制存放的key值数量，如果超过了这个约定的key值数量就自动分裂，比如我们继续插入1~16个节点，如果限制一个节点存放2个key的数量的话，结构如下 我们不难看出查询节点16的性能和AVL树一样了，也是经过四次磁盘IO，我们可以考虑每次IO可以读取更多的数据到内存中，可以增加限制的key的数量为6个 这样对于磁盘IO的次数就可以降低一半，只需要两次就可以读取到。 B树的优点： 优秀的检索速度，差查找性能等于O(h*logn)，h是树高，n为每个节点关键词的个数。 尽可能地减少了磁盘IO的次数，提高了性能。 可以支持范围查找。 B+树首先看一下B树和B+树的区别： B树一个节点里存放的是数据，而B+树存放的是索引（地址），所以B树里一个节点 存不了很多数据，但是B+树可以存放很多数索引，B+树叶子节点存放所有数据。 B+树叶子节点使用链表串联了起来，便于范围查找。 对比可以看出，B+树存放的是索引，在单个节点容量有限的情况下，单节点也可以存放大量索引，使得整体树的高度降低，减少了磁盘IO，其次叶子节点是存放真正数据的地方，叶子节点用链表连起来，而且还是有序的，在范围查找中更占有优势。所以mysql索引用的就是B+树，在查找效率和范围查找都有不错的性能。 例如插入1~16个节点： Mysql引擎mysql底层数据引擎以插件的形式设计，最常见的就是InnoDB和Myisam引擎，用户可以根据个人需求来选择不同的引擎作为mysql底层引擎。 首先来分析一下两者的区别： MyISAM查找性能好，但是不支持事务处理，InnoDB最大特色就是支持ACID兼容的事务功能，而且还支持行级锁 InnoDB创建表后生成的文件有： frm:创建表的语句 idb:表里面的数据+索引文件 MyISAM创表后生成的文件有： frm:创建表的语句 MYD:表里面的数据文件（myisam data） MYI:表里面的索引文件（myisam index） InnoDB把数据和索引放在一起，称为聚集索引，而MyISAM把数据和索引分开，称为非聚集索引。 MyISAM底层实现MyISAM采用非聚集索引，建表时以主键作为key来建立B+树，树的叶子节点存放的是对应数据的物理地址，我们拿到这个物理地址后，就可以到MyISAM数据文件中直接定位到具体的数据记录。 当我们为某个字段添加索引时，也会生出该字段的索引树，该字段的索引树的叶子节点同样记录了数据文件中的物理地址，根据这个地址同样可以定位到具体的数据记录。 InnoDB底层实现InnoDB是聚集索引，数据和索引都在一个文件中，建表时，InnoDB会根据主键ID作为key建立索引B+树，B+树叶子节点存放的是主键ID对应的数据。 我们为某个字段添加索引时，会根据这个字段去建立索引树，索引树节点中存放的是字段的值，根节点存放的是主键的值，拿到主键的key值之后会到主键索引创建的B+树查找对应的数据。 InnoDB只在主键索引的叶节点存放具体的数据原因是需要节省空间，一个表可能有多个索引，如果每个都创建一个索引树存放具体数据，就会导致数据文件变得十分巨大，数据冗杂，因此采用上面那种方式就可以牺牲较少的查询性能节省巨大的磁盘空间，还是蛮好的。 对比由上面可以得知，MyISAM查询性能更好，因为MyISAM查询一次就能获取到数据，查询到物理地址就直接去数据文件中寻找。 而InnoDB两次才行，第一次查询到叶子节点的主键索引，第二次根据主键索引去主键索引创建的B+树中去寻找。 什么时候需要创建索引呢？ 查询频繁的字段 唯一性太差的字段不适合创建索引，即使这个字段频繁作为查询条件。 更新频繁的字段不适合创建索引，因为每次都需要维护B+树，导致性能差。 最终选择B+树的原因？ hash特别快，但是只能针对一个值 AVL和红黑树，在大数据的情况下，磁盘IO操作过多 B树每个节点存放的是数据，节点存放的分支太少了。 B+树节点存储的索引是索引和指针（引用指向下一个地址），可以存储大量索引，同时最终数据在叶子节点上，并且有引用横向链接，可以在2~3次的IO操作中完成千万级别表的操作。 建议索引为主键索引，有自增操作，适合范围查找。 文章参考自：https://zhuanlan.zhihu.com/p/113917726]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[native关键字]]></title>
+    <url>%2F2020%2F07%2F22%2Fnative%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础知识</category>
+      </categories>
+      <tags>
+        <tag>java基础知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hash原理探究]]></title>
+    <url>%2F2020%2F07%2F22%2FHash%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[final关键字详解]]></title>
+    <url>%2F2020%2F07%2F22%2Ffinal%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Object类的方法]]></title>
+    <url>%2F2020%2F07%2F22%2FObject%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[String和StringBuffer,StringBuilder区别]]></title>
+    <url>%2F2020%2F07%2F22%2FString%E5%92%8CStringBuffer-StringBuilder%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java反射机制]]></title>
+    <url>%2F2020%2F07%2F22%2FJava%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>反射</category>
+      </categories>
+      <tags>
+        <tag>反射</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ThreadLocal原理]]></title>
+    <url>%2F2020%2F07%2F22%2FThreadLocal%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Rest和RPC]]></title>
+    <url>%2F2020%2F07%2F22%2FRest%E5%92%8CRPC%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[TreeMap和TreeSet]]></title>
+    <url>%2F2020%2F07%2F22%2FTreeMap%E5%92%8CTreeSet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[重写equals为什么要重写hashcode]]></title>
+    <url>%2F2020%2F07%2F22%2F%E9%87%8D%E5%86%99equals%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[接口和抽象类]]></title>
+    <url>%2F2020%2F07%2F22%2F%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[重载和重写]]></title>
+    <url>%2F2020%2F07%2F22%2F%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[equals 和 ==]]></title>
+    <url>%2F2020%2F07%2F22%2Fequals-%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Session和Cookie区别]]></title>
+    <url>%2F2020%2F07%2F22%2FSession%E5%92%8CCookie%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux常用命令（持续更新）]]></title>
+    <url>%2F2020%2F07%2F22%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql事务和隔离级别]]></title>
+    <url>%2F2020%2F07%2F22%2Fmysql%E4%BA%8B%E5%8A%A1%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[红黑树和AVL树]]></title>
+    <url>%2F2020%2F07%2F22%2F%E7%BA%A2%E9%BB%91%E6%A0%91%E5%92%8CAVL%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[B树和B+树]]></title>
+    <url>%2F2020%2F07%2F22%2FB%E6%A0%91%E5%92%8CB-%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TCP三次握手和四次挥手]]></title>
+    <url>%2F2020%2F07%2F22%2FTCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[各类锁的介绍和原理]]></title>
+    <url>%2F2020%2F07%2F22%2F%E5%90%84%E7%B1%BB%E9%94%81%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Innodb探究]]></title>
+    <url>%2F2020%2F07%2F22%2FInnodb%E6%8E%A2%E7%A9%B6%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[华宇金信面经]]></title>
     <url>%2F2020%2F07%2F20%2F%E5%8D%8E%E5%AE%87%E9%87%91%E4%BF%A1%E9%9D%A2%E7%BB%8F%2F</url>
     <content type="text"><![CDATA[华宇金信面经（第一次面试）毕竟是第一次面试，凉了也没关系，可以多学一些知识 重载和重写的区别 重载 被重载的方法必须改变参数列表 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符 被重载的方法可以声明新的或更广的检查异常 方法能够在同一个类中或者在一个子类中被重载 无法以返回值类型作为重载函数的区分标准 重写 参数列表必须完全与重写方法的相同 返回值类型与重写的返回值类型可以不相同 访问权限不能比父类中被重写的方法访问权限更低 父类的成员方法只能被子类重写 声明final的方法不能被重写 声明static的方法不能被重写，但是能够被再次声明 子类和父类在同一个包中，可以重写除了声明private和final的方法 子类和父类不在同一个包中，只能够重写父类的声明public和protected的非final方法 重写的方法可以抛出非强制性异常，无论被重写的方法是否抛出异常，但是不能抛出新的强制性异常，或者比重写方法声明更广泛的强制性异常。 构造方法不能被重写 如果不能继承一个方法，就不能重写这个方法。 接口和抽象类的区别 抽象类和接口都不能直接被实例化 抽象类要被子类继承，接口要被子类实现 接口里面只能对方法进行声明，抽象类既可以声明也可以对方法进行实现 抽象类中的抽象方法必须全部被子类实现，如果子类不能全部实现，那么子类必须也是抽象类，接口里面的方法必须全部被子类实现，如果子类不能实现那么子类必须是抽象类 接口里面的方法只能声明，但是jdk1.8有了default method方式可以进行实现。 抽象类里面可以没有抽象方法 如果一个类里面有抽象方法，那么这个类一定是抽象类 抽象类中的方法都要被实现，所以抽象方法不能是静态的static，也不能是私有的private。 接口可以继承接口，甚至可以继承多个接口，但是类只能继承一个类 抽象级别：接口 &gt; 抽象类 &gt; 实现类 抽象类主要是用来抽象类别，接口主要是用来抽象方法功能，当你关注事物的本质的时候，请用抽象类，当你关注一种操作的时候，用接口。 接口的设计具有更大的可扩展性，而抽象类的设计必须十分谨慎（要考虑到子类所具有的共同属性和方法）。 类的访问修饰符12345//public 、 default 、 abstract 、 finalpublic class Test();class Test2();abstract class Test3();final class Test4(); public 表示任何位置都可以访问该类 defalut 默认是不写的，只能在同一个包下被访问 abstract表示是个抽象类，不能实例化该类，如果要使用，必须用子类继承 final修饰的类不能给子类继承，改类为最终类，不能在被继承。 为什么 private 和 protected 不能修饰外部类 1、private：表示不能被其它类访问，这个类就失去了意义，所以private只能修饰内部类，被private修饰的类只能被该类的外部类内部使用 2、protected：同理，外部类不能访问，所以这个也没有意义。 3、内部类四种修饰符都可以被使用。 equals 和 ==1、基本数据类型用 == 比较的是值 2、引用数据类型之间用 == 比较的内存引用地址 3、引用数据类型之间使用equals比较的是地址所映射的值 SpringBoot 启动原理123456//核心注解@SpringBootApplication //这个注解包含了一下几种注解@SpringBootConfiguration //主要配置信息@EnableAutoConfiguraiton //开启自动配置，会扫描符合的bean加载到ioc容器中@ComponentScan //扫描所有的包 启动流程 1、首先执行main入口方法运行SpringAppliction.run，后面new了一个SpringApplication对象，然后执行run方法。 2、初始化SpringApplication类，创建SpringApplication对象时，会自动调用初始化方法（initialize()方法） 3、之后执行核心run()方法，然后启动SpringBoot项目。 SpringBoot内置容器undertow tomcat 默认容器 jetty SpringBoot注解 RestController 和 Controller区别1、RestController 相当于 ResponseBody + Controller注解 2、Controller 返回的是视图 3、 RestController返回的是json或者xml格式的数据 MyBits相关的函数没理解这个到底是什么玩意儿。 可能是标签之类的 12345678910select ---查询update ---更新delete ---删除insert ---插入if test ---可以使用String 类的一些方法where ---条件判断choose ---选择 --- resultType ---返回值的类型collection ---集合标签association ---关联标签 Nginx负载均衡 轮询机制Nginx 是个反代服务器 负载均衡： 将单一的重负载分担到多个网络节点上做并行处理，每个节点处理结束后汇总给用户。 将大量前端并发访问或数据流量分担到多个后端网络节点上分别处理（分流） 负载均衡策略： 内置策略 轮询 将每个前端按顺序逐一分配到后端节点上，出现问题的自动排除。 加权轮询 将每个前端按权值依次分配到后端节点上，根据权重的大小来判断每个节点被访问到的概率 IP hash 对访问ip进行hash操作，根据hash结果将请求分配到后端节点上。 扩展策略 将前端的请转发到最近负载最小的节点 算法名称排序 快速排序 堆排序 桶排序 冒泡排序 希尔排序 选择排序 插入排序 DP算法 KMP算法 快速幂 字典树 线段树 后缀数组 DFS和BFS 弗洛伊德算法，迪杰斯特拉算法 最大流，最小流 滑动窗口 数据结构 B树 和 B+树区别B树：这个是一个多路平衡查找树 特点： 每个节点最多有m-1个关键字 根节点最少可以只有1个关键字 非根节点至少有m/2个关键字 每个节点中的关键字都按照从小到大排序，每个左节点小于右节点 所有叶子节点都位于同一层，叶子节点到根节点距离都相同 每个节点都存有索引和数据，也就是对应的key和value值 根节点的关键字数量范围：1 &lt;= k &lt;= m-1，非根节点的关键字数量范围：m/2 &lt;= k &lt;= m-1。 B+树：和B树非常相似 与B树相同点： 根节点至少有一个元素 非根节点元素范围 m/2 &lt;= k &lt;= m-1 不同点： B+树有两种类型的节点：内部节点（也称索引节点）和叶子节点 每个叶子节点都存有相邻叶子节点的指针，叶子节点本身依关键字的大小自小而大顺序链接 父节点存有右孩子的第一个元素的索引 总结： 单一节点存储的元素更多，使得查询的IO次数更少，比B树更适合做mysq的底层 所有的查询都要查找到叶子节点，查询性能稳定，B树每个节点都可以查找到数据，不够稳定。 所有的叶子节点形成了有序链表，更加便于查找。 git命令行 总结基础知识差的太多了，一定要多看，多记，多理解。]]></content>
@@ -31,9 +275,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Mysql索引]]></title>
+    <title><![CDATA[Mysql索引基础]]></title>
     <url>%2F2020%2F07%2F19%2FMysql%E7%B4%A2%E5%BC%95%2F</url>
-    <content type="text"><![CDATA[Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 优点 自带排序 快速查找 缺点 占用空间 降低更新表的速度 索引分类 普通索引 唯一索引 主键索引 组合索引 全文索引]]></content>
+    <content type="text"><![CDATA[Mysql索引建立在一个或多个列上的辅助对象，可以加快查询的速度和效率。 索引的实质就是数据结构 优点 自带排序 快速查找 主键索引保证唯一性 表与表连接处添加索引，加速表与表的直接连接 分组和排序语句进行数据检索，减少查询时间中的分组和排序的时间 提高性能 缺点 占用空间 降低更新表的速度 需要动态维护，降低数据的维护速度 创建索引和维护索引会消耗时间，随着数据量的增加而增加 索引分类 普通索引 唯一索引 主键索引 组合索引 全文索引 单例索引一个索引只包含一个列，一个表可以有多个单例索引 1、普通索引最最最基本的索引，没有任何限制， sql格式： 123CREATE INDEX IndexName ON `table_name` (`字段名`(length))#或者ALTER TABLE table_name ADD INDEX IndexName(`字段名`(length)); 2、唯一索引与普通索引相似，只是唯一索引值是唯一的，和主键索引相似，但是唯一索引允许空值。 123CREATE UNIQUE INDEX IndexName ON `table_name`(`字段名`(lenght));#或者ALTER TABLE `table_name` ADD UNIQUE (`字段名`(length)); 3、主键索引不允许有空值，在B+树的InnoDB引擎中，主键索引起到了很重要的作用。 主键索引建表规则是int大于varchar，一般在建表的时候创建。 一般来说都会在首列，不会与其他列冲突，默认会设置成int类型，而且是AUTO_INCREMENT类型。 组合索引一个组合索引包含两个或者两个以上的列。 但是如果一个表中含有多个单例索引不代表是组合索引。 通缩来说：包含多个字段但是只有索引名称。 sql格式 1CREATE INDEX ·索引名称· ON `表名`(`字段1`, `字段2`, `字段3`); 如果创建组合索引，实际包含的是 123(`字段1`)(`字段1`，`字段2`)(`字段1`,`字段2`,`字段3`) 在查询的时候要遵循最左前缀原则，即索引where时，要对照创建时候的字段名顺序进行查询。 使用组合索引时，不能出现单例索引，否则可能会使用单例索引进行查询 全文索引如果文本字段建立的是普通索引，那么只会对字段前面的字符进行索引。 如果出现多个一样的字符，需要查找的话只能进行where column like %xxxx%，但是这样操作只会让索引失效。 所以全文索引就出来了。 1ALTER TABLE `table_name` ADD FULLTEXT(`column1`,`column2`); 有了全文索引，就能检索多个单词记录了。 1SELECT * FROM `table_name` WHERE MATCH(column1, column2) AGAINST(&apos;xxx&apos;, &apos;sss&apos;, &apos;ddd&apos;); 索引操作查询索引1SHOW INDEX FROM `table_name`; 删除索引1DROP INDEX IndexName ON `table_name`; 什么时候不需要创建索引 列很少使用，建立索引会影响整体的性能和增大空间需求。 数据很少的列也不需要创建，比如性别，只有男女。 定义位text和image和bit数据类型的列不应该增加索引。 当update，insert，delete操作远大于检索select操作时不需要，因为需要一直维护索引，会降低性能。 注意 负向条件不能使用索引 前导模糊查询不能用索引，非前导模糊查询可以 数据区分度不大不用使用索引 属性上计算不能命中索引 如果业务大部分是单条查询，使用Hash索引性能更好 单列索引不存null值，组合索引不应该全存null值，不然可能会得到不符合预期的结果集。 组合索引并不是需要一定要和字段顺序一样，mysql查询时会优化查询，比如 (a,b,c)，查询时使用(b,a)，也会优化成击中索引(a，b)。 如果明确知道会返回一条结果，那么使用 limit 1 能够提高效率，原因是告诉mysql不需要再往下查询了。 把计算放到业务层而不是数据库层，除了节省CPU，还会有查询缓存优化的作用。 强制类型转换会进行全表扫描。]]></content>
       <categories>
         <category>mysql</category>
       </categories>
@@ -44,7 +288,7 @@
   <entry>
     <title><![CDATA[JUC知识总结]]></title>
     <url>%2F2020%2F07%2F18%2FJUC%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[JUC知识总结JUC是一个包，全称是java.uitls.current包]]></content>
       <categories>
         <category>并发</category>
       </categories>
