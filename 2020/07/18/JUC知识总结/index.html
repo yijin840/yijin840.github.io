@@ -81,18 +81,26 @@
 
 
 
-<meta name="description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包">
+<meta name="description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包 整体上包含了这几部分：  原子类 JUC锁 线程池 集合（容器）  原子类  基本类型：AtomicInteger，AtomicLong，AtomicBoolean； 数组类型：AtomicIntegerArray，AtomicLongArray，AtomicReferenceArray； 引用类型：AtomicRefer">
 <meta name="keywords" content="并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JUC知识总结">
 <meta property="og:url" content="http://wysblogs.top/2020/07/18/JUC知识总结/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包">
+<meta property="og:description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包 整体上包含了这几部分：  原子类 JUC锁 线程池 集合（容器）  原子类  基本类型：AtomicInteger，AtomicLong，AtomicBoolean； 数组类型：AtomicIntegerArray，AtomicLongArray，AtomicReferenceArray； 引用类型：AtomicRefer">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-22T11:16:41.631Z">
+<meta property="og:image" content="https://picb.zhimg.com/v2-2ef53e669cbc272efa28c1a3dba8da48_1440w.jpg?source=172ae18b">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/497634/201401/271147386096273.jpg">
+<meta property="og:image" content="https://picb.zhimg.com/80/v2-c23632eaad124bfa28de11c37e794736_1440w.jpg">
+<meta property="og:image" content="https://picb.zhimg.com/80/v2-4a46342775c6f9ad8543654890833b6b_1440w.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-b5783bcc607e99e365c16f791c4dfedd_1440w.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17755742-0aeb208cbf2192f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/502/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17755742-84349c0ca1005c43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/446/format/webp">
+<meta property="og:updated_time" content="2020-07-23T16:07:36.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JUC知识总结">
-<meta name="twitter:description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包">
+<meta name="twitter:description" content="JUC知识总结JUC是一个包，全称是java.uitls.current包 整体上包含了这几部分：  原子类 JUC锁 线程池 集合（容器）  原子类  基本类型：AtomicInteger，AtomicLong，AtomicBoolean； 数组类型：AtomicIntegerArray，AtomicLongArray，AtomicReferenceArray； 引用类型：AtomicRefer">
+<meta name="twitter:image" content="https://picb.zhimg.com/v2-2ef53e669cbc272efa28c1a3dba8da48_1440w.jpg?source=172ae18b">
 
 
 
@@ -387,6 +395,210 @@
 
       
         <h2 id="JUC知识总结"><a href="#JUC知识总结" class="headerlink" title="JUC知识总结"></a>JUC知识总结</h2><p>JUC是一个包，全称是<code>java.uitls.current</code>包</p>
+<p>整体上包含了这几部分：</p>
+<ul>
+<li><strong>原子类</strong></li>
+<li><strong>JUC锁</strong></li>
+<li><strong>线程池</strong></li>
+<li><strong>集合（容器）</strong></li>
+</ul>
+<h2 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h2><p><img src="https://picb.zhimg.com/v2-2ef53e669cbc272efa28c1a3dba8da48_1440w.jpg?source=172ae18b" alt="面试必备：JUC 中的 Atomic 原子类总结"></p>
+<ul>
+<li><strong>基本类型</strong>：AtomicInteger，AtomicLong，AtomicBoolean；</li>
+<li><strong>数组类型</strong>：AtomicIntegerArray，AtomicLongArray，AtomicReferenceArray；</li>
+<li><strong>引用类型</strong>：AtomicReference，AtomicStampedRerference，AtomicMarkableReference；</li>
+<li><strong>对象的属性修改类型</strong>：AtomicIntegerFieldUpdater，AtomicLongFieldUpdater，AtomicReferenceFieldUpdater；<ul>
+<li>对指定类的volatile 基本数据类型 进行更新操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本原子类介绍"><a href="#基本原子类介绍" class="headerlink" title="基本原子类介绍"></a>基本原子类介绍</h3><ul>
+<li>主要是利用<strong>CAS（比较并交换）</strong>  +  <strong>volatile</strong> 和 <strong>native</strong>方法来保证原子操作，避免了synchronized的高开销，执行效率提高。 </li>
+<li>CAS是无锁算法，原理是拿内存值和旧的期望值比较，如果相同，那么就把旧的期望值更新成新的期望值，是基于UnSafe类实现的，使用Unsafe类提供的<code>obejctFIeldOffset()</code>方法来获取”原来的值“的内存地址，返回值是valueOffset，而旧的期望值用volatile修饰，可以保证JVM在任何时刻都能保证线程获取到最新的值。</li>
+</ul>
+<p><strong>基本原子类：</strong></p>
+<ul>
+<li>AtomicInteger：整形原子类</li>
+<li>AtomicLong：长整型原子类</li>
+<li>AtomicBoolean ：布尔型原子类</li>
+</ul>
+<p>以AtomicInteger举例：</p>
+<p>常用的几个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span> <span class="comment">//获取当前的值</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndSet</span><span class="params">(<span class="keyword">int</span> newValue)</span><span class="comment">//获取当前的值，并设置新的值</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndIncrement</span><span class="params">()</span><span class="comment">//获取当前的值，并自增</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndDecrement</span><span class="params">()</span> <span class="comment">//获取当前的值，并自减</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndAdd</span><span class="params">(<span class="keyword">int</span> delta)</span> <span class="comment">//获取当前的值，并加上预期的值</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> <span class="comment">//如果输入的数值等于预期值，则以原子方式将该值设置为输入值（update）</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">lazySet</span><span class="params">(<span class="keyword">int</span> newValue)</span><span class="comment">//最终设置为newValue,使用 lazySet 设置之后可能导致其他线程在之后的一小段时间内还是可以读到旧的值。</span></span></span><br></pre></td></tr></table></figure>
+
+<p>多线程环境下不需要使用锁来保证线程安全，使用的Unsafe类的方法，但是Unsafe类的方法可以操作内存，而直接操作内存不会被GC掉，所以会造成内存泄漏等情况。</p>
+<h3 id="数组类型原子类介绍"><a href="#数组类型原子类介绍" class="headerlink" title="数组类型原子类介绍"></a>数组类型原子类介绍</h3><p>使用原子类型的方法来更新数组内容</p>
+<p><strong>数组类型原子类：</strong></p>
+<ul>
+<li>AtomicIntegerArray：整形数组原子类</li>
+<li>AtomicLongArray：长整形数组原子类</li>
+<li>AtomicReferenceArray ：引用类型数组原子类</li>
+</ul>
+<p>以AtomicIntegerArray举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> <span class="comment">//获取 index=i 位置元素的值</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndSet</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> newValue)</span><span class="comment">//返回 index=i 位置的当前的值，并将其设置为新值：newValue</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndIncrement</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">//获取 index=i 位置元素的值，并让该位置的元素自增</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndDecrement</span><span class="params">(<span class="keyword">int</span> i)</span> <span class="comment">//获取 index=i 位置元素的值，并让该位置的元素自减</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndAdd</span><span class="params">(<span class="keyword">int</span> delta)</span> <span class="comment">//获取 index=i 位置元素的值，并加上预期的值</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> <span class="comment">//如果输入的数值等于预期值，则以原子方式将 index=i 位置的元素值设置为输入值（update）</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">lazySet</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> newValue)</span><span class="comment">//最终 将index=i 位置的元素设置为newValue,使用 lazySet 设置之后可能导致其他线程在之后的一小段时间内还是可以读到旧的值</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="引用类型原子类介绍"><a href="#引用类型原子类介绍" class="headerlink" title="引用类型原子类介绍"></a>引用类型原子类介绍</h3><p>基本类型原子类每次都只能操作一个值，如果同时想要<strong>操作多个值</strong>的话就需要使用引用类型原子类。</p>
+<p><strong>引用类型原子类：</strong></p>
+<ul>
+<li>AtomicReference：引用类型原子类</li>
+<li>AtomicStampedRerence：原子更新引用类型里的字段原子类</li>
+<li>AtomicMarkableReference ：原子更新带有标记位的引用类型</li>
+</ul>
+<p>方法都和前面的差不多，只是参数少许有些变化。</p>
+<h3 id="对象的属性修改类型原子类"><a href="#对象的属性修改类型原子类" class="headerlink" title="对象的属性修改类型原子类"></a>对象的属性修改类型原子类</h3><p>如果要原子更新一个类中某个字段的话需要使用这个类。</p>
+<p><strong>对象的属性修改类型原子类：</strong></p>
+<ul>
+<li>AtomicIntegerFieldUpdater:原子更新整形字段的更新器</li>
+<li>AtomicLongFieldUpdater：原子更新长整形字段的更新器</li>
+<li>AtomicStampedReference ：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于解决原子的更新数据和数据的版本号，可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。</li>
+</ul>
+<p>想要原子更新对象属性的话，需要两个步骤：</p>
+<ul>
+<li>1、对象的属性修改类型原子类都是抽象类，所以需要使用静态方法<code>new Updater()</code>创建一个更新器，并且需要设置更新的类和属性。</li>
+<li>2、需要更新的对象属性必须使用<code>public volatile</code>关键字修饰。</li>
+</ul>
+<h2 id="JUC锁"><a href="#JUC锁" class="headerlink" title="JUC锁"></a>JUC锁</h2><p>相比较synchronized同步锁来说，JUC包中的锁更加强大，使锁的操作使用起来更加灵活。</p>
+<p>锁的框架图</p>
+<p><img src="https://images0.cnblogs.com/blog/497634/201401/271147386096273.jpg" alt="img"></p>
+<p>如果想要详细了解每个锁的作用，请跳转至 ———–</p>
+<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>线程池是管理线程的池子。</p>
+<p><strong>作用：</strong></p>
+<ul>
+<li><strong>帮我们管理线程，避免增加或者销毁线程带来的损耗</strong>。因为线程也是一个对象，创建也是需要进行类加载机制，销毁也是要被GC的，所以可以避免这些过程，从而避免损耗。</li>
+<li><strong>提高响应速度</strong>。从一个池子里获取线程相对重新创建一个线程效率要好一点。</li>
+<li><strong>重复利用</strong>。不需要销毁和创建，每次用完就放回池子里。</li>
+</ul>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize, <span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">   BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">   ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="function"><span class="params">   RejectedExecutionHandler handler)</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>各参数作用：</strong></p>
+<ul>
+<li><strong>corePoolSize：</strong> 线程池核心线程数最大值</li>
+<li><strong>maximumPoolSize：</strong> 线程池最大线程数大小</li>
+<li><strong>keepAliveTime：</strong> 线程池中非核心线程空闲的存活时间大小</li>
+<li><strong>unit：</strong> 线程空闲存活时间单位</li>
+<li><strong>workQueue：</strong> 存放任务的阻塞队列</li>
+<li><strong>threadFactory：</strong> 用于设置创建线程的工厂，可以给创建的线程设置有意义的名字，可方便排查问题。</li>
+<li><strong>handler：</strong> 线城池的饱和策略事件，主要有四种类型。</li>
+</ul>
+<h3 id="任务执行的过程"><a href="#任务执行的过程" class="headerlink" title="任务执行的过程"></a>任务执行的过程</h3><p><img src="https://picb.zhimg.com/80/v2-c23632eaad124bfa28de11c37e794736_1440w.jpg" alt="img"></p>
+<ul>
+<li>提交一个任务，如果核心线程池没有满，就创建一个核心线程去执行任务</li>
+<li>如果核心线程池满了，先把任务放进任务队列workQueue排队等待执行。</li>
+<li>如果任务队列也满了，判断线程池线程有没有到线程池最大值，如果没有，就创建非核心线程执行任务。</li>
+<li>如果线程池也到了最大值，还有新任务的话，就采用拒绝策略拒绝掉。</li>
+</ul>
+<h3 id="四种拒绝策略"><a href="#四种拒绝策略" class="headerlink" title="四种拒绝策略"></a>四种拒绝策略</h3><ul>
+<li><strong>AbortPolicy</strong>(抛出一个异常，默认的)</li>
+<li><strong>DiscardPolicy</strong>(直接丢弃任务)</li>
+<li><strong>DiscardOldestPolicy</strong>（丢弃队列里最老的任务，将当前这个任务继续提交给线程池）</li>
+<li><strong>CallerRunsPolicy</strong>（交给线程池调用所在的线程进行处理)</li>
+</ul>
+<h3 id="遇到异常怎么做"><a href="#遇到异常怎么做" class="headerlink" title="遇到异常怎么做"></a>遇到异常怎么做</h3><p>1、直接<code>try...catch</code>捕获。</p>
+<p>2、通过Future对象的get方法接收抛出的异常，再处理</p>
+<p>3、为工作者线程设置UncaughtExceptionHandler，在uncaughtException方法中处理异常</p>
+<p>4、重写ThreadPoolExecutor的afterExecute方法，处理传递的异常引用</p>
+<p><img src="https://picb.zhimg.com/80/v2-4a46342775c6f9ad8543654890833b6b_1440w.jpg" alt="img"></p>
+<h3 id="线程池工作队列"><a href="#线程池工作队列" class="headerlink" title="线程池工作队列"></a>线程池工作队列</h3><ul>
+<li><p><strong>ArrayBlockingQueue</strong>（有界队列）</p>
+<p>ArrayBlockingQueue 是一个用数组实现的有界阻塞队列，按FIFO排序量</p>
+</li>
+<li><p><strong>LinkedBlockingQueue</strong>（可设置容量队列）</p>
+<p>基于链表结构的阻塞队列，按FIFO排序任务，容量可以自己设置，如果不设置，就会是无界阻塞队列，最大值是<code>Integer.MAX_VALUE</code>，吞吐量比<code>ArrayBlockingQUeue</code>要高，<code>newFixedThreadPool</code>线程池使用这个队列。</p>
+</li>
+<li><p><strong>DelayQueue</strong>（延迟队列）</p>
+<p>是一个任务定时周期的延迟执行队列，根据指定的执行时间从小到大排序，否则根据插入到队列的先后顺序排序。</p>
+<p><code>newScheduledThreadPool</code>线程池使用了这个队列。</p>
+</li>
+<li><p><strong>PriorityBlockingQueue</strong>（优先级队列）</p>
+<p>具有优先级的无界阻塞队列</p>
+</li>
+<li><p><strong>SynchronousQueue</strong>（同步队列）</p>
+<p>一个不存储元素的阻塞队列，每个插入动作必须等到另一个线程调用移除操作之后，否则插入操作一直处于阻塞状态，吞吐量高于<code>LinkedBlockingQueue</code>，<code>newCachedThreadPool</code>线程池使用这个队列。</p>
+</li>
+</ul>
+<h3 id="几种常用的线程池"><a href="#几种常用的线程池" class="headerlink" title="几种常用的线程池"></a>几种常用的线程池</h3><ul>
+<li><strong>newFixedThreadPool</strong> (固定数目线程的线程池)<ul>
+<li>FixedThreadPool 适用于处理CPU密集型的任务，确保CPU在长期被工作线程使用的情况下，尽可能的少的分配线程，即适用执行长期的任务</li>
+</ul>
+</li>
+<li><strong>newCachedThreadPool</strong>(可缓存线程的线程池)<ul>
+<li>用于并发执行大量短期的小任务。</li>
+</ul>
+</li>
+<li><strong>newSingleThreadExecutor</strong>(单线程的线程池)<ul>
+<li>适用于串行执行任务的场景，一个任务一个任务地执行。</li>
+</ul>
+</li>
+<li><strong>newScheduledThreadPool</strong>(定时及周期执行的线程池)<ul>
+<li>周期性执行任务的场景，需要限制线程数量的场景</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用无界的阻塞队列会导致OOM"><a href="#使用无界的阻塞队列会导致OOM" class="headerlink" title="使用无界的阻塞队列会导致OOM"></a>使用无界的阻塞队列会导致OOM</h3><p><code>newFixedThreadPool</code>使用无界的LinkedBlockingQueue，如果线程获取一个任务后，任务执行时间特别长，就会越积越多，最后导致OOM。</p>
+<h3 id="线程池状态"><a href="#线程池状态" class="headerlink" title="线程池状态"></a>线程池状态</h3><p>线程池有这几个状态：<strong>RUNNING</strong>,<strong>SHUTDOWN</strong>,<strong>STOP</strong>,<strong>TIDYING</strong>,<strong>TERMINATED</strong>。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-b5783bcc607e99e365c16f791c4dfedd_1440w.jpg" alt="img"></p>
+<p><strong>RUNNING</strong></p>
+<ul>
+<li>该状态的线程池会接收新任务，并处理阻塞队列中的任务;</li>
+<li>调用线程池的shutdown()方法，可以切换到SHUTDOWN状态;</li>
+<li>调用线程池的shutdownNow()方法，可以切换到STOP状态;</li>
+</ul>
+<p><strong>SHUTDOWN</strong></p>
+<ul>
+<li>该状态的线程池不会接收新任务，但会处理阻塞队列中的任务；</li>
+<li>队列为空，并且线程池中执行的任务也为空,进入TIDYING状态;</li>
+</ul>
+<p><strong>STOP</strong></p>
+<ul>
+<li>该状态的线程不会接收新任务，也不会处理阻塞队列中的任务，而且会中断正在运行的任务；</li>
+<li>线程池中执行的任务为空,进入TIDYING状态;</li>
+</ul>
+<p><strong>TIDYING</strong></p>
+<ul>
+<li>该状态表明所有的任务已经运行终止，记录的任务数量为0。</li>
+<li>terminated()执行完毕，进入TERMINATED状态</li>
+</ul>
+<p><strong>TERMINATED</strong></p>
+<ul>
+<li>该状态表示线程池彻底终止</li>
+</ul>
+<blockquote>
+<p>参考来自：<a href="https://zhuanlan.zhihu.com/p/73990200" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/73990200</a></p>
+</blockquote>
+<h2 id="集合（容器）"><a href="#集合（容器）" class="headerlink" title="集合（容器）"></a>集合（容器）</h2><p>集合包含以下几种：</p>
+<ul>
+<li>List和Set</li>
+<li>Map</li>
+<li>延伸内容</li>
+</ul>
+<h3 id="List和Set"><a href="#List和Set" class="headerlink" title="List和Set"></a>List和Set</h3><p>常用的有<code>CopyOnWriteArrayList</code>, <code>CopyOnWriteArraySet</code>和<code>ConcurrentSkipListSet</code></p>
+<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>1、相当于线程安全的ArrayList</p>
+<p>2、这个容器一般很小，而且只读操作远远多于可变操作，需要遍历期间防止线程间的冲突</p>
+<p>3、如果对数组进行修改的话，通常会复制整个基本数组，所以可变操作(add()，set()，remove())通常开销很大。</p>
+<p>4、迭代器支持<code>hasNext(),next()</code>等不可变操作，但是不支持<code>remove()</code>操作。</p>
+<p>5、迭代器遍历很快，而且基于数组快照，不会与其他线程产生冲突。</p>
+<p>5、本质上使用的是互斥锁，即读写不能同时存在。</p>
+<p>6、是一个动态数组，底层使用的是volatile修饰的数组，每次进行增删改操作时，都会新建一个数组，然后赋值给volatile修饰的数组，因此效率贼低，但是遍历操作效率很高。</p>
+<p>7、线程安全，因为每次修改时，都会拿到一个互斥锁，修改完毕后，释放锁，保证了线程安全。</p>
+<h4 id="CopyOnWriteArraySet"><a href="#CopyOnWriteArraySet" class="headerlink" title="CopyOnWriteArraySet"></a>CopyOnWriteArraySet</h4><p>1、相当于线程安全的HashSet。</p>
+<p>2、<code>HashSet</code>底层是一个散列表(<code>HashMap</code>)，而<code>CopyOnWriteArraySet</code>底层是<code>CopyOnWriteArrayList</code>。</p>
+<p>3、所有特性都和<code>CopyOnWriteArrayList</code>差不多，也是由volatile和互斥锁实现的。</p>
+<p>4、不允许重复，通过<code>addIfAbsent()</code>和<code>addAllAbsent()</code>方法实现添加功能，并且仅当数据不存在时才添加。</p>
+<h4 id="ConcurrentSkipListSet"><a href="#ConcurrentSkipListSet" class="headerlink" title="ConcurrentSkipListSet"></a>ConcurrentSkipListSet</h4><p>1、相当于线程安全的TreeSet</p>
+<p>2、其他和上面类似。</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p><strong>ConcurrentHashMap</strong></p>
+<p>ConcurrentHashMap是一个线程安全的哈希表，在jdk1.8之前都是通过<strong>锁分段</strong>来实现的，底层有Segment数组和Entry数组实现，Segment是一种可重入锁ReentrantLock，用于锁住每一段的数据，而Entry存放的是键值对数据，两者都是由数组加链表的结构组成。</p>
+<p>锁分段技术是将数据分成一段一段的存储，然后每一段数据分配一把锁，当一个线程占用锁访问其中一个段数据时，其他数据也能同时被访问，这就大大提高了性能，但是有的方法需要跨段，比如<code>size()和containsValue()</code>，这时候就需要按顺序锁住所有段，操作完成后，再依次按顺序释放所有段，如果顺序混乱就可能出现死锁现象。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/17755742-0aeb208cbf2192f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/502/format/webp" alt="img"></p>
+<p>但是在1.8之后就抛弃了Segment锁分段机制，采用了CAS+synchronized来保证并发的安全性。</p>
+<p>数组结构则是：数组+链表+红黑树。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/17755742-84349c0ca1005c43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/446/format/webp" alt="img"></p>
+<p>HashMap在1.8之前用的时头插法，put操作会导致CPU达到100%，而1.8之后采用了尾插法，避免了这个问题。</p>
+<p><strong>Hashtable和ConcurrentHashMap区别</strong></p>
+<ul>
+<li>Hashtable时阻塞的，使用的是一个全局锁来保证线程安全，同一时刻只能有一个线程获取锁，其他线程都得等待，虽然能保证并发安全，但是也导致容器使用起来效率极低，但是好处是总是能获取到最新的更新信息。</li>
+<li>ConcurrentHashMap（1.8之前）是非阻塞的，在更新时候会局部锁住一部分数据，不会把整个表锁住，效率很高，但是读取操作不能保证反应最近的更新。如果A线程putAll操作写入大量数据，B线程要调用get读取，那么只能get到目前为止已经顺利插入的部分数据。</li>
+</ul>
 
       
     </div>
@@ -526,7 +738,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JUC知识总结"><span class="nav-number">1.</span> <span class="nav-text">JUC知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JUC知识总结"><span class="nav-number">1.</span> <span class="nav-text">JUC知识总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子类"><span class="nav-number">2.</span> <span class="nav-text">原子类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本原子类介绍"><span class="nav-number">2.1.</span> <span class="nav-text">基本原子类介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型原子类介绍"><span class="nav-number">2.2.</span> <span class="nav-text">数组类型原子类介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型原子类介绍"><span class="nav-number">2.3.</span> <span class="nav-text">引用类型原子类介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的属性修改类型原子类"><span class="nav-number">2.4.</span> <span class="nav-text">对象的属性修改类型原子类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUC锁"><span class="nav-number">3.</span> <span class="nav-text">JUC锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池"><span class="nav-number">4.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.2.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务执行的过程"><span class="nav-number">4.3.</span> <span class="nav-text">任务执行的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种拒绝策略"><span class="nav-number">4.4.</span> <span class="nav-text">四种拒绝策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到异常怎么做"><span class="nav-number">4.5.</span> <span class="nav-text">遇到异常怎么做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池工作队列"><span class="nav-number">4.6.</span> <span class="nav-text">线程池工作队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种常用的线程池"><span class="nav-number">4.7.</span> <span class="nav-text">几种常用的线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用无界的阻塞队列会导致OOM"><span class="nav-number">4.8.</span> <span class="nav-text">使用无界的阻塞队列会导致OOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池状态"><span class="nav-number">4.9.</span> <span class="nav-text">线程池状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合（容器）"><span class="nav-number">5.</span> <span class="nav-text">集合（容器）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List和Set"><span class="nav-number">5.1.</span> <span class="nav-text">List和Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">5.1.1.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArraySet"><span class="nav-number">5.1.2.</span> <span class="nav-text">CopyOnWriteArraySet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentSkipListSet"><span class="nav-number">5.1.3.</span> <span class="nav-text">ConcurrentSkipListSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">5.2.</span> <span class="nav-text">Map</span></a></li></ol></li></ol></div>
             
 
           </div>
