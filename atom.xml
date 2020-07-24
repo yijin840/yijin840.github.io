@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-07-24T14:13:52.682Z</updated>
+  <updated>2020-07-24T18:22:23.534Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql锁详解</title>
+    <link href="http://wysblogs.top/2020/07/25/mysql%E9%94%81%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://wysblogs.top/2020/07/25/mysql锁详解/</id>
+    <published>2020-07-24T18:19:16.000Z</published>
+    <updated>2020-07-24T18:22:23.534Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql锁详解"><a href="#mysql锁详解" class="headerlink" title="mysql锁详解"></a>mysql锁详解</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>百度一面面经</title>
@@ -46,9 +71,9 @@
     <link href="http://wysblogs.top/2020/07/24/Tomcat%E5%8E%9F%E7%90%86/"/>
     <id>http://wysblogs.top/2020/07/24/Tomcat原理/</id>
     <published>2020-07-24T00:51:33.000Z</published>
-    <updated>2020-07-24T00:51:49.378Z</updated>
+    <updated>2020-07-24T18:21:21.293Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p># </p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li><li></li></ul>]]></content>
     
     <summary type="html">
     
@@ -59,6 +84,10 @@
     
     </summary>
     
+      <category term="tomcat" scheme="http://wysblogs.top/categories/tomcat/"/>
+    
+    
+      <category term="tomcat" scheme="http://wysblogs.top/tags/tomcat/"/>
     
   </entry>
   
@@ -478,31 +507,6 @@
     
     
       <category term="计算机网络" scheme="http://wysblogs.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux常用命令（持续更新）</title>
-    <link href="http://wysblogs.top/2020/07/22/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
-    <id>http://wysblogs.top/2020/07/22/linux常用命令（持续更新）/</id>
-    <published>2020-07-22T08:23:06.000Z</published>
-    <updated>2020-07-23T04:18:23.332Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="linux" scheme="http://wysblogs.top/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://wysblogs.top/tags/linux/"/>
     
   </entry>
   

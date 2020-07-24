@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="tomcat,">
 
 
 
@@ -81,17 +81,20 @@
 
 
 
-<meta name="description" content="#">
+<meta name="description" content="Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container  Connector：处理连接相关内容，并提供Socket">
+<meta name="keywords" content="tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat原理">
 <meta property="og:url" content="http://wysblogs.top/2020/07/24/Tomcat原理/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="#">
+<meta property="og:description" content="Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container  Connector：处理连接相关内容，并提供Socket">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-24T00:51:49.378Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2020-07-24T18:21:21.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat原理">
-<meta name="twitter:description" content="#">
+<meta name="twitter:description" content="Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container  Connector：处理连接相关内容，并提供Socket">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
@@ -336,6 +339,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tomcat/" itemprop="url" rel="index">
+                    <span itemprop="name">tomcat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -363,7 +388,15 @@
       
 
       
-        <p># </p>
+        <h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p>
+<p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p>
+<h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p>核心容器和<code>Connector</code>和<code>Container</code></p>
+<ul>
+<li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li>
+<li>Container：核心容器，封装和管理Servlet，处理Request请求。</li>
+<li></li>
+</ul>
 
       
     </div>
@@ -396,6 +429,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
+          
+        </div>
       
 
       
@@ -470,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -488,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -499,7 +547,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -510,7 +558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -573,6 +621,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat原理"><span class="nav-number">1.</span> <span class="nav-text">Tomcat原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整体架构"><span class="nav-number">1.2.</span> <span class="nav-text">整体架构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
