@@ -81,15 +81,20 @@
 
 
 
+<meta name="description" content="Session和Cookie区别什么是sessionSession代表服务器和客户端一次会话的过程。 Session对象存储特定用户会话所需的属性及配置信息。 用户在应用程序的WEB页跳转时，存储在Session对象的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者Session超时失效时会话结束。 什么是cookiecookie是服务器发送到用户浏览器并保存在本地的一小块">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Session和Cookie区别">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/Session和Cookie区别/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="Session和Cookie区别什么是sessionSession代表服务器和客户端一次会话的过程。 Session对象存储特定用户会话所需的属性及配置信息。 用户在应用程序的WEB页跳转时，存储在Session对象的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者Session超时失效时会话结束。 什么是cookiecookie是服务器发送到用户浏览器并保存在本地的一小块">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T04:13:16.386Z">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-e651da81c8a95d8ddbdbc9e43cc8a082_1440w.jpg">
+<meta property="og:updated_time" content="2020-07-24T01:38:18.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Session和Cookie区别">
+<meta name="twitter:description" content="Session和Cookie区别什么是sessionSession代表服务器和客户端一次会话的过程。 Session对象存储特定用户会话所需的属性及配置信息。 用户在应用程序的WEB页跳转时，存储在Session对象的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者Session超时失效时会话结束。 什么是cookiecookie是服务器发送到用户浏览器并保存在本地的一小块">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-e651da81c8a95d8ddbdbc9e43cc8a082_1440w.jpg">
 
 
 
@@ -383,7 +388,28 @@
       
 
       
-        
+        <h1 id="Session和Cookie区别"><a href="#Session和Cookie区别" class="headerlink" title="Session和Cookie区别"></a>Session和Cookie区别</h1><h2 id="什么是session"><a href="#什么是session" class="headerlink" title="什么是session"></a>什么是session</h2><p>Session代表服务器和客户端一次会话的过程。</p>
+<p>Session对象存储特定用户会话所需的属性及配置信息。</p>
+<p>用户在应用程序的WEB页跳转时，存储在Session对象的变量将不会丢失，而是在整个用户会话中一直存在下去。当客户端关闭会话，或者Session超时失效时会话结束。</p>
+<h2 id="什么是cookie"><a href="#什么是cookie" class="headerlink" title="什么是cookie"></a>什么是cookie</h2><p>cookie是服务器发送到用户浏览器并保存在本地的一小块数据，他会在浏览器下向同一服务器再发起请求时带上并再次发送到服务器。</p>
+<p>它会告知服务端两个请求是否来自同一浏览器，如保持用户的登陆状态。</p>
+<p>Cookie使基于无状态的HTTP协议记录稳定的状态信息成为了可能。</p>
+<p><strong>Cookie主要用于以下三个方面</strong></p>
+<ul>
+<li>会话管理（如用户登陆状态，购物车等）</li>
+<li>个性化设置（如用户自定义设置，主题等）</li>
+<li>浏览器行为跟踪（如跟踪分析用户行为等）</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li><strong>作用范围不同：</strong>Cookie在客户端，Session在服务端。</li>
+<li><strong>存取方式不同：</strong>Cookie只能保存ASCII，Session能保存各种类型，一般情况下我们可以保存一些变量信息。</li>
+<li><strong>有效期不同：</strong>Cookie可设置为长时间保持，比如我们经常使用的登录功能，Session失效时间比较短，客户端关闭或者Session超时都会失效。</li>
+<li><strong>隐私策略不同：</strong>Cookie在客户端，不安全，Session存储在服务端，安全性相对较高。</li>
+<li><strong>存储大小不同：</strong>单个Cookie保存的数据不能超过4K，Session则远远高于Cookie。</li>
+</ul>
+<h2 id="为什么要用这些"><a href="#为什么要用这些" class="headerlink" title="为什么要用这些"></a>为什么要用这些</h2><p>因为HTTP请求是无协议，无状态的，当与服务端交互时，需要Cookie来告诉服务器谁在登录，还有Session配合执行操作。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-e651da81c8a95d8ddbdbc9e43cc8a082_1440w.jpg" alt="img"></p>
+
       
     </div>
     
@@ -495,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,6 +633,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Session和Cookie区别"><span class="nav-number">1.</span> <span class="nav-text">Session和Cookie区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是session"><span class="nav-number">1.1.</span> <span class="nav-text">什么是session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是cookie"><span class="nav-number">1.2.</span> <span class="nav-text">什么是cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.3.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用这些"><span class="nav-number">1.4.</span> <span class="nav-text">为什么要用这些</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
