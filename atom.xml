@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-07-24T18:22:23.534Z</updated>
+  <updated>2020-07-25T00:58:25.025Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://wysblogs.top/2020/07/25/mysql%E9%94%81%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/25/mysql锁详解/</id>
     <published>2020-07-24T18:19:16.000Z</published>
-    <updated>2020-07-24T18:22:23.534Z</updated>
+    <updated>2020-07-25T00:58:25.025Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql锁详解"><a href="#mysql锁详解" class="headerlink" title="mysql锁详解"></a>mysql锁详解</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql锁详解"><a href="#mysql锁详解" class="headerlink" title="mysql锁详解"></a>mysql锁详解</h1><p>mysql的锁可以用两种情况区分</p><p>按粒度分为 行锁,页锁,表锁 </p><p>按用法有共享锁和排他锁</p><h2 id="按粒度来分"><a href="#按粒度来分" class="headerlink" title="按粒度来分"></a>按粒度来分</h2><h3 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h3><p>行锁是锁粒度最细的一个锁了,表示只对自己当前操作的行加锁.</p><p>行锁操作可以大大的减少数据库操作带来的冲突,但是加速开销太大</p><p>行锁分为共享锁和排他锁.</p><p>特点: 开销大,可能会出现死锁,并发程度高,锁冲突概率最低.</p><h3 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h3><p>表锁是mysql锁粒度最大的一个锁, 表示对当前操作的整张表都加锁, 资源消耗大, 被大部分引擎都支持.</p><p>表锁分为 共享锁 和 排他锁</p><p>特点: 开销小, 加锁快, 不会出现死锁, 锁粒度大, 发生冲突的概率最大, 并发性最低.</p><h3 id="页锁"><a href="#页锁" class="headerlink" title="页锁"></a>页锁</h3><p>页级锁是mysql中锁粒度一般的锁, 一般都是在行锁和表锁之间.</p><p>表锁速度快,但是冲突多, 行锁冲突少, 但是速度慢, 于是采用 页锁的比较多.</p><p>页锁是一次锁定相邻的一组记录开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</p><h2 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h2><p>悲观锁是一种悲观的并发控制线程访问的一个方法.</p><p>它可以阻止一个事务以影响其他用户的方式来修改数据.</p><p>如果一个事务的操作的某行数据加了锁, 那么只有当这个事务把锁释放了, 其他事物才能够执行和该锁冲突的操作.</p><p>悲观锁主要用于数据竞争比较激烈的环境 还有 并发冲突时维护锁的成本低于回滚成本的环境中.</p><p><strong>使用:</strong>如果要对数据修改,先给这个数据添加排他锁,如果添加失败,那么说明正在被使用, 因此要等待或者抛异常.</p><p>优点: 保证了数据的安全和完整性</p><p>缺点: 效率低,会让数据库产生额外开销,还有可能出现死锁, 在只读的事务中不会产生冲突, 这样做会增加系统开销, 降低了并行.</p><h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><p>乐观锁是一种乐观的并发控制线程访问的一个方法.</p><p>它假设在并发处理事务时,都不会相互影响, 各事务能够在不产生锁的情况下处理各自影响的那部分数据.</p><p>就是只在提交的时候进行判断是否冲突</p><p>提交数据时判断有没有其他事务修改数据, 如果数据被修改了,那么就回滚.</p><p>乐观锁不会使用数据库提供的锁机制, 一般的实现乐观锁的方式就是记录数据版本, 即添加一行字段 version , 如果提交时发现字段一致, 就更新数据 , 否则就回滚.</p><p>实现乐观锁两种方式: 版本号 和 时间戳</p><p>乐观锁原理就是 CAS 操作</p><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>innodb 支持行锁 和 表锁 默认是支持行锁</p><p>innodb行锁是个索引加锁实现的, 意思就是只有通过索引条件检索数据, InnoDB才使用行级锁, 否则 InnoDB使用表锁 , 实际中我们要注意这种情况, 不然会产生大量冲突.</p><p>当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。</p><p>即便 在 数据库设置了索引, 但是是否用索引 还是根据mysql 通过判断不同 执行计划代价来决定的, 如果 mysql 认为全表扫描效率高, 例如一些很小的表, 他就不会使用索引, 这种情况下 就会使用 表锁.</p><h2 id="索引和锁"><a href="#索引和锁" class="headerlink" title="索引和锁"></a>索引和锁</h2><p>在mysql中, 行锁不是直接锁记录, 而是锁的时索引.</p><p>索引分为主键索引和非主键索引, 如果mysql操作了主键索引, 那么就锁主键索引, 如果走的索引是 非主键索引, 那么先锁非主键索引, 再锁相关的主键索引.</p><p><strong>死锁:</strong>一个事务锁了主键索引, 另一个事务锁了非主键索引, 在等主键索引, 就造成了死锁.</p><p>死锁后 InnoDB都可以检查到, 并使一个事务释放锁并回退, 另一个获取锁完成事务.</p><p>*<em>避免死锁: *</em></p><ul><li>尽量有序访问表</li><li>尽量一次锁定所需要的所有资源</li><li>也可以升级锁粒度</li></ul>]]></content>
     
     <summary type="html">
     
@@ -71,9 +71,9 @@
     <link href="http://wysblogs.top/2020/07/24/Tomcat%E5%8E%9F%E7%90%86/"/>
     <id>http://wysblogs.top/2020/07/24/Tomcat原理/</id>
     <published>2020-07-24T00:51:33.000Z</published>
-    <updated>2020-07-24T18:21:21.293Z</updated>
+    <updated>2020-07-25T09:56:27.848Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li><li></li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li></ul><h2 id="三种Connector运行模式"><a href="#三种Connector运行模式" class="headerlink" title="三种Connector运行模式"></a>三种Connector运行模式</h2><ul><li><strong>BIO</strong>：同步阻塞IO，一个线程处理一个请求，同时把其他线程阻塞，并发量高时，线程多，导致性能严重下降</li><li><strong>NIO</strong>：异步非阻塞IO，一个线程处理多个Connection，多路复用，使用较少的线程执行较多的请求。</li><li><strong>APR</strong>：异步非阻塞IO，和NIO在操作系统层面不同，不需要关注进度问题。</li></ul><h2 id="Tomcat工作模式"><a href="#Tomcat工作模式" class="headerlink" title="Tomcat工作模式"></a>Tomcat工作模式</h2><p>Tomcat作为servlet容器，有三种工作模式：</p><ul><li>1、<strong>独立的servlet容器</strong>，servlet容器是web服务器的一部分；</li><li>2、<strong>进程内的servlet容器</strong>，servlet容器是作为web服务器的插件和java容器的实现，web服务器插件在内部地址空间打开一个jvm使得java容器在内部得以运行。反应速度快但伸缩性不足；</li><li>3、<strong>进程外的servlet容器</strong>，servlet容器运行于web服务器之外的地址空间，并作为web服务器的插件和java容器实现的结合。反应时间不如进程内但伸缩性和稳定性比进程内优；</li></ul><p>进入Tomcat的请求可以根据Tomcat的工作模式分为如下两类：</p><ul><li>Tomcat作为<strong>应用程序服务器</strong>：请求来自于前端的web服务器，这可能是Apache, IIS, Nginx等；</li><li>Tomcat作为<strong>独立服务器</strong>：请求来自于web浏览器；</li></ul><h2 id="Tomcat违背双亲委派模型"><a href="#Tomcat违背双亲委派模型" class="headerlink" title="Tomcat违背双亲委派模型"></a>Tomcat违背双亲委派模型</h2><p>首先谈一下Tomcat要实现的目的：</p><ul><li>运行多个web程序，并且各个依赖的类库相互独立，相互隔离。</li><li>部署在同一个web容器下的相同类库可以共享。</li><li>web容器自己类库不能与程序冲突。</li><li>需要更改jsp后不用重启。</li></ul><p><strong>Tomcat类加载器</strong></p><p><img src="https://upload-images.jianshu.io/upload_images/4236553-89bacc3467d513f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/462/format/webp" alt="img"></p><p>双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。</p><p>tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器</p><p>、</p>]]></content>
     
     <summary type="html">
     
@@ -121,9 +121,9 @@
     <link href="http://wysblogs.top/2020/07/23/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E7%82%B9/"/>
     <id>http://wysblogs.top/2020/07/23/面对对象三大特点/</id>
     <published>2020-07-23T04:19:47.000Z</published>
-    <updated>2020-07-23T04:20:03.097Z</updated>
+    <updated>2020-07-25T13:07:55.825Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="面向对象三大特点"><a href="#面向对象三大特点" class="headerlink" title="面向对象三大特点"></a>面向对象三大特点</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>就是把自己的类给封装起来，只暴露出想让外界访问的接口和数据，保证了类的安全性。</p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>OOP的一个主要功能，通过继承来实现代码的复用。                                                                                                                                                                                                                                                        </p><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>同一个操作，作用于不同的对象，会产生不同的结果。</p><p>多态的好处是可以解耦合，灵活，面向接口编程，</p>]]></content>
     
     <summary type="html">
     
@@ -171,9 +171,9 @@
     <link href="http://wysblogs.top/2020/07/22/native%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     <id>http://wysblogs.top/2020/07/22/native关键字/</id>
     <published>2020-07-22T08:49:56.000Z</published>
-    <updated>2020-07-23T04:10:57.219Z</updated>
+    <updated>2020-07-25T10:08:40.655Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Native关键字"><a href="#Native关键字" class="headerlink" title="Native关键字"></a>Native关键字</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>java调用本地API方法的关键字，不需要让java实现，让C++去实现。</p><p>JNI是Java Native Interface的 缩写，JNI允许java和其他语言进行交互，但是这样会丧失平台可移植性。</p><p>JNI标准至少保证本地代码能工作在任何java虚拟机下。</p><p><code>public static native void a(int a);</code></p><p>native关键字修饰的方法不需要实现，交给C或C++语言实现即可</p><p>如果想要调用native方法，自己可以实现一个，然后编译到动态库中，在java中加载动态库即可。</p>]]></content>
     
     <summary type="html">
     
@@ -221,9 +221,9 @@
     <link href="http://wysblogs.top/2020/07/22/final%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/22/final关键字详解/</id>
     <published>2020-07-22T08:40:22.000Z</published>
-    <updated>2020-07-23T04:18:48.610Z</updated>
+    <updated>2020-07-25T14:16:45.677Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Final关键字"><a href="#Final关键字" class="headerlink" title="Final关键字"></a>Final关键字</h1><p><strong>final关键字可以修饰的地方：</strong></p><ul><li><strong>类：</strong>类不能被继承</li><li><strong>方法：</strong>不能被重写</li><li><strong>变量：</strong>不能被改变</li><li><strong>修饰引用类型：</strong>引用类型的内存地址不可变，指向的值可以变。</li></ul><p>final 修饰的变量 会直接放在变量池中，如果一个类调用final修饰的变量是不会加载类的</p><p>如：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(demo.s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String s = <span class="string">"1"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"静态代码块"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure><p>直接输出1，不会加载静态代码块</p>]]></content>
     
     <summary type="html">
     
@@ -246,9 +246,9 @@
     <link href="http://wysblogs.top/2020/07/22/Object%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://wysblogs.top/2020/07/22/Object类的方法/</id>
     <published>2020-07-22T08:37:05.000Z</published>
-    <updated>2020-07-23T04:18:05.247Z</updated>
+    <updated>2020-07-25T17:37:35.276Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Object类方法"><a href="#Object类方法" class="headerlink" title="Object类方法"></a>Object类方法</h1><p>Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？</p><p>（1）clone方法</p><p>保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。</p><p>（2）getClass方法</p><p>final方法，获得运行时类型。</p><p>（3）toString方法</p><p>该方法用得比较多，一般子类都有覆盖。</p><p>（4）finalize方法</p><p>该方法用于释放资源。因为无法确定该方法什么时候被调用，很少使用。</p><p>（5）equals方法</p><p>该方法是非常重要的一个方法。一般equals和==是不一样的，但是在Object中两者是一样的。子类一般都要重写这个方法。</p><p>（6）hashCode方法</p><p>该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。</p><p>一般必须满足obj1.equals(obj2)true。可以推出obj1.hash- Code()==obj2.hashCode()，但是hashCode相等不一定就满足equals。不过为了提高效率，应该尽量使上面两个条件接近等价。</p><p>（7）wait方法</p><p>wait方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。</p><p>调用该方法后当前线程进入睡眠状态，直到以下事件发生。</p><p>（1）其他线程调用了该对象的notify方法。</p><p>（2）其他线程调用了该对象的notifyAll方法。</p><p>（3）其他线程调用了interrupt中断该线程。</p><p>（4）时间间隔到了。</p><p>此时该线程就可以被调度了，如果是被中断的话就抛出一个InterruptedException异常。</p><p>（8）notify方法</p><p>该方法唤醒在该对象上等待的某个线程。</p><p>（9）notifyAll方法</p><p>该方法唤醒在该对象上等待的所有线程。</p><blockquote><p>引用来自：<a href="https://www.php.cn/faq/416709.html" target="_blank" rel="noopener">https://www.php.cn/faq/416709.html</a></p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -269,9 +269,9 @@
     <link href="http://wysblogs.top/2020/07/22/String%E5%92%8CStringBuffer-StringBuilder%E5%8C%BA%E5%88%AB/"/>
     <id>http://wysblogs.top/2020/07/22/String和StringBuffer-StringBuilder区别/</id>
     <published>2020-07-22T08:36:22.000Z</published>
-    <updated>2020-07-23T04:13:34.937Z</updated>
+    <updated>2020-07-25T17:29:44.291Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="String和StringBuffer-StringBuilder区别"><a href="#String和StringBuffer-StringBuilder区别" class="headerlink" title="String和StringBuffer,StringBuilder区别"></a>String和StringBuffer,StringBuilder区别</h1><ul><li><p>String类是不可变的，而StringBuffer和StringBuilder是可变的</p></li><li><p>String一旦修改，就会重新开辟一块内存来存储修改的对象。</p></li><li><p>如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。</p></li><li><p>频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringBuffer会建立一个缓冲区，所以速度会大于String</p></li><li><p>StringBuffer方法都加了锁，所以效率可能比StringBuilder更低，但是安全性来说，StringBuffer更好。</p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -390,9 +390,9 @@
     <link href="http://wysblogs.top/2020/07/22/%E9%87%8D%E5%86%99equals%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode/"/>
     <id>http://wysblogs.top/2020/07/22/重写equals为什么要重写hashcode/</id>
     <published>2020-07-22T08:29:11.000Z</published>
-    <updated>2020-07-23T04:15:43.601Z</updated>
+    <updated>2020-07-25T17:02:05.231Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="重写equals为什么要重写hashcode"><a href="#重写equals为什么要重写hashcode" class="headerlink" title="重写equals为什么要重写hashcode"></a>重写equals为什么要重写hashcode</h1><h2 id="hashcode规范"><a href="#hashcode规范" class="headerlink" title="hashcode规范"></a>hashcode规范</h2><ol><li>当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。</li><li>如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必须产生的 结果是相同的整数。</li><li>如果两个对象根据 equals(Object) 方法比较并不相等，则不要求在每个对象上调用 hashCode 都必须产生不同的结果。但是，程序员应该意识到，为不相等的对象生成不同的结果可能会提高散列表（hash tables） 的性能。</li></ol><h2 id="为什么重写hashcode"><a href="#为什么重写hashcode" class="headerlink" title="为什么重写hashcode"></a>为什么重写hashcode</h2><p>因为要遵守equals的规范（第二条），如果重写了equals的话，如果equals比较相同，那么hashcode也要相同，</p><p>如果在hashmap中没有重写hashcode的话，会出现问题，因为在hashmap中，hashcode是用来作为对象访问定位的，如果重写了String的equals方法的话，put添加值的话，会将完全相同的两个key值存到不同位置。导致出现问题。</p>]]></content>
     
     <summary type="html">
     
@@ -415,9 +415,9 @@
     <link href="http://wysblogs.top/2020/07/22/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/"/>
     <id>http://wysblogs.top/2020/07/22/接口和抽象类/</id>
     <published>2020-07-22T08:28:27.000Z</published>
-    <updated>2020-07-23T04:11:32.653Z</updated>
+    <updated>2020-07-25T12:00:53.627Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="接口和抽象类"><a href="#接口和抽象类" class="headerlink" title="接口和抽象类"></a>接口和抽象类</h1><ul><li>接口只能被实现，抽象类只能被继承</li><li>接口中的成员变量都是用<code>public static final</code>修饰的，默认都是可省略的</li><li>接口的方法都是<code>public abstract</code>修饰的，默认也都是可省略的</li><li>接口支持多实现，一个子类可以实现多个接口，但是抽象类只能被单继承，一个子类只能继承一个父类</li><li>在1.8之前，接口中不能有方法体，但是在1.8新添加了<code>default method</code>，可以实现方法体</li><li>在抽象类中，抽象方法不能有方法体，可以有普通方法，实现方法体</li><li>接口和抽象类都不能被实例化</li><li>final不能修饰接口和抽象类，因为不能被继承，所以就没有意义</li></ul>]]></content>
     
     <summary type="html">
     
@@ -440,9 +440,9 @@
     <link href="http://wysblogs.top/2020/07/22/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/"/>
     <id>http://wysblogs.top/2020/07/22/重载和重写/</id>
     <published>2020-07-22T08:28:14.000Z</published>
-    <updated>2020-07-23T04:18:34.092Z</updated>
+    <updated>2020-07-25T12:37:09.608Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h1><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><ul><li>重载是在同一个类中或者子类中实现。</li><li>被重载的方法必须改变参数列表或者参数类型</li><li>被重载的方法可以改变返回类型</li><li>被重载的方法可以改变访问修饰符，但是修饰符权限只能比被重载的方法大</li><li>无法以返回值类型作为重载的依据</li></ul><h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ul><li>父类的方法只能被子类重写</li><li>参数列表和参数类型都必须和被重写的方法一样</li><li>访问权限不能比被重写的方法低</li><li>声明final的方法不能被重写</li><li>声明static的方法不能被重写，但能够被再次声明</li><li>构造方法不能被重写</li><li>如果没有继承这个方法也不能被重写</li></ul>]]></content>
     
     <summary type="html">
     
@@ -465,9 +465,9 @@
     <link href="http://wysblogs.top/2020/07/22/equals-%E5%92%8C/"/>
     <id>http://wysblogs.top/2020/07/22/equals-和/</id>
     <published>2020-07-22T08:27:23.000Z</published>
-    <updated>2020-07-23T04:16:37.987Z</updated>
+    <updated>2020-07-25T17:35:25.235Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="equals-和"><a href="#equals-和" class="headerlink" title="equals 和 =="></a>equals 和 ==</h1><h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><p>这个是Object类中的方法，如果没有重写的话，默认就是比较的是内存地址是否相同</p><p><strong>String类</strong>重写了equals方法，比较的是两个字符串是否相同。</p><h2 id><a href="#" class="headerlink" title="=="></a>==</h2><p>这个一般比较的是基本数据类型，判断值是否相同。</p><p>但是在引用类型中，比较的是内存地址是否相同。</p><p><strong>具体可以通过敲代码来理解记忆。</strong></p>]]></content>
     
     <summary type="html">
     

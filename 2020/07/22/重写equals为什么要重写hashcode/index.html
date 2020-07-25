@@ -81,15 +81,18 @@
 
 
 
+<meta name="description" content="重写equals为什么要重写hashcodehashcode规范 当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。 如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重写equals为什么要重写hashcode">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/重写equals为什么要重写hashcode/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="重写equals为什么要重写hashcodehashcode规范 当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。 如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T04:15:43.601Z">
+<meta property="og:updated_time" content="2020-07-25T17:02:05.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重写equals为什么要重写hashcode">
+<meta name="twitter:description" content="重写equals为什么要重写hashcodehashcode规范 当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。 如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必">
 
 
 
@@ -383,7 +386,14 @@
       
 
       
-        
+        <h1 id="重写equals为什么要重写hashcode"><a href="#重写equals为什么要重写hashcode" class="headerlink" title="重写equals为什么要重写hashcode"></a>重写equals为什么要重写hashcode</h1><h2 id="hashcode规范"><a href="#hashcode规范" class="headerlink" title="hashcode规范"></a>hashcode规范</h2><ol>
+<li>当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。</li>
+<li>如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必须产生的 结果是相同的整数。</li>
+<li>如果两个对象根据 equals(Object) 方法比较并不相等，则不要求在每个对象上调用 hashCode 都必须产生不同的结果。但是，程序员应该意识到，为不相等的对象生成不同的结果可能会提高散列表（hash tables） 的性能。</li>
+</ol>
+<h2 id="为什么重写hashcode"><a href="#为什么重写hashcode" class="headerlink" title="为什么重写hashcode"></a>为什么重写hashcode</h2><p>因为要遵守equals的规范（第二条），如果重写了equals的话，如果equals比较相同，那么hashcode也要相同，</p>
+<p>如果在hashmap中没有重写hashcode的话，会出现问题，因为在hashmap中，hashcode是用来作为对象访问定位的，如果重写了String的equals方法的话，put添加值的话，会将完全相同的两个key值存到不同位置。导致出现问题。</p>
+
       
     </div>
     
@@ -495,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,6 +617,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重写equals为什么要重写hashcode"><span class="nav-number">1.</span> <span class="nav-text">重写equals为什么要重写hashcode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hashcode规范"><span class="nav-number">1.1.</span> <span class="nav-text">hashcode规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么重写hashcode"><span class="nav-number">1.2.</span> <span class="nav-text">为什么重写hashcode</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[mysql锁详解]]></title>
     <url>%2F2020%2F07%2F25%2Fmysql%E9%94%81%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[mysql锁详解]]></content>
+    <content type="text"><![CDATA[mysql锁详解mysql的锁可以用两种情况区分 按粒度分为 行锁,页锁,表锁 按用法有共享锁和排他锁 按粒度来分行锁行锁是锁粒度最细的一个锁了,表示只对自己当前操作的行加锁. 行锁操作可以大大的减少数据库操作带来的冲突,但是加速开销太大 行锁分为共享锁和排他锁. 特点: 开销大,可能会出现死锁,并发程度高,锁冲突概率最低. 表锁表锁是mysql锁粒度最大的一个锁, 表示对当前操作的整张表都加锁, 资源消耗大, 被大部分引擎都支持. 表锁分为 共享锁 和 排他锁 特点: 开销小, 加锁快, 不会出现死锁, 锁粒度大, 发生冲突的概率最大, 并发性最低. 页锁页级锁是mysql中锁粒度一般的锁, 一般都是在行锁和表锁之间. 表锁速度快,但是冲突多, 行锁冲突少, 但是速度慢, 于是采用 页锁的比较多. 页锁是一次锁定相邻的一组记录开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。 悲观锁悲观锁是一种悲观的并发控制线程访问的一个方法. 它可以阻止一个事务以影响其他用户的方式来修改数据. 如果一个事务的操作的某行数据加了锁, 那么只有当这个事务把锁释放了, 其他事物才能够执行和该锁冲突的操作. 悲观锁主要用于数据竞争比较激烈的环境 还有 并发冲突时维护锁的成本低于回滚成本的环境中. 使用:如果要对数据修改,先给这个数据添加排他锁,如果添加失败,那么说明正在被使用, 因此要等待或者抛异常. 优点: 保证了数据的安全和完整性 缺点: 效率低,会让数据库产生额外开销,还有可能出现死锁, 在只读的事务中不会产生冲突, 这样做会增加系统开销, 降低了并行. 乐观锁乐观锁是一种乐观的并发控制线程访问的一个方法. 它假设在并发处理事务时,都不会相互影响, 各事务能够在不产生锁的情况下处理各自影响的那部分数据. 就是只在提交的时候进行判断是否冲突 提交数据时判断有没有其他事务修改数据, 如果数据被修改了,那么就回滚. 乐观锁不会使用数据库提供的锁机制, 一般的实现乐观锁的方式就是记录数据版本, 即添加一行字段 version , 如果提交时发现字段一致, 就更新数据 , 否则就回滚. 实现乐观锁两种方式: 版本号 和 时间戳 乐观锁原理就是 CAS 操作 InnoDBinnodb 支持行锁 和 表锁 默认是支持行锁 innodb行锁是个索引加锁实现的, 意思就是只有通过索引条件检索数据, InnoDB才使用行级锁, 否则 InnoDB使用表锁 , 实际中我们要注意这种情况, 不然会产生大量冲突. 当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。 即便 在 数据库设置了索引, 但是是否用索引 还是根据mysql 通过判断不同 执行计划代价来决定的, 如果 mysql 认为全表扫描效率高, 例如一些很小的表, 他就不会使用索引, 这种情况下 就会使用 表锁. 索引和锁在mysql中, 行锁不是直接锁记录, 而是锁的时索引. 索引分为主键索引和非主键索引, 如果mysql操作了主键索引, 那么就锁主键索引, 如果走的索引是 非主键索引, 那么先锁非主键索引, 再锁相关的主键索引. 死锁:一个事务锁了主键索引, 另一个事务锁了非主键索引, 在等主键索引, 就造成了死锁. 死锁后 InnoDB都可以检查到, 并使一个事务释放锁并回退, 另一个获取锁完成事务. *避免死锁: * 尽量有序访问表 尽量一次锁定所需要的所有资源 也可以升级锁粒度]]></content>
       <categories>
         <category>mysql</category>
       </categories>
@@ -25,7 +25,7 @@
   <entry>
     <title><![CDATA[Tomcat原理]]></title>
     <url>%2F2020%2F07%2F24%2FTomcat%E5%8E%9F%E7%90%86%2F</url>
-    <content type="text"><![CDATA[Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。 Container：核心容器，封装和管理Servlet，处理Request请求。]]></content>
+    <content type="text"><![CDATA[Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。 Container：核心容器，封装和管理Servlet，处理Request请求。 三种Connector运行模式 BIO：同步阻塞IO，一个线程处理一个请求，同时把其他线程阻塞，并发量高时，线程多，导致性能严重下降 NIO：异步非阻塞IO，一个线程处理多个Connection，多路复用，使用较少的线程执行较多的请求。 APR：异步非阻塞IO，和NIO在操作系统层面不同，不需要关注进度问题。 Tomcat工作模式Tomcat作为servlet容器，有三种工作模式： 1、独立的servlet容器，servlet容器是web服务器的一部分； 2、进程内的servlet容器，servlet容器是作为web服务器的插件和java容器的实现，web服务器插件在内部地址空间打开一个jvm使得java容器在内部得以运行。反应速度快但伸缩性不足； 3、进程外的servlet容器，servlet容器运行于web服务器之外的地址空间，并作为web服务器的插件和java容器实现的结合。反应时间不如进程内但伸缩性和稳定性比进程内优； 进入Tomcat的请求可以根据Tomcat的工作模式分为如下两类： Tomcat作为应用程序服务器：请求来自于前端的web服务器，这可能是Apache, IIS, Nginx等； Tomcat作为独立服务器：请求来自于web浏览器； Tomcat违背双亲委派模型首先谈一下Tomcat要实现的目的： 运行多个web程序，并且各个依赖的类库相互独立，相互隔离。 部署在同一个web容器下的相同类库可以共享。 web容器自己类库不能与程序冲突。 需要更改jsp后不用重启。 Tomcat类加载器 双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。 tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器 、]]></content>
       <categories>
         <category>tomcat</category>
       </categories>
@@ -47,7 +47,7 @@
   <entry>
     <title><![CDATA[面对对象三大特点]]></title>
     <url>%2F2020%2F07%2F23%2F%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[面向对象三大特点封装就是把自己的类给封装起来，只暴露出想让外界访问的接口和数据，保证了类的安全性。 继承OOP的一个主要功能，通过继承来实现代码的复用。 多态同一个操作，作用于不同的对象，会产生不同的结果。 多态的好处是可以解耦合，灵活，面向接口编程，]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -69,7 +69,7 @@
   <entry>
     <title><![CDATA[native关键字]]></title>
     <url>%2F2020%2F07%2F22%2Fnative%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[Native关键字介绍java调用本地API方法的关键字，不需要让java实现，让C++去实现。 JNI是Java Native Interface的 缩写，JNI允许java和其他语言进行交互，但是这样会丧失平台可移植性。 JNI标准至少保证本地代码能工作在任何java虚拟机下。 public static native void a(int a); native关键字修饰的方法不需要实现，交给C或C++语言实现即可 如果想要调用native方法，自己可以实现一个，然后编译到动态库中，在java中加载动态库即可。]]></content>
       <categories>
         <category>java基础知识</category>
       </categories>
@@ -91,7 +91,7 @@
   <entry>
     <title><![CDATA[final关键字详解]]></title>
     <url>%2F2020%2F07%2F22%2Ffinal%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[Final关键字final关键字可以修饰的地方： 类：类不能被继承 方法：不能被重写 变量：不能被改变 修饰引用类型：引用类型的内存地址不可变，指向的值可以变。 final 修饰的变量 会直接放在变量池中，如果一个类调用final修饰的变量是不会加载类的 如： 1234567891011121314public class Main &#123; public static void main(String[] args) &#123; System.out.println(demo.s); &#125; public static class demo&#123; public static final String s = "1"; static &#123; System.out.println("静态代码块"); &#125; &#125;&#125; 11 直接输出1，不会加载静态代码块]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -102,7 +102,7 @@
   <entry>
     <title><![CDATA[Object类的方法]]></title>
     <url>%2F2020%2F07%2F22%2FObject%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[Object类方法Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？ （1）clone方法 保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。 （2）getClass方法 final方法，获得运行时类型。 （3）toString方法 该方法用得比较多，一般子类都有覆盖。 （4）finalize方法 该方法用于释放资源。因为无法确定该方法什么时候被调用，很少使用。 （5）equals方法 该方法是非常重要的一个方法。一般equals和==是不一样的，但是在Object中两者是一样的。子类一般都要重写这个方法。 （6）hashCode方法 该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。 一般必须满足obj1.equals(obj2)true。可以推出obj1.hash- Code()==obj2.hashCode()，但是hashCode相等不一定就满足equals。不过为了提高效率，应该尽量使上面两个条件接近等价。 （7）wait方法 wait方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。 调用该方法后当前线程进入睡眠状态，直到以下事件发生。 （1）其他线程调用了该对象的notify方法。 （2）其他线程调用了该对象的notifyAll方法。 （3）其他线程调用了interrupt中断该线程。 （4）时间间隔到了。 此时该线程就可以被调度了，如果是被中断的话就抛出一个InterruptedException异常。 （8）notify方法 该方法唤醒在该对象上等待的某个线程。 （9）notifyAll方法 该方法唤醒在该对象上等待的所有线程。 引用来自：https://www.php.cn/faq/416709.html]]></content>
       <tags>
         <tag>java基础</tag>
       </tags>
@@ -110,7 +110,7 @@
   <entry>
     <title><![CDATA[String和StringBuffer,StringBuilder区别]]></title>
     <url>%2F2020%2F07%2F22%2FString%E5%92%8CStringBuffer-StringBuilder%E5%8C%BA%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[String和StringBuffer,StringBuilder区别 String类是不可变的，而StringBuffer和StringBuilder是可变的 String一旦修改，就会重新开辟一块内存来存储修改的对象。 如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。 频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringBuffer会建立一个缓冲区，所以速度会大于String StringBuffer方法都加了锁，所以效率可能比StringBuilder更低，但是安全性来说，StringBuffer更好。]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -159,7 +159,7 @@
   <entry>
     <title><![CDATA[重写equals为什么要重写hashcode]]></title>
     <url>%2F2020%2F07%2F22%2F%E9%87%8D%E5%86%99equals%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[重写equals为什么要重写hashcodehashcode规范 当在一个应用程序执行过程中， 如果在 equals 方法比较中没有修改任何信息， 在一个对象上重复调用 hashCode 方法时，它必须始终返回相同的值。从一个应用程序到另一个应用程序的每一次执行返回的值 可以是不一致的。 如果两个对象根据 equals(Object) 方法比较是相等的，那么在两个对象上调用 hashCode 就必须产生的 结果是相同的整数。 如果两个对象根据 equals(Object) 方法比较并不相等，则不要求在每个对象上调用 hashCode 都必须产生不同的结果。但是，程序员应该意识到，为不相等的对象生成不同的结果可能会提高散列表（hash tables） 的性能。 为什么重写hashcode因为要遵守equals的规范（第二条），如果重写了equals的话，如果equals比较相同，那么hashcode也要相同， 如果在hashmap中没有重写hashcode的话，会出现问题，因为在hashmap中，hashcode是用来作为对象访问定位的，如果重写了String的equals方法的话，put添加值的话，会将完全相同的两个key值存到不同位置。导致出现问题。]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -170,7 +170,7 @@
   <entry>
     <title><![CDATA[接口和抽象类]]></title>
     <url>%2F2020%2F07%2F22%2F%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[接口和抽象类 接口只能被实现，抽象类只能被继承 接口中的成员变量都是用public static final修饰的，默认都是可省略的 接口的方法都是public abstract修饰的，默认也都是可省略的 接口支持多实现，一个子类可以实现多个接口，但是抽象类只能被单继承，一个子类只能继承一个父类 在1.8之前，接口中不能有方法体，但是在1.8新添加了default method，可以实现方法体 在抽象类中，抽象方法不能有方法体，可以有普通方法，实现方法体 接口和抽象类都不能被实例化 final不能修饰接口和抽象类，因为不能被继承，所以就没有意义]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -181,7 +181,7 @@
   <entry>
     <title><![CDATA[重载和重写]]></title>
     <url>%2F2020%2F07%2F22%2F%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[重载和重写重载 重载是在同一个类中或者子类中实现。 被重载的方法必须改变参数列表或者参数类型 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符，但是修饰符权限只能比被重载的方法大 无法以返回值类型作为重载的依据 重写 父类的方法只能被子类重写 参数列表和参数类型都必须和被重写的方法一样 访问权限不能比被重写的方法低 声明final的方法不能被重写 声明static的方法不能被重写，但能够被再次声明 构造方法不能被重写 如果没有继承这个方法也不能被重写]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -192,7 +192,7 @@
   <entry>
     <title><![CDATA[equals 和 ==]]></title>
     <url>%2F2020%2F07%2F22%2Fequals-%E5%92%8C%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[equals 和 ==equals这个是Object类中的方法，如果没有重写的话，默认就是比较的是内存地址是否相同 String类重写了equals方法，比较的是两个字符串是否相同。 ==这个一般比较的是基本数据类型，判断值是否相同。 但是在引用类型中，比较的是内存地址是否相同。 具体可以通过敲代码来理解记忆。]]></content>
       <categories>
         <category>java基础</category>
       </categories>
@@ -225,7 +225,7 @@
   <entry>
     <title><![CDATA[mysql事务和隔离级别]]></title>
     <url>%2F2020%2F07%2F22%2Fmysql%E4%BA%8B%E5%8A%A1%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[mysql事务和隔离级别mysql事务简介mysql的多条语句看成一个整体 事务就是保证这个整体能够同时成功，或者同时失败。 在mysql中不同的引擎对事务的支持也是不一样的 比如InnoDB支持事务， 而 MyISAM不支持事务。 所以以下说的都是mysql的事务都是以InnoDB作为引擎的 事务ACID特性 原子性：要么全都成功，要么全都失败。不会在中间某一步停留，mysql执行事务时如果出错，那么就会回滚到没执行事务之前。 一致性：事务完成前后，数据的完整性不能出错，比如转账，两个人钱的总和再转账前后不能改变，保证数据的一致性。 隔离性：数据库允许多个并发事务同时对其数据进行读写和修改，隔离性可以防止并发交替导致数据的不一致。 持久性：事务完成后，对数据的修改是永久的，即使系统故障也不会丢失。 事务的隔离级别简介事物的隔离级别是于事务的隔离性密不可分的，可以通过改变 事务的隔离级别认为以下几种： 读未提交： 任何事务修改数据之后都会暴露给其他事务 读提交：只能读取其他事务已经提交过的数据 可重复读：事务不会读到其他事务对已有数据的修改 串行化：将事务的执行变成顺序型，相当于一个单线程，安全性最高，但是效率最低 从上往下，隔离强度依次增加，性能逐渐变差，可重复读是mysql默认的隔离级别。 事务隔离要解决的问题 脏读：读取到了其他事务未提交的数据，未提交意味着读到的是数据发生了回滚，也就是读到了不存在的数据，这就是脏读。 幻读：这个是针对插入操作来说的，比如事务A更改记录时，事务B插入了一条新的记录与事务A要更改的记录一样，导致在事务A中查询发现更改的数据好像没有改变，这就是幻读。 可重复读：在一个事务中，事务开始前后读取到的数据是一致的。 不可重复读：不同时刻读取的数据是不一样的，比如其他事务提交并更改了数据。 事务隔离级别解决问题情况 总结读未提交和串行化基本上是不需要考虑的隔离级别，前者不加锁限制，后者相当于单线程执行，效率太差。 读提交解决了脏读问题，行锁解决了并发更新的问题。并且 MySQL 在可重复读级别解决了幻读问题，是通过行锁和间隙锁实现的。]]></content>
       <categories>
         <category>mysql</category>
       </categories>
@@ -278,17 +278,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Innodb探究]]></title>
-    <url>%2F2020%2F07%2F22%2FInnodb%E6%8E%A2%E7%A9%B6%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[华宇金信面经]]></title>
     <url>%2F2020%2F07%2F20%2F%E5%8D%8E%E5%AE%87%E9%87%91%E4%BF%A1%E9%9D%A2%E7%BB%8F%2F</url>
     <content type="text"><![CDATA[华宇金信面经（第一次面试）毕竟是第一次面试，凉了也没关系，可以多学一些知识 重载和重写的区别 重载 被重载的方法必须改变参数列表 被重载的方法可以改变返回类型 被重载的方法可以改变访问修饰符 被重载的方法可以声明新的或更广的检查异常 方法能够在同一个类中或者在一个子类中被重载 无法以返回值类型作为重载函数的区分标准 重写 参数列表必须完全与重写方法的相同 返回值类型与重写的返回值类型可以不相同 访问权限不能比父类中被重写的方法访问权限更低 父类的成员方法只能被子类重写 声明final的方法不能被重写 声明static的方法不能被重写，但是能够被再次声明 子类和父类在同一个包中，可以重写除了声明private和final的方法 子类和父类不在同一个包中，只能够重写父类的声明public和protected的非final方法 重写的方法可以抛出非强制性异常，无论被重写的方法是否抛出异常，但是不能抛出新的强制性异常，或者比重写方法声明更广泛的强制性异常。 构造方法不能被重写 如果不能继承一个方法，就不能重写这个方法。 接口和抽象类的区别 抽象类和接口都不能直接被实例化 抽象类要被子类继承，接口要被子类实现 接口里面只能对方法进行声明，抽象类既可以声明也可以对方法进行实现 抽象类中的抽象方法必须全部被子类实现，如果子类不能全部实现，那么子类必须也是抽象类，接口里面的方法必须全部被子类实现，如果子类不能实现那么子类必须是抽象类 接口里面的方法只能声明，但是jdk1.8有了default method方式可以进行实现。 抽象类里面可以没有抽象方法 如果一个类里面有抽象方法，那么这个类一定是抽象类 抽象类中的方法都要被实现，所以抽象方法不能是静态的static，也不能是私有的private。 接口可以继承接口，甚至可以继承多个接口，但是类只能继承一个类 抽象级别：接口 &gt; 抽象类 &gt; 实现类 抽象类主要是用来抽象类别，接口主要是用来抽象方法功能，当你关注事物的本质的时候，请用抽象类，当你关注一种操作的时候，用接口。 接口的设计具有更大的可扩展性，而抽象类的设计必须十分谨慎（要考虑到子类所具有的共同属性和方法）。 类的访问修饰符12345//public 、 default 、 abstract 、 finalpublic class Test();class Test2();abstract class Test3();final class Test4(); public 表示任何位置都可以访问该类 defalut 默认是不写的，只能在同一个包下被访问 abstract表示是个抽象类，不能实例化该类，如果要使用，必须用子类继承 final修饰的类不能给子类继承，改类为最终类，不能在被继承。 为什么 private 和 protected 不能修饰外部类 1、private：表示不能被其它类访问，这个类就失去了意义，所以private只能修饰内部类，被private修饰的类只能被该类的外部类内部使用 2、protected：同理，外部类不能访问，所以这个也没有意义。 3、内部类四种修饰符都可以被使用。 equals 和 ==1、基本数据类型用 == 比较的是值 2、引用数据类型之间用 == 比较的内存引用地址 3、引用数据类型之间使用equals比较的是地址所映射的值 SpringBoot 启动原理123456//核心注解@SpringBootApplication //这个注解包含了一下几种注解@SpringBootConfiguration //主要配置信息@EnableAutoConfiguraiton //开启自动配置，会扫描符合的bean加载到ioc容器中@ComponentScan //扫描所有的包 启动流程 1、首先执行main入口方法运行SpringAppliction.run，后面new了一个SpringApplication对象，然后执行run方法。 2、初始化SpringApplication类，创建SpringApplication对象时，会自动调用初始化方法（initialize()方法） 3、之后执行核心run()方法，然后启动SpringBoot项目。 SpringBoot内置容器undertow tomcat 默认容器 jetty SpringBoot注解 RestController 和 Controller区别1、RestController 相当于 ResponseBody + Controller注解 2、Controller 返回的是视图 3、 RestController返回的是json或者xml格式的数据 MyBits相关的函数没理解这个到底是什么玩意儿。 可能是标签之类的 12345678910select ---查询update ---更新delete ---删除insert ---插入if test ---可以使用String 类的一些方法where ---条件判断choose ---选择 --- resultType ---返回值的类型collection ---集合标签association ---关联标签 Nginx负载均衡 轮询机制Nginx 是个反代服务器 负载均衡： 将单一的重负载分担到多个网络节点上做并行处理，每个节点处理结束后汇总给用户。 将大量前端并发访问或数据流量分担到多个后端网络节点上分别处理（分流） 负载均衡策略： 内置策略 轮询 将每个前端按顺序逐一分配到后端节点上，出现问题的自动排除。 加权轮询 将每个前端按权值依次分配到后端节点上，根据权重的大小来判断每个节点被访问到的概率 IP hash 对访问ip进行hash操作，根据hash结果将请求分配到后端节点上。 扩展策略 将前端的请转发到最近负载最小的节点 算法名称排序 快速排序 堆排序 桶排序 冒泡排序 希尔排序 选择排序 插入排序 DP算法 KMP算法 快速幂 字典树 线段树 后缀数组 DFS和BFS 弗洛伊德算法，迪杰斯特拉算法 最大流，最小流 滑动窗口 数据结构 B树 和 B+树区别B树：这个是一个多路平衡查找树 特点： 每个节点最多有m-1个关键字 根节点最少可以只有1个关键字 非根节点至少有m/2个关键字 每个节点中的关键字都按照从小到大排序，每个左节点小于右节点 所有叶子节点都位于同一层，叶子节点到根节点距离都相同 每个节点都存有索引和数据，也就是对应的key和value值 根节点的关键字数量范围：1 &lt;= k &lt;= m-1，非根节点的关键字数量范围：m/2 &lt;= k &lt;= m-1。 B+树：和B树非常相似 与B树相同点： 根节点至少有一个元素 非根节点元素范围 m/2 &lt;= k &lt;= m-1 不同点： B+树有两种类型的节点：内部节点（也称索引节点）和叶子节点 每个叶子节点都存有相邻叶子节点的指针，叶子节点本身依关键字的大小自小而大顺序链接 父节点存有右孩子的第一个元素的索引 总结： 单一节点存储的元素更多，使得查询的IO次数更少，比B树更适合做mysq的底层 所有的查询都要查找到叶子节点，查询性能稳定，B树每个节点都可以查找到数据，不够稳定。 所有的叶子节点形成了有序链表，更加便于查找。 git命令行 总结基础知识差的太多了，一定要多看，多记，多理解。]]></content>
@@ -302,7 +291,7 @@
   <entry>
     <title><![CDATA[单例模式]]></title>
     <url>%2F2020%2F07%2F20%2F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[单例模式简介单例模式]]></content>
+    <content type="text"><![CDATA[单例模式简介单例模式是保证只能有一个类的实例对象，并提供一个全局访问点来访问。 单例模式就比如月亮，在任何时刻都只能保证有唯一一个，而不能有多个月亮。 结构在内部创建一个唯一实例，并提供一个静态的getInstance()方法来访问这个实例，为了防止外部对类的实例化，还需要把构造方法进行私有化。 饿汉式单例模式不考虑其他因素来实现的话就是下面这样: 12345678910public class SingletonDemo &#123; private static SingletonDemo singletonDemo = new SingletonDemo(); private SingletonDemo()&#123;&#125; public static SingletonDemo getInstance()&#123; return singletonDemo; &#125;&#125; 这样写是没有问题的，也是最常见的，俗称饿汉式单例（不管三七二十一，先创建再说，就是立即加载） 这个创建的话，线程安全是由JVM的&lt;Clinit&gt;方法保证的，保证类初始化阶段的安全性。 缺点：不能有其他实例变量，否则会出现非线程安全问题。 懒汉式单例模式因为真正的单例模式肯定会存放其他变量，所以只是使用饿汉式创建肯定是不好的，这时候就需要采用懒汉式单例模式（延迟加载，只在第一次调用的时候创建） 12345678910111213public class SingletonDemo &#123; private static SingletonDemo singletonDemo = null; private SingletonDemo()&#123;&#125; public static SingletonDemo getInstance()&#123; if(singletonDemo == null)&#123; singletonDemo = new SingletonDemo(); &#125; return singletonDemo; &#125;&#125; 但是这个代码肯定不好，原因是在多线程情况下，如果有线程同时调用了方法，然而对象都还是null状态，就会返回不同的对象，就成了多例模式了。 所以我们可以加个锁： 12345678910111213public class SingletonDemo &#123; private static SingletonDemo singletonDemo = null; private SingletonDemo()&#123;&#125; public static synchronized SingletonDemo getInstance()&#123; if(singletonDemo == null)&#123; singletonDemo = new SingletonDemo(); &#125; return singletonDemo; &#125;&#125; 这样就可以保证线程的同步性，但是每次都会阻塞其他线程，导致效率极低，我们同样是不考虑的。 枚举类123456public enum SingletonEnumDemo &#123; INSTANCE; public static SingletonEnumDemo getInstance() &#123; return INSTANCE; &#125;&#125; 枚举单例模式可以防止反射对类造成破坏，安全性极高，推崇性也挺好的。 静态内部类12345678910111213public class SingletonStaticDemo &#123; private SingletonStaticDemo()&#123;&#125; public static class SingletonStatic&#123; private static final SingletonStatic INSTANCE= new SingletonStatic(); &#125; public static SingletonStatic getInstance() &#123; return SingletonStatic.INSTANCE; &#125;&#125; 静态内部类也是依靠JVM的&lt;clinit&gt; 方法来保证线程安全的。 双重校验锁12345678910111213public class Singleton&#123; private volatile static Singleton instance=null;//一定要加volatile private Singleton()&#123;&#125; public static Singleton getInstance()&#123; if(instance==null)&#123; synchronized (Singleton.class) &#123; if(instance==null) instance=new Singleton(); &#125; &#125; return instance; &#125;&#125; 如果不考虑volatile情况的话， 我们可以看出来，多线程并发状态下，如果有线程拿到锁后创建对象， 创建对象三个过程： 先检查类有没有加载 给对象进行初始化 给对象分配内存空间 如果不加volatile的话，第二步和第三步进行指令重排，然后导致一个线程还没初始化，另一个线程访问发现不为空，直接返回了初始化未完成的对象，不能保证线程的安全性。 加了volatile关键字后，所有的写操作都在读操作之前执行。]]></content>
       <tags>
         <tag>设计模式</tag>
       </tags>
@@ -453,7 +442,7 @@
   <entry>
     <title><![CDATA[Spring面试知识]]></title>
     <url>%2F2020%2F05%2F08%2FSpring%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[Spring面试知识（持续更新）1、Spring是什么IOC，DI AOP ##]]></content>
+    <content type="text"><![CDATA[Spring面试知识（持续更新）Spring1、Spring是什么Spring是一个轻量级的框架，集成了许多模块，让开发人员更多的去实现核心代码，不需要把精力过多的放到其他地方，方便了开发人员的使用。 Spring的核心是IOC和AOP，即控制反转和依赖注入，以及面向切面编程，使得软件可以更好的解耦合。 2、IOC和DIIOC是控制反转，就是本来需要我们自己一个一个的去new对象，如果对象特别多的情况下，这样既不方便管理，而且也不方便使用，因此IOC就是帮我们把需要的对象创建好，全部都由Spring容器进行管理，提高了开发效率。 DI是依赖注入，依赖注入是实现控制反转的主要形式，通过类型和名称来将对象注入到不同的属性中，常用的就是构造方法注入，setter注入，接口注入。 3、AOP面向切面编程，在运行时，动态的将代码切入到类的指定方法，指定位置上的操作就是面向切面编程。 比如想要记录日志，就可以使用AOP的方式来针对每个方法执行或调用情况进行添加日志。 4、JDK代理和cglib代理 jdk代理必须是实现接口的类，cglib可以直接作用在接口上面 jdk代理是面向接口的，而cglib是通过字节码底层要继承代理类来实现的。 jdk代理在1.8之前比较慢，在1.8之后速度就和cglib差不多了 5、如何解决循环依赖问题循环依赖出现的原因是A类引用了B类，B类引用了A类，而Spring在注入的时候，先创建当前对象，在递归的调用方法去获取所依赖的对象，最后将获取的对象注入到当前对象中。但是因为两者相互引用就会陷入一种死循环状态。 用构造器注入会报错，一般采用setter注入。 Spring是通过递归的方式获取目标bean及其所依赖的bean的； Spring实例化一个bean的时候，是分两步进行的，首先实例化目标bean，然后为其注入属性。 6、Spring的事务事务 原子性： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用； 一致性： 执行事务前后，数据保持一致； 隔离性： 并发访问数据库时，一个用户的事物不被其他事物所干扰，各并发事务之间数据库是独立的； 持久性: 一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。 事务管理编程式的事务管理和声明性的事务管理。 编程式事务管理是 把事务具体的写到业务代码中。 声明性事务管理是基于AOP的，既能起到事务管理，还不会影响业务代码。 SpringMVC7、对SpringMVC的理解SpringMVC是一个三层架构，Model，View，Controller，将web层解耦合，把复杂的web应用分成了三部分，简化了开发过程。 8、SpringMVC优点 支持各种各样的视图技术，不仅仅局限于JSP 与Spring框架集成，继承了Spring框架的优点 每个模块功能明确 支持各种资源请求映射 9、SpringMVC重定向和转发重定向：redirect 转发：forward 10、SpringMVC工作原理1）客户端发送请求到 DispatcherServlet 2）DispatcherServlet 查询 handlerMapping 找到处理请求的 Controller 3）Controller 调用业务逻辑后，返回 ModelAndView 4）DispatcherServlet 查询 ModelAndView，找到指定视图 5）视图将结果返回到客户端 SpringBoot11、SpringBoot介绍SpringBoot是一个基于敏捷开发的框架，简化了Spring的使用，简略了各种各样繁琐的设置，提供了各种各样的启动器，开发者可以快速上手。 12、SpringBoot启动原理springboot启动时，在启动类上面有个注解@SpringApplication 这个注解有三个核心注解：@EnableAutoConfiguration和@SpringBootConfiguration还有@ComponentScan 启动的时候会把符合自动配置条件的bean加载到Spring容器还有SpringBoot本身的一些配置，然后通过ComponentScan把注解都扫描一遍，添加进Spring容器， 13、SpringBoot执行流程1、首先调用SpringApplication的静态run方法，run方法先是要创建一个SpringApplication对象实例，实例初始化的时候在classpath里面通过加载器加载初始化类和监听器类，之后设置main方法的定义类。 2、实例化初始完成之后，就可以执行run方法了，首先调用加载的监听类的start()方法，告诉Springboot要开始执行了。 3、创建SpringBoot应用，加载环境变量的准备方法， 4、之后根据用户定义的属性来判断应该创建什么类型的ApplicationContext对象，之后对容器再次进行初始化，调用容器的准备方法。 5、然后把之前通过自动配置注解把所有配置都加载到ApplicationContext中，然后调用refresh()方法，进行刷新，最后finished()方法完成项目的启动。 14、SpringBoot内置容器SpringBoot内置了 Tomcat容器，Jetty容器，undertow容器 默认运行的是Tomcat容器]]></content>
       <categories>
         <category>面试</category>
       </categories>

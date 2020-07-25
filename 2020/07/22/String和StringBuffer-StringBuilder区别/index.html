@@ -81,15 +81,18 @@
 
 
 
+<meta name="description" content="String和StringBuffer,StringBuilder区别 String类是不可变的，而StringBuffer和StringBuilder是可变的  String一旦修改，就会重新开辟一块内存来存储修改的对象。  如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。  频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringB">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String和StringBuffer,StringBuilder区别">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/String和StringBuffer-StringBuilder区别/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="String和StringBuffer,StringBuilder区别 String类是不可变的，而StringBuffer和StringBuilder是可变的  String一旦修改，就会重新开辟一块内存来存储修改的对象。  如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。  频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringB">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T04:13:34.937Z">
+<meta property="og:updated_time" content="2020-07-25T17:29:44.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String和StringBuffer,StringBuilder区别">
+<meta name="twitter:description" content="String和StringBuffer,StringBuilder区别 String类是不可变的，而StringBuffer和StringBuilder是可变的  String一旦修改，就会重新开辟一块内存来存储修改的对象。  如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。  频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringB">
 
 
 
@@ -383,7 +386,19 @@
       
 
       
-        
+        <h1 id="String和StringBuffer-StringBuilder区别"><a href="#String和StringBuffer-StringBuilder区别" class="headerlink" title="String和StringBuffer,StringBuilder区别"></a>String和StringBuffer,StringBuilder区别</h1><ul>
+<li><p>String类是不可变的，而StringBuffer和StringBuilder是可变的</p>
+</li>
+<li><p>String一旦修改，就会重新开辟一块内存来存储修改的对象。</p>
+</li>
+<li><p>如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。</p>
+</li>
+<li><p>频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringBuffer会建立一个缓冲区，所以速度会大于String</p>
+</li>
+<li><p>StringBuffer方法都加了锁，所以效率可能比StringBuilder更低，但是安全性来说，StringBuffer更好。</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -495,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,6 +622,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String和StringBuffer-StringBuilder区别"><span class="nav-number">1.</span> <span class="nav-text">String和StringBuffer,StringBuilder区别</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
