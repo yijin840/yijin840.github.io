@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wysblogs.top/2020/07/22/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</loc>
+    
+    <lastmod>2020-07-26T00:39:21.564Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wysblogs.top/2020/07/22/Object%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2020-07-25T17:37:35.276Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>http://wysblogs.top/2020/07/22/ThreadLocal%E5%8E%9F%E7%90%86/</loc>
     
     <lastmod>2020-07-23T04:17:54.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wysblogs.top/2020/07/22/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</loc>
-    
-    <lastmod>2020-07-23T04:17:40.988Z</lastmod>
     
   </url>
   
