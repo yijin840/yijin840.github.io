@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%A0%86%E7%BB%93%E6%9E%84.png">
 <meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB.png">
 <meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90.png">
-<meta property="og:updated_time" content="2020-07-11T13:20:02.486Z">
+<meta property="og:updated_time" content="2020-07-27T07:47:23.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM虚拟机知识点">
 <meta name="twitter:description" content="JVM虚拟机知识点运行时数据区运行时数据区就是jvm运行java文件时，会把管理的内存分为好几个部分，每一个部分就是一个运行时数据区。 结构图 线程共享的区域方法区：存放类信息，静态变量，常量，运行时常量池 的区域 堆：几乎所有的对象存放的地方，同时也是GC的主要区域 ​    数组也存放在堆中  分代处理：目的是为了更好的回收内存和分配内存 新生代：Eden空间，From Survivor空间，">
@@ -489,7 +489,7 @@
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>这个阶段是为了给类变量分配内存并且设置初始值的阶段，内存都在 <strong>方法区中分配</strong></p>
 <p>1、这个阶段进行内存分配的仅包括类变量，而不包括实例变量，实例变量会在对象实例化的时候跟着对象一起分配到java堆中。</p>
 <p>2、初始值默认都是0或者是null，如果用final修饰的话，初始值可以指定成想要的样子。</p>
-<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>这个阶段是把符号引用解析成直接引用的过程，解析动作主要针对 <strong>接口、字段、类方法】接口方法、方法类型、方法句柄、调用限定符等7类符号引用进行：</strong></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>这个阶段是把符号引用解析成直接引用的过程，解析动作主要针对 <strong>接口、字段、类方法、接口方法、方法类型、方法句柄、调用限定符等7类符号引用进行：</strong></p>
 <p><strong>符号引用：</strong>就是用一组符号描述目标，可以是任意字面量。</p>
 <p><strong>直接引用：</strong>只有符号引用是不够的，还需要明确知道方法所在的位置，java虚拟机存在一个方法表，调用类方法是，只需要根据符号引用找到方法表中偏移量就能直接调用该方法。</p>
 <p>总的来说，解析过程就是把符号引用替换成直接引用的过程，也就是获得方法、字段指针或者偏移量的过程。</p>
