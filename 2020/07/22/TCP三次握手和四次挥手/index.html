@@ -96,13 +96,13 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="TCP三次握手和四次挥手 三次握手第一次握手：建立连接时，客户端发送syn包到服务器，客户端进入SYN_SENT状态，等待服务器确认；（SYN就是同步序列编号） 第二次握手：服务器收到syn包，必须确认客户的SYN，同时自己也发送一个SYN包，即SYN+ACK包，此时服务器进入SYN_RECV状态； 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK，这个包发送完毕后，客户端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180703083401683?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEwNzQxNDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180717204202563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2020-07-24T01:14:56.886Z">
+<meta property="og:image" content="http://wysblogs.top/upload/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/20180703083401683.jpg">
+<meta property="og:image" content="http://wysblogs.top/upload/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/20180717204202563.png">
+<meta property="og:updated_time" content="2020-07-27T02:18:19.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP三次握手和四次挥手">
 <meta name="twitter:description" content="TCP三次握手和四次挥手 三次握手第一次握手：建立连接时，客户端发送syn包到服务器，客户端进入SYN_SENT状态，等待服务器确认；（SYN就是同步序列编号） 第二次握手：服务器收到syn包，必须确认客户的SYN，同时自己也发送一个SYN包，即SYN+ACK包，此时服务器进入SYN_RECV状态； 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK，这个包发送完毕后，客户端">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180703083401683?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEwNzQxNDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="http://wysblogs.top/upload/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/20180703083401683.jpg">
 
 
 
@@ -401,11 +401,11 @@
       
 
       
-        <h1 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h1><p><img src="https://img-blog.csdn.net/20180703083401683?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEwNzQxNDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+        <h1 id="TCP三次握手和四次挥手"><a href="#TCP三次握手和四次挥手" class="headerlink" title="TCP三次握手和四次挥手"></a>TCP三次握手和四次挥手</h1><p><img src="/upload/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/20180703083401683.jpg" alt="img"></p>
 <h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>第一次握手：建立连接时，客户端发送syn包到服务器，客户端进入SYN_SENT状态，等待服务器确认；（SYN就是同步序列编号）</p>
 <p>第二次握手：服务器收到syn包，必须确认客户的SYN，同时自己也发送一个SYN包，即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
 <p>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK，这个包发送完毕后，客户端和服务器进入ESTABLISHED状态，完成三次握手。</p>
-<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p><img src="https://img-blog.csdn.net/20180717204202563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p><img src="/upload/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/20180717204202563.png" alt="img"></p>
 <p>第一次挥手：客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于 FIN_WAIT1 状态。</p>
 <p>即发出连接释放报文段（FIN=1，序号seq=u），并停止再发送数据，主动关闭TCP连接，进入FIN_WAIT1（终止等待1）状态，等待服务端的确认。</p>
 <p>第二次挥手：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 +1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT 状态。</p>
