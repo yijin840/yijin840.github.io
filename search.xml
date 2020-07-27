@@ -36,7 +36,7 @@
   <entry>
     <title><![CDATA[UnSafe类详解]]></title>
     <url>%2F2020%2F07%2F23%2FUnSafe%E7%B1%BB%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[UnSafe类详解Unsafe是位于sun.misc包下的一个类 主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。 但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。 结构 如上图可看出，Unsafe类在多个方面都有使用： 内存操作 主要是堆外内存的分配、拷贝、释放、给定地址值等操作。 因为是堆外内存，所以不归JVM管，得自己进行内存的管理 使用堆外内存的原因：对GC停顿进行改善，减少停顿带来的影响，提高IO操作性能，不需要再次进行拷贝。 CAS操作 比较并交换，轻量级无锁并发，执行CAS操作时，首先拿地址中的值和原值作比较，如果一样就把内存值更新为新值，否则就不做任何操作。 CAS在很多方面都有应用，比如Atomic原子类，还有AQS，ConcurrentHashMap等地方都有体现。 Class相关的一些操作 此部分主要提供Class和它的静态字段的操作相关方法，包含静态字段内存定位、定义类、定义匿名类、检验&amp;确保初始化等 对象操作 此部分主要包含对象成员属性相关操作及非常规的对象实例化方式等相关方法。 常规分配内存是使用new关键字，然后交给JVM来管理 但是Unsafe有分配内存的方法，不需要通过JVM进行操作， 线程调度 线程挂起，恢复，锁机制等操作。 系统信息获取 这部分包含两个获取系统相关信息的方法。 内存屏障 在Java 8中引入，用于定义内存屏障（也称内存栅栏，内存栅障，屏障指令等，是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作），避免代码重排序。 数组操作 这部分主要介绍与数据操作相关的arrayBaseOffset与arrayIndexScale这两个方法，两者配合起来使用，即可定位数组中每个元素在内存中的位置。]]></content>
       <categories>
         <category>并发</category>
       </categories>
@@ -78,17 +78,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hash原理探究]]></title>
-    <url>%2F2020%2F07%2F22%2FHash%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[final关键字详解]]></title>
     <url>%2F2020%2F07%2F22%2Ffinal%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[Final关键字final关键字可以修饰的地方： 类：类不能被继承 方法：不能被重写 变量：不能被改变 修饰引用类型：引用类型的内存地址不可变，指向的值可以变。 final 修饰的变量 会直接放在变量池中，如果一个类调用final修饰的变量是不会加载类的 如： 1234567891011121314public class Main &#123; public static void main(String[] args) &#123; System.out.println(demo.s); &#125; public static class demo&#123; public static final String s = "1"; static &#123; System.out.println("静态代码块"); &#125; &#125;&#125; 11 直接输出1，不会加载静态代码块]]></content>
@@ -121,7 +110,7 @@
   <entry>
     <title><![CDATA[Java反射机制]]></title>
     <url>%2F2020%2F07%2F22%2FJava%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%2F</url>
-    <content type="text"><![CDATA[Java反射机制简介]]></content>
+    <content type="text"><![CDATA[Java反射机制简介java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。 java动态代理是基于反射实现的。 反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。 意义 反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。 反射可以在运行时构造一个类对象，动态的调用类中的方法。 反射是构建框架的基础，可以避免把代码写死在框架中。 特点 性能，因为JVM不能对反射代码进行优化，所以效率比较低，所以应该避免在性能要求搞得项目中去使用反射。 安全性，如果程序安全性要求较高，就不能使用反射，不然会破坏封装的特性，使得程序可能会被改动。 健壮性，反射允许代码进行一些不被允许的操作，所以反射可能导致破坏java程序的抽象性，导致平台变化抽象逻辑结构不能被识别，代码允许效果产生差异。 破坏我们都知道一个final修饰的成员变量不能被修改，但是反射可以破坏这个规矩，比如 123456789101112131415161718public class Main &#123; public final Integer a = 1; public static void main(String[] args) &#123; Main t = new Main(); try &#123; Field field = t.getClass().getDeclaredField("a"); field.setAccessible(true); Field modifiers = Field.class.getDeclaredField("modifiers"); modifiers.setAccessible(true); modifiers.setInt(field,modifiers.getModifiers()&amp;~Modifier.FINAL); field.set(t,5); System.out.println(field.get(t)); &#125;catch (Exception e) &#123; e.printStackTrace(); &#125; System.out.println(t.a); &#125;&#125; 如果final 修饰的是基本数据类型，那么在编译器就会被优化，导致修改之后输出的还是编译器优化好的常量值 所以如果换成引用数据类型，我们就可以看出来值已经被修改成了5，这个就是破坏了类的内部数据，所以如果安全性要求较高，就不建议使用。]]></content>
       <categories>
         <category>反射</category>
       </categories>
@@ -132,7 +121,7 @@
   <entry>
     <title><![CDATA[ThreadLocal原理]]></title>
     <url>%2F2020%2F07%2F22%2FThreadLocal%E5%8E%9F%E7%90%86%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[ThreadLocal原理简介ThreadLocal是一个本地线程副本变量工具类，各个线程都有自己的一份线程私有数据，线程之间的变量互不干扰，高并发情况下保证线程安全。 传统的线程安全是使用CAS或者synchronized锁实现的。 结构 每个Thread里面都有一个Map对象 Map里面存放的是线程本地对象和线程的变量副本 ThreadMap内部的Map是由ThreadLocal维护的，由ThreadLocal获取和设置变量值。 各个线程之间是相互隔离的，一个线程不会获取到另一个线程的值 应用场景 Session管理 数据库连接 内存泄漏ThreadLocal的原理是内部的一个ThreadLocalMap类 Map的Entry继承了weakReference java的弱引用在内存不足时会被回收，变成(null,value)形式，如果线程执行完的话，value也会被回收，如果是在线程池中，那么线程中有个强引用会指向ThreadLocalMap，导致value不会被回收，一直在内存中，如果线程数量太多的话，导致内存可能会发生泄漏 避免方法：如果不用的话要使用remove()方法移除value值，]]></content>
       <categories>
         <category>并发</category>
       </categories>
@@ -144,17 +133,6 @@
     <title><![CDATA[Rest和RPC]]></title>
     <url>%2F2020%2F07%2F22%2FRest%E5%92%8CRPC%2F</url>
     <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[TreeMap和TreeSet]]></title>
-    <url>%2F2020%2F07%2F22%2FTreeMap%E5%92%8CTreeSet%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[重写equals为什么要重写hashcode]]></title>
@@ -236,7 +214,7 @@
   <entry>
     <title><![CDATA[红黑树和AVL树]]></title>
     <url>%2F2020%2F07%2F22%2F%E7%BA%A2%E9%BB%91%E6%A0%91%E5%92%8CAVL%E6%A0%91%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[红黑树和AVL树红黑树和AVL树都是在二叉搜索树的基础上演变的 由于二叉搜索树在极端情况下会变成一条链，为了避免这种情况，就出现了红黑树和AVL树。 红黑树红黑树有5种性质，而树的构建也是与这些性质密不可分。 性质1、节点是红色或黑色 性质2、根节点是黑色 性质3、所有叶子节点都是黑色的（叶子节点都是NULL） 性质4、每个红色节点的两个子节点都是黑色。 性质5、从任一节点到其每个叶子节点的所有路径都包含相同数目的黑色节点。 当我们对红黑树进行操作的时候，红黑树依旧可以保持这5条性质。 AVL树（平衡二叉树）AVL树也还是一个二叉搜索树，它的特点： 1、本是首先是一颗二叉搜索树 2、自带有平衡条件：每个节点的左右子树高度差值不能超过1. 3、左右两颗子树也都是平衡二叉树 两者区别 AVL树是严格的平衡树，在对节点进行添加和删除时，AVL树旋转次数一般比红黑树多 红黑树时非严格的平衡来换取增删节点时旋转的次数，从而减少开销。 如果搜索次数远远大于添加或者删除就采用AVL树。 如果搜索，删除，添加操作都差不多，就采用红黑树。 红黑树和AVL调整平衡的机制不同 红黑树靠叶子节点的颜色和约定规范进行调整 AVL树靠的是平衡因子和旋转。]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -247,7 +225,7 @@
   <entry>
     <title><![CDATA[B树和B+树]]></title>
     <url>%2F2020%2F07%2F22%2FB%E6%A0%91%E5%92%8CB-%E6%A0%91%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[B树和B+树B树B树和平衡二叉树不同，B树又称为多路平衡查找树，数据库索引中B树和B+树也大都被用来做索引。 规则： 排序方式：所有节点关键字按递增排列，遵循左小右大原则 子节点数：非叶节点的子节点数大于1，且小于M，M&gt;=2，M是查找路径。 关键字数：枝节点的关键字数量大于等于ceil(m/2)-1个且小于等于M-1个（注：ceil()是个朝正无穷方向取整的函数 如ceil(1.1)结果为2); 叶子节点：所有的叶子节点都在同一层，叶子节点包含有关键字和指向关键字的指针还有指向子结点的指针，但是子结点一般都是null。 特点： B树相对于平衡二叉树的不同是，每个节点包含的关键字增多了，特别是在B树应用到数据库中的时候，数据库充分利用了磁盘块的原理（磁盘数据存储是采用块的形式存储的，每个块的大小为4K，每次IO进行数据读取时，同一个磁盘块的数据可以一次性读取出来）把节点大小限制和充分使用在磁盘快大小范围；把树的节点关键字增多后树的层级比原来的二叉树少了，减少数据查找的次数和复杂度; B+树概念：B+树可以说是B树的升级版本，相对于B树而言，B+树充分利用了空间，让查询速度更加稳定，速度完全接近于二分法查询速度。 规则： B+树非叶子节点储存的都是索引，使得每个非叶子节点存储的数据大大增多。 B+树所有数据都保存在叶子节点上，所有数据地址只有在叶子节点上才能获得，每次数据查询速度稳定。 B+树所有叶子节点从小到大有序排列。 非叶子节点的子节点数等于关键字数（Mysql是这样实现的）。 特点： B+数查询速度快，层级更小，非叶子节点存储内容更多，磁盘IO数也比较少，性能高，查询速度快。 B+数查询速度稳定，所有数据都在叶子节点上存储，所有更加稳定。 B+数天然具备排序功能，B+数所有叶子节点构成了一个有序链表，查询区间数据更方便，紧密型更高，缓存的命中率也更高。 B+数全节点遍历更快，B+数遍历整棵树只需要遍历所有叶子节点即可，而不需要对每一层遍历，这样有利于数据库做全表扫描。 如果经常访问的数据离根节点很近，而B树的非叶子节点本身存有关键字其数据的地址，所以这种数据检索的时候会要比B+树快。]]></content>
       <categories>
         <category>数据结构</category>
       </categories>

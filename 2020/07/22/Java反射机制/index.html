@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Java反射机制简介">
+<meta name="description" content="Java反射机制简介java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。 java动态代理是基于反射实现的。 反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。 意义 反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。 反射可以在运行时构造一个类对象，动态的调用类中的方法。 反射是构建框架">
 <meta name="keywords" content="反射">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java反射机制">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/Java反射机制/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="Java反射机制简介">
+<meta property="og:description" content="Java反射机制简介java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。 java动态代理是基于反射实现的。 反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。 意义 反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。 反射可以在运行时构造一个类对象，动态的调用类中的方法。 反射是构建框架">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-26T00:39:21.564Z">
+<meta property="og:updated_time" content="2020-07-26T03:45:05.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java反射机制">
-<meta name="twitter:description" content="Java反射机制简介">
+<meta name="twitter:description" content="Java反射机制简介java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。 java动态代理是基于反射实现的。 反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。 意义 反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。 反射可以在运行时构造一个类对象，动态的调用类中的方法。 反射是构建框架">
 
 
 
@@ -398,7 +398,25 @@
       
 
       
-        <h1 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2>
+        <h1 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。</p>
+<p>java动态代理是基于反射实现的。</p>
+<p>反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。</p>
+<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><ul>
+<li>反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。</li>
+<li>反射可以在运行时构造一个类对象，动态的调用类中的方法。</li>
+<li>反射是构建框架的基础，可以避免把代码写死在框架中。</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>性能，因为JVM不能对反射代码进行优化，所以效率比较低，所以应该避免在性能要求搞得项目中去使用反射。</li>
+<li>安全性，如果程序安全性要求较高，就不能使用反射，不然会破坏封装的特性，使得程序可能会被改动。</li>
+<li>健壮性，反射允许代码进行一些不被允许的操作，所以反射可能导致破坏java程序的抽象性，导致平台变化抽象逻辑结构不能被识别，代码允许效果产生差异。</li>
+</ul>
+<h2 id="破坏"><a href="#破坏" class="headerlink" title="破坏"></a>破坏</h2><p>我们都知道一个final修饰的成员变量不能被修改，但是反射可以破坏这个规矩，比如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> Integer a = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Main t = <span class="keyword">new</span> Main();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = t.getClass().getDeclaredField(<span class="string">"a"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            Field modifiers = Field.class.getDeclaredField(<span class="string">"modifiers"</span>);</span><br><span class="line">            modifiers.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            modifiers.setInt(field,modifiers.getModifiers()&amp;~Modifier.FINAL);</span><br><span class="line">            field.set(t,<span class="number">5</span>);</span><br><span class="line">            System.out.println(field.get(t));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(t.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果final 修饰的是基本数据类型，那么在编译器就会被优化，导致修改之后输出的还是编译器优化好的常量值</p>
+<p>所以如果换成引用数据类型，我们就可以看出来值已经被修改成了5，这个就是破坏了类的内部数据，所以如果<strong>安全性</strong>要求较高，就不建议使用。</p>
+
       
     </div>
     
@@ -543,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.</span> <span class="nav-text">Java反射机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.</span> <span class="nav-text">Java反射机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义"><span class="nav-number">1.2.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#破坏"><span class="nav-number">1.4.</span> <span class="nav-text">破坏</span></a></li></ol></li></ol></div>
             
 
           </div>

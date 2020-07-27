@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-07-25T00:58:25.025Z</updated>
+  <updated>2020-07-26T01:51:15.220Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://wysblogs.top/2020/07/25/mysql%E9%94%81%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/25/mysql锁详解/</id>
     <published>2020-07-24T18:19:16.000Z</published>
-    <updated>2020-07-25T00:58:25.025Z</updated>
+    <updated>2020-07-26T01:51:15.220Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql锁详解"><a href="#mysql锁详解" class="headerlink" title="mysql锁详解"></a>mysql锁详解</h1><p>mysql的锁可以用两种情况区分</p><p>按粒度分为 行锁,页锁,表锁 </p><p>按用法有共享锁和排他锁</p><h2 id="按粒度来分"><a href="#按粒度来分" class="headerlink" title="按粒度来分"></a>按粒度来分</h2><h3 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h3><p>行锁是锁粒度最细的一个锁了,表示只对自己当前操作的行加锁.</p><p>行锁操作可以大大的减少数据库操作带来的冲突,但是加速开销太大</p><p>行锁分为共享锁和排他锁.</p><p>特点: 开销大,可能会出现死锁,并发程度高,锁冲突概率最低.</p><h3 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h3><p>表锁是mysql锁粒度最大的一个锁, 表示对当前操作的整张表都加锁, 资源消耗大, 被大部分引擎都支持.</p><p>表锁分为 共享锁 和 排他锁</p><p>特点: 开销小, 加锁快, 不会出现死锁, 锁粒度大, 发生冲突的概率最大, 并发性最低.</p><h3 id="页锁"><a href="#页锁" class="headerlink" title="页锁"></a>页锁</h3><p>页级锁是mysql中锁粒度一般的锁, 一般都是在行锁和表锁之间.</p><p>表锁速度快,但是冲突多, 行锁冲突少, 但是速度慢, 于是采用 页锁的比较多.</p><p>页锁是一次锁定相邻的一组记录开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</p><h2 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h2><p>悲观锁是一种悲观的并发控制线程访问的一个方法.</p><p>它可以阻止一个事务以影响其他用户的方式来修改数据.</p><p>如果一个事务的操作的某行数据加了锁, 那么只有当这个事务把锁释放了, 其他事物才能够执行和该锁冲突的操作.</p><p>悲观锁主要用于数据竞争比较激烈的环境 还有 并发冲突时维护锁的成本低于回滚成本的环境中.</p><p><strong>使用:</strong>如果要对数据修改,先给这个数据添加排他锁,如果添加失败,那么说明正在被使用, 因此要等待或者抛异常.</p><p>优点: 保证了数据的安全和完整性</p><p>缺点: 效率低,会让数据库产生额外开销,还有可能出现死锁, 在只读的事务中不会产生冲突, 这样做会增加系统开销, 降低了并行.</p><h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><p>乐观锁是一种乐观的并发控制线程访问的一个方法.</p><p>它假设在并发处理事务时,都不会相互影响, 各事务能够在不产生锁的情况下处理各自影响的那部分数据.</p><p>就是只在提交的时候进行判断是否冲突</p><p>提交数据时判断有没有其他事务修改数据, 如果数据被修改了,那么就回滚.</p><p>乐观锁不会使用数据库提供的锁机制, 一般的实现乐观锁的方式就是记录数据版本, 即添加一行字段 version , 如果提交时发现字段一致, 就更新数据 , 否则就回滚.</p><p>实现乐观锁两种方式: 版本号 和 时间戳</p><p>乐观锁原理就是 CAS 操作</p><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>innodb 支持行锁 和 表锁 默认是支持行锁</p><p>innodb行锁是个索引加锁实现的, 意思就是只有通过索引条件检索数据, InnoDB才使用行级锁, 否则 InnoDB使用表锁 , 实际中我们要注意这种情况, 不然会产生大量冲突.</p><p>当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。</p><p>即便 在 数据库设置了索引, 但是是否用索引 还是根据mysql 通过判断不同 执行计划代价来决定的, 如果 mysql 认为全表扫描效率高, 例如一些很小的表, 他就不会使用索引, 这种情况下 就会使用 表锁.</p><h2 id="索引和锁"><a href="#索引和锁" class="headerlink" title="索引和锁"></a>索引和锁</h2><p>在mysql中, 行锁不是直接锁记录, 而是锁的时索引.</p><p>索引分为主键索引和非主键索引, 如果mysql操作了主键索引, 那么就锁主键索引, 如果走的索引是 非主键索引, 那么先锁非主键索引, 再锁相关的主键索引.</p><p><strong>死锁:</strong>一个事务锁了主键索引, 另一个事务锁了非主键索引, 在等主键索引, 就造成了死锁.</p><p>死锁后 InnoDB都可以检查到, 并使一个事务释放锁并回退, 另一个获取锁完成事务.</p><p>*<em>避免死锁: *</em></p><ul><li>尽量有序访问表</li><li>尽量一次锁定所需要的所有资源</li><li>也可以升级锁粒度</li></ul>]]></content>
     
@@ -96,9 +96,9 @@
     <link href="http://wysblogs.top/2020/07/23/UnSafe%E7%B1%BB%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/23/UnSafe类详解/</id>
     <published>2020-07-23T06:55:17.000Z</published>
-    <updated>2020-07-23T06:55:41.654Z</updated>
+    <updated>2020-07-26T09:22:17.628Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="UnSafe类详解"><a href="#UnSafe类详解" class="headerlink" title="UnSafe类详解"></a>UnSafe类详解</h1><p>Unsafe是位于sun.misc包下的一个类</p><p>主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。</p><p>但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://picb.zhimg.com/80/v2-f0570d67d15e6157e2723687b77aee15_720w.jpg" alt="img"></p><p>如上图可看出，Unsafe类在多个方面都有使用：</p><ul><li>内存操作<ul><li>主要是<strong>堆外内存</strong>的分配、拷贝、释放、给定地址值等操作。</li><li>因为是堆外内存，所以不归JVM管，得自己进行内存的管理</li><li>使用堆外内存的原因：对GC停顿进行改善，减少停顿带来的影响，提高IO操作性能，不需要再次进行拷贝。</li></ul></li><li>CAS操作<ul><li>比较并交换，轻量级无锁并发，执行CAS操作时，首先拿地址中的值和原值作比较，如果一样就把内存值更新为新值，否则就不做任何操作。</li><li>CAS在很多方面都有应用，比如Atomic原子类，还有AQS，ConcurrentHashMap等地方都有体现。</li></ul></li><li>Class相关的一些操作<ul><li>此部分主要提供<strong>Class</strong>和它的<strong>静态字段</strong>的操作相关方法，包含<strong>静态字段内存定位</strong>、<strong>定义类</strong>、<strong>定义匿名类</strong>、<strong>检验&amp;确保初始化</strong>等</li></ul></li><li>对象操作<ul><li>此部分主要包含对象成员属性相关操作及非常规的对象实例化方式等相关方法。</li><li>常规分配内存是使用<code>new</code>关键字，然后交给JVM来管理</li><li>但是Unsafe有分配内存的方法，不需要通过JVM进行操作，</li></ul></li><li>线程调度<ul><li>线程挂起，恢复，锁机制等操作。</li></ul></li><li>系统信息获取<ul><li>这部分包含两个获取系统相关信息的方法。</li></ul></li><li>内存屏障<ul><li>在Java 8中引入，用于定义内存屏障（也称内存栅栏，内存栅障，屏障指令等，是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作），避免代码重排序。</li></ul></li><li>数组操作<ul><li>这部分主要介绍与数据操作相关的arrayBaseOffset与arrayIndexScale这两个方法，两者配合起来使用，即可定位数组中每个元素在内存中的位置。</li></ul></li></ul>]]></content>
     
     <summary type="html">
     
@@ -192,31 +192,6 @@
   </entry>
   
   <entry>
-    <title>Hash原理探究</title>
-    <link href="http://wysblogs.top/2020/07/22/Hash%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://wysblogs.top/2020/07/22/Hash原理探究/</id>
-    <published>2020-07-22T08:49:10.000Z</published>
-    <updated>2020-07-23T04:12:11.361Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://wysblogs.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://wysblogs.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
     <title>final关键字详解</title>
     <link href="http://wysblogs.top/2020/07/22/final%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/22/final关键字详解/</id>
@@ -294,9 +269,9 @@
     <link href="http://wysblogs.top/2020/07/22/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/"/>
     <id>http://wysblogs.top/2020/07/22/Java反射机制/</id>
     <published>2020-07-22T08:33:46.000Z</published>
-    <updated>2020-07-26T00:39:21.564Z</updated>
+    <updated>2020-07-26T03:45:05.204Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。</p><p>java动态代理是基于反射实现的。</p><p>反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。</p><h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><ul><li>反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。</li><li>反射可以在运行时构造一个类对象，动态的调用类中的方法。</li><li>反射是构建框架的基础，可以避免把代码写死在框架中。</li></ul><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>性能，因为JVM不能对反射代码进行优化，所以效率比较低，所以应该避免在性能要求搞得项目中去使用反射。</li><li>安全性，如果程序安全性要求较高，就不能使用反射，不然会破坏封装的特性，使得程序可能会被改动。</li><li>健壮性，反射允许代码进行一些不被允许的操作，所以反射可能导致破坏java程序的抽象性，导致平台变化抽象逻辑结构不能被识别，代码允许效果产生差异。</li></ul><h2 id="破坏"><a href="#破坏" class="headerlink" title="破坏"></a>破坏</h2><p>我们都知道一个final修饰的成员变量不能被修改，但是反射可以破坏这个规矩，比如</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> Integer a = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Main t = <span class="keyword">new</span> Main();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = t.getClass().getDeclaredField(<span class="string">"a"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            Field modifiers = Field.class.getDeclaredField(<span class="string">"modifiers"</span>);</span><br><span class="line">            modifiers.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            modifiers.setInt(field,modifiers.getModifiers()&amp;~Modifier.FINAL);</span><br><span class="line">            field.set(t,<span class="number">5</span>);</span><br><span class="line">            System.out.println(field.get(t));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(t.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果final 修饰的是基本数据类型，那么在编译器就会被优化，导致修改之后输出的还是编译器优化好的常量值</p><p>所以如果换成引用数据类型，我们就可以看出来值已经被修改成了5，这个就是破坏了类的内部数据，所以如果<strong>安全性</strong>要求较高，就不建议使用。</p>]]></content>
     
     <summary type="html">
     
@@ -319,9 +294,9 @@
     <link href="http://wysblogs.top/2020/07/22/ThreadLocal%E5%8E%9F%E7%90%86/"/>
     <id>http://wysblogs.top/2020/07/22/ThreadLocal原理/</id>
     <published>2020-07-22T08:33:12.000Z</published>
-    <updated>2020-07-23T04:17:54.182Z</updated>
+    <updated>2020-07-27T00:10:58.349Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ThreadLocal原理"><a href="#ThreadLocal原理" class="headerlink" title="ThreadLocal原理"></a>ThreadLocal原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ThreadLocal是一个本地线程副本变量工具类，各个线程都有自己的一份线程私有数据，线程之间的变量互不干扰，高并发情况下保证线程安全。</p><p>传统的线程安全是使用CAS或者synchronized锁实现的。</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595767761448&di=fd50c80e2b1e291a98279f9e4f16c3ed&imgtype=0&src=http%3A%2F%2Fwww.swifthumb.com%2Fdata%2Fattachment%2Fforum%2F202007%2F05%2F191742w8nz8odxxbkbxx09.jpg" alt="img"></p><ul><li>每个Thread里面都有一个Map对象</li><li>Map里面存放的是线程本地对象和线程的变量副本</li><li>ThreadMap内部的Map是由ThreadLocal维护的，由ThreadLocal获取和设置变量值。</li><li>各个线程之间是相互隔离的，一个线程不会获取到另一个线程的值</li></ul><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul><li>Session管理</li><li>数据库连接</li></ul><h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>ThreadLocal的原理是内部的一个ThreadLocalMap类</p><p>Map的Entry继承了weakReference</p><p>java的弱引用在内存不足时会被回收，变成(null,value)形式，如果线程执行完的话，value也会被回收，如果是在线程池中，那么线程中有个强引用会指向ThreadLocalMap，导致value不会被回收，一直在内存中，如果线程数量太多的话，导致内存可能会发生泄漏</p><p><strong>避免方法：</strong>如果不用的话要使用remove()方法移除value值，</p>]]></content>
     
     <summary type="html">
     
@@ -357,31 +332,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>TreeMap和TreeSet</title>
-    <link href="http://wysblogs.top/2020/07/22/TreeMap%E5%92%8CTreeSet/"/>
-    <id>http://wysblogs.top/2020/07/22/TreeMap和TreeSet/</id>
-    <published>2020-07-22T08:29:58.000Z</published>
-    <updated>2020-07-23T04:17:26.479Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://wysblogs.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://wysblogs.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -507,6 +457,56 @@
     
     
       <category term="计算机网络" scheme="http://wysblogs.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux常用命令（持续更新）</title>
+    <link href="http://wysblogs.top/2020/07/22/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://wysblogs.top/2020/07/22/linux常用命令（持续更新）/</id>
+    <published>2020-07-22T08:23:06.000Z</published>
+    <updated>2020-07-23T04:18:23.332Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://wysblogs.top/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://wysblogs.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql事务和隔离级别</title>
+    <link href="http://wysblogs.top/2020/07/22/mysql%E4%BA%8B%E5%8A%A1%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"/>
+    <id>http://wysblogs.top/2020/07/22/mysql事务和隔离级别/</id>
+    <published>2020-07-22T08:21:43.000Z</published>
+    <updated>2020-07-25T01:48:47.350Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql事务和隔离级别"><a href="#mysql事务和隔离级别" class="headerlink" title="mysql事务和隔离级别"></a>mysql事务和隔离级别</h1><h2 id="mysql事务"><a href="#mysql事务" class="headerlink" title="mysql事务"></a>mysql事务</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>mysql的多条语句看成一个整体</p><p>事务就是保证这个整体能够同时成功，或者同时失败。</p><p>在mysql中不同的引擎对事务的支持也是不一样的</p><p>比如InnoDB支持事务， 而 MyISAM不支持事务。</p><p>所以以下说的都是mysql的事务都是以InnoDB作为引擎的</p><h3 id="事务ACID特性"><a href="#事务ACID特性" class="headerlink" title="事务ACID特性"></a>事务ACID特性</h3><ul><li><strong>原子性：</strong>要么全都成功，要么全都失败。不会在中间某一步停留，mysql执行事务时如果出错，那么就会回滚到没执行事务之前。</li><li><strong>一致性：</strong>事务完成前后，数据的完整性不能出错，比如转账，两个人钱的总和再转账前后不能改变，保证数据的一致性。</li><li><strong>隔离性：</strong>数据库允许多个并发事务同时对其数据进行读写和修改，隔离性可以防止并发交替导致数据的不一致。</li><li><strong>持久性：</strong>事务完成后，对数据的修改是永久的，即使系统故障也不会丢失。</li></ul><h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>事物的隔离级别是于事务的隔离性密不可分的，可以通过改变</p><p>事务的隔离级别认为以下几种：</p><ul><li><strong>读未提交</strong>： 任何事务修改数据之后都会暴露给其他事务</li><li><strong>读提交：</strong>只能读取其他事务已经提交过的数据</li><li><strong>可重复读：</strong>事务不会读到其他事务对已有数据的修改</li><li><strong>串行化：</strong>将事务的执行变成顺序型，相当于一个单线程，安全性最高，但是效率最低</li></ul><p>从上往下，隔离强度依次增加，性能逐渐变差，<strong>可重复读</strong>是mysql默认的隔离级别。</p><h3 id="事务隔离要解决的问题"><a href="#事务隔离要解决的问题" class="headerlink" title="事务隔离要解决的问题"></a>事务隔离要解决的问题</h3><ul><li><strong>脏读：</strong>读取到了其他事务未提交的数据，未提交意味着读到的是数据发生了回滚，也就是读到了不存在的数据，这就是脏读。</li><li><strong>幻读：</strong>这个是针对<strong>插入</strong>操作来说的，比如事务A更改记录时，事务B插入了一条新的记录与事务A要更改的记录一样，导致在事务A中查询发现更改的数据好像没有改变，这就是幻读。</li><li><strong>可重复读：</strong>在一个事务中，事务开始前后读取到的数据是一致的。</li><li><strong>不可重复读：</strong>不同时刻读取的数据是不一样的，比如其他事务提交并更改了数据。</li></ul><h3 id="事务隔离级别解决问题情况"><a href="#事务隔离级别解决问题情况" class="headerlink" title="事务隔离级别解决问题情况"></a>事务隔离级别解决问题情况</h3><p><img src="https://pic3.zhimg.com/80/v2-2e1a7203478165890e2d09f36cb39857_1440w.jpg" alt="img"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>读未提交和串行化基本上是不需要考虑的隔离级别，前者不加锁限制，后者相当于单线程执行，效率太差。</p><p>读提交解决了脏读问题，行锁解决了并发更新的问题。并且 MySQL 在可重复读级别解决了幻读问题，是通过行锁和间隙锁实现的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
     
   </entry>
   

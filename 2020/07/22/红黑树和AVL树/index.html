@@ -88,15 +88,18 @@
 
 
 
+<meta name="description" content="红黑树和AVL树红黑树和AVL树都是在二叉搜索树的基础上演变的 由于二叉搜索树在极端情况下会变成一条链，为了避免这种情况，就出现了红黑树和AVL树。 红黑树红黑树有5种性质，而树的构建也是与这些性质密不可分。  性质1、节点是红色或黑色 性质2、根节点是黑色 性质3、所有叶子节点都是黑色的（叶子节点都是NULL） 性质4、每个红色节点的两个子节点都是黑色。 性质5、从任一节点到其每个叶子节点的所有">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="红黑树和AVL树">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/红黑树和AVL树/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="红黑树和AVL树红黑树和AVL树都是在二叉搜索树的基础上演变的 由于二叉搜索树在极端情况下会变成一条链，为了避免这种情况，就出现了红黑树和AVL树。 红黑树红黑树有5种性质，而树的构建也是与这些性质密不可分。  性质1、节点是红色或黑色 性质2、根节点是黑色 性质3、所有叶子节点都是黑色的（叶子节点都是NULL） 性质4、每个红色节点的两个子节点都是黑色。 性质5、从任一节点到其每个叶子节点的所有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T04:17:00.821Z">
+<meta property="og:updated_time" content="2020-07-27T00:34:03.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树和AVL树">
+<meta name="twitter:description" content="红黑树和AVL树红黑树和AVL树都是在二叉搜索树的基础上演变的 由于二叉搜索树在极端情况下会变成一条链，为了避免这种情况，就出现了红黑树和AVL树。 红黑树红黑树有5种性质，而树的构建也是与这些性质密不可分。  性质1、节点是红色或黑色 性质2、根节点是黑色 性质3、所有叶子节点都是黑色的（叶子节点都是NULL） 性质4、每个红色节点的两个子节点都是黑色。 性质5、从任一节点到其每个叶子节点的所有">
 
 
 
@@ -395,7 +398,35 @@
       
 
       
-        
+        <h1 id="红黑树和AVL树"><a href="#红黑树和AVL树" class="headerlink" title="红黑树和AVL树"></a>红黑树和AVL树</h1><p>红黑树和AVL树都是在二叉搜索树的基础上演变的</p>
+<p>由于二叉搜索树在极端情况下会变成一条链，为了避免这种情况，就出现了红黑树和AVL树。</p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>红黑树有5种性质，而树的构建也是与这些性质密不可分。</p>
+<ul>
+<li>性质1、节点是红色或黑色</li>
+<li>性质2、根节点是黑色</li>
+<li>性质3、所有叶子节点都是黑色的（叶子节点都是NULL）</li>
+<li>性质4、每个红色节点的两个子节点都是黑色。</li>
+<li>性质5、从任一节点到其每个叶子节点的所有路径都包含相同数目的黑色节点。</li>
+</ul>
+<p>当我们对红黑树进行操作的时候，红黑树依旧可以保持这5条性质。</p>
+<h2 id="AVL树（平衡二叉树）"><a href="#AVL树（平衡二叉树）" class="headerlink" title="AVL树（平衡二叉树）"></a>AVL树（平衡二叉树）</h2><p>AVL树也还是一个二叉搜索树，它的特点：</p>
+<ul>
+<li>1、本是首先是一颗二叉搜索树</li>
+<li>2、自带有平衡条件：每个节点的左右子树高度差值不能超过1.</li>
+<li>3、左右两颗子树也都是平衡二叉树</li>
+</ul>
+<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><ul>
+<li>AVL树是严格的平衡树，在对节点进行添加和删除时，<strong>AVL树旋转次数一般比红黑树多</strong></li>
+<li>红黑树时<strong>非严格的平衡</strong>来换取增删节点时旋转的次数，从而减少开销。</li>
+<li>如果搜索次数远远大于添加或者删除就采用AVL树。</li>
+<li>如果搜索，删除，添加操作都差不多，就采用红黑树。</li>
+<li>红黑树和AVL调整平衡的机制不同<ul>
+<li>红黑树靠叶子节点的颜色和约定规范进行调整</li>
+<li>AVL树靠的是平衡因子和旋转。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -513,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,7 +571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,6 +656,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#红黑树和AVL树"><span class="nav-number">1.</span> <span class="nav-text">红黑树和AVL树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树"><span class="nav-number">1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVL树（平衡二叉树）"><span class="nav-number">1.2.</span> <span class="nav-text">AVL树（平衡二叉树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者区别"><span class="nav-number">1.3.</span> <span class="nav-text">两者区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

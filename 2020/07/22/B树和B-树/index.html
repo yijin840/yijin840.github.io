@@ -88,15 +88,21 @@
 
 
 
+<meta name="description" content="B树和B+树B树B树和平衡二叉树不同，B树又称为多路平衡查找树，数据库索引中B树和B+树也大都被用来做索引。 规则：  排序方式：所有节点关键字按递增排列，遵循左小右大原则 子节点数：非叶节点的子节点数大于1，且小于M，M&amp;gt;=2，M是查找路径。 关键字数：枝节点的关键字数量大于等于ceil(m/2)-1个且小于等于M-1个（注：ceil()是个朝正无穷方向取整的函数 如ceil(1.1)结果">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树和B+树">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/B树和B-树/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="B树和B+树B树B树和平衡二叉树不同，B树又称为多路平衡查找树，数据库索引中B树和B+树也大都被用来做索引。 规则：  排序方式：所有节点关键字按递增排列，遵循左小右大原则 子节点数：非叶节点的子节点数大于1，且小于M，M&amp;gt;=2，M是查找路径。 关键字数：枝节点的关键字数量大于等于ceil(m/2)-1个且小于等于M-1个（注：ceil()是个朝正无穷方向取整的函数 如ceil(1.1)结果">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T04:15:25.558Z">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-2c2264cc1c6c603dfeca4f84a2575901_720w.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-9644d1a1f83d3e45da779f2e63c35d55_720w.jpg">
+<meta property="og:updated_time" content="2020-07-27T01:09:18.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B树和B+树">
+<meta name="twitter:description" content="B树和B+树B树B树和平衡二叉树不同，B树又称为多路平衡查找树，数据库索引中B树和B+树也大都被用来做索引。 规则：  排序方式：所有节点关键字按递增排列，遵循左小右大原则 子节点数：非叶节点的子节点数大于1，且小于M，M&amp;gt;=2，M是查找路径。 关键字数：枝节点的关键字数量大于等于ceil(m/2)-1个且小于等于M-1个（注：ceil()是个朝正无穷方向取整的函数 如ceil(1.1)结果">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-2c2264cc1c6c603dfeca4f84a2575901_720w.jpg">
 
 
 
@@ -395,7 +401,35 @@
       
 
       
-        
+        <h1 id="B树和B-树"><a href="#B树和B-树" class="headerlink" title="B树和B+树"></a>B树和B+树</h1><h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><p>B树和平衡二叉树不同，B树又称为多路平衡查找树，数据库索引中B树和B+树也大都被用来做索引。</p>
+<p><strong>规则：</strong></p>
+<ul>
+<li><strong>排序方式：</strong>所有节点关键字按递增排列，遵循左小右大原则</li>
+<li><strong>子节点数：</strong>非叶节点的子节点数大于1，且小于M，M&gt;=2，M是查找路径。</li>
+<li><strong>关键字数：</strong>枝节点的关键字数量大于等于ceil(m/2)-1个且小于等于M-1个（注：ceil()是个朝正无穷方向取整的函数 如ceil(1.1)结果为2);</li>
+<li><strong>叶子节点：</strong>所有的叶子节点都在同一层，叶子节点包含有关键字和指向关键字的指针还有指向子结点的指针，但是子结点一般都是null。</li>
+</ul>
+<p><img src="https://pic3.zhimg.com/80/v2-2c2264cc1c6c603dfeca4f84a2575901_720w.jpg" alt="img"></p>
+<p><strong>特点：</strong></p>
+<p>B树相对于平衡二叉树的不同是，每个节点包含的关键字增多了，特别是在B树应用到数据库中的时候，数据库充分利用了磁盘块的原理（磁盘数据存储是采用块的形式存储的，每个块的大小为4K，每次IO进行数据读取时，同一个磁盘块的数据可以一次性读取出来）把节点大小限制和充分使用在磁盘快大小范围；把树的节点关键字增多后树的层级比原来的二叉树少了，减少数据查找的次数和复杂度;</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p><strong>概念：</strong>B+树可以说是B树的升级版本，相对于B树而言，B+树充分利用了空间，让查询速度更加稳定，速度完全接近于二分法查询速度。</p>
+<p><strong>规则：</strong></p>
+<ul>
+<li>B+树非叶子节点储存的都是索引，使得每个非叶子节点存储的数据大大增多。</li>
+<li>B+树所有数据都保存在叶子节点上，所有数据地址只有在叶子节点上才能获得，每次数据查询速度稳定。</li>
+<li>B+树所有叶子节点从小到大有序排列。</li>
+<li>非叶子节点的子节点数等于关键字数（Mysql是这样实现的）。</li>
+</ul>
+<p><img src="https://pic2.zhimg.com/80/v2-9644d1a1f83d3e45da779f2e63c35d55_720w.jpg" alt="img"></p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><strong>B+数查询速度快</strong>，层级更小，非叶子节点存储内容更多，磁盘IO数也比较少，性能高，查询速度快。</li>
+<li><strong>B+数查询速度稳定，</strong>所有数据都在叶子节点上存储，所有更加稳定。</li>
+<li><strong>B+数天然具备排序功能，</strong>B+数所有叶子节点构成了一个有序链表，查询区间数据更方便，紧密型更高，缓存的命中率也更高。</li>
+<li><strong>B+数全节点遍历更快，</strong>B+数遍历整棵树只需要遍历所有叶子节点即可，而不需要对每一层遍历，这样有利于数据库做全表扫描。</li>
+</ul>
+<p>如果经常访问的数据离根节点很近，而<strong>B树</strong>的<strong>非叶子</strong>节点本身存有关键字其数据的地址，所以这种数据检索的时候会要比<strong>B+树</strong>快。</p>
+
       
     </div>
     
@@ -513,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,7 +574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,6 +659,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B树和B-树"><span class="nav-number">1.</span> <span class="nav-text">B树和B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B树"><span class="nav-number">1.1.</span> <span class="nav-text">B树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树"><span class="nav-number">1.2.</span> <span class="nav-text">B+树</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

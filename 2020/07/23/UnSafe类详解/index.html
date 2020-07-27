@@ -88,15 +88,20 @@
 
 
 
+<meta name="description" content="UnSafe类详解Unsafe是位于sun.misc包下的一个类 主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。 但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。 结构 如上图可看出，Unsafe">
 <meta name="keywords" content="并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UnSafe类详解">
 <meta property="og:url" content="http://wysblogs.top/2020/07/23/UnSafe类详解/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="UnSafe类详解Unsafe是位于sun.misc包下的一个类 主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。 但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。 结构 如上图可看出，Unsafe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T06:55:41.654Z">
+<meta property="og:image" content="https://picb.zhimg.com/80/v2-f0570d67d15e6157e2723687b77aee15_720w.jpg">
+<meta property="og:updated_time" content="2020-07-26T09:22:17.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UnSafe类详解">
+<meta name="twitter:description" content="UnSafe类详解Unsafe是位于sun.misc包下的一个类 主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。 但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。 结构 如上图可看出，Unsafe">
+<meta name="twitter:image" content="https://picb.zhimg.com/80/v2-f0570d67d15e6157e2723687b77aee15_720w.jpg">
 
 
 
@@ -395,7 +400,51 @@
       
 
       
-        
+        <h1 id="UnSafe类详解"><a href="#UnSafe类详解" class="headerlink" title="UnSafe类详解"></a>UnSafe类详解</h1><p>Unsafe是位于sun.misc包下的一个类</p>
+<p>主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。</p>
+<p>但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://picb.zhimg.com/80/v2-f0570d67d15e6157e2723687b77aee15_720w.jpg" alt="img"></p>
+<p>如上图可看出，Unsafe类在多个方面都有使用：</p>
+<ul>
+<li>内存操作<ul>
+<li>主要是<strong>堆外内存</strong>的分配、拷贝、释放、给定地址值等操作。</li>
+<li>因为是堆外内存，所以不归JVM管，得自己进行内存的管理</li>
+<li>使用堆外内存的原因：对GC停顿进行改善，减少停顿带来的影响，提高IO操作性能，不需要再次进行拷贝。</li>
+</ul>
+</li>
+<li>CAS操作<ul>
+<li>比较并交换，轻量级无锁并发，执行CAS操作时，首先拿地址中的值和原值作比较，如果一样就把内存值更新为新值，否则就不做任何操作。</li>
+<li>CAS在很多方面都有应用，比如Atomic原子类，还有AQS，ConcurrentHashMap等地方都有体现。</li>
+</ul>
+</li>
+<li>Class相关的一些操作<ul>
+<li>此部分主要提供<strong>Class</strong>和它的<strong>静态字段</strong>的操作相关方法，包含<strong>静态字段内存定位</strong>、<strong>定义类</strong>、<strong>定义匿名类</strong>、<strong>检验&amp;确保初始化</strong>等</li>
+</ul>
+</li>
+<li>对象操作<ul>
+<li>此部分主要包含对象成员属性相关操作及非常规的对象实例化方式等相关方法。</li>
+<li>常规分配内存是使用<code>new</code>关键字，然后交给JVM来管理</li>
+<li>但是Unsafe有分配内存的方法，不需要通过JVM进行操作，</li>
+</ul>
+</li>
+<li>线程调度<ul>
+<li>线程挂起，恢复，锁机制等操作。</li>
+</ul>
+</li>
+<li>系统信息获取<ul>
+<li>这部分包含两个获取系统相关信息的方法。</li>
+</ul>
+</li>
+<li>内存屏障<ul>
+<li>在Java 8中引入，用于定义内存屏障（也称内存栅栏，内存栅障，屏障指令等，是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作），避免代码重排序。</li>
+</ul>
+</li>
+<li>数组操作<ul>
+<li>这部分主要介绍与数据操作相关的arrayBaseOffset与arrayIndexScale这两个方法，两者配合起来使用，即可定位数组中每个元素在内存中的位置。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -513,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,6 +674,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UnSafe类详解"><span class="nav-number">1.</span> <span class="nav-text">UnSafe类详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.1.</span> <span class="nav-text">结构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
