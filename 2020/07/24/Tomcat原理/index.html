@@ -96,13 +96,13 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container  Connector：处理连接相关内容，并提供Socket">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4236553-89bacc3467d513f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/462/format/webp">
-<meta property="og:updated_time" content="2020-07-25T09:56:27.848Z">
+<meta property="og:image" content="http://wysblogs.top/upload/tomcat/20180518194004378.png">
+<meta property="og:image" content="http://wysblogs.top/upload/tomcat/4236553-89bacc3467d513f0.webp">
+<meta property="og:updated_time" content="2020-07-27T02:14:04.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat原理">
 <meta name="twitter:description" content="Tomcat原理简介Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。 Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。 整体架构 核心容器和Connector和Container  Connector：处理连接相关内容，并提供Socket">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="http://wysblogs.top/upload/tomcat/20180518194004378.png">
 
 
 
@@ -403,7 +403,7 @@
       
         <h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p>
 <p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p>
-<h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="/upload/tomcat/20180518194004378.png" alt="img"></p>
 <p>核心容器和<code>Connector</code>和<code>Container</code></p>
 <ul>
 <li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li>
@@ -433,7 +433,7 @@
 <li>需要更改jsp后不用重启。</li>
 </ul>
 <p><strong>Tomcat类加载器</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/4236553-89bacc3467d513f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/462/format/webp" alt="img"></p>
+<p><img src="/upload/tomcat/4236553-89bacc3467d513f0.webp" alt="img"></p>
 <p>双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。</p>
 <p>tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器</p>
 <p>、</p>
@@ -593,7 +593,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -604,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

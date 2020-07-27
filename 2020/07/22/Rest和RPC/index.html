@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="分布式,">
 
 
 
@@ -88,14 +88,20 @@
 
 
 
+<meta name="description" content="Rest和RPC 两种风格的API区别：  RPC面向过程：RPC只发送GET或者POST请求，RPC不单单指的是API的开发风格，RPC称为远程过程调用，发送一个RPC请求，实际上就是调用了服务端的一个方法。 Restful面向资源：使用 POST、DELETE、PUT、GET 请求，分别对应增、删、改、查操作。请求参数是名词，这个名词就是“增删改查”想要操作的对象。  RPC和DubboDub">
+<meta name="keywords" content="分布式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rest和RPC">
 <meta property="og:url" content="http://wysblogs.top/2020/07/22/Rest和RPC/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="Rest和RPC 两种风格的API区别：  RPC面向过程：RPC只发送GET或者POST请求，RPC不单单指的是API的开发风格，RPC称为远程过程调用，发送一个RPC请求，实际上就是调用了服务端的一个方法。 Restful面向资源：使用 POST、DELETE、PUT、GET 请求，分别对应增、删、改、查操作。请求参数是名词，这个名词就是“增删改查”想要操作的对象。  RPC和DubboDub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-22T08:31:16.500Z">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-94f2d3a1a96ce10d0b40fa7d17a78d00_720w.jpg">
+<meta property="og:updated_time" content="2020-07-27T01:27:14.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rest和RPC">
+<meta name="twitter:description" content="Rest和RPC 两种风格的API区别：  RPC面向过程：RPC只发送GET或者POST请求，RPC不单单指的是API的开发风格，RPC称为远程过程调用，发送一个RPC请求，实际上就是调用了服务端的一个方法。 Restful面向资源：使用 POST、DELETE、PUT、GET 请求，分别对应增、删、改、查操作。请求参数是名词，这个名词就是“增删改查”想要操作的对象。  RPC和DubboDub">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-94f2d3a1a96ce10d0b40fa7d17a78d00_720w.jpg">
 
 
 
@@ -340,6 +346,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -372,7 +400,14 @@
       
 
       
-        
+        <h1 id="Rest和RPC"><a href="#Rest和RPC" class="headerlink" title="Rest和RPC"></a>Rest和RPC</h1><p><img src="https://pic4.zhimg.com/80/v2-94f2d3a1a96ce10d0b40fa7d17a78d00_720w.jpg" alt="img"></p>
+<p>两种风格的API区别：</p>
+<ul>
+<li><strong>RPC面向过程：</strong>RPC只发送GET或者POST请求，RPC不单单指的是API的开发风格，RPC称为远程过程调用，发送一个RPC请求，实际上就是调用了服务端的一个方法。</li>
+<li><strong>Restful面向资源：</strong>使用 POST、DELETE、PUT、GET 请求，分别对应增、删、改、查操作。请求参数是<strong>名词</strong>，这个名词就是“增删改查”想要操作的对象。</li>
+</ul>
+<h2 id="RPC和Dubbo"><a href="#RPC和Dubbo" class="headerlink" title="RPC和Dubbo"></a>RPC和Dubbo</h2><p>Dubbo是一个实现了RPC理念的框架，使得调用远程服务就跟调用本地方法一样，使得Dubbo更加的安全。</p>
+
       
     </div>
     
@@ -404,6 +439,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/分布式/" rel="tag"># 分布式</a>
+          
+        </div>
       
 
       
@@ -484,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,7 +563,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -524,7 +574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -587,6 +637,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rest和RPC"><span class="nav-number">1.</span> <span class="nav-text">Rest和RPC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC和Dubbo"><span class="nav-number">1.1.</span> <span class="nav-text">RPC和Dubbo</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

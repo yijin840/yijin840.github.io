@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null　值，　因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 Hash">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-26T09:22:54.446Z">
+<meta property="og:updated_time" content="2020-07-27T01:43:14.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础面试知识">
 <meta name="twitter:description" content="Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null　值，　因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 Hash">
@@ -426,7 +426,7 @@
 <p><strong>循环时间长开销很大：</strong><br>CAS 通常是配合无限循环一起使用的，我们可以看到 getAndAddInt 方法执行时，如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。</p>
 <p><strong>只能保证一个变量的原子操作：</strong><br>当对一个变量执行操作时，我们可以使用循环 CAS 的方式来保证原子操作，但是对多个变量操作时，CAS 目前无法直接保证操作的原子性。但是我们可以通过以下两种办法来解决：1）使用互斥锁来保证原子性；2）将多个变量封装成对象，通过 AtomicReference 来保证原子性。</p>
 <p><strong>什么是ABA问题？ABA问题怎么解决？</strong><br>如果内存地址V初次读取的值是A，并且在准备赋值的时候检查到它的值仍然为A，那我们就能说它的值没有被其他线程改变过了吗？</p>
-<p>如果在这段期间它的值曾经被改成了B，后来又被改回为A，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“AtomicStampedReference”，它可以通过控制变量值的版本来保证CAS的正确性。因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，改用传统的互斥同步可能会比原子类更高效。</p>
+<p>如果在这段期间它的值曾经被改成了B，后来又被改回为A，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“AtomicStampedReference”，它可以通过控制变量值的版本（version）来保证CAS的正确性。因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，改用传统的互斥同步可能会比原子类更高效。</p>
 <p><strong>总结</strong></p>
 <p>Hashtable的任何操作都会把整个表锁住，是阻塞的。好处是总能获取最实时的更新，比如说线程A调用putAll写入大量数据，期间线程B调用get，线程B就会被阻塞，直到线程A完成putAll，因此线程B肯定能获取到线程A写入的完整数据。坏处是所有调用都要排队，效率较低。<br> ConcurrentHashMap 是设计为非阻塞的。在更新时会局部锁住某部分数据，但不会把整个表都锁住。同步读取操作则是完全非阻塞的。好处是在保证合理的同步前提下，效率很高。坏处是严格来说读取操作不能保证反映最近的更新。例如线程A调用putAll写入大量数据，期间线程B调用get，则只能get到目前为止已经顺利插入的部分数据。<br> 应该根据具体的应用场景选择合适的HashMap。</p>
 <h2 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h2><ol>
@@ -460,7 +460,15 @@
 <p><strong>需要注意的是当<code>equals()</code>方法被override时，<code>hashCode()</code>也要被override。按照一般<code>hashCode()</code>方法的实现来说，相等的对象，它们的hash code一定相等。</strong></p>
 <p><strong>hashcode</strong></p>
 <p>1.如果两个对象相同，那么它们的hashCode值一定要相同；<br>2.如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。  如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。<br>3.equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。　　反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。</p>
-<h2 id="String为什么是final修饰"><a href="#String为什么是final修饰" class="headerlink" title="String为什么是final修饰"></a>String为什么是final修饰</h2>
+<h2 id="String为什么是final修饰"><a href="#String为什么是final修饰" class="headerlink" title="String为什么是final修饰"></a>String为什么是final修饰</h2><p><strong>1、为了实现字符串常量池</strong></p>
+<p>因为只有当字符串不可变时，才有可能实现字符串池，这样会节省很多堆空间，因为多个地址都可以指向一个值，如果是可变的话</p>
+<p><strong>2、保证安全</strong></p>
+<p>因为字符串可变的话，数据库等其他形式都是以字符串形式传入的，因为字符串不可变，所以才有了保障，随意改变的话，可能造成安全方面的漏洞</p>
+<p><strong>3、线程安全</strong></p>
+<p>在多线程情况下，同一字符串可以被多个线程共享，不用因为线程安全所以使用同步，字符串本身就是线程安全的。</p>
+<p><strong>4、hashcode</strong></p>
+<p>因为字符串不可变，所以创建的时候就被Hashcode缓存了，不需要重新计算，所以一般在map中，字符串做key的话比其他效率要高。</p>
+
       
     </div>
     
@@ -616,7 +624,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -627,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

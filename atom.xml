@@ -71,9 +71,9 @@
     <link href="http://wysblogs.top/2020/07/24/Tomcat%E5%8E%9F%E7%90%86/"/>
     <id>http://wysblogs.top/2020/07/24/Tomcat原理/</id>
     <published>2020-07-24T00:51:33.000Z</published>
-    <updated>2020-07-25T09:56:27.848Z</updated>
+    <updated>2020-07-27T02:14:04.769Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="https://img-blog.csdn.net/20180518194004378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pzajEzMjYzNjkwOTE4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li></ul><h2 id="三种Connector运行模式"><a href="#三种Connector运行模式" class="headerlink" title="三种Connector运行模式"></a>三种Connector运行模式</h2><ul><li><strong>BIO</strong>：同步阻塞IO，一个线程处理一个请求，同时把其他线程阻塞，并发量高时，线程多，导致性能严重下降</li><li><strong>NIO</strong>：异步非阻塞IO，一个线程处理多个Connection，多路复用，使用较少的线程执行较多的请求。</li><li><strong>APR</strong>：异步非阻塞IO，和NIO在操作系统层面不同，不需要关注进度问题。</li></ul><h2 id="Tomcat工作模式"><a href="#Tomcat工作模式" class="headerlink" title="Tomcat工作模式"></a>Tomcat工作模式</h2><p>Tomcat作为servlet容器，有三种工作模式：</p><ul><li>1、<strong>独立的servlet容器</strong>，servlet容器是web服务器的一部分；</li><li>2、<strong>进程内的servlet容器</strong>，servlet容器是作为web服务器的插件和java容器的实现，web服务器插件在内部地址空间打开一个jvm使得java容器在内部得以运行。反应速度快但伸缩性不足；</li><li>3、<strong>进程外的servlet容器</strong>，servlet容器运行于web服务器之外的地址空间，并作为web服务器的插件和java容器实现的结合。反应时间不如进程内但伸缩性和稳定性比进程内优；</li></ul><p>进入Tomcat的请求可以根据Tomcat的工作模式分为如下两类：</p><ul><li>Tomcat作为<strong>应用程序服务器</strong>：请求来自于前端的web服务器，这可能是Apache, IIS, Nginx等；</li><li>Tomcat作为<strong>独立服务器</strong>：请求来自于web浏览器；</li></ul><h2 id="Tomcat违背双亲委派模型"><a href="#Tomcat违背双亲委派模型" class="headerlink" title="Tomcat违背双亲委派模型"></a>Tomcat违背双亲委派模型</h2><p>首先谈一下Tomcat要实现的目的：</p><ul><li>运行多个web程序，并且各个依赖的类库相互独立，相互隔离。</li><li>部署在同一个web容器下的相同类库可以共享。</li><li>web容器自己类库不能与程序冲突。</li><li>需要更改jsp后不用重启。</li></ul><p><strong>Tomcat类加载器</strong></p><p><img src="https://upload-images.jianshu.io/upload_images/4236553-89bacc3467d513f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/462/format/webp" alt="img"></p><p>双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。</p><p>tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器</p><p>、</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="/upload/tomcat/20180518194004378.png" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li></ul><h2 id="三种Connector运行模式"><a href="#三种Connector运行模式" class="headerlink" title="三种Connector运行模式"></a>三种Connector运行模式</h2><ul><li><strong>BIO</strong>：同步阻塞IO，一个线程处理一个请求，同时把其他线程阻塞，并发量高时，线程多，导致性能严重下降</li><li><strong>NIO</strong>：异步非阻塞IO，一个线程处理多个Connection，多路复用，使用较少的线程执行较多的请求。</li><li><strong>APR</strong>：异步非阻塞IO，和NIO在操作系统层面不同，不需要关注进度问题。</li></ul><h2 id="Tomcat工作模式"><a href="#Tomcat工作模式" class="headerlink" title="Tomcat工作模式"></a>Tomcat工作模式</h2><p>Tomcat作为servlet容器，有三种工作模式：</p><ul><li>1、<strong>独立的servlet容器</strong>，servlet容器是web服务器的一部分；</li><li>2、<strong>进程内的servlet容器</strong>，servlet容器是作为web服务器的插件和java容器的实现，web服务器插件在内部地址空间打开一个jvm使得java容器在内部得以运行。反应速度快但伸缩性不足；</li><li>3、<strong>进程外的servlet容器</strong>，servlet容器运行于web服务器之外的地址空间，并作为web服务器的插件和java容器实现的结合。反应时间不如进程内但伸缩性和稳定性比进程内优；</li></ul><p>进入Tomcat的请求可以根据Tomcat的工作模式分为如下两类：</p><ul><li>Tomcat作为<strong>应用程序服务器</strong>：请求来自于前端的web服务器，这可能是Apache, IIS, Nginx等；</li><li>Tomcat作为<strong>独立服务器</strong>：请求来自于web浏览器；</li></ul><h2 id="Tomcat违背双亲委派模型"><a href="#Tomcat违背双亲委派模型" class="headerlink" title="Tomcat违背双亲委派模型"></a>Tomcat违背双亲委派模型</h2><p>首先谈一下Tomcat要实现的目的：</p><ul><li>运行多个web程序，并且各个依赖的类库相互独立，相互隔离。</li><li>部署在同一个web容器下的相同类库可以共享。</li><li>web容器自己类库不能与程序冲突。</li><li>需要更改jsp后不用重启。</li></ul><p><strong>Tomcat类加载器</strong></p><p><img src="/upload/tomcat/4236553-89bacc3467d513f0.webp" alt="img"></p><p>双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。</p><p>tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器</p><p>、</p>]]></content>
     
     <summary type="html">
     
@@ -319,9 +319,9 @@
     <link href="http://wysblogs.top/2020/07/22/Rest%E5%92%8CRPC/"/>
     <id>http://wysblogs.top/2020/07/22/Rest和RPC/</id>
     <published>2020-07-22T08:31:16.000Z</published>
-    <updated>2020-07-22T08:31:16.500Z</updated>
+    <updated>2020-07-27T01:27:14.063Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Rest和RPC"><a href="#Rest和RPC" class="headerlink" title="Rest和RPC"></a>Rest和RPC</h1><p><img src="https://pic4.zhimg.com/80/v2-94f2d3a1a96ce10d0b40fa7d17a78d00_720w.jpg" alt="img"></p><p>两种风格的API区别：</p><ul><li><strong>RPC面向过程：</strong>RPC只发送GET或者POST请求，RPC不单单指的是API的开发风格，RPC称为远程过程调用，发送一个RPC请求，实际上就是调用了服务端的一个方法。</li><li><strong>Restful面向资源：</strong>使用 POST、DELETE、PUT、GET 请求，分别对应增、删、改、查操作。请求参数是<strong>名词</strong>，这个名词就是“增删改查”想要操作的对象。</li></ul><h2 id="RPC和Dubbo"><a href="#RPC和Dubbo" class="headerlink" title="RPC和Dubbo"></a>RPC和Dubbo</h2><p>Dubbo是一个实现了RPC理念的框架，使得调用远程服务就跟调用本地方法一样，使得Dubbo更加的安全。</p>]]></content>
     
     <summary type="html">
     
@@ -332,6 +332,10 @@
     
     </summary>
     
+      <category term="分布式" scheme="http://wysblogs.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+      <category term="分布式" scheme="http://wysblogs.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
   </entry>
   
@@ -465,9 +469,9 @@
     <link href="http://wysblogs.top/2020/07/22/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
     <id>http://wysblogs.top/2020/07/22/linux常用命令（持续更新）/</id>
     <published>2020-07-22T08:23:06.000Z</published>
-    <updated>2020-07-23T04:18:23.332Z</updated>
+    <updated>2020-07-27T01:35:10.043Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux常用命令（持续更新）"><a href="#linux常用命令（持续更新）" class="headerlink" title="linux常用命令（持续更新）"></a>linux常用命令（持续更新）</h1><h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><p>查看系统资源占用</p>]]></content>
     
     <summary type="html">
     
