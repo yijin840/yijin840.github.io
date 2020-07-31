@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null　值，　因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 Hash">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-27T01:43:14.621Z">
+<meta property="og:updated_time" content="2020-07-30T18:07:00.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础面试知识">
 <meta name="twitter:description" content="Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null　值，　因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 Hash">
@@ -468,6 +468,11 @@
 <p>在多线程情况下，同一字符串可以被多个线程共享，不用因为线程安全所以使用同步，字符串本身就是线程安全的。</p>
 <p><strong>4、hashcode</strong></p>
 <p>因为字符串不可变，所以创建的时候就被Hashcode缓存了，不需要重新计算，所以一般在map中，字符串做key的话比其他效率要高。</p>
+<h2 id="ArrayList扩容"><a href="#ArrayList扩容" class="headerlink" title="ArrayList扩容"></a>ArrayList扩容</h2><p>ArrayList list=new ArrayList(20);<br>有几次扩容</p>
+<p>没有扩容，原因是在初始化的时候已经指定参数了</p>
+<p>ArrayList初始容量是10，扩容大小是1.5倍，负载因子是1</p>
+<p>因此如果指定大小小于10，那么如果添加元素等于11，就会一次扩容，把容量扩充成15。</p>
+<p>扩容方式是位运算的右移，把原来的数组复制到另一个内存空间更大的数组中</p>
 
       
     </div>
@@ -613,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -708,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基础面试知识（持续更新）"><span class="nav-number">1.</span> <span class="nav-text">Java基础面试知识（持续更新）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap，ConcurrentHashMap，Hashtable的数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">HashMap，ConcurrentHashMap，Hashtable的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">1.1.2.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.1.3.</span> <span class="nav-text">ConcurrentHashMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash函数"><span class="nav-number">1.2.</span> <span class="nav-text">Hash函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#equals和hashcode"><span class="nav-number">1.3.</span> <span class="nav-text">equals和hashcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String为什么是final修饰"><span class="nav-number">1.4.</span> <span class="nav-text">String为什么是final修饰</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基础面试知识（持续更新）"><span class="nav-number">1.</span> <span class="nav-text">Java基础面试知识（持续更新）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap，ConcurrentHashMap，Hashtable的数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">HashMap，ConcurrentHashMap，Hashtable的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">1.1.2.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.1.3.</span> <span class="nav-text">ConcurrentHashMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash函数"><span class="nav-number">1.2.</span> <span class="nav-text">Hash函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#equals和hashcode"><span class="nav-number">1.3.</span> <span class="nav-text">equals和hashcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String为什么是final修饰"><span class="nav-number">1.4.</span> <span class="nav-text">String为什么是final修饰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList扩容"><span class="nav-number">1.5.</span> <span class="nav-text">ArrayList扩容</span></a></li></ol></li></ol></div>
             
 
           </div>

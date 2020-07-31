@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mybatis基础知识]]></title>
+    <url>%2F2020%2F07%2F30%2FMybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[对象头大小分配]]></title>
+    <url>%2F2020%2F07%2F30%2F%E5%AF%B9%E8%B1%A1%E5%A4%B4%E5%A4%A7%E5%B0%8F%E5%88%86%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[对象头大小分配1、在32位系统下，存放Class指针的空间大小是4字节，MarkWord是4字节，对象头为8字节。 2、在64位系统下，存放Class指针的空间大小是8字节，MarkWord是8字节，对象头为16字节。 3、在64位开启指针压缩的情况下 -XX:+UseCompressedOops，存放Class指针的空间大小是4字节，MarkWord是8字节，对象头为12字节。 4、如果对象是数组，那么额外增加4个字节 对齐填充最后一块对齐填充空间并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。这是由于HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说，就是对象的大小必须是8字节的整数倍。]]></content>
+      <categories>
+        <category>jvm</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MVCC详解]]></title>
+    <url>%2F2020%2F07%2F30%2FMVCC%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[MVCC详解简介MVCC,多版本的并发控制，就是当我们在修改数据的时候，可以为这条数据创建一个快照，后面就可以直接读取这个快照。 工作过程InnoDB的MVCC，是通过在每行纪录后面保存两个隐藏的列来实现的。这两个列，一个保存了行的创建时间，一个保存了行的过期时间（或删除时间），当然存储的并不是实际的时间值，而是系统版本号。 MVCC优缺点MVCC在大多数情况下代替了行锁，实现了对读的非阻塞，读不加锁，读写不冲突。缺点是每行记录都需要额外的存储空间，需要做更多的行维护和检查工作。 MVCC手段只适用于Msyql隔离级别中的读已提交（Read committed）和可重复读（Repeatable Read）。 Read uncimmitted由于存在脏读，即能读到未提交事务的数据行，所以不适用MVCC. 原因是MVCC的创建版本和删除版本只要在事务提交后才会产生。 串行化由于是会对所涉及到的表加锁，并非行锁，自然也就不存在行的版本控制问题。 通过以上总结，可知，MVCC主要作用于事务性的，有行锁控制的数据库模型。]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AQS详解]]></title>
+    <url>%2F2020%2F07%2F30%2FAQS%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LRU机制与实现]]></title>
+    <url>%2F2020%2F07%2F30%2FLRU%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[LRU机制与实现LRU是一种缓存淘汰策略]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[线程池详解]]></title>
+    <url>%2F2020%2F07%2F30%2F%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[线程池详解首先我们来了解一下什么是线程池 顾名思义，我们之前了解过JDBC连接池，就应该明白，线程池也是一样的，都是预先创建 好一堆对象来进行重复使用。 池化技术能够减少资源的创建次数，提高程序性能 池化技术特点： 对象创建时间长 对象创建需要消耗大量的资源 对象创建后可以被重复使用 线程池注意 创建线程池的几种形式1234567Executors.newFixedThreadPool(5); //创建固定数量的线程Executors.newSingleThreadExecutor(); //单个线程Executors.newCachedThreadPool(); //可伸缩的线程池Executors.newScheduledThreadPool(5); //线程调度池/***在任务执行时间小于间隔时间的情况下，程序以起始时间为准则，每隔指定时间执行一次，不受任务执行时间影响*/ 以上都是提供的几种形式，如果不满足的话，那么可以自己定义一个数据池来供自己使用 参数在定义自己的数据池之前要了解线程池的每个参数作用 1234567int corePoolSize //核心线程数量int maximumPoolSize //最大线程数量long keepAliveTime //保持存活的时间TimeUnit unit //时间计算的规则BlockingQueue&lt;Runnable&gt; workQueue //阻塞队列ThreadFactory threadFactory //线程工厂模式RejectedExecutionHandler handler //四种拒绝策略 我们可以把线程池抽象出来，比作一个银行运作模式 核心线程就是默认开启的窗口数量 最大线程数量就是银行能够提供的最大窗口数量 保持存活的时间：就是如果线程数量大于核心线程数，但是线程如果空闲等待时间大于保持存活的时间，就会销毁这些线程。 时间计算的规则：就是TImeUnit类的规则 阻塞队列：就是银行等待区的最大人数 线程工厂模式：负责生产线程的工厂，一般是不用改变的，使用默认的就行 拒绝策略： ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常 ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常。 ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新提交被拒绝的任务 ThreadPoolExecutor.CallerRunsPolicy：由调用线程（提交任务的线程）处理该任务 拒绝策略可以理解为 如果银行窗口和等待区全部占满之后，银行对新进来的人进行的安排策略。 自定义线程池如果了解以上参数的话，我们就可以来编写自己的线程池了 12345678910111213141516171819202122232425public class ThreadPoolDemo &#123; public static void main(String[] args) &#123; Executors.newFixedThreadPool(5); Executors.newSingleThreadExecutor(); Executors.newCachedThreadPool(); Executors.newScheduledThreadPool(5); ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 5, 5, TimeUnit.SECONDS, new LinkedBlockingQueue&lt;&gt;(3), Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy()); try&#123; for(int i=1;i&lt;=9;i++)&#123; executor.execute(new Thread()&#123; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()+"执行了"); &#125; &#125;); &#125; &#125;catch (Exception e)&#123; e.printStackTrace(); &#125; executor.shutdown(); &#125;&#125; 如果线程池用完了。。记得关闭就行。 线程池的几个队列（1）ArrayBlockingQueue：规定大小的BlockingQueue，其构造必须指定大小。其所含的对象是FIFO顺序排序的。 （2）LinkedBlockingQueue：大小不固定的BlockingQueue，若其构造时指定大小，生成的BlockingQueue有大小限制，不指定大小，其大小有Integer.MAX_VALUE来决定。其所含的对象是FIFO顺序排序的。 （3）PriorityBlockingQueue：类似于LinkedBlockingQueue，但是其所含对象的排序不是FIFO，而是依据对象的自然顺序或者构造函数的Comparator决定。 （4）SynchronizedQueue：特殊的BlockingQueue，对其的操作必须是放和取交替完成。]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[垃圾收集器详解]]></title>
+    <url>%2F2020%2F07%2F30%2F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[垃圾收集器详解垃圾收集器是垃圾回收算法的实现。 Serial收集器这是一个最基础，最久远的收集器，是一个单线程的收集器，在工作的时候会暂停其他线程，来进行垃圾回收。 新生代采用复制算法，老年代采用标记-整理算法。 ParNew收集器ParNew收集器实质上是Serial收集器的多线程并发版本。 新生代采用复制算法，老年代采用标记-整理算法。 Parallel Scavenge收集器这个收集器是一个新生代收集器。 新生代采用复制算法，老年代采用标记-整理算法。 看上去似乎和ParNew差不多，实际上这个收集器的特点是它的关注点与其他的不同，比如CMS等其他收集器都是以缩短用户线程停顿时间为主要目标，而Parallel Scavenge收集器是为了达到一个可控制的吞吐量，能够有效的提高用户体验。 Serial Old 收集器Serial Old收集器是Serial收集器的老年版本，同样也是一个单线程收集器。 采用的是标记整理算法。 一般是和Parallel Scavenge收集器搭配使用。 Parallel Old收集器Parallel Old收集器是Parallel Scavenge收集器的老年版本。 新生代采用复制算法，老年代采用标记-整理算法。 CMS收集器CMS收集器是为了获取最短回收停顿时间为目标的收集器。 运作过程： 1、初始标记 2、并发标记 3、重新标记 4、并发清除 优点：并发收集，低停顿 缺点： 对处理器资源敏感，会占用CPU资源，导致应用变慢，降低总吞吐量。处理器不足四个就会使处理器负载变大。 无法处理 “浮动垃圾”，标记结束后，没有办法一次性清除完毕的垃圾。 产生资源碎片，因为采用标记清除，所以会产生大量空间碎片 G1收集器G1收集器是一款面向服务端应用的垃圾收集器。 在新生代，G1 采用的仍然是并行的复制算法，所以同样会发生 Stop-The-World的暂停。新生代的清理会带上old区已标记好的region。 G1运作过程： 初始标记 并发标记 最终标记 筛选回收 特点： 并行与并发：充分利用了CPU资源 分代收集：可以更好地进行管理分代区 空间整合：不会产生内存碎片 可预测停顿：能够让使用者明确指定消耗在垃圾收集器上的时间 缺点 region大小和对象很难保持一致，导致空间的浪费。 CMS只是针对老年代的，而G1是针对两者的 G1可以不需要其它收集器配合就能独立管理整个GC堆]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[创建线程的几种方式]]></title>
+    <url>%2F2020%2F07%2F30%2F%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[创建线程的几种方式 继承Thread类 实现Runnable接口 通过Callable和FutureTask创建线程 通过线程池创建线程 1、继承Thread类123456789101112public class ThreadDemo extends Thread&#123; public static void main(String[] args) &#123; ThreadDemo threadDemo = new ThreadDemo(); Thread t1 = new Thread(threadDemo,"A"); t1.start(); &#125; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()+"线程启动了！"); &#125;&#125; 2、实现Runnable接口123456789101112public class RunnableDemo implements Runnable&#123; public static void main(String[] args) &#123; RunnableDemo demo = new RunnableDemo(); Thread t1 = new Thread(demo,"A"); t1.start(); &#125; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()+"线程启动了！"); &#125;&#125; 3、Callable和FutureTask1234567891011121314public class CallableDemo implements Callable&lt;String&gt; &#123; public static void main(String[] args) throws ExecutionException, InterruptedException &#123; CallableDemo demo = new CallableDemo(); FutureTask&lt;String&gt; task = new FutureTask&lt;String&gt;(demo); new Thread(task,"A").start(); System.out.println(task.get()); &#125; @Override public String call() throws Exception &#123; System.out.println(Thread.currentThread().getName()+"线程启动了！"); return "启动了"; &#125;&#125; Callable是可以有返回值的，通过线程执行完毕调用get()方法获得 4、通过线程池启动1234567891011121314151617181920212223242526272829303132333435/** * @Author: wys * @Description: * @Date: 2020/7/30 10:17 * @FileName: ThreadPoolDemo * int corePoolSize, 核心线程数量 * int maximumPoolSize, 最大线程数量 * long keepAliveTime, 保持存活的时间 * TimeUnit unit, 时间计算的规则 * BlockingQueue&lt;Runnable&gt; workQueue, 阻塞队列 * ThreadFactory threadFactory, 线程工厂模式 * RejectedExecutionHandler handler 四种拒绝策略 */public class ThreadPoolDemo &#123; public static void main(String[] args) &#123; ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 5, 5, TimeUnit.SECONDS, new LinkedBlockingQueue&lt;&gt;(3), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy()); try&#123; for(int i=1;i&lt;=9;i++)&#123; executor.execute(new Thread()&#123; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()+"执行了"); &#125; &#125;); &#125; &#125;catch (Exception e)&#123; e.printStackTrace(); &#125; executor.shutdown(); &#125;&#125; 线程池核心就是。。上面的7中参数。。一定要记住 四种拒绝策略： AbortPolicy：如果满了就报错 CallerRunsPolicy：哪来的就回拿去，意思就是让本来的线程去执行 DiscardOldestPolicy：如果满了就与第一个执行的线程竞争一下cpu资源，如果成功就执行，不成功就拒绝掉，不会报错 DiscardPolicy：如果满了就直接拒绝掉，不会报错]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试场景题]]></title>
+    <url>%2F2020%2F07%2F30%2F%E9%9D%A2%E8%AF%95%E5%9C%BA%E6%99%AF%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[面试场景题1、一个是用户信息文件, 保存了1亿的用户信息, 一个是用户浏览商品的记录的文件, 保存了500万的用户浏览记录, 怎么合并这两个文件? (内存为1G) 文件中怎么快速找出浏览记录大于5的数据? 暂空 2、现有1T的数据，内存只有1G，该怎么对他们排序 外部排序。多路归并 3、不知道大小的数据流取其中100个数，怎样的取法能最随机 暂空 4、n个物品每个物品都有一定价值，分给2个人，怎么分两个人的价值差最小 暂空 5、假设百度每个页面能放100个网页，每个页面都有一个评分，怎样快速找到第8页的所有网页 暂空 6、如果一个sql执行慢，可能是什么原因造成的，你说说如果是你碰到了，你打算怎么排查? 暂空 7、两个数字 int a=10 int b=20 如何不经过第三个变量来交换，结果为 a=20 b=10 使用位运算 a = a^b b = a^b a = a^b 8、假如有上亿条数据，你如何快速找到其中一条你想要的数据（几种简单的算法） 暂空 9、每秒几十万并发的秒杀系统为什么会频繁发生GC？ 暂空 10、日均百万级交易系统如何优化JVM？ 暂空 11、如何从含有100亿个整数的文件中找出其中最大的100个？ 暂空 12、tomcat在并发场景中，应该如何优化tomcat，比如再下次8g内存的服务器上，部署4个tomcat，怎么做可以合理调优 暂空]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mysql锁详解]]></title>
     <url>%2F2020%2F07%2F25%2Fmysql%E9%94%81%E8%AF%A6%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[mysql锁详解mysql的锁可以用两种情况区分 按粒度分为 行锁,页锁,表锁 按用法有共享锁和排他锁 按粒度来分行锁行锁是锁粒度最细的一个锁了,表示只对自己当前操作的行加锁. 行锁操作可以大大的减少数据库操作带来的冲突,但是加速开销太大 行锁分为共享锁和排他锁. 特点: 开销大,可能会出现死锁,并发程度高,锁冲突概率最低. 表锁表锁是mysql锁粒度最大的一个锁, 表示对当前操作的整张表都加锁, 资源消耗大, 被大部分引擎都支持. 表锁分为 共享锁 和 排他锁 特点: 开销小, 加锁快, 不会出现死锁, 锁粒度大, 发生冲突的概率最大, 并发性最低. 页锁页级锁是mysql中锁粒度一般的锁, 一般都是在行锁和表锁之间. 表锁速度快,但是冲突多, 行锁冲突少, 但是速度慢, 于是采用 页锁的比较多. 页锁是一次锁定相邻的一组记录开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。 悲观锁悲观锁是一种悲观的并发控制线程访问的一个方法. 它可以阻止一个事务以影响其他用户的方式来修改数据. 如果一个事务的操作的某行数据加了锁, 那么只有当这个事务把锁释放了, 其他事物才能够执行和该锁冲突的操作. 悲观锁主要用于数据竞争比较激烈的环境 还有 并发冲突时维护锁的成本低于回滚成本的环境中. 使用:如果要对数据修改,先给这个数据添加排他锁,如果添加失败,那么说明正在被使用, 因此要等待或者抛异常. 优点: 保证了数据的安全和完整性 缺点: 效率低,会让数据库产生额外开销,还有可能出现死锁, 在只读的事务中不会产生冲突, 这样做会增加系统开销, 降低了并行. 乐观锁乐观锁是一种乐观的并发控制线程访问的一个方法. 它假设在并发处理事务时,都不会相互影响, 各事务能够在不产生锁的情况下处理各自影响的那部分数据. 就是只在提交的时候进行判断是否冲突 提交数据时判断有没有其他事务修改数据, 如果数据被修改了,那么就回滚. 乐观锁不会使用数据库提供的锁机制, 一般的实现乐观锁的方式就是记录数据版本, 即添加一行字段 version , 如果提交时发现字段一致, 就更新数据 , 否则就回滚. 实现乐观锁两种方式: 版本号 和 时间戳 乐观锁原理就是 CAS 操作 InnoDBinnodb 支持行锁 和 表锁 默认是支持行锁 innodb行锁是个索引加锁实现的, 意思就是只有通过索引条件检索数据, InnoDB才使用行级锁, 否则 InnoDB使用表锁 , 实际中我们要注意这种情况, 不然会产生大量冲突. 当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。 即便 在 数据库设置了索引, 但是是否用索引 还是根据mysql 通过判断不同 执行计划代价来决定的, 如果 mysql 认为全表扫描效率高, 例如一些很小的表, 他就不会使用索引, 这种情况下 就会使用 表锁. 索引和锁在mysql中, 行锁不是直接锁记录, 而是锁的时索引. 索引分为主键索引和非主键索引, 如果mysql操作了主键索引, 那么就锁主键索引, 如果走的索引是 非主键索引, 那么先锁非主键索引, 再锁相关的主键索引. 死锁:一个事务锁了主键索引, 另一个事务锁了非主键索引, 在等主键索引, 就造成了死锁. 死锁后 InnoDB都可以检查到, 并使一个事务释放锁并回退, 另一个获取锁完成事务. *避免死锁: * 尽量有序访问表 尽量一次锁定所需要的所有资源 也可以升级锁粒度]]></content>
@@ -404,7 +497,7 @@
   <entry>
     <title><![CDATA[java基础面试知识]]></title>
     <url>%2F2020%2F05%2F11%2Fjava%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null 值， 因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 HashMap扩容特别耗时，如果能估算大小，最好给它一个默认的初始值，避免进行多次扩容，HashMap线程不安全，多线程状态下应使用ConcurrentHashMap。 如果在多线程状态下想要使用HashMap需要使用Conllections.synchronizedMap()方法获取一个线程安全的Map集合，就是在操作HashMap的时候会自动给方法添加synchronized 关键字来保证线程安全性。 数据结构 HashMap在1.8之前使用的是 数组+链表，1.8之后使用的是 数组+链表+红黑树，当链表长度超过阈值8的时候，将链表转换为红黑树，性能得到提升。 Hashtable介绍 和HashMap基本一样。 对比HashMap Hashtable线程安全，HashMap线程不安全 Hashtable不能使用null作为key，HashMap可以用null作为key HashMap是对Map接口的实现，HashTable实现了Map接口和Dictionary抽象类。 HashMap的初始容量为16，Hashtable初始容量为11，两者的填充因子默认都是0.75。 HashMap扩容时是当前容量翻倍即:capacity*2，Hashtable扩容时是容量翻倍+1即:capacity*2+1。 Hashtable计算hash是直接使用key的hashcode对table数组的长度直接进行取模 HashMap计算hash对key的hashcode进行了二次hash，以获得更好的散列值，然后对table数组长度取摸。 ConcurrentHashMap介绍 在1.8之前采用锁分段技术来保证性能，锁分段技术就是把存储空间分为许多段，然后给每个段都上锁，这样确保在访问某一段的代码时，不会阻塞其他段的访问，提高了性能。 1.8之后，抛弃了锁分段技术，采用了CAS + synchronized 来保证并发更新的安全性。 CAS：Compare and Swap，即比较再交换。 CAS指令执行时，当且仅当内存地址V的值与预期值A相等时，将内存地址V的值修改为B，否则就什么都不做。整个比较并替换的操作是一个原子操作。 CAS的缺点：CAS虽然很高效的解决了原子操作问题，但是CAS仍然存在三大问题。 循环时间长开销很大。只能保证一个变量的原子操作。ABA问题。 循环时间长开销很大：CAS 通常是配合无限循环一起使用的，我们可以看到 getAndAddInt 方法执行时，如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。 只能保证一个变量的原子操作：当对一个变量执行操作时，我们可以使用循环 CAS 的方式来保证原子操作，但是对多个变量操作时，CAS 目前无法直接保证操作的原子性。但是我们可以通过以下两种办法来解决：1）使用互斥锁来保证原子性；2）将多个变量封装成对象，通过 AtomicReference 来保证原子性。 什么是ABA问题？ABA问题怎么解决？如果内存地址V初次读取的值是A，并且在准备赋值的时候检查到它的值仍然为A，那我们就能说它的值没有被其他线程改变过了吗？ 如果在这段期间它的值曾经被改成了B，后来又被改回为A，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“AtomicStampedReference”，它可以通过控制变量值的版本（version）来保证CAS的正确性。因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，改用传统的互斥同步可能会比原子类更高效。 总结 Hashtable的任何操作都会把整个表锁住，是阻塞的。好处是总能获取最实时的更新，比如说线程A调用putAll写入大量数据，期间线程B调用get，线程B就会被阻塞，直到线程A完成putAll，因此线程B肯定能获取到线程A写入的完整数据。坏处是所有调用都要排队，效率较低。 ConcurrentHashMap 是设计为非阻塞的。在更新时会局部锁住某部分数据，但不会把整个表都锁住。同步读取操作则是完全非阻塞的。好处是在保证合理的同步前提下，效率很高。坏处是严格来说读取操作不能保证反映最近的更新。例如线程A调用putAll写入大量数据，期间线程B调用get，则只能get到目前为止已经顺利插入的部分数据。 应该根据具体的应用场景选择合适的HashMap。 Hash函数 加法Hash 位运算Hash 乘法Hash 除法Hash 查表Hash 混合Hash 数组Hash equals和hashcode1.equal()相等的两个对象他们的hashCode()肯定相等，也就是用equal()对比是绝对可靠的。 2.hashCode()相等的两个对象他们的equal()不一定相等，也就是hashCode()不是绝对可靠的。 equals 它的性质有： 自反性（reflexive）。对于任意不为null的引用值x，x.equals(x)一定是true。 对称性（symmetric）。对于任意不为null的引用值x和y，当且仅当x.equals(y)是true时，y.equals(x)也是true。 传递性（transitive）。对于任意不为null的引用值x、y和z，如果x.equals(y)是true，同时y.equals(z)是true，那么x.equals(z)一定是true。 一致性（consistent）。对于任意不为null的引用值x和y，如果用于equals比较的对象信息没有被修改的话，多次调用时x.equals(y)要么一致地返回true要么一致地返回false。 对于任意不为null的引用值x，x.equals(null)返回false。 对于Object类来说，equals()方法在对象上实现的是差别可能性最大的等价关系，即，对于任意非null的引用值x和y，当且仅当x和y引用的是同一个对象，该方法才会返回true。 需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。 hashcode 1.如果两个对象相同，那么它们的hashCode值一定要相同；2.如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。 如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。3.equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。 反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。 String为什么是final修饰1、为了实现字符串常量池 因为只有当字符串不可变时，才有可能实现字符串池，这样会节省很多堆空间，因为多个地址都可以指向一个值，如果是可变的话 2、保证安全 因为字符串可变的话，数据库等其他形式都是以字符串形式传入的，因为字符串不可变，所以才有了保障，随意改变的话，可能造成安全方面的漏洞 3、线程安全 在多线程情况下，同一字符串可以被多个线程共享，不用因为线程安全所以使用同步，字符串本身就是线程安全的。 4、hashcode 因为字符串不可变，所以创建的时候就被Hashcode缓存了，不需要重新计算，所以一般在map中，字符串做key的话比其他效率要高。]]></content>
+    <content type="text"><![CDATA[Java基础面试知识（持续更新）HashMap，ConcurrentHashMap，Hashtable的数据结构HashMap介绍 HashMap基于Map接口实现，元素以键值对的方式存储，并且允许使用null 建和null 值， 因为key不允许重复，因此只能有一个键为null,另外HashMap不能保证放入元素的顺序，它是无序的，和放入的顺序并不能相同。HashMap是线程不安全的。 HashMap扩容特别耗时，如果能估算大小，最好给它一个默认的初始值，避免进行多次扩容，HashMap线程不安全，多线程状态下应使用ConcurrentHashMap。 如果在多线程状态下想要使用HashMap需要使用Conllections.synchronizedMap()方法获取一个线程安全的Map集合，就是在操作HashMap的时候会自动给方法添加synchronized 关键字来保证线程安全性。 数据结构 HashMap在1.8之前使用的是 数组+链表，1.8之后使用的是 数组+链表+红黑树，当链表长度超过阈值8的时候，将链表转换为红黑树，性能得到提升。 Hashtable介绍 和HashMap基本一样。 对比HashMap Hashtable线程安全，HashMap线程不安全 Hashtable不能使用null作为key，HashMap可以用null作为key HashMap是对Map接口的实现，HashTable实现了Map接口和Dictionary抽象类。 HashMap的初始容量为16，Hashtable初始容量为11，两者的填充因子默认都是0.75。 HashMap扩容时是当前容量翻倍即:capacity*2，Hashtable扩容时是容量翻倍+1即:capacity*2+1。 Hashtable计算hash是直接使用key的hashcode对table数组的长度直接进行取模 HashMap计算hash对key的hashcode进行了二次hash，以获得更好的散列值，然后对table数组长度取摸。 ConcurrentHashMap介绍 在1.8之前采用锁分段技术来保证性能，锁分段技术就是把存储空间分为许多段，然后给每个段都上锁，这样确保在访问某一段的代码时，不会阻塞其他段的访问，提高了性能。 1.8之后，抛弃了锁分段技术，采用了CAS + synchronized 来保证并发更新的安全性。 CAS：Compare and Swap，即比较再交换。 CAS指令执行时，当且仅当内存地址V的值与预期值A相等时，将内存地址V的值修改为B，否则就什么都不做。整个比较并替换的操作是一个原子操作。 CAS的缺点：CAS虽然很高效的解决了原子操作问题，但是CAS仍然存在三大问题。 循环时间长开销很大。只能保证一个变量的原子操作。ABA问题。 循环时间长开销很大：CAS 通常是配合无限循环一起使用的，我们可以看到 getAndAddInt 方法执行时，如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。 只能保证一个变量的原子操作：当对一个变量执行操作时，我们可以使用循环 CAS 的方式来保证原子操作，但是对多个变量操作时，CAS 目前无法直接保证操作的原子性。但是我们可以通过以下两种办法来解决：1）使用互斥锁来保证原子性；2）将多个变量封装成对象，通过 AtomicReference 来保证原子性。 什么是ABA问题？ABA问题怎么解决？如果内存地址V初次读取的值是A，并且在准备赋值的时候检查到它的值仍然为A，那我们就能说它的值没有被其他线程改变过了吗？ 如果在这段期间它的值曾经被改成了B，后来又被改回为A，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。Java并发包为了解决这个问题，提供了一个带有标记的原子引用类“AtomicStampedReference”，它可以通过控制变量值的版本（version）来保证CAS的正确性。因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，改用传统的互斥同步可能会比原子类更高效。 总结 Hashtable的任何操作都会把整个表锁住，是阻塞的。好处是总能获取最实时的更新，比如说线程A调用putAll写入大量数据，期间线程B调用get，线程B就会被阻塞，直到线程A完成putAll，因此线程B肯定能获取到线程A写入的完整数据。坏处是所有调用都要排队，效率较低。 ConcurrentHashMap 是设计为非阻塞的。在更新时会局部锁住某部分数据，但不会把整个表都锁住。同步读取操作则是完全非阻塞的。好处是在保证合理的同步前提下，效率很高。坏处是严格来说读取操作不能保证反映最近的更新。例如线程A调用putAll写入大量数据，期间线程B调用get，则只能get到目前为止已经顺利插入的部分数据。 应该根据具体的应用场景选择合适的HashMap。 Hash函数 加法Hash 位运算Hash 乘法Hash 除法Hash 查表Hash 混合Hash 数组Hash equals和hashcode1.equal()相等的两个对象他们的hashCode()肯定相等，也就是用equal()对比是绝对可靠的。 2.hashCode()相等的两个对象他们的equal()不一定相等，也就是hashCode()不是绝对可靠的。 equals 它的性质有： 自反性（reflexive）。对于任意不为null的引用值x，x.equals(x)一定是true。 对称性（symmetric）。对于任意不为null的引用值x和y，当且仅当x.equals(y)是true时，y.equals(x)也是true。 传递性（transitive）。对于任意不为null的引用值x、y和z，如果x.equals(y)是true，同时y.equals(z)是true，那么x.equals(z)一定是true。 一致性（consistent）。对于任意不为null的引用值x和y，如果用于equals比较的对象信息没有被修改的话，多次调用时x.equals(y)要么一致地返回true要么一致地返回false。 对于任意不为null的引用值x，x.equals(null)返回false。 对于Object类来说，equals()方法在对象上实现的是差别可能性最大的等价关系，即，对于任意非null的引用值x和y，当且仅当x和y引用的是同一个对象，该方法才会返回true。 需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。 hashcode 1.如果两个对象相同，那么它们的hashCode值一定要相同；2.如果两个对象的hashCode相同，它们并不一定相同（这里说的对象相同指的是用eqauls方法比较）。 如不按要求去做了，会发现相同的对象可以出现在Set集合中，同时，增加新元素的效率会大大下降。3.equals()相等的两个对象，hashcode()一定相等；equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等（我的理解是由于哈希码在生成的时候产生冲突造成的）。 反过来，hashcode()不等，一定能推出equals()也不等；hashcode()相等，equals()可能相等，也可能不等。 String为什么是final修饰1、为了实现字符串常量池 因为只有当字符串不可变时，才有可能实现字符串池，这样会节省很多堆空间，因为多个地址都可以指向一个值，如果是可变的话 2、保证安全 因为字符串可变的话，数据库等其他形式都是以字符串形式传入的，因为字符串不可变，所以才有了保障，随意改变的话，可能造成安全方面的漏洞 3、线程安全 在多线程情况下，同一字符串可以被多个线程共享，不用因为线程安全所以使用同步，字符串本身就是线程安全的。 4、hashcode 因为字符串不可变，所以创建的时候就被Hashcode缓存了，不需要重新计算，所以一般在map中，字符串做key的话比其他效率要高。 ArrayList扩容ArrayList list=new ArrayList(20);有几次扩容 没有扩容，原因是在初始化的时候已经指定参数了 ArrayList初始容量是10，扩容大小是1.5倍，负载因子是1 因此如果指定大小小于10，那么如果添加元素等于11，就会一次扩容，把容量扩充成15。 扩容方式是位运算的右移，把原来的数组复制到另一个内存空间更大的数组中]]></content>
       <categories>
         <category>面试</category>
       </categories>

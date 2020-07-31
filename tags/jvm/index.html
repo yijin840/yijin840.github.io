@@ -90,7 +90,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="wys&#39;blogs">
-<meta property="og:url" content="http://wysblogs.top/tags/jvm/index.html">
+<meta property="og:url" content="http://wysblogs.top/tags/JVM/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://wysblogs.top/tags/jvm/">
+  <link rel="canonical" href="http://wysblogs.top/tags/JVM/">
 
 
 
 
 
-  <title>标签: jvm | wys'blogs</title>
+  <title>标签: JVM | wys'blogs</title>
   
 
 
@@ -292,7 +292,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>jvm<small>标签</small>
+        <h1>JVM<small>标签</small>
         </h1>
       </div>
 
@@ -304,43 +304,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/07/20/双亲委派模型/" itemprop="url">
+            <a class="post-title-link" href="/2020/07/30/垃圾回收器详解/" itemprop="url">
               
-                <span itemprop="name">双亲委派模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-07-20T09:56:53+08:00" content="2020-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/07/11/JVM虚拟机知识点/" itemprop="url">
-              
-                <span itemprop="name">JVM虚拟机知识点</span>
+                <span itemprop="name">垃圾收集器详解</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-07-11T08:50:51+08:00" content="2020-07-11">
-          07-11
+        <time class="post-time" itemprop="dateCreated" datetime="2020-07-30T09:35:29+08:00" content="2020-07-30">
+          07-30
         </time>
       </div>
 
@@ -402,7 +376,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -413,7 +387,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -424,7 +398,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1071,6 +1045,55 @@
       opacity: 0;
       padding: 2px 6px;
       position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+</body>
+</html>
+
       right: 4px;
       top: 8px;
     }
