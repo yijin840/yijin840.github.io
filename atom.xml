@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-05T02:45:31.509Z</updated>
+  <updated>2020-08-09T03:21:21.827Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IP地址范围</title>
+    <link href="http://wysblogs.top/2020/08/09/IP%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4/"/>
+    <id>http://wysblogs.top/2020/08/09/IP地址范围/</id>
+    <published>2020-08-09T03:18:10.000Z</published>
+    <updated>2020-08-09T03:21:21.827Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="IP地址范围"><a href="#IP地址范围" class="headerlink" title="IP地址范围"></a>IP地址范围</h1><p>IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来<strong>屏蔽物理地址的差异</strong>。</p><h2 id="1、A类IP地址"><a href="#1、A类IP地址" class="headerlink" title="1、A类IP地址"></a>1、A类IP地址</h2><p>一个A类IP地址是指， 在IP地址的四段du号码中，第一段号码为网zhi络号码，剩下的三dao段号码为本地计算机的号码。A类IP地址中网络的标识长度为8位，主机标识的长度为24位，A类网络地址数量较少，有126个网络，每个网络可以容纳主机数达1600多万台。</p><p><strong>A类IP地址 地址范围1.0.0.1到127.255.255.254。</strong></p><h2 id="2、B类IP地址"><a href="#2、B类IP地址" class="headerlink" title="2、B类IP地址"></a>2、B类IP地址</h2><p>一个B类IP地址是指，在IP地址的四段号码中，前两段号码为网络号码。B类IP地址中网络的标识长度为16位，主机标识的长度为16位，B类网络地址适用于中等规模的网络，有16384个网络，每个网络所能容纳的计算机数为6万多台。</p><p><strong>B类IP地址地址范围128.0.0.1-191.255.255.254。</strong></p><h2 id="3、C类IP地址"><a href="#3、C类IP地址" class="headerlink" title="3、C类IP地址"></a>3、C类IP地址</h2><p>一个C类IP地址是指，在IP地址的四段号码中，前三段号码为网络号码，剩下的一段号码为本地计算机的号码。C类IP地址中网络的标识长度为24位，主机标识的长度为8位，C类网络地址数量较多，有209万余个网络。适用于小规模的局域网络，每个网络最多只能包含254台计算机。</p><p><strong>C类IP地址范围192.0.0.1-223.255.255.254。</strong></p><h2 id="4、D类IP地址"><a href="#4、D类IP地址" class="headerlink" title="4、D类IP地址"></a>4、D类IP地址</h2><p>D类IP地址在历史上被叫做多播地址，即组播地址。在以太网中，多播地址命名了一组应该在这个网络中应用接收到一个分组的站点。多播地址的最高位必须是“1110”，<strong>范围从224.0.0.0到239.255.255.255。</strong></p><h2 id="5、E类IP地址"><a href="#5、E类IP地址" class="headerlink" title="5、E类IP地址"></a>5、E类IP地址</h2><p><strong>E类IP地址中是以“11110”开头</strong>，E类IP地址都保留用于将来和实验使用。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://wysblogs.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="http://wysblogs.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>LinkedHashMap详解</title>
@@ -473,29 +498,6 @@
     </summary>
     
       <category term="java基础" scheme="http://wysblogs.top/categories/java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Object类的方法</title>
-    <link href="http://wysblogs.top/2020/07/22/Object%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://wysblogs.top/2020/07/22/Object类的方法/</id>
-    <published>2020-07-22T08:37:05.000Z</published>
-    <updated>2020-07-25T17:37:35.276Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Object类方法"><a href="#Object类方法" class="headerlink" title="Object类方法"></a>Object类方法</h1><p>Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？</p><p>（1）clone方法</p><p>保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。</p><p>（2）getClass方法</p><p>final方法，获得运行时类型。</p><p>（3）toString方法</p><p>该方法用得比较多，一般子类都有覆盖。</p><p>（4）finalize方法</p><p>该方法用于释放资源。因为无法确定该方法什么时候被调用，很少使用。</p><p>（5）equals方法</p><p>该方法是非常重要的一个方法。一般equals和==是不一样的，但是在Object中两者是一样的。子类一般都要重写这个方法。</p><p>（6）hashCode方法</p><p>该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。</p><p>一般必须满足obj1.equals(obj2)true。可以推出obj1.hash- Code()==obj2.hashCode()，但是hashCode相等不一定就满足equals。不过为了提高效率，应该尽量使上面两个条件接近等价。</p><p>（7）wait方法</p><p>wait方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。</p><p>调用该方法后当前线程进入睡眠状态，直到以下事件发生。</p><p>（1）其他线程调用了该对象的notify方法。</p><p>（2）其他线程调用了该对象的notifyAll方法。</p><p>（3）其他线程调用了interrupt中断该线程。</p><p>（4）时间间隔到了。</p><p>此时该线程就可以被调度了，如果是被中断的话就抛出一个InterruptedException异常。</p><p>（8）notify方法</p><p>该方法唤醒在该对象上等待的某个线程。</p><p>（9）notifyAll方法</p><p>该方法唤醒在该对象上等待的所有线程。</p><blockquote><p>引用来自：<a href="https://www.php.cn/faq/416709.html" target="_blank" rel="noopener">https://www.php.cn/faq/416709.html</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
     
     
       <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
