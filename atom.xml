@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-07-30T01:48:38.245Z</updated>
+  <updated>2020-08-05T02:45:31.509Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LinkedHashMap详解</title>
+    <link href="http://wysblogs.top/2020/08/05/LinkedHashMap%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://wysblogs.top/2020/08/05/LinkedHashMap详解/</id>
+    <published>2020-08-05T02:45:31.000Z</published>
+    <updated>2020-08-05T02:45:31.509Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security学习</title>
+    <link href="http://wysblogs.top/2020/08/05/Spring-Security%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://wysblogs.top/2020/08/05/Spring-Security学习/</id>
+    <published>2020-08-05T02:05:41.000Z</published>
+    <updated>2020-08-05T02:05:41.852Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Mybatis基础知识</title>
@@ -92,9 +134,9 @@
     <link href="http://wysblogs.top/2020/07/30/AQS%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/07/30/AQS详解/</id>
     <published>2020-07-30T01:41:48.000Z</published>
-    <updated>2020-07-31T04:38:28.646Z</updated>
+    <updated>2020-08-08T06:52:12.464Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="AQS详解"><a href="#AQS详解" class="headerlink" title="AQS详解"></a>AQS详解</h1><p>AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。</p><p>AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个<code>int</code>类型的<code>state</code>变量，用来表示同步状态。</p><p>lock包中的锁并没有直接继承AQS，而是定义了一个<strong>Sync类</strong>去继承AQS，原因是<strong>为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各自的事情</strong>。</p><p>AQS是通过<strong>FIFO双向的同步队列</strong>进行同步状态的管理，当有线程获取锁失败后，就被放在<strong>队列的末尾</strong>。</p><p><img src="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png" alt="img"></p><p><strong>头节点是持有锁的节点。</strong></p>]]></content>
     
     <summary type="html">
     
@@ -117,9 +159,9 @@
     <link href="http://wysblogs.top/2020/07/30/LRU%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
     <id>http://wysblogs.top/2020/07/30/LRU机制与实现/</id>
     <published>2020-07-30T01:40:09.000Z</published>
-    <updated>2020-07-30T16:15:54.618Z</updated>
+    <updated>2020-08-05T13:35:24.042Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LRU机制与实现"><a href="#LRU机制与实现" class="headerlink" title="LRU机制与实现"></a>LRU机制与实现</h1><p>LRU是一种缓存淘汰策略</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LRU机制与实现"><a href="#LRU机制与实现" class="headerlink" title="LRU机制与实现"></a>LRU机制与实现</h1><p><strong>LRU是一种缓存淘汰策略</strong></p><p><strong>LRU 最近最久未使用<br>LFU  最近最少使用（最不常用）</strong></p><p>设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p><p>它应该支持以下操作： 获取数据<code>get</code>和 写入数据<code>put</code>。</p><p>获取数据<code>get(key)</code>- 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。<br>写入数据 <code>put(key, value)</code> - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。</p><blockquote><p>LeetCode <a href="https://leetcode-cn.com/problems/lru-cache-lcci/" target="_blank" rel="noopener">面试题 16.25. LRU缓存</a></p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lru;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: wys</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/8/5 10:23</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@FileName</span>: LRUCache</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer,Integer&gt; map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">        map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">           Integer value = map.remove(key);</span><br><span class="line">           map.put(key, value);</span><br><span class="line">           <span class="keyword">return</span> value;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">            map.remove(key);</span><br><span class="line">            map.put(key,value);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(key,value);</span><br><span class="line">        <span class="keyword">if</span>(map.size()&gt;capacity)&#123;</span><br><span class="line">            map.remove(map.entrySet().iterator().next().getKey());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -457,56 +499,6 @@
     
     
       <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String和StringBuffer,StringBuilder区别</title>
-    <link href="http://wysblogs.top/2020/07/22/String%E5%92%8CStringBuffer-StringBuilder%E5%8C%BA%E5%88%AB/"/>
-    <id>http://wysblogs.top/2020/07/22/String和StringBuffer-StringBuilder区别/</id>
-    <published>2020-07-22T08:36:22.000Z</published>
-    <updated>2020-07-25T17:29:44.291Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="String和StringBuffer-StringBuilder区别"><a href="#String和StringBuffer-StringBuilder区别" class="headerlink" title="String和StringBuffer,StringBuilder区别"></a>String和StringBuffer,StringBuilder区别</h1><ul><li><p>String类是不可变的，而StringBuffer和StringBuilder是可变的</p></li><li><p>String一旦修改，就会重新开辟一块内存来存储修改的对象。</p></li><li><p>如果频繁修改字符串，肯定不能用String，会导致内存空间浪费。</p></li><li><p>频繁修改字符串就应该使用StringBuffer，底层也是和String一样都是数组，但是StringBuffer会建立一个缓冲区，所以速度会大于String</p></li><li><p>StringBuffer方法都加了锁，所以效率可能比StringBuilder更低，但是安全性来说，StringBuffer更好。</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="java基础" scheme="http://wysblogs.top/categories/java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java反射机制</title>
-    <link href="http://wysblogs.top/2020/07/22/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/"/>
-    <id>http://wysblogs.top/2020/07/22/Java反射机制/</id>
-    <published>2020-07-22T08:33:46.000Z</published>
-    <updated>2020-07-26T03:45:05.204Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>java反射机制是指在程序运行状态中，可以动态获取一个类的所有信息，这种功能被称为反射，反射是动态语言的关键。</p><p>java动态代理是基于反射实现的。</p><p>反射是面向抽象编程的一种实现方式，使代码更加灵活，极大提高了代码的运行时装配能力。</p><h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><ul><li>反射提高了程序灵活性和扩展性，降低了模块的耦合性，提高了自身适应能力。</li><li>反射可以在运行时构造一个类对象，动态的调用类中的方法。</li><li>反射是构建框架的基础，可以避免把代码写死在框架中。</li></ul><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>性能，因为JVM不能对反射代码进行优化，所以效率比较低，所以应该避免在性能要求搞得项目中去使用反射。</li><li>安全性，如果程序安全性要求较高，就不能使用反射，不然会破坏封装的特性，使得程序可能会被改动。</li><li>健壮性，反射允许代码进行一些不被允许的操作，所以反射可能导致破坏java程序的抽象性，导致平台变化抽象逻辑结构不能被识别，代码允许效果产生差异。</li></ul><h2 id="破坏"><a href="#破坏" class="headerlink" title="破坏"></a>破坏</h2><p>我们都知道一个final修饰的成员变量不能被修改，但是反射可以破坏这个规矩，比如</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> Integer a = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Main t = <span class="keyword">new</span> Main();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = t.getClass().getDeclaredField(<span class="string">"a"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            Field modifiers = Field.class.getDeclaredField(<span class="string">"modifiers"</span>);</span><br><span class="line">            modifiers.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            modifiers.setInt(field,modifiers.getModifiers()&amp;~Modifier.FINAL);</span><br><span class="line">            field.set(t,<span class="number">5</span>);</span><br><span class="line">            System.out.println(field.get(t));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(t.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果final 修饰的是基本数据类型，那么在编译器就会被优化，导致修改之后输出的还是编译器优化好的常量值</p><p>所以如果换成引用数据类型，我们就可以看出来值已经被修改成了5，这个就是破坏了类的内部数据，所以如果<strong>安全性</strong>要求较高，就不建议使用。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="反射" scheme="http://wysblogs.top/categories/%E5%8F%8D%E5%B0%84/"/>
-    
-    
-      <category term="反射" scheme="http://wysblogs.top/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   

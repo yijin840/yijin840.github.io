@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LinkedHashMap详解]]></title>
+    <url>%2F2020%2F08%2F05%2FLinkedHashMap%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring Security学习]]></title>
+    <url>%2F2020%2F08%2F05%2FSpring-Security%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Mybatis基础知识]]></title>
     <url>%2F2020%2F07%2F30%2FMybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -30,7 +40,7 @@
   <entry>
     <title><![CDATA[AQS详解]]></title>
     <url>%2F2020%2F07%2F30%2FAQS%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[AQS详解AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。 AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个int类型的state变量，用来表示同步状态。 lock包中的锁并没有直接继承AQS，而是定义了一个Sync类去继承AQS，原因是为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各自的事情。 AQS是通过FIFO双向的同步队列进行同步状态的管理，当有线程获取锁失败后，就被放在队列的末尾。 头节点是持有锁的节点。]]></content>
       <categories>
         <category>并发</category>
       </categories>
@@ -41,7 +51,7 @@
   <entry>
     <title><![CDATA[LRU机制与实现]]></title>
     <url>%2F2020%2F07%2F30%2FLRU%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%2F</url>
-    <content type="text"><![CDATA[LRU机制与实现LRU是一种缓存淘汰策略]]></content>
+    <content type="text"><![CDATA[LRU机制与实现LRU是一种缓存淘汰策略 LRU 最近最久未使用LFU 最近最少使用（最不常用） 设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。 它应该支持以下操作： 获取数据get和 写入数据put。 获取数据get(key)- 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。写入数据 put(key, value) - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。 LeetCode 面试题 16.25. LRU缓存 123456789101112131415161718192021222324252627282930313233343536373839package org.lru;import java.util.*;/** * @Author: wys * @Description: * @Date: 2020/8/5 10:23 * @FileName: LRUCache */public class LRUCache &#123; private int capacity; private Map&lt;Integer,Integer&gt; map; public LRUCache(int capacity) &#123; this.capacity = capacity; map = new LinkedHashMap&lt;&gt;(); &#125; public int get(int key) &#123; if(map.containsKey(key))&#123; Integer value = map.remove(key); map.put(key, value); return value; &#125; return -1; &#125; public void put(int key, int value) &#123; if(map.containsKey(key))&#123; map.remove(key); map.put(key,value); return; &#125; map.put(key,value); if(map.size()&gt;capacity)&#123; map.remove(map.entrySet().iterator().next().getKey()); &#125; &#125;&#125;]]></content>
       <categories>
         <category>数据结构</category>
       </categories>

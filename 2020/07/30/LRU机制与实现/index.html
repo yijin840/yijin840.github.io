@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="LRU机制与实现LRU是一种缓存淘汰策略">
+<meta name="description" content="LRU机制与实现LRU是一种缓存淘汰策略 LRU 最近最久未使用LFU  最近最少使用（最不常用） 设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。 它应该支持以下操作： 获取数据get和 写入数据put。 获取数据get(key)- 如果密钥 (ke">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LRU机制与实现">
 <meta property="og:url" content="http://wysblogs.top/2020/07/30/LRU机制与实现/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="LRU机制与实现LRU是一种缓存淘汰策略">
+<meta property="og:description" content="LRU机制与实现LRU是一种缓存淘汰策略 LRU 最近最久未使用LFU  最近最少使用（最不常用） 设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。 它应该支持以下操作： 获取数据get和 写入数据put。 获取数据get(key)- 如果密钥 (ke">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-30T16:15:54.618Z">
+<meta property="og:updated_time" content="2020-08-05T13:35:24.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LRU机制与实现">
-<meta name="twitter:description" content="LRU机制与实现LRU是一种缓存淘汰策略">
+<meta name="twitter:description" content="LRU机制与实现LRU是一种缓存淘汰策略 LRU 最近最久未使用LFU  最近最少使用（最不常用） 设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。 它应该支持以下操作： 获取数据get和 写入数据put。 获取数据get(key)- 如果密钥 (ke">
 
 
 
@@ -398,8 +398,15 @@
       
 
       
-        <h1 id="LRU机制与实现"><a href="#LRU机制与实现" class="headerlink" title="LRU机制与实现"></a>LRU机制与实现</h1><p>LRU是一种缓存淘汰策略</p>
-
+        <h1 id="LRU机制与实现"><a href="#LRU机制与实现" class="headerlink" title="LRU机制与实现"></a>LRU机制与实现</h1><p><strong>LRU是一种缓存淘汰策略</strong></p>
+<p><strong>LRU 最近最久未使用<br>LFU  最近最少使用（最不常用）</strong></p>
+<p>设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p>
+<p>它应该支持以下操作： 获取数据<code>get</code>和 写入数据<code>put</code>。</p>
+<p>获取数据<code>get(key)</code>- 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。<br>写入数据 <code>put(key, value)</code> - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。</p>
+<blockquote>
+<p>LeetCode <a href="https://leetcode-cn.com/problems/lru-cache-lcci/" target="_blank" rel="noopener">面试题 16.25. LRU缓存</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lru;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: wys</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/8/5 10:23</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@FileName</span>: LRUCache</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer,Integer&gt; map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">        map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">           Integer value = map.remove(key);</span><br><span class="line">           map.put(key, value);</span><br><span class="line">           <span class="keyword">return</span> value;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">            map.remove(key);</span><br><span class="line">            map.put(key,value);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(key,value);</span><br><span class="line">        <span class="keyword">if</span>(map.size()&gt;capacity)&#123;</span><br><span class="line">            map.remove(map.entrySet().iterator().next().getKey());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -544,7 +551,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">95</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
