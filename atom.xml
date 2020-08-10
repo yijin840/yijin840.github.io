@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-09T03:21:21.827Z</updated>
+  <updated>2020-08-10T10:52:56.658Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>北森云计算一面</title>
+    <link href="http://wysblogs.top/2020/08/10/%E5%8C%97%E6%A3%AE%E4%BA%91%E8%AE%A1%E7%AE%97%E4%B8%80%E9%9D%A2/"/>
+    <id>http://wysblogs.top/2020/08/10/北森云计算一面/</id>
+    <published>2020-08-10T10:22:22.000Z</published>
+    <updated>2020-08-10T10:52:56.658Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="北森云计算一面"><a href="#北森云计算一面" class="headerlink" title="北森云计算一面"></a>北森云计算一面</h1><p>上来就问我学java的对C#语言学习起来有困难吗？</p><p>我说我在学校接触过C#，还蛮好上手的，和java一样。。</p><p>然后让我介绍一下自己。我说了自己学校，姓名，然后介绍了两个项目。学校比赛报名系统和微信个人订阅号，</p><p>然后让我着重介绍了一下微信个人订阅号。我说用了 SpringBoot + redis + Jsoup + nginx 开发的</p><p>他说数据库用的啥 我说 mysql</p><p>然后就问我</p><p>1、 mysql三大范式。。我就记住了第一范式（字段不可再分，就是原子性）</p><ul><li><strong>第一范式(确保每列保持原子性)</strong></li><li><strong>第二范式(确保表中的每列都和主键相关)</strong></li><li><strong>第三范式(确保每列都和主键列直接相关,而不是间接相关)</strong></li></ul><p>2、接下来问了mysql索引种类有哪些</p><p>我少说了普通索引。。。一共有5类</p><ul><li>普通索引</li><li>主键索引</li><li>唯一索引</li><li>组合索引</li><li>全文索引</li></ul><p>至少得把每种作用说一说。</p><p>3、说给你一个sql语句，你怎么去优化</p><p>我先说了 用explain查看一下效率和运行情况</p><p>然后我说了加索引，或者优化一下sql语句，或者把mysql所在的服务器进行优化。减少磁盘IO，也可以使用redis把结果缓存。</p><p>4、然后问了我nginx，说用了负载均衡。到底是怎么在使用的</p><p>我说配置了nginx.conf文件。把项目的ip地址给添加上去进行映射</p><p>然后问了我用过<strong>反代</strong>吗。。我说没有。。（反向代理）</p><p>5、问了问redis的缓存穿透和缓存预热。。</p><p>我说了缓存穿透和缓存预热的特点。和解决方法。顺便把缓存雪崩也说了说</p><p>他让我把缓存预热解决方法说一说。我说用setnx()加锁。每次访问都进行阻塞，然后防止数据库负载过大</p><p>6、然后问我了解过微服务架构吗。</p><p>我说没有，我只了解过dubbo的RPC远程调用服务原理。</p><p>就说了说远程服务暴露的过程。先暴露在本地。然后暴露到zookeeper上面，作为提供者，还有个消费者。就是从zookeeper上面进行消费，调用过程就像调用本地方法一样，安全透明，没有外来api侵入。</p><p>7、然后问我bootstrap框架了解吗。</p><p>我说了解，告诉他这个就是人家把样式全部写好，然后自己想用那一部分直接拷贝粘贴过来，修改一下中间的文字。</p><p>他说水平栅格了解过吗，讲讲实现原理。。我说不知道。我用的是可视化界面进行拖拽生成的。根本不去了解这些底层原理。</p><p>8、问我webapi了解过吗</p><p>我说前后端假如在一个项目中，后端使用RequestMapping()提供api接口，前端使用ajax进行访问。这种接口就是webapi接口</p><p>9、接下来问的都是计算机网络和操作系统了。</p><p>首先问我HTTP是什么。。我说是超文本传输协议。。然后原理也不是很了解</p><p>他问我TCP了解过吗。我结合了UDP说了说，大概就是TCP是一个可靠的面向连接的协议，UDP是一种无状态无连接的协议。</p><p>TCP传输内容可能多一点，如果传输内容少的话。UDP可能会更快一些。TCP通信需要建立连接才能通信，UDP只管发送不管对面在不在。。</p><p>之后问我TCP三次握手，我说第一次握手是客户端发送给服务器，然后告诉服务器说我要和你连接了，服务器收到后发送数据包给客户端，说收到了，我同意和你连接，然后客户端最后发送一个包告诉服务器说开始连接了。</p><p>TCP三次握手要检查客户端和服务器是否接受和发送都没问题，第一次发送检查的是客户端的发送，第二次检查的是服务器的发送和服务器的接受，最后一次就是客户端的接受，如果都没问题就可以开始连接了。</p><p>10、最后问了我进程和线程区别</p><p>我说进程时资源调度的最小单位，线程是依赖进程存在的，负责进程的操作，单线程也可以看作一个进程。（答得不好）</p><p><strong>进程和线程区别：</strong></p><p><strong>进程是资源分配的最小单位，线程是CPU调度的最小单位</strong></p><ul><li>线程在进程下执行</li><li>一个进程可以包含多个线程</li><li>不同进程间数据很难共享</li><li>同一进程下不同线程间数据很易共享</li><li>进程要比线程消耗更多的计算机资源</li><li>进程间不会相互影响，一个线程挂掉将导致整个进程挂掉</li></ul><p><strong>感悟</strong></p><p>我觉得这次答得太水了。。大概率挂掉了，专心复习然后找其他公司把。还是面试可以检测自己到底哪里有问题。要针对薄弱的地方进行复习了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>IP地址范围</title>
@@ -476,31 +501,6 @@
     
     
       <category term="java基础知识" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>final关键字详解</title>
-    <link href="http://wysblogs.top/2020/07/22/final%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/22/final关键字详解/</id>
-    <published>2020-07-22T08:40:22.000Z</published>
-    <updated>2020-07-25T14:16:45.677Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Final关键字"><a href="#Final关键字" class="headerlink" title="Final关键字"></a>Final关键字</h1><p><strong>final关键字可以修饰的地方：</strong></p><ul><li><strong>类：</strong>类不能被继承</li><li><strong>方法：</strong>不能被重写</li><li><strong>变量：</strong>不能被改变</li><li><strong>修饰引用类型：</strong>引用类型的内存地址不可变，指向的值可以变。</li></ul><p>final 修饰的变量 会直接放在变量池中，如果一个类调用final修饰的变量是不会加载类的</p><p>如：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(demo.s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String s = <span class="string">"1"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"静态代码块"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure><p>直接输出1，不会加载静态代码块</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="java基础" scheme="http://wysblogs.top/categories/java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
