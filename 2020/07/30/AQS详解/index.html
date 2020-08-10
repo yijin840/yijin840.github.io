@@ -97,7 +97,7 @@
 <meta property="og:description" content="AQS详解AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。 AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个int类型的state变量，用来表示同步状态。 lock包中的锁并没有直接继承AQS，而是定义了一个Sync类去继承AQS，原因是为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png">
-<meta property="og:updated_time" content="2020-08-08T06:52:12.464Z">
+<meta property="og:updated_time" content="2020-08-09T16:53:57.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AQS详解">
 <meta name="twitter:description" content="AQS详解AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。 AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个int类型的state变量，用来表示同步状态。 lock包中的锁并没有直接继承AQS，而是定义了一个Sync类去继承AQS，原因是为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各">
@@ -406,7 +406,7 @@
 <p>AQS是通过<strong>FIFO双向的同步队列</strong>进行同步状态的管理，当有线程获取锁失败后，就被放在<strong>队列的末尾</strong>。</p>
 <p><img src="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png" alt="img"></p>
 <p><strong>头节点是持有锁的节点。</strong></p>
-
+<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2>
       
     </div>
     
@@ -646,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AQS详解"><span class="nav-number">1.</span> <span class="nav-text">AQS详解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AQS详解"><span class="nav-number">1.</span> <span class="nav-text">AQS详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点"><span class="nav-number">1.1.</span> <span class="nav-text">节点</span></a></li></ol></li></ol></div>
             
 
           </div>
