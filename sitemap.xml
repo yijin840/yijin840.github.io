@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wysblogs.top/2020/07/30/Mybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2020-08-13T03:56:51.916Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wysblogs.top/2020/08/10/Mysql%E8%8C%83%E5%BC%8F%E5%92%8C%E8%BF%9E%E6%8E%A5/</loc>
     
-    <lastmod>2020-08-10T12:12:14.728Z</lastmod>
+    <lastmod>2020-08-13T03:44:55.333Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://wysblogs.top/2020/07/30/%E9%9D%A2%E8%AF%95%E5%9C%BA%E6%99%AF%E9%A2%98/</loc>
     
     <lastmod>2020-07-30T01:56:05.350Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wysblogs.top/2020/07/30/Mybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2020-07-30T01:48:38.245Z</lastmod>
     
   </url>
   

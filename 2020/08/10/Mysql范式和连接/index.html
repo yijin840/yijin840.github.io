@@ -96,10 +96,14 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="Mysql范式和连接Mysql三大范式数据库设计都是依据范式来设计的，原因是为了规范逻辑结构，更好的解决数据冗余，数据的有效检查，提高存储效率。  第一范式（1NF）的作用是要求每个关系的属性为原子性的，不可再分（列不可再分）。 第二范式（2NF）要求数据库表中的每个实例或行必须可以被唯一的区分（有唯一主键）。 第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息（列必须和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-10T12:12:14.728Z">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-7a272cde9f87d216a836d93ac9718b2a_720w.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-7830dfdbb63723adfc30513890e73440_720w.jpg">
+<meta property="og:image" content="https://picb.zhimg.com/80/v2-1398fdcf77820b86fb352f608f1b231c_720w.jpg">
+<meta property="og:updated_time" content="2020-08-13T03:44:55.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql范式和连接">
 <meta name="twitter:description" content="Mysql范式和连接Mysql三大范式数据库设计都是依据范式来设计的，原因是为了规范逻辑结构，更好的解决数据冗余，数据的有效检查，提高存储效率。  第一范式（1NF）的作用是要求每个关系的属性为原子性的，不可再分（列不可再分）。 第二范式（2NF）要求数据库表中的每个实例或行必须可以被唯一的区分（有唯一主键）。 第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息（列必须和">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-7a272cde9f87d216a836d93ac9718b2a_720w.jpg">
 
 
 
@@ -404,7 +408,22 @@
 <li>第二范式（2NF）要求数据库表中的每个实例或行必须可以被唯一的区分（有唯一主键）。</li>
 <li>第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息（列必须和主键直接相关）。</li>
 </ul>
-<h2 id="Mysql的四个连接查询"><a href="#Mysql的四个连接查询" class="headerlink" title="Mysql的四个连接查询"></a>Mysql的四个连接查询</h2><h3 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h3><h3 id="右连接"><a href="#右连接" class="headerlink" title="右连接"></a>右连接</h3><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><h3 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h3>
+<h2 id="Mysql的连接查询"><a href="#Mysql的连接查询" class="headerlink" title="Mysql的连接查询"></a>Mysql的连接查询</h2><h3 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">left join on / left outer join on</span><br></pre></td></tr></table></figure>
+
+<p>left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。</p>
+<p>左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-7a272cde9f87d216a836d93ac9718b2a_720w.jpg" alt="img"></p>
+<h3 id="右连接"><a href="#右连接" class="headerlink" title="右连接"></a>右连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">right join on / right outer join on</span><br></pre></td></tr></table></figure>
+
+<p>right join是right outer join的简写，它的全称是右外连接，是外连接中的一种。</p>
+<p>与左(外)连接相反，右(外)连接，左表(a_table)只会显示符合搜索条件的记录，而右表(b_table)的记录将会全部表示出来。左表记录不足的地方均为NULL。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-7830dfdbb63723adfc30513890e73440_720w.jpg" alt="img"></p>
+<h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inner join on</span><br></pre></td></tr></table></figure>
+
+<p>组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集（阴影）部分。</p>
+<p><img src="https://picb.zhimg.com/80/v2-1398fdcf77820b86fb352f608f1b231c_720w.jpg" alt="img"></p>
+<h3 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h3><p>MySQL目前不支持此种方式，可以用其他方式替代解决。</p>
+
       
     </div>
     
@@ -556,7 +575,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -567,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -640,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql范式和连接"><span class="nav-number">1.</span> <span class="nav-text">Mysql范式和连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql三大范式"><span class="nav-number">1.1.</span> <span class="nav-text">Mysql三大范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql的四个连接查询"><span class="nav-number">1.2.</span> <span class="nav-text">Mysql的四个连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左连接"><span class="nav-number">1.2.1.</span> <span class="nav-text">左连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右连接"><span class="nav-number">1.2.2.</span> <span class="nav-text">右连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内连接"><span class="nav-number">1.2.3.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接"><span class="nav-number">1.2.4.</span> <span class="nav-text">全连接</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql范式和连接"><span class="nav-number">1.</span> <span class="nav-text">Mysql范式和连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql三大范式"><span class="nav-number">1.1.</span> <span class="nav-text">Mysql三大范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql的连接查询"><span class="nav-number">1.2.</span> <span class="nav-text">Mysql的连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左连接"><span class="nav-number">1.2.1.</span> <span class="nav-text">左连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右连接"><span class="nav-number">1.2.2.</span> <span class="nav-text">右连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内连接"><span class="nav-number">1.2.3.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接"><span class="nav-number">1.2.4.</span> <span class="nav-text">全连接</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

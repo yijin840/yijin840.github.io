@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-10T12:12:14.728Z</updated>
+  <updated>2020-08-13T03:44:55.333Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://wysblogs.top/2020/08/10/Mysql%E8%8C%83%E5%BC%8F%E5%92%8C%E8%BF%9E%E6%8E%A5/"/>
     <id>http://wysblogs.top/2020/08/10/Mysql范式和连接/</id>
     <published>2020-08-10T11:46:24.000Z</published>
-    <updated>2020-08-10T12:12:14.728Z</updated>
+    <updated>2020-08-13T03:44:55.333Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Mysql范式和连接"><a href="#Mysql范式和连接" class="headerlink" title="Mysql范式和连接"></a>Mysql范式和连接</h1><h2 id="Mysql三大范式"><a href="#Mysql三大范式" class="headerlink" title="Mysql三大范式"></a>Mysql三大范式</h2><p>数据库设计都是依据范式来设计的，原因是为了规范逻辑结构，更好的解决数据冗余，数据的有效检查，提高存储效率。</p><ul><li>第一范式（1NF）的作用是要求每个关系的属性为原子性的，不可再分（列不可再分）。</li><li>第二范式（2NF）要求数据库表中的每个实例或行必须可以被唯一的区分（有唯一主键）。</li><li>第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息（列必须和主键直接相关）。</li></ul><h2 id="Mysql的四个连接查询"><a href="#Mysql的四个连接查询" class="headerlink" title="Mysql的四个连接查询"></a>Mysql的四个连接查询</h2><h3 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h3><h3 id="右连接"><a href="#右连接" class="headerlink" title="右连接"></a>右连接</h3><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><h3 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h3>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Mysql范式和连接"><a href="#Mysql范式和连接" class="headerlink" title="Mysql范式和连接"></a>Mysql范式和连接</h1><h2 id="Mysql三大范式"><a href="#Mysql三大范式" class="headerlink" title="Mysql三大范式"></a>Mysql三大范式</h2><p>数据库设计都是依据范式来设计的，原因是为了规范逻辑结构，更好的解决数据冗余，数据的有效检查，提高存储效率。</p><ul><li>第一范式（1NF）的作用是要求每个关系的属性为原子性的，不可再分（列不可再分）。</li><li>第二范式（2NF）要求数据库表中的每个实例或行必须可以被唯一的区分（有唯一主键）。</li><li>第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息（列必须和主键直接相关）。</li></ul><h2 id="Mysql的连接查询"><a href="#Mysql的连接查询" class="headerlink" title="Mysql的连接查询"></a>Mysql的连接查询</h2><h3 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">left join on / left outer join on</span><br></pre></td></tr></table></figure><p>left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。</p><p>左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。</p><p><img src="https://pic3.zhimg.com/80/v2-7a272cde9f87d216a836d93ac9718b2a_720w.jpg" alt="img"></p><h3 id="右连接"><a href="#右连接" class="headerlink" title="右连接"></a>右连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">right join on / right outer join on</span><br></pre></td></tr></table></figure><p>right join是right outer join的简写，它的全称是右外连接，是外连接中的一种。</p><p>与左(外)连接相反，右(外)连接，左表(a_table)只会显示符合搜索条件的记录，而右表(b_table)的记录将会全部表示出来。左表记录不足的地方均为NULL。</p><p><img src="https://pic4.zhimg.com/80/v2-7830dfdbb63723adfc30513890e73440_720w.jpg" alt="img"></p><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inner join on</span><br></pre></td></tr></table></figure><p>组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集（阴影）部分。</p><p><img src="https://picb.zhimg.com/80/v2-1398fdcf77820b86fb352f608f1b231c_720w.jpg" alt="img"></p><h3 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h3><p>MySQL目前不支持此种方式，可以用其他方式替代解决。</p>]]></content>
     
     <summary type="html">
     
@@ -138,9 +138,9 @@
     <link href="http://wysblogs.top/2020/07/30/Mybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>http://wysblogs.top/2020/07/30/Mybatis基础知识/</id>
     <published>2020-07-30T01:48:38.000Z</published>
-    <updated>2020-07-30T01:48:38.245Z</updated>
+    <updated>2020-08-13T03:56:51.916Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Mybatis基础知识"><a href="#Mybatis基础知识" class="headerlink" title="Mybatis基础知识"></a>Mybatis基础知识</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。</p><p>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Ordinary Java Object,普通的 Java对象)映射成数据库中的记录</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>基于Sql语句编程，解耦合，SQL全部写在XML中，方便管理，而且不会对应用程序或者数据库设计造成任何影响</li><li>兼容性好，支持各类数据库</li><li>支持对象和数据库的ORM字段关系映射</li></ul><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul><li>sql语句编写工作量大。</li><li>sql语句依赖于数据库，移植性差。</li></ul><h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><strong>1、#{}和${}的区别是什么？</strong></p><p>#{}是预编译处理，${}是字符串替换。</p><p>Mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值；</p><p>Mybatis在处理${}时，就是把${}替换成变量的值。</p><p>使用#{}可以有效的防止SQL注入，提高系统安全性。</p><p><strong>2、当实体类中的属性名和表中的字段名不一样 ，怎么办 ？</strong></p><p>1、在查询的sql语句中定义字段名的别名，让字段名的别名和实体类属性名一致。</p><p>2、 通过&lt;resultMap&gt;来映射字段名和实体类属性名的一一对应的关系。</p>]]></content>
     
     <summary type="html">
     
@@ -151,6 +151,10 @@
     
     </summary>
     
+      <category term="mybatis" scheme="http://wysblogs.top/categories/mybatis/"/>
+    
+    
+      <category term="mybatis" scheme="http://wysblogs.top/tags/mybatis/"/>
     
   </entry>
   
