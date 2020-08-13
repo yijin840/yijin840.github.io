@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-13T03:44:55.333Z</updated>
+  <updated>2020-08-13T04:32:07.548Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络面试知识</title>
+    <link href="http://wysblogs.top/2020/08/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86/"/>
+    <id>http://wysblogs.top/2020/08/13/计算机网络面试知识/</id>
+    <published>2020-08-13T04:24:52.000Z</published>
+    <updated>2020-08-13T04:32:07.548Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://wysblogs.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="http://wysblogs.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql范式和连接</title>
@@ -480,31 +505,6 @@
     
     
       <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql索引底层原理</title>
-    <link href="http://wysblogs.top/2020/07/22/mysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
-    <id>http://wysblogs.top/2020/07/22/mysql索引底层原理/</id>
-    <published>2020-07-22T11:12:51.000Z</published>
-    <updated>2020-07-23T04:09:11.846Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql索引底层原理"><a href="#mysql索引底层原理" class="headerlink" title="mysql索引底层原理"></a>mysql索引底层原理</h1><p>我们都知道索引可以提高查询效率，那么为什么会提高查询效率呢？</p><p>我们可以从底层进行分析，因为mysql索引的底层是基于数据结构的。</p><p>假入我们没有索引，那么如果有5个数据，mysql在查询的时候就会比较5次，如果有1000w数据，那么就要比较100w次，很显然，这样的速度，我们肯定不能接受，所以就必须使用索引来进行优化查询速度。</p><p>mysql底层有以下几种数据结构：</p><ul><li><strong>Hash表</strong></li><li><strong>二叉搜索树</strong></li><li><strong>AVL和红黑树</strong></li><li><strong>B树</strong></li><li><strong>B+树</strong></li></ul><p>mysql引擎也有两种常用的：</p><ul><li><strong>InnoDB</strong></li><li><strong>MyiSam</strong></li></ul><h2 id="Mysql底层数据结构"><a href="#Mysql底层数据结构" class="headerlink" title="Mysql底层数据结构"></a>Mysql底层数据结构</h2><h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><p><img src="https://pic1.zhimg.com/80/v2-7805f7b4bab4c98adc045e3667046398_1440w.jpg" alt="img"></p><p><strong>哈希表</strong>也叫散列表，是根据key和value直接进行访问的数据结构，是快速检索的好方法。</p><p><strong>哈希算法：</strong>也叫散列算法，就是把任意的key值通过哈希函数变换成固定长度的key地址，然后通过这个地址存放数据的算法。</p><p><strong>哈希碰撞：</strong>比如hash(7)和hash(199)值一样，如果只存放一个数据的话，会冲突，解决这种情况最常用的方法是<strong>链地址法</strong>，把碰撞的数据通过链表连接起来，但是计算完hash值之后还需要判断有没有产生hash碰撞，还得重新遍历一边链表，直到找到真正的key对应的数值。</p><p>hash算法的时间复杂度是O(1)，但是考虑到数据检索有一个范围性，hash算法对查询一个数据很高效，但是没办法做到高效查询范围，因此哈希索引不适合做Mysql底层索引。</p><p><img src="https://pic4.zhimg.com/80/v2-4deae667d7d5c9a1a166cb0e8bac9dd6_1440w.jpg" alt="img"></p><h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><p><img src="https://pic2.zhimg.com/80/v2-032790aff0ddf52b676413573acce776_1440w.jpg" alt="img"></p><p>二叉搜索树也是一支持数据快速检索的数据结构。</p><p>二叉搜索树左子树所有值小于根节点的值，右节点所有值大于根节点的值。</p><p>二叉搜索树的时间复杂度是O(logn)，二叉搜索树还能解决高效范围性查找数据。</p><p>普通的二叉搜索树有个致命缺点，在极端情况下会退化成线性链表，二分查找会变成线性查找，性能严重下降。</p><p><img src="https://pic2.zhimg.com/80/v2-1cc416d59d4c44cf029e9e2103347bb8_1440w.jpg" alt="img"></p><p>例如主键索引，因为一般情况下主键索引都是自增的，采用二叉搜索树作为底层索引的话会导致查询性能严重下降。</p><h3 id="AVL树和红黑树"><a href="#AVL树和红黑树" class="headerlink" title="AVL树和红黑树"></a>AVL树和红黑树</h3><p>由于二叉搜索树极端不平衡的情况，就提出了让树节点自动旋转和调整，以便于随时处于平衡的状态，也就能保证二叉搜索树的查询性能。</p><h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>假入二叉搜索树处于一个严重不平衡的状态，那么红黑树就会自动调整节点，通过自动左旋右旋以及节点变色来调整树的形态，使其保持基本的平衡状态（时间复杂度O(logn)）。</p><p>红黑树保证了二叉搜索树不会处于一种极端情况（O(n)），但是又会引出一种新的问题，假入当我们顺序插入1~16个节点后，树形态会产生右倾，但是并没有像二叉搜索树那样的线性夸张，不过如果数据有几百万条的话，查询效率也会变得特别慢，对性能影响也是巨大的。</p><p><img src="https://pic3.zhimg.com/80/v2-60cea4af963b156ee5f40030977ab77c_1440w.jpg" alt="img"></p><h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><p>由于红黑树会产生右倾趋势，所以又引出了一种更为严格的二叉平衡树（AVL树），这个树是一个绝对平衡的二叉树，因此在调整形态上会花费更多的性能。</p><p>比如我们插入1~16个节点，最后AVL树的结构会如下：</p><p><img src="https://pic3.zhimg.com/80/v2-0dad51645707e973b152e44e4b7479c5_1440w.jpg" alt="img"></p><p>从树的形态我们可以看出来，AVL树不会产生右倾的状态，我们查询16号节点，AVL树会比较四次，而红黑树会比较6次，这样就从根本上解决了红黑树的问题。</p><p>所以AVL树的优点有以下几点：</p><ul><li>查找性能好（O(logn)），不会产生极端情况，严重降低性能</li><li>可以实现范围查找和数据排序</li></ul><p>但是AVL树并不适合作为Mysql的底层索引的数据结构，主要是因为数据库查询的瓶颈在于磁盘IO，如果使用AVL树，每个节点只存放一个数据，我们一次磁盘IO只能把一个数据加载到内存中，比如查找节点7，就要进行三次IO，这样会特别耗时间，所以如果要设计数据库索引就要考虑很多情况，首先肯定是每个节点都存放多个数据，而且一次IO就可以加载多个数据到内存中，这就引出了B+树的设计原理。</p><p>磁盘IO有个特点，就是磁盘读取1K的数据和读取1B的数据所消耗的时间是一样的。</p><h4 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h4><p>每个节点可以限制存放的key值数量，如果超过了这个约定的key值数量就自动分裂，比如我们继续插入1~16个节点，如果限制一个节点存放2个key的数量的话，结构如下</p><p><img src="https://pic3.zhimg.com/80/v2-f335bdb3e922a5f334416f557df20848_1440w.jpg" alt="img"></p><p>我们不难看出查询节点16的性能和AVL树一样了，也是经过四次磁盘IO，我们可以考虑每次IO可以读取更多的数据到内存中，可以增加限制的key的数量为6个</p><p><img src="https://pic3.zhimg.com/80/v2-7d5e34c698b1e4192ad0ff93c2c897d0_1440w.jpg" alt="img"></p><p>这样对于磁盘IO的次数就可以降低一半，只需要两次就可以读取到。</p><p><strong>B树的优点：</strong></p><ul><li>优秀的检索速度，差查找性能等于O(h*logn)，h是树高，n为每个节点关键词的个数。</li><li>尽可能地减少了磁盘IO的次数，提高了性能。</li><li>可以支持范围查找。</li></ul><h4 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h4><p>首先看一下B树和B+树的区别：</p><ul><li><p>B树一个节点里存放的是数据，而B+树存放的是索引（地址），所以B树里一个节点    存不了很多数据，但是B+树可以存放很多数索引，B+树叶子节点存放所有数据。</p></li><li><p>B+树叶子节点使用链表串联了起来，便于范围查找。</p><p>对比可以看出，B+树存放的是索引，在单个节点容量有限的情况下，单节点也可以存放大量索引，使得整体树的高度降低，减少了磁盘IO，其次叶子节点是存放真正数据的地方，叶子节点用链表连起来，而且还是有序的，在范围查找中更占有优势。所以mysql索引用的就是B+树，在查找效率和范围查找都有不错的性能。</p></li></ul><p>例如插入1~16个节点：</p><p><img src="https://pic3.zhimg.com/80/v2-bda6661499c51dcff63eb12fd4b3795d_1440w.png" alt="img"></p><h2 id="Mysql引擎"><a href="#Mysql引擎" class="headerlink" title="Mysql引擎"></a>Mysql引擎</h2><p>mysql底层数据引擎以插件的形式设计，最常见的就是<strong>InnoDB</strong>和<strong>Myisam</strong>引擎，用户可以根据个人需求来选择不同的引擎作为mysql底层引擎。</p><p>首先来分析一下两者的区别：</p><ul><li>MyISAM查找性能好，但是不支持事务处理，InnoDB最大特色就是支持ACID兼容的事务功能，而且还支持行级锁</li><li>InnoDB创建表后生成的文件有：<ul><li>frm:创建表的语句</li><li>idb:表里面的数据+索引文件</li></ul></li><li>MyISAM创表后生成的文件有：<ul><li>frm:创建表的语句</li><li>MYD:表里面的数据文件（myisam data）</li><li>MYI:表里面的索引文件（myisam index）</li></ul></li></ul><p>InnoDB把数据和索引放在一起，称为聚集索引，而MyISAM把数据和索引分开，称为非聚集索引。</p><h3 id="MyISAM底层实现"><a href="#MyISAM底层实现" class="headerlink" title="MyISAM底层实现"></a>MyISAM底层实现</h3><p>MyISAM采用非聚集索引，建表时以主键作为key来建立B+树，树的叶子节点存放的是对应数据的物理地址，我们拿到这个物理地址后，就可以到MyISAM数据文件中直接定位到具体的数据记录。</p><p><img src="https://pic1.zhimg.com/80/v2-d9a03627e8e1319e46f42e6963c35e30_1440w.jpg" alt="img"></p><p>当我们为某个字段添加索引时，也会生出该字段的索引树，该字段的索引树的叶子节点同样记录了数据文件中的物理地址，根据这个地址同样可以定位到具体的数据记录。</p><h3 id="InnoDB底层实现"><a href="#InnoDB底层实现" class="headerlink" title="InnoDB底层实现"></a>InnoDB底层实现</h3><p>InnoDB是聚集索引，数据和索引都在一个文件中，建表时，InnoDB会根据主键ID作为key建立索引B+树，B+树叶子节点存放的是主键ID对应的数据。</p><p>我们为某个字段添加索引时，会根据这个字段去建立索引树，索引树节点中存放的是字段的值，根节点存放的是主键的值，拿到主键的key值之后会到主键索引创建的B+树查找对应的数据。</p><p><img src="https://pic2.zhimg.com/80/v2-6e16b355e3d0f05ed8bfb0f7c71de8f1_1440w.jpg" alt="img"></p><p>InnoDB只在主键索引的叶节点存放具体的数据原因是需要节省空间，一个表可能有多个索引，如果每个都创建一个索引树存放具体数据，就会导致数据文件变得十分巨大，数据冗杂，因此采用上面那种方式就可以牺牲较少的查询性能节省巨大的磁盘空间，还是蛮好的。</p><h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>由上面可以得知，MyISAM查询性能更好，因为MyISAM查询一次就能获取到数据，查询到物理地址就直接去数据文件中寻找。</p><p>而InnoDB两次才行，第一次查询到叶子节点的主键索引，第二次根据主键索引去主键索引创建的B+树中去寻找。</p><h2 id="什么时候需要创建索引呢？"><a href="#什么时候需要创建索引呢？" class="headerlink" title="什么时候需要创建索引呢？"></a>什么时候需要创建索引呢？</h2><ul><li>查询频繁的字段</li><li>唯一性太差的字段不适合创建索引，即使这个字段频繁作为查询条件。</li><li>更新频繁的字段不适合创建索引，因为每次都需要维护B+树，导致性能差。</li></ul><h2 id="最终选择B-树的原因？"><a href="#最终选择B-树的原因？" class="headerlink" title="最终选择B+树的原因？"></a>最终选择B+树的原因？</h2><ul><li>hash特别快，但是只能针对一个值</li><li>AVL和红黑树，在大数据的情况下，磁盘IO操作过多</li><li>B树每个节点存放的是数据，节点存放的分支太少了。</li><li>B+树节点存储的索引是索引和指针（引用指向下一个地址），可以存储大量索引，同时最终数据在叶子节点上，并且有引用横向链接，可以在2~3次的IO操作中完成千万级别表的操作。</li><li>建议索引为主键索引，有自增操作，适合范围查找。</li></ul><blockquote><p>文章参考自：<a href="https://zhuanlan.zhihu.com/p/113917726" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113917726</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
-    
-    
-      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
     
   </entry>
   
