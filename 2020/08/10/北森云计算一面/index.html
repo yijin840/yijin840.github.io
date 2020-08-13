@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="北森云计算一面上来就问我学java的对C#语言学习起来有困难吗？ 我说我在学校接触过C#，还蛮好上手的，和java一样。。 然后让我介绍一下自己。我说了自己学校，姓名，然后介绍了两个项目。学校比赛报名系统和微信个人订阅号， 然后让我着重介绍了一下微信个人订阅号。我说用了 SpringBoot + redis + Jsoup + nginx 开发的 他说数据库用的啥 我说 mysql 然后就问我 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-10T10:52:56.658Z">
+<meta property="og:updated_time" content="2020-08-10T11:54:06.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="北森云计算一面">
 <meta name="twitter:description" content="北森云计算一面上来就问我学java的对C#语言学习起来有困难吗？ 我说我在学校接触过C#，还蛮好上手的，和java一样。。 然后让我介绍一下自己。我说了自己学校，姓名，然后介绍了两个项目。学校比赛报名系统和微信个人订阅号， 然后让我着重介绍了一下微信个人订阅号。我说用了 SpringBoot + redis + Jsoup + nginx 开发的 他说数据库用的啥 我说 mysql 然后就问我 1">
@@ -410,7 +410,18 @@
 <li><strong>第二范式(确保表中的每列都和主键相关)</strong></li>
 <li><strong>第三范式(确保每列都和主键列直接相关,而不是间接相关)</strong></li>
 </ul>
-<p>2、接下来问了mysql索引种类有哪些</p>
+<p>2、之后问我连接分为什么种类，什么是左连接，什么是右连接。。</p>
+<p>我直接懵逼，完全都没关注过这个是个啥。。。</p>
+<p><strong>mysql连接查询：</strong></p>
+<p><strong>左连接、右连接、内连接、全连接</strong></p>
+<ul>
+<li>左连接</li>
+<li>右连接</li>
+<li>内连接</li>
+<li>全连接</li>
+</ul>
+<p>具体的内容都总结在我的博客里。</p>
+<p>3、接下来问了mysql索引种类有哪些</p>
 <p>我少说了普通索引。。。一共有5类</p>
 <ul>
 <li>普通索引</li>
@@ -420,30 +431,30 @@
 <li>全文索引</li>
 </ul>
 <p>至少得把每种作用说一说。</p>
-<p>3、说给你一个sql语句，你怎么去优化</p>
+<p>4、说给你一个sql语句，你怎么去优化</p>
 <p>我先说了 用explain查看一下效率和运行情况</p>
 <p>然后我说了加索引，或者优化一下sql语句，或者把mysql所在的服务器进行优化。减少磁盘IO，也可以使用redis把结果缓存。</p>
-<p>4、然后问了我nginx，说用了负载均衡。到底是怎么在使用的</p>
+<p>5、然后问了我nginx，说用了负载均衡。到底是怎么在使用的</p>
 <p>我说配置了nginx.conf文件。把项目的ip地址给添加上去进行映射</p>
 <p>然后问了我用过<strong>反代</strong>吗。。我说没有。。（反向代理）</p>
-<p>5、问了问redis的缓存穿透和缓存预热。。</p>
+<p>6、问了问redis的缓存穿透和缓存预热。。</p>
 <p>我说了缓存穿透和缓存预热的特点。和解决方法。顺便把缓存雪崩也说了说</p>
 <p>他让我把缓存预热解决方法说一说。我说用setnx()加锁。每次访问都进行阻塞，然后防止数据库负载过大</p>
-<p>6、然后问我了解过微服务架构吗。</p>
+<p>7、然后问我了解过微服务架构吗。</p>
 <p>我说没有，我只了解过dubbo的RPC远程调用服务原理。</p>
 <p>就说了说远程服务暴露的过程。先暴露在本地。然后暴露到zookeeper上面，作为提供者，还有个消费者。就是从zookeeper上面进行消费，调用过程就像调用本地方法一样，安全透明，没有外来api侵入。</p>
-<p>7、然后问我bootstrap框架了解吗。</p>
+<p>8、然后问我bootstrap框架了解吗。</p>
 <p>我说了解，告诉他这个就是人家把样式全部写好，然后自己想用那一部分直接拷贝粘贴过来，修改一下中间的文字。</p>
 <p>他说水平栅格了解过吗，讲讲实现原理。。我说不知道。我用的是可视化界面进行拖拽生成的。根本不去了解这些底层原理。</p>
-<p>8、问我webapi了解过吗</p>
+<p>9、问我webapi了解过吗</p>
 <p>我说前后端假如在一个项目中，后端使用RequestMapping()提供api接口，前端使用ajax进行访问。这种接口就是webapi接口</p>
-<p>9、接下来问的都是计算机网络和操作系统了。</p>
+<p>10、接下来问的都是计算机网络和操作系统了。</p>
 <p>首先问我HTTP是什么。。我说是超文本传输协议。。然后原理也不是很了解</p>
 <p>他问我TCP了解过吗。我结合了UDP说了说，大概就是TCP是一个可靠的面向连接的协议，UDP是一种无状态无连接的协议。</p>
 <p>TCP传输内容可能多一点，如果传输内容少的话。UDP可能会更快一些。TCP通信需要建立连接才能通信，UDP只管发送不管对面在不在。。</p>
 <p>之后问我TCP三次握手，我说第一次握手是客户端发送给服务器，然后告诉服务器说我要和你连接了，服务器收到后发送数据包给客户端，说收到了，我同意和你连接，然后客户端最后发送一个包告诉服务器说开始连接了。</p>
 <p>TCP三次握手要检查客户端和服务器是否接受和发送都没问题，第一次发送检查的是客户端的发送，第二次检查的是服务器的发送和服务器的接受，最后一次就是客户端的接受，如果都没问题就可以开始连接了。</p>
-<p>10、最后问了我进程和线程区别</p>
+<p>11、最后问了我进程和线程区别</p>
 <p>我说进程时资源调度的最小单位，线程是依赖进程存在的，负责进程的操作，单线程也可以看作一个进程。（答得不好）</p>
 <p><strong>进程和线程区别：</strong></p>
 <p><strong>进程是资源分配的最小单位，线程是CPU调度的最小单位</strong></p>
@@ -514,6 +525,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/10/Mysql范式和连接/" rel="prev" title="Mysql范式和连接">
+                Mysql范式和连接 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -598,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">98</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
