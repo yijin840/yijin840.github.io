@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-13T04:32:07.548Z</updated>
+  <updated>2020-08-14T03:42:08.195Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杭州端点科技一面</title>
+    <link href="http://wysblogs.top/2020/08/14/%E6%9D%AD%E5%B7%9E%E7%AB%AF%E7%82%B9%E7%A7%91%E6%8A%80%E4%B8%80%E9%9D%A2/"/>
+    <id>http://wysblogs.top/2020/08/14/杭州端点科技一面/</id>
+    <published>2020-08-14T02:40:18.000Z</published>
+    <updated>2020-08-14T03:42:08.195Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="杭州端点科技一面"><a href="#杭州端点科技一面" class="headerlink" title="杭州端点科技一面"></a>杭州端点科技一面</h1><p>面试时候出了意外。emmm，谁知道阿里的电话全都被标记成广告推销了。。然后被电话拦截了。。还好发现及时，把关掉了，然后等了半个小时，面试官终于打电话过来了。。</p><p><strong>1、首先介绍一下自己</strong></p><p>我就说了来自哪个学校，21届毕业，然后介绍了两个项目内容。（一面就追着我的项目猛问。。）</p><p><strong>2、介绍一下我负责的模块（邮箱那一部分）</strong></p><p>我就说了邮箱是网易邮箱或者qq邮箱提供的服务，一开始是网易邮箱，但是发送效率太低了，我就换成了qq邮箱，邮箱发送是通过两个协议来完成了（SMTP协议，POP3协议），我是通过UUID作为唯一标识来给未激活的作为激活链接，然后根据不同的功能设置不同的内容。比如邮箱激活，邮箱验证，忘记密码等功能。。。巴啦啦说了一大堆。</p><p><strong>3、rsa算法是什么样的</strong></p><p>我只知道是加密算法。。原理不是很懂。</p><p><strong>4、登录怎么维持对象会话</strong></p><p>我说通过session进行会话连接。通过session存储个人信息进行各个功能的使用。</p><p><strong>5、redis缓存是怎么做的</strong></p><p>我说redis命名规则是根据阿里的redis明明规范来实现的，主要是缓存比赛时得分用的。如果大量访问数据库的话，可能会造成数据库负载，所以预先缓存到redis中，只有数据库数据变动时，才去把缓存设置失效，再把数据库的数据缓存下来。</p><p><strong>6、redis的基本数据类型</strong></p><p>我说了有string，set，sort set，hash，list</p><p>然后问我用过哪些。。我说只用过string，因为感觉其他的在项目中应用不到。</p><p><strong>7、redis还了解过其他的功能</strong></p><p>我说了解哨兵模式，然后说哨兵是一个集群。用来监控redis集群的，如果redis有问题，就通过api来告诉管理员或者其他应用程序。</p><p>然后说了流言协议。</p><p>最后说了持久化机制，RDB和AOF，RDB保存的是快照，有两种形式，一个是save，每次保存时会阻塞其他线程，另一种就是bgsave每次就是fork一个线程去后台保存快照。AOF是把所有数据写入文件，每次保存都是重新写入，时间慢，也是fork一个线程在后台进行重写。</p><p><strong>8、在什么条件下会使用RDB</strong></p><p>我说存的是快照，比较常用，存的是临时信息，如果数据改变的时候保存，或者是规定一个时间然后给他保存。</p><p><strong>9、数据库使用的是什么</strong></p><p>我说是mysql了解的是索引，引擎和范式</p><p>三个范式，第一个是列不能再分，具有原子性，第二个是列必须与主键息息相关，然后第三个是列必须与主键直接相关，不能在不同的表中进行关联。</p><p><strong>10、索引你用过吗</strong></p><p>我说只用过主键索引，使用Auto_Increment自增来作为主键。</p><p><strong>11、讲一下底层原理</strong></p><p>我说底层原理分为Hash索引还有是B+树索引，Hash索引是查找单个数据，不支持范围性查找，然后数据都存放在hash表中，如果产生hash冲突，就通过链地址法用链表串起来。</p><p>B+树的话，不能单独拿来说，因为这个要结合innodb引擎来说，innodb的数据文件和索引文件是分开的，B+树根节点存放的是索引，叶结点存放的是数据，一般是根据主键索引创建的，分为两种B+树，一种是根据字段创建的，根节点存放的都是字段值，叶结点存放的是主键索引，拿到主键索引之后会跑到主键索引创建的B+树中进行查找数据，这个是回表操作。然后MyiSam的话数据文件和索引都在一起，叶结点存放的就是数据，一次查询就能找到。而且B+树叶结点是通过链表串连起来的，是一个有序链表，支持范围性查找，而且相比较于其他结构来说磁盘IO次数比较少，查询效率高。</p><p><strong>12、SpringBoot对于Spring框架有什么不同</strong></p><p>Spring框架一般是用SSM框架来开发的，因为使用的是XML配置，所以比较繁琐，而SpringBoot是一种敏捷开发模型，通过注解形式避免了各种繁琐的配置，导包也是通过导入starter进行使用，比较方法，对于开发来说，其实很方便。</p><p><strong>13、starter工具包是怎么进行实现的</strong></p><p>SpringBoot启动的时候有 EnableAutoConfiguration，SpringBootConfiguation，ComponentScan 三个注解，然后启动的时候通过这三个注解把工具类注入到Spring容器中，然后直接在容器中进行使用。</p><p><strong>14、SpringMVC流程</strong></p><p>收到请求之后首先去DispacherServlet进行查询</p><p>然后从HandlerMapping找到具体的Controller类</p><p>之后执行完各种方法后，返回一个逻辑视图。</p><p><strong>15、项目中用过MVC的什么注解</strong></p><p>RequestMapping，就是请求映射路径</p><p>RestController，就是Controller和ResponseBody，一个就是把Controller类添加进容器中，另一个就是返回的逻辑视图转换成XML或者Json数据。</p><p>还用过哪些。。想了半天，说是GetMapping，或者PostMapping，还有Param。。就是把参数给他自动注入</p><p><strong>16、HashMap有什么了解</strong></p><p>HashMap底层结构说了说，1.7和1.8区别。然后初始参数，扩容因子，扩容倍数。put头插法的缺点。</p><p><strong>17、红黑树的特点</strong></p><p>就说了5个红黑树特点，然后说了说缺点，对比了AVL树，说了AVL的特点。</p><p><strong>18、HashMap线程不安全怎么办</strong></p><p>三种方法：1、Collections.synchronizedMap()方法进行代理，给所有调用的方法加锁。</p><p>2、Hashtable，然后说一下hashtable的特点</p><p>3、ConcurrentHashMap</p><p><strong>19、讲一下ConcurrentHashMap如何保证线程安全</strong></p><p>我说了说这个1.7和1.8不同的上锁规则，1.8之前都是锁分段技术，1.8之后是CAS+synchronized。说一下CAS特点和synchronized特点。最后因为synchronized在1.7和1.8之后有一个锁优化技术，就是锁有了升级过程。大量使用锁升级的话还是会对性能有影响。</p><p><strong>20、你还有什么问题吗</strong></p><p>公司技术栈。之类的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络面试知识</title>
@@ -480,31 +505,6 @@
     
     
       <category term="并发" scheme="http://wysblogs.top/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面对对象三大特点</title>
-    <link href="http://wysblogs.top/2020/07/23/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E7%82%B9/"/>
-    <id>http://wysblogs.top/2020/07/23/面对对象三大特点/</id>
-    <published>2020-07-23T04:19:47.000Z</published>
-    <updated>2020-07-25T13:07:55.825Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="面向对象三大特点"><a href="#面向对象三大特点" class="headerlink" title="面向对象三大特点"></a>面向对象三大特点</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>就是把自己的类给封装起来，只暴露出想让外界访问的接口和数据，保证了类的安全性。</p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>OOP的一个主要功能，通过继承来实现代码的复用。                                                                                                                                                                                                                                                        </p><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>同一个操作，作用于不同的对象，会产生不同的结果。</p><p>多态的好处是可以解耦合，灵活，面向接口编程，</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="java基础" scheme="http://wysblogs.top/categories/java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="java基础" scheme="http://wysblogs.top/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
