@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-14T03:42:08.195Z</updated>
+  <updated>2020-08-17T00:17:14.272Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java1.8特性之Stream流式算法</title>
+    <link href="http://wysblogs.top/2020/08/17/Java1-8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81%E5%BC%8F%E7%AE%97%E6%B3%95/"/>
+    <id>http://wysblogs.top/2020/08/17/Java1-8特性之Stream流式算法/</id>
+    <published>2020-08-17T00:17:14.000Z</published>
+    <updated>2020-08-17T00:17:14.272Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java1.8特性之Lamda表达式</title>
+    <link href="http://wysblogs.top/2020/08/17/Java1-8%E7%89%B9%E6%80%A7%E4%B9%8BLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://wysblogs.top/2020/08/17/Java1-8特性之Lamda表达式/</id>
+    <published>2020-08-17T00:16:24.000Z</published>
+    <updated>2020-08-17T00:16:24.610Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>工厂模式</title>
+    <link href="http://wysblogs.top/2020/08/17/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://wysblogs.top/2020/08/17/工厂模式/</id>
+    <published>2020-08-16T23:34:33.000Z</published>
+    <updated>2020-08-16T23:34:33.811Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>杭州端点科技一面</title>
@@ -46,9 +109,9 @@
     <link href="http://wysblogs.top/2020/08/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86/"/>
     <id>http://wysblogs.top/2020/08/13/计算机网络面试知识/</id>
     <published>2020-08-13T04:24:52.000Z</published>
-    <updated>2020-08-13T04:32:07.548Z</updated>
+    <updated>2020-08-18T06:26:33.521Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p>]]></content>
     
     <summary type="html">
     
@@ -146,9 +209,9 @@
     <link href="http://wysblogs.top/2020/08/05/LinkedHashMap%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/08/05/LinkedHashMap详解/</id>
     <published>2020-08-05T02:45:31.000Z</published>
-    <updated>2020-08-05T02:45:31.509Z</updated>
+    <updated>2020-08-17T01:18:11.699Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LinkedHashMap详解"><a href="#LinkedHashMap详解" class="headerlink" title="LinkedHashMap详解"></a>LinkedHashMap详解</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这个也是一个map集合，底层继承的是<code>HashMap</code>，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。</p><p><strong>特点：</strong>LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap</p><p><strong>数据结构：</strong>采用的是HashMap+双向链表    </p><p><strong>应用：</strong>LRU 缓存过期策略</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://pic4.zhimg.com/80/v2-a821a76fb84ce6223598c89ae8ebe7b0_720w.jpg" alt="img"></p><h2 id="LinkedHashMap和HashMap区别"><a href="#LinkedHashMap和HashMap区别" class="headerlink" title="LinkedHashMap和HashMap区别"></a>LinkedHashMap和HashMap区别</h2><p><code>LinkedHashMap</code>比<code>HashMap</code>多了一个双向链表的维护。</p><p>其他地方和Map并没有什么区别，对于<code>put()</code>方法来说，重写了<code>put()</code>方法中的<code>newNode()</code></p><p><strong>插入顺序来说：</strong>最常用的放在链表的最末端，最不常用的放在链表的开头。</p><p><strong>两个重要方法：</strong></p><ul><li><code>removeEldestEntry(Map.Entry&lt;K,V&gt; eldest)</code> 来判断是否是最久未被使用的元素。</li><li><code>afterNodeInsertion(boolean evict)</code> 判断是否需要删除最久未被使用的元素。</li></ul><h2 id="AccessOrder模式"><a href="#AccessOrder模式" class="headerlink" title="AccessOrder模式"></a>AccessOrder模式</h2><p>LinkedHashMap可以设置两种遍历顺序：</p><ul><li>访问顺序（access-ordered）</li><li>插入顺序（insertion-ordered）</li><li><strong>默认是插入顺序的</strong></li></ul><p>对于 <strong>访问顺序</strong> 来说，他是LRU算法的实现，即<strong>最近最少使用的</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以通过这个方法来选择是否采用访问顺序</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> accessOrder;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">float</span> loadFactor,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">boolean</span> accessOrder)</span></span></span><br></pre></td></tr></table></figure><p><strong>一般要扩展成<code>LRUMap</code>时要使用这个模式。</strong></p>]]></content>
     
     <summary type="html">
     
@@ -159,6 +222,10 @@
     
     </summary>
     
+      <category term="数据结构" scheme="http://wysblogs.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="http://wysblogs.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -430,81 +497,6 @@
     
     
       <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>百度一面面经</title>
-    <link href="http://wysblogs.top/2020/07/24/%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/"/>
-    <id>http://wysblogs.top/2020/07/24/百度一面面经/</id>
-    <published>2020-07-24T07:26:05.000Z</published>
-    <updated>2020-07-24T14:13:52.682Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="百度一面面经"><a href="#百度一面面经" class="headerlink" title="百度一面面经"></a>百度一面面经</h1><p><strong>1、介绍自己。</strong></p><p><strong>2、说说面向对象的几个特点</strong></p><p><strong>3、然后出了几个 <code>==</code>条件 让我进行判断（Integer缓冲池）</strong></p><p><strong>4、然后一个剑指Offer原题。</strong></p><p>一开始没有暴力，后来用hashmap进行优化时间</p><p><strong>5、int的最大值，为什么？</strong></p><p><strong>6、ArrayList和LinkedArrayList区别</strong></p><p><strong>6、mysql索引（B+树原理）</strong></p><p><strong>7、innodb的原理（回表操作）</strong></p><p><strong>8、给了几个索引查询语句，判断可以不可以走索引进行查询</strong></p><p><strong>9、最后让编写一个各科平均分数的sql语句（没写出来，太菜了）</strong></p><p><strong>10、需要问什么问题？</strong></p><p>我问的是，我有些地方答得不是很好，希望你能给我讲讲我现在需要提升的地方。</p><p><strong>基础知识都是靠记得，理解上面有些不好，sql语句也不是很好，需要多去理解理解，知识不能靠死记硬背，把sql语句也练一练</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
-    
-    
-      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tomcat原理</title>
-    <link href="http://wysblogs.top/2020/07/24/Tomcat%E5%8E%9F%E7%90%86/"/>
-    <id>http://wysblogs.top/2020/07/24/Tomcat原理/</id>
-    <published>2020-07-24T00:51:33.000Z</published>
-    <updated>2020-07-27T02:14:04.769Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tomcat原理"><a href="#Tomcat原理" class="headerlink" title="Tomcat原理"></a>Tomcat原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Tomcat是一个JSP/Servlet容器，其作为Servlet容器，有三种工作模式：独立的Servlet容器、进程内的Servlet容器、进程外的Servlet容器。</p><p>Tomcat也是一个中间件，运行在JVM上，是一个在JAVA项目和JVM之间的中间容器。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><img src="/upload/tomcat/20180518194004378.png" alt="img"></p><p>核心容器和<code>Connector</code>和<code>Container</code></p><ul><li>Connector：处理连接相关内容，并提供Socket的Request和Response相关的转换。</li><li>Container：核心容器，封装和管理Servlet，处理Request请求。</li></ul><h2 id="三种Connector运行模式"><a href="#三种Connector运行模式" class="headerlink" title="三种Connector运行模式"></a>三种Connector运行模式</h2><ul><li><strong>BIO</strong>：同步阻塞IO，一个线程处理一个请求，同时把其他线程阻塞，并发量高时，线程多，导致性能严重下降</li><li><strong>NIO</strong>：异步非阻塞IO，一个线程处理多个Connection，多路复用，使用较少的线程执行较多的请求。</li><li><strong>APR</strong>：异步非阻塞IO，和NIO在操作系统层面不同，不需要关注进度问题。</li></ul><h2 id="Tomcat工作模式"><a href="#Tomcat工作模式" class="headerlink" title="Tomcat工作模式"></a>Tomcat工作模式</h2><p>Tomcat作为servlet容器，有三种工作模式：</p><ul><li>1、<strong>独立的servlet容器</strong>，servlet容器是web服务器的一部分；</li><li>2、<strong>进程内的servlet容器</strong>，servlet容器是作为web服务器的插件和java容器的实现，web服务器插件在内部地址空间打开一个jvm使得java容器在内部得以运行。反应速度快但伸缩性不足；</li><li>3、<strong>进程外的servlet容器</strong>，servlet容器运行于web服务器之外的地址空间，并作为web服务器的插件和java容器实现的结合。反应时间不如进程内但伸缩性和稳定性比进程内优；</li></ul><p>进入Tomcat的请求可以根据Tomcat的工作模式分为如下两类：</p><ul><li>Tomcat作为<strong>应用程序服务器</strong>：请求来自于前端的web服务器，这可能是Apache, IIS, Nginx等；</li><li>Tomcat作为<strong>独立服务器</strong>：请求来自于web浏览器；</li></ul><h2 id="Tomcat违背双亲委派模型"><a href="#Tomcat违背双亲委派模型" class="headerlink" title="Tomcat违背双亲委派模型"></a>Tomcat违背双亲委派模型</h2><p>首先谈一下Tomcat要实现的目的：</p><ul><li>运行多个web程序，并且各个依赖的类库相互独立，相互隔离。</li><li>部署在同一个web容器下的相同类库可以共享。</li><li>web容器自己类库不能与程序冲突。</li><li>需要更改jsp后不用重启。</li></ul><p><strong>Tomcat类加载器</strong></p><p><img src="/upload/tomcat/4236553-89bacc3467d513f0.webp" alt="img"></p><p>双亲委派模型要求除了顶层的启动类加载器之外，其余的类加载器都应当由自己的父类加载器加载。</p><p>tomcat 不是这样实现，tomcat 为了实现隔离性，没有遵守这个约定，每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器</p><p>、</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="tomcat" scheme="http://wysblogs.top/categories/tomcat/"/>
-    
-    
-      <category term="tomcat" scheme="http://wysblogs.top/tags/tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UnSafe类详解</title>
-    <link href="http://wysblogs.top/2020/07/23/UnSafe%E7%B1%BB%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/23/UnSafe类详解/</id>
-    <published>2020-07-23T06:55:17.000Z</published>
-    <updated>2020-07-26T09:22:17.628Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="UnSafe类详解"><a href="#UnSafe类详解" class="headerlink" title="UnSafe类详解"></a>UnSafe类详解</h1><p>Unsafe是位于sun.misc包下的一个类</p><p>主要是提供一些用于执行级别低，不安全操作的方法，如直接访问系统的一些资源，这些方法对提高java运行效率，增强java语言底层资源操作能力方面起到了很大的作用。</p><p>但是因为底层是直接操作内存来实现功能的，所以可能会发生内存上的一些问题，比如内存泄漏，如果不正当使用的话，可能使java变得不再那么安全。</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://picb.zhimg.com/80/v2-f0570d67d15e6157e2723687b77aee15_720w.jpg" alt="img"></p><p>如上图可看出，Unsafe类在多个方面都有使用：</p><ul><li>内存操作<ul><li>主要是<strong>堆外内存</strong>的分配、拷贝、释放、给定地址值等操作。</li><li>因为是堆外内存，所以不归JVM管，得自己进行内存的管理</li><li>使用堆外内存的原因：对GC停顿进行改善，减少停顿带来的影响，提高IO操作性能，不需要再次进行拷贝。</li></ul></li><li>CAS操作<ul><li>比较并交换，轻量级无锁并发，执行CAS操作时，首先拿地址中的值和原值作比较，如果一样就把内存值更新为新值，否则就不做任何操作。</li><li>CAS在很多方面都有应用，比如Atomic原子类，还有AQS，ConcurrentHashMap等地方都有体现。</li></ul></li><li>Class相关的一些操作<ul><li>此部分主要提供<strong>Class</strong>和它的<strong>静态字段</strong>的操作相关方法，包含<strong>静态字段内存定位</strong>、<strong>定义类</strong>、<strong>定义匿名类</strong>、<strong>检验&amp;确保初始化</strong>等</li></ul></li><li>对象操作<ul><li>此部分主要包含对象成员属性相关操作及非常规的对象实例化方式等相关方法。</li><li>常规分配内存是使用<code>new</code>关键字，然后交给JVM来管理</li><li>但是Unsafe有分配内存的方法，不需要通过JVM进行操作，</li></ul></li><li>线程调度<ul><li>线程挂起，恢复，锁机制等操作。</li></ul></li><li>系统信息获取<ul><li>这部分包含两个获取系统相关信息的方法。</li></ul></li><li>内存屏障<ul><li>在Java 8中引入，用于定义内存屏障（也称内存栅栏，内存栅障，屏障指令等，是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作），避免代码重排序。</li></ul></li><li>数组操作<ul><li>这部分主要介绍与数据操作相关的arrayBaseOffset与arrayIndexScale这两个方法，两者配合起来使用，即可定位数组中每个元素在内存中的位置。</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="并发" scheme="http://wysblogs.top/categories/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="并发" scheme="http://wysblogs.top/tags/%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   

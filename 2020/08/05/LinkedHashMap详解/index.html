@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据结构,">
 
 
 
@@ -88,14 +88,20 @@
 
 
 
+<meta name="description" content="LinkedHashMap详解介绍这个也是一个map集合，底层继承的是HashMap，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。 特点：LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap 数据结构：采用的是HashMap+双向链表     应用：LRU 缓存过期策略 结构 LinkedHashMap和HashMap区别Linke">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LinkedHashMap详解">
 <meta property="og:url" content="http://wysblogs.top/2020/08/05/LinkedHashMap详解/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="LinkedHashMap详解介绍这个也是一个map集合，底层继承的是HashMap，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。 特点：LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap 数据结构：采用的是HashMap+双向链表     应用：LRU 缓存过期策略 结构 LinkedHashMap和HashMap区别Linke">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-05T02:45:31.509Z">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-a821a76fb84ce6223598c89ae8ebe7b0_720w.jpg">
+<meta property="og:updated_time" content="2020-08-17T01:18:11.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinkedHashMap详解">
+<meta name="twitter:description" content="LinkedHashMap详解介绍这个也是一个map集合，底层继承的是HashMap，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。 特点：LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap 数据结构：采用的是HashMap+双向链表     应用：LRU 缓存过期策略 结构 LinkedHashMap和HashMap区别Linke">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-a821a76fb84ce6223598c89ae8ebe7b0_720w.jpg">
 
 
 
@@ -340,6 +346,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -372,7 +400,30 @@
       
 
       
-        
+        <h1 id="LinkedHashMap详解"><a href="#LinkedHashMap详解" class="headerlink" title="LinkedHashMap详解"></a>LinkedHashMap详解</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这个也是一个map集合，底层继承的是<code>HashMap</code>，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。</p>
+<p><strong>特点：</strong>LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap</p>
+<p><strong>数据结构：</strong>采用的是HashMap+双向链表    </p>
+<p><strong>应用：</strong>LRU 缓存过期策略</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://pic4.zhimg.com/80/v2-a821a76fb84ce6223598c89ae8ebe7b0_720w.jpg" alt="img"></p>
+<h2 id="LinkedHashMap和HashMap区别"><a href="#LinkedHashMap和HashMap区别" class="headerlink" title="LinkedHashMap和HashMap区别"></a>LinkedHashMap和HashMap区别</h2><p><code>LinkedHashMap</code>比<code>HashMap</code>多了一个双向链表的维护。</p>
+<p>其他地方和Map并没有什么区别，对于<code>put()</code>方法来说，重写了<code>put()</code>方法中的<code>newNode()</code></p>
+<p><strong>插入顺序来说：</strong>最常用的放在链表的最末端，最不常用的放在链表的开头。</p>
+<p><strong>两个重要方法：</strong></p>
+<ul>
+<li><code>removeEldestEntry(Map.Entry&lt;K,V&gt; eldest)</code> 来判断是否是最久未被使用的元素。</li>
+<li><code>afterNodeInsertion(boolean evict)</code> 判断是否需要删除最久未被使用的元素。</li>
+</ul>
+<h2 id="AccessOrder模式"><a href="#AccessOrder模式" class="headerlink" title="AccessOrder模式"></a>AccessOrder模式</h2><p>LinkedHashMap可以设置两种遍历顺序：</p>
+<ul>
+<li>访问顺序（access-ordered）</li>
+<li>插入顺序（insertion-ordered）</li>
+<li><strong>默认是插入顺序的</strong></li>
+</ul>
+<p>对于 <strong>访问顺序</strong> 来说，他是LRU算法的实现，即<strong>最近最少使用的</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以通过这个方法来选择是否采用访问顺序</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> accessOrder;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">float</span> loadFactor,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">boolean</span> accessOrder)</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>一般要扩展成<code>LRUMap</code>时要使用这个模式。</strong></p>
+
       
     </div>
     
@@ -404,6 +455,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
       
 
       
@@ -484,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,7 +568,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,6 +653,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap详解"><span class="nav-number">1.</span> <span class="nav-text">LinkedHashMap详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedHashMap和HashMap区别"><span class="nav-number">1.3.</span> <span class="nav-text">LinkedHashMap和HashMap区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AccessOrder模式"><span class="nav-number">1.4.</span> <span class="nav-text">AccessOrder模式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
