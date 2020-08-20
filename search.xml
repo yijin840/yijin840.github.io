@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[网易有道一面]]></title>
+    <url>%2F2020%2F08%2F20%2F%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[网易有道一面上来介绍了一下自己，然后开始面试 1、springboot常用的注解 说了几个。RestController，Compoent、Parama，Dao Mapper 最后问了我事务注解 @Transaction，然后说了说事务的四个特性 2、SpringBoot和Spring MVC的区别 说了说SpringBoot 和 Spring的差别 3、SpringMVC的执行流程 4、SpringBoot事务注解用的是什么 @Transaction，然后说了说事务的四个特性 5、MySql组合索引 意思，和最左匹配原则 6、怎么防止别人攻击你的服务器和爬虫 我说防止sql注入，并且限制IP 7、String、StringBuffer、StringBuilder区别 String底层是一个final修饰的数组。StringBuffer的话线程安全，StringBuilder的话和StringBuffer差不多 8、synchronized是啥 JVM关键字，然后说了1.7到1.8有个锁升级过程 9、synchronized 和 ReentantLock区别 10、垃圾回收机制 说了垃圾回收算法。 11、你了解的集合 双列集合和单列集合。主要说了HashMap，如何保证线程安全。三种。 12、实现多线程的方式 4种。继承Thread类，实现Runnable接口，实现CallableBack接口，线程池。。 13、场景题：怎么做出一个排行榜，能够检索前100名用户背单词的量，和显示自己的名次 我一开始不懂。。后来经提醒，就是加索引。然后使用order by查找到前100名，然后拿出最后一名和自己作比较，使用Random来随机给自己生成一个大概的名次范围。 14、给几个数字，求中位数 直接暴力，然后除2.。。。肯定不行 面试官提醒说是快排思想，我说每次排序都加一个标识符，然后比较完之后，左边都是有序的。判断一下是否到达中位数的位置就返回。 但是解决不了偶数问题。然后就是排完序直接求解。。 今天网上看了看，堆排序也行。。就是建立一个(n+1)/2的堆，然后让后面得值依次与根比较，如果小就舍弃，大的话就调整一下堆，把大的值作为根。。最后比较完之后。根就是中位数。（很神奇。。）]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[主键索引和唯一索引]]></title>
+    <url>%2F2020%2F08%2F20%2F%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[RabbitMq基础]]></title>
+    <url>%2F2020%2F08%2F20%2FRabbitMq%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[拦截器和过滤器]]></title>
+    <url>%2F2020%2F08%2F20%2F%E6%8B%A6%E6%88%AA%E5%99%A8%E5%92%8C%E8%BF%87%E6%BB%A4%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[拦截器和过滤器]]></content>
+      <categories>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[zookeeper基础]]></title>
     <url>%2F2020%2F08%2F19%2Fzookeeper%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[zookeeper基础简介zookeeper是一个分布式协调服务。 zookeeper=文件系统+监听通知机制 zookeeper主要是用来实现分布式应用配置管理、统一命名服务，状态同步服务，集群管理等功能。 底层数据结构类似于Linux操作系统的目录结构，即DataTree，每个节点使用的是DataNode 如何保证一致性]]></content>
+      <categories>
+        <category>zookeeper</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[杭州端点科技二面]]></title>
@@ -56,7 +94,7 @@
   <entry>
     <title><![CDATA[计算机网络面试知识]]></title>
     <url>%2F2020%2F08%2F13%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[计算机网络面试知识HTTP是什么？HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。 HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。 在浏览器输出URL执行后会发生什么？ 查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器 浏览器向IP对应的web服务器发送一个HTTP请求 服务器响应请求，发回网页内容 浏览器解析网页内容 OSI，TCP/IP，五层协议的体系结构OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。 五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。 HTTP状态码Get请求和Post请求区别##]]></content>
+    <content type="text"><![CDATA[计算机网络面试知识HTTP是什么？HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。 HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。 在浏览器输出URL执行后会发生什么？ 查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器 浏览器向IP对应的web服务器发送一个HTTP请求 服务器响应请求，发回网页内容 浏览器解析网页内容 OSI，TCP/IP，五层协议的体系结构OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。 五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。 HTTP状态码 1开头： 信息，服务器收到请求，需要请求者继续执行操作 2开头：成功，操作被成功接收并处理 3开头：重定向，需要进一步的操作以完成请求 4开头：客户端错误，请求包含语法错误或无法完成请求 5开头： 服务器错误，服务器在处理请求的过程中发生了错误 200 OK 404 未发现 301 重定向 Get请求和Post请求区别##]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>

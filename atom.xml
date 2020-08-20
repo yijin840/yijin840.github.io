@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-19T02:02:12.431Z</updated>
+  <updated>2020-08-20T18:05:07.751Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>zookeeper基础</title>
-    <link href="http://wysblogs.top/2020/08/19/zookeeper%E5%9F%BA%E7%A1%80/"/>
-    <id>http://wysblogs.top/2020/08/19/zookeeper基础/</id>
-    <published>2020-08-19T02:02:12.000Z</published>
-    <updated>2020-08-19T02:02:12.431Z</updated>
+    <title>网易有道一面</title>
+    <link href="http://wysblogs.top/2020/08/20/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/"/>
+    <id>http://wysblogs.top/2020/08/20/网易有道一面/</id>
+    <published>2020-08-20T08:33:25.000Z</published>
+    <updated>2020-08-20T18:05:07.751Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网易有道一面"><a href="#网易有道一面" class="headerlink" title="网易有道一面"></a>网易有道一面</h1><p>上来介绍了一下自己，然后开始面试</p><p><strong>1、springboot常用的注解</strong></p><p>说了几个。RestController，Compoent、Parama，Dao Mapper</p><p>最后问了我事务注解</p><p>@Transaction，然后说了说事务的四个特性</p><p><strong>2、SpringBoot和Spring MVC的区别</strong></p><p>说了说SpringBoot 和 Spring的差别</p><p><strong>3、SpringMVC的执行流程</strong></p><p><strong>4、SpringBoot事务注解用的是什么</strong></p><p>@Transaction，然后说了说事务的四个特性</p><p><strong>5、MySql组合索引</strong></p><p>意思，和最左匹配原则</p><p><strong>6、怎么防止别人攻击你的服务器和爬虫</strong></p><p>我说防止sql注入，并且限制IP</p><p><strong>7、String、StringBuffer、StringBuilder区别</strong></p><p>String底层是一个final修饰的数组。StringBuffer的话线程安全，StringBuilder的话和StringBuffer差不多</p><p><strong>8、synchronized是啥</strong></p><p>JVM关键字，然后说了1.7到1.8有个锁升级过程</p><p><strong>9、synchronized 和 ReentantLock区别</strong></p><p><strong>10、垃圾回收机制</strong></p><p>说了垃圾回收算法。</p><p><strong>11、你了解的集合</strong></p><p>双列集合和单列集合。主要说了HashMap，如何保证线程安全。三种。</p><p><strong>12、实现多线程的方式</strong></p><p>4种。继承Thread类，实现Runnable接口，实现CallableBack接口，线程池。。</p><p><strong>13、场景题：怎么做出一个排行榜，能够检索前100名用户背单词的量，和显示自己的名次</strong></p><p>我一开始不懂。。后来经提醒，就是加索引。然后使用order by查找到前100名，然后拿出最后一名和自己作比较，使用Random来随机给自己生成一个大概的名次范围。</p><p><strong>14、给几个数字，求中位数</strong></p><p>直接暴力，然后除2.。。。肯定不行</p><p>面试官提醒说是快排思想，我说每次排序都加一个标识符，然后比较完之后，左边都是有序的。判断一下是否到达中位数的位置就返回。</p><p>但是解决不了偶数问题。然后就是排完序直接求解。。</p><p>今天网上看了看，堆排序也行。。就是建立一个(n+1)/2的堆，然后让后面得值依次与根比较，如果小就舍弃，大的话就调整一下堆，把大的值作为根。。最后比较完之后。根就是中位数。（很神奇。。）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>主键索引和唯一索引</title>
+    <link href="http://wysblogs.top/2020/08/20/%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
+    <id>http://wysblogs.top/2020/08/20/主键索引和唯一索引/</id>
+    <published>2020-08-20T06:46:41.000Z</published>
+    <updated>2020-08-20T06:46:41.230Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
     
@@ -34,6 +59,77 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMq基础</title>
+    <link href="http://wysblogs.top/2020/08/20/RabbitMq%E5%9F%BA%E7%A1%80/"/>
+    <id>http://wysblogs.top/2020/08/20/RabbitMq基础/</id>
+    <published>2020-08-20T04:38:42.000Z</published>
+    <updated>2020-08-20T04:38:42.746Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>拦截器和过滤器</title>
+    <link href="http://wysblogs.top/2020/08/20/%E6%8B%A6%E6%88%AA%E5%99%A8%E5%92%8C%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    <id>http://wysblogs.top/2020/08/20/拦截器和过滤器/</id>
+    <published>2020-08-20T03:58:46.000Z</published>
+    <updated>2020-08-20T06:46:16.105Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="拦截器和过滤器"><a href="#拦截器和过滤器" class="headerlink" title="拦截器和过滤器"></a>拦截器和过滤器</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="spring" scheme="http://wysblogs.top/categories/spring/"/>
+    
+    
+      <category term="spring" scheme="http://wysblogs.top/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zookeeper基础</title>
+    <link href="http://wysblogs.top/2020/08/19/zookeeper%E5%9F%BA%E7%A1%80/"/>
+    <id>http://wysblogs.top/2020/08/19/zookeeper基础/</id>
+    <published>2020-08-19T02:02:12.000Z</published>
+    <updated>2020-08-20T04:25:31.064Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="zookeeper基础"><a href="#zookeeper基础" class="headerlink" title="zookeeper基础"></a>zookeeper基础</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>zookeeper是一个分布式协调服务。</p><p>zookeeper=文件系统+监听通知机制</p><p>zookeeper主要是用来实现分布式应用配置管理、统一命名服务，状态同步服务，集群管理等功能。</p><h2 id="底层数据结构"><a href="#底层数据结构" class="headerlink" title="底层数据结构"></a>底层数据结构</h2><p>类似于Linux操作系统的目录结构，即<strong>DataTree</strong>，每个节点使用的是<strong>DataNode</strong></p><h2 id="如何保证一致性"><a href="#如何保证一致性" class="headerlink" title="如何保证一致性"></a>如何保证一致性</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="zookeeper" scheme="http://wysblogs.top/categories/zookeeper/"/>
+    
+    
+      <category term="zookeeper" scheme="http://wysblogs.top/tags/zookeeper/"/>
     
   </entry>
   
@@ -180,9 +276,9 @@
     <link href="http://wysblogs.top/2020/08/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86/"/>
     <id>http://wysblogs.top/2020/08/13/计算机网络面试知识/</id>
     <published>2020-08-13T04:24:52.000Z</published>
-    <updated>2020-08-19T05:03:19.342Z</updated>
+    <updated>2020-08-20T06:46:13.306Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p><h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><h2 id="Get请求和Post请求区别"><a href="#Get请求和Post请求区别" class="headerlink" title="Get请求和Post请求区别"></a>Get请求和Post请求区别</h2><p>## </p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p><h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul><li><strong>1开头</strong>： 信息，服务器收到请求，需要请求者继续执行操作</li><li><strong>2开头：</strong>成功，操作被成功接收并处理</li><li><strong>3开头</strong>：重定向，需要进一步的操作以完成请求</li><li><strong>4开头</strong>：客户端错误，请求包含语法错误或无法完成请求</li><li><strong>5开头</strong>： 服务器错误，服务器在处理请求的过程中发生了错误</li></ul><p>200 OK</p><p>404 未发现</p><p>301 重定向</p><h2 id="Get请求和Post请求区别"><a href="#Get请求和Post请求区别" class="headerlink" title="Get请求和Post请求区别"></a>Get请求和Post请求区别</h2><p>## </p>]]></content>
     
     <summary type="html">
     
@@ -393,106 +489,6 @@
     
     
       <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AQS详解</title>
-    <link href="http://wysblogs.top/2020/07/30/AQS%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/30/AQS详解/</id>
-    <published>2020-07-30T01:41:48.000Z</published>
-    <updated>2020-08-09T16:53:57.909Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="AQS详解"><a href="#AQS详解" class="headerlink" title="AQS详解"></a>AQS详解</h1><p>AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。</p><p>AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个<code>int</code>类型的<code>state</code>变量，用来表示同步状态。</p><p>lock包中的锁并没有直接继承AQS，而是定义了一个<strong>Sync类</strong>去继承AQS，原因是<strong>为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各自的事情</strong>。</p><p>AQS是通过<strong>FIFO双向的同步队列</strong>进行同步状态的管理，当有线程获取锁失败后，就被放在<strong>队列的末尾</strong>。</p><p><img src="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png" alt="img"></p><p><strong>头节点是持有锁的节点。</strong></p><h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="并发" scheme="http://wysblogs.top/categories/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="并发" scheme="http://wysblogs.top/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LRU机制与实现</title>
-    <link href="http://wysblogs.top/2020/07/30/LRU%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://wysblogs.top/2020/07/30/LRU机制与实现/</id>
-    <published>2020-07-30T01:40:09.000Z</published>
-    <updated>2020-08-05T13:35:24.042Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LRU机制与实现"><a href="#LRU机制与实现" class="headerlink" title="LRU机制与实现"></a>LRU机制与实现</h1><p><strong>LRU是一种缓存淘汰策略</strong></p><p><strong>LRU 最近最久未使用<br>LFU  最近最少使用（最不常用）</strong></p><p>设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p><p>它应该支持以下操作： 获取数据<code>get</code>和 写入数据<code>put</code>。</p><p>获取数据<code>get(key)</code>- 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。<br>写入数据 <code>put(key, value)</code> - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。</p><blockquote><p>LeetCode <a href="https://leetcode-cn.com/problems/lru-cache-lcci/" target="_blank" rel="noopener">面试题 16.25. LRU缓存</a></p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lru;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: wys</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/8/5 10:23</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@FileName</span>: LRUCache</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer,Integer&gt; map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">        map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">           Integer value = map.remove(key);</span><br><span class="line">           map.put(key, value);</span><br><span class="line">           <span class="keyword">return</span> value;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(key))&#123;</span><br><span class="line">            map.remove(key);</span><br><span class="line">            map.put(key,value);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(key,value);</span><br><span class="line">        <span class="keyword">if</span>(map.size()&gt;capacity)&#123;</span><br><span class="line">            map.remove(map.entrySet().iterator().next().getKey());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://wysblogs.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://wysblogs.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线程池详解</title>
-    <link href="http://wysblogs.top/2020/07/30/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/30/线程池详解/</id>
-    <published>2020-07-30T01:38:50.000Z</published>
-    <updated>2020-08-10T02:35:54.486Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="线程池详解"><a href="#线程池详解" class="headerlink" title="线程池详解"></a>线程池详解</h1><p>首先我们来了解一下什么是线程池</p><p>顾名思义，我们之前了解过JDBC连接池，就应该明白，线程池也是一样的，都是预先创建好一堆对象来进行重复使用。</p><p><strong>池化技术能够减少资源的创建次数，提高程序性能</strong></p><p><strong>池化技术针对的对象特点</strong>：</p><ul><li>对象创建时间长</li><li>对象创建需要消耗大量的资源</li><li>对象创建后可以被重复使用</li></ul><h2 id="线程池注意"><a href="#线程池注意" class="headerlink" title="线程池注意"></a>线程池注意</h2><p><img src="/upload/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B%E6%B1%A0.png" alt="image-20200730164919632"></p><h2 id="创建线程池的几种形式"><a href="#创建线程池的几种形式" class="headerlink" title="创建线程池的几种形式"></a>创建线程池的几种形式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Executors.newFixedThreadPool(<span class="number">5</span>); <span class="comment">//创建固定数量的线程</span></span><br><span class="line">Executors.newSingleThreadExecutor(); <span class="comment">//单个线程</span></span><br><span class="line">Executors.newCachedThreadPool(); <span class="comment">//可伸缩的线程池</span></span><br><span class="line">Executors.newScheduledThreadPool(<span class="number">5</span>); <span class="comment">//线程调度池</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*在任务执行时间小于间隔时间的情况下，程序以起始时间为准则，每隔指定时间执行一次，不受任务执行时间影响</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><p>以上都是提供的几种形式，如果不满足的话，那么可以自己定义一个数据池来供自己使用</p><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>在定义自己的数据池之前要了解线程池的每个参数作用</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> corePoolSize <span class="comment">//核心线程数量</span></span><br><span class="line"><span class="keyword">int</span> maximumPoolSize <span class="comment">//最大线程数量</span></span><br><span class="line"><span class="keyword">long</span> keepAliveTime <span class="comment">//保持存活的时间</span></span><br><span class="line">TimeUnit unit     <span class="comment">//时间计算的规则</span></span><br><span class="line">BlockingQueue&lt;Runnable&gt; workQueue <span class="comment">//阻塞队列</span></span><br><span class="line">ThreadFactory threadFactory   <span class="comment">//线程工厂模式</span></span><br><span class="line">RejectedExecutionHandler handler <span class="comment">//四种拒绝策略</span></span><br></pre></td></tr></table></figure><p>我们可以把线程池抽象出来，比作一个银行运作模式</p><p><strong>核心线程</strong>就是默认开启的窗口数量</p><p><strong>最大线程数量</strong>就是银行能够提供的最大窗口数量</p><p><strong>保持存活的时间</strong>：就是如果线程数量大于核心线程数，但是线程如果空闲等待时间大于保持存活的时间，就会销毁这些线程。</p><p><strong>时间计算的规则</strong>：就是TImeUnit类的规则</p><p><strong>阻塞队列</strong>：就是银行等待区的最大人数</p><p><strong>线程工厂模式</strong>：负责生产线程的工厂，一般是不用改变的，使用默认的就行</p><p><strong>拒绝策略</strong>：</p><p><code>ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常</code></p><p><code>ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常。</code></p><p><code>ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新提交被拒绝的任务</code> <code>ThreadPoolExecutor.CallerRunsPolicy：由调用线程（提交任务的线程）处理该任务</code></p><p>拒绝策略可以理解为 如果银行窗口和等待区全部占满之后，银行对新进来的人进行的安排策略。</p><h3 id="自定义线程池"><a href="#自定义线程池" class="headerlink" title="自定义线程池"></a>自定义线程池</h3><p>如果了解以上参数的话，我们就可以来编写自己的线程池了</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        Executors.newSingleThreadExecutor();</span><br><span class="line">        Executors.newCachedThreadPool();</span><br><span class="line">        Executors.newScheduledThreadPool(<span class="number">5</span>);</span><br><span class="line">        ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>, TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> LinkedBlockingQueue&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">                Executors.defaultThreadFactory(),</span><br><span class="line">                <span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">                executor.execute(<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        System.out.println(Thread.currentThread().getName()+<span class="string">"执行了"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        executor.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果线程池用完了。。记得关闭就行。</p><h2 id="线程池的几个队列"><a href="#线程池的几个队列" class="headerlink" title="线程池的几个队列"></a>线程池的几个队列</h2><p>（1）<strong>ArrayBlockingQueue</strong>：规定大小的BlockingQueue，其构造必须指定大小。其所含的对象是FIFO顺序排序的。</p><p>（2）<strong>LinkedBlockingQueue</strong>：大小不固定的BlockingQueue，若其构造时指定大小，生成的BlockingQueue有大小限制，不指定大小，其大小有Integer.MAX_VALUE来决定。其所含的对象是FIFO顺序排序的。</p><p>（3）<strong>PriorityBlockingQueue</strong>：类似于LinkedBlockingQueue，但是其所含对象的排序不是FIFO，而是依据对象的自然顺序或者构造函数的Comparator决定。</p><p>（4）<strong>SynchronizedQueue</strong>：特殊的BlockingQueue，对其的操作必须是放和取交替完成。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="并发" scheme="http://wysblogs.top/categories/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="并发" scheme="http://wysblogs.top/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>垃圾收集器详解</title>
-    <link href="http://wysblogs.top/2020/07/30/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/30/垃圾回收器详解/</id>
-    <published>2020-07-30T01:35:29.000Z</published>
-    <updated>2020-07-31T03:33:30.607Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="垃圾收集器详解"><a href="#垃圾收集器详解" class="headerlink" title="垃圾收集器详解"></a>垃圾收集器详解</h1><p>垃圾收集器是垃圾回收算法的实现。</p><h2 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h2><p>这是一个最基础，最久远的收集器，是一个单线程的收集器，在工作的时候会暂停其他线程，来进行垃圾回收。</p><p><strong>新生代采用复制算法，老年代采用标记-整理算法。</strong></p><h2 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h2><p>ParNew收集器实质上是Serial收集器的多线程并发版本。</p><p><strong>新生代采用复制算法，老年代采用标记-整理算法。</strong></p><h2 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h2><p>这个收集器是一个新生代收集器。</p><p><strong>新生代采用复制算法，老年代采用标记-整理算法。</strong></p><p>看上去似乎和ParNew差不多，实际上这个收集器的特点是它的关注点与其他的不同，比如CMS等其他收集器都是以缩短用户线程停顿时间为主要目标，而Parallel Scavenge收集器是为了<strong>达到一个可控制的吞吐量</strong>，能够有效的提高用户体验。</p><h2 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h2><p>Serial Old收集器是Serial收集器的老年版本，同样也是一个单线程收集器。</p><p>采用的是<strong>标记整理算法</strong>。</p><p>一般是和Parallel Scavenge收集器搭配使用。</p><h2 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h2><p>Parallel Old收集器是Parallel Scavenge收集器的老年版本。</p><p><strong>新生代采用复制算法，老年代采用标记-整理算法。</strong></p><h2 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h2><p>CMS收集器是为了获取最短回收停顿时间为目标的收集器。</p><p><strong>运作过程</strong>：</p><ul><li>1、初始标记</li><li>2、并发标记</li><li>3、重新标记</li><li>4、并发清除</li></ul><p><strong>优点：</strong>并发收集，低停顿</p><p><strong>缺点：</strong></p><ul><li><strong>对处理器资源敏感</strong>，会占用CPU资源，导致应用变慢，降低总吞吐量。处理器不足四个就会使处理器负载变大。</li><li><strong>无法处理 “浮动垃圾”</strong>，标记结束后，没有办法一次性清除完毕的垃圾。</li><li><strong>产生资源碎片</strong>，因为采用标记清除，所以会产生大量空间碎片</li></ul><h2 id="G1收集器"><a href="#G1收集器" class="headerlink" title="G1收集器"></a>G1收集器</h2><p>G1收集器是一款面向服务端应用的垃圾收集器。</p><p>在新生代，G1 采用的仍然是并行的复制算法，所以同样会发生 Stop-The-World的暂停。新生代的清理会带上old区已标记好的region。</p><p><strong>G1运作过程：</strong></p><ul><li>初始标记</li><li>并发标记</li><li>最终标记</li><li>筛选回收</li></ul><p><strong>特点：</strong></p><ul><li>并行与并发：充分利用了CPU资源</li><li>分代收集：可以更好地进行管理分代区</li><li>空间整合：不会产生内存碎片</li><li>可预测停顿：能够让使用者明确指定消耗在垃圾收集器上的时间</li></ul><p><strong>缺点</strong></p><p>region大小和对象很难保持一致，导致空间的浪费。</p><p><strong>CMS只是针对老年代的，而G1是针对两者的</strong></p><p><strong>G1可以不需要其它收集器配合就能独立管理整个GC堆</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="JVM" scheme="http://wysblogs.top/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="http://wysblogs.top/tags/JVM/"/>
     
   </entry>
   
