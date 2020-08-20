@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-17T00:17:14.272Z</updated>
+  <updated>2020-08-19T02:02:12.431Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>zookeeper基础</title>
+    <link href="http://wysblogs.top/2020/08/19/zookeeper%E5%9F%BA%E7%A1%80/"/>
+    <id>http://wysblogs.top/2020/08/19/zookeeper基础/</id>
+    <published>2020-08-19T02:02:12.000Z</published>
+    <updated>2020-08-19T02:02:12.431Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>杭州端点科技二面</title>
+    <link href="http://wysblogs.top/2020/08/18/%E6%9D%AD%E5%B7%9E%E7%AB%AF%E7%82%B9%E7%A7%91%E6%8A%80%E4%BA%8C%E9%9D%A2/"/>
+    <id>http://wysblogs.top/2020/08/18/杭州端点科技二面/</id>
+    <published>2020-08-18T12:37:17.000Z</published>
+    <updated>2020-08-20T02:20:41.105Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="杭州端点科技二面"><a href="#杭州端点科技二面" class="headerlink" title="杭州端点科技二面"></a>杭州端点科技二面</h1><p> 时间很紧。就在我面完北森二面的当天晚上。很仓促，我还没做好心理准备。</p><p>开始介绍了一下自己和项目</p><p>着重说了说邮箱实现的过程。</p><p><strong>1、spring bean的生命周期。</strong></p><p>我只知道 创建 - 使用 - 销毁。。</p><p>底层原理没怎么去记。</p><p><strong>2、拦截器和过滤器区别</strong></p><p>拦截器（Interceptor）基于spring容器，过滤器（Filter）基于sevelet容器。</p><p>。剩下的不知道了。</p><p><strong>3、Spring懒加载</strong></p><p>主要是针对bean的。只有在使用到bean的时候才加载。如果直接就创建的话属于饿汉式模式</p><p><strong>4、讲一下AOP和IOC</strong></p><p>说了说AOP的作用，应用在哪方面，底层是基于什么是实现的。之后说了IOC的作用</p><p><strong>5、关系型数据库和非关系型数据库区别</strong></p><p>关系型数据库是字段和对象属性是一一对应的。</p><p>非关系型数据库不需要一一对应。是一种key-value形式在存储的。</p><p><strong>6、redis是多线程还是单线程</strong></p><p>单线程。。说了说为什么是单线程。</p><p><strong>7、数据库有三千万的数据，redis缓存了30w的数据，如何保证这30w的数据一定是热点数据</strong></p><p>缓存淘汰策略。。volitale-lru淘汰最近最久使用的。</p><p><strong>8、淘汰策略有哪些</strong></p><p>6种。。都说一说</p><p><strong>9、mybatis的#{}和&amp;{}</strong></p><p><strong>10、innodb的数据结构是什么</strong></p><p>Hash表和B+树。。</p><p><strong>11、dubbo的暴露服务的过程</strong></p><p><strong>12、AIO和BIO，NIO</strong></p><p><strong>13、Netty的粘包和拆包</strong></p><p>一点都没了解</p><p><strong>14、zookeeper集群存储容器</strong></p><p><strong>15、wait和sleep的区别</strong></p><p><strong>16、java实现阻塞队列怎么去实现的</strong></p><p><strong>17、生产者消费者模型</strong></p><p><strong>18、字符串四则运算。怎么去实现的</strong></p><p>两个栈。一个是通过一个存储数据，一个存储符号。</p><p>然后运算一下</p><p><strong>19、你有什么问题</strong></p><p>1、说一说自己哪里需要提升。</p><p>自己的项目经验有些不足。多了解了解分布式</p><p>多去学习一下rabbitmq，spring cloud，docker之类的。</p><p>2、问一下公司的技术栈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>北森云计算二面</title>
+    <link href="http://wysblogs.top/2020/08/18/%E5%8C%97%E6%A3%AE%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E9%9D%A2/"/>
+    <id>http://wysblogs.top/2020/08/18/北森云计算二面/</id>
+    <published>2020-08-18T12:36:43.000Z</published>
+    <updated>2020-08-20T01:55:47.517Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="北森云计算二面"><a href="#北森云计算二面" class="headerlink" title="北森云计算二面"></a>北森云计算二面</h1><p>因为面的是.net，但是我是学java的。。所以面试面的让我有点不舒服（好多都不会。。）</p><p>开始介绍一下自己</p><p>说了说自己的信息还有项目</p><p>然后面试官说主要做的主要是web项目，然后就开始问我web方面的一些内容</p><p><strong>1、HTTP是什么</strong></p><p><strong>2、HTTP基于什么实现的</strong></p><p><strong>3、TCP和UDP区别</strong></p><p><strong>4、HTTP状态码你知道几个</strong></p><p><strong>5、请求的类型有哪些（get、post、delete、put）</strong></p><p><strong>6、get和post请求的区别（除了可以隐藏表单的作用）</strong></p><p><strong>7、前端请求发送到后台时，后台是怎么样找到处理请求的类的（我说反射，面试官说还有工厂模式也可以）</strong></p><p><strong>8、redis为什么那么快</strong></p><p><strong>9、redis怎么保证高并发的</strong></p><p>我说加锁，他说那个是防止数据库崩溃的，我说消息队列，那个是异步处理请求的。。然后我没答上来</p><p>可以通过限流的方式来进行，两种算法。令牌桶还有漏桶算法</p><p><strong>10、mysql索引的类型，你了解哪些索引</strong></p><p><strong>11、主键索引和唯一索引的区别</strong></p><p><strong>12、主键索引一定是自增么</strong></p><p>不一定。设置自增属性的列必须是主键 或者 加 UNIQUE索引</p><p>主键索引有唯一性，即不可以重复输入相同的值。</p><p><strong>13、哪些想问的</strong></p><p>知道就是知道，不知道就是不知道，不要绕。。</p><p>然后说我答得不好，测评做的也很差。。让我再做一份。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面经" scheme="http://wysblogs.top/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Java1.8特性之Stream流式算法</title>
@@ -109,9 +180,9 @@
     <link href="http://wysblogs.top/2020/08/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86/"/>
     <id>http://wysblogs.top/2020/08/13/计算机网络面试知识/</id>
     <published>2020-08-13T04:24:52.000Z</published>
-    <updated>2020-08-18T06:26:33.521Z</updated>
+    <updated>2020-08-19T05:03:19.342Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p><h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><h2 id="Get请求和Post请求区别"><a href="#Get请求和Post请求区别" class="headerlink" title="Get请求和Post请求区别"></a>Get请求和Post请求区别</h2><p>## </p>]]></content>
     
     <summary type="html">
     
@@ -422,81 +493,6 @@
     
     
       <category term="JVM" scheme="http://wysblogs.top/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建线程的几种方式</title>
-    <link href="http://wysblogs.top/2020/07/30/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>http://wysblogs.top/2020/07/30/创建线程的几种方式/</id>
-    <published>2020-07-30T01:31:56.000Z</published>
-    <updated>2020-07-30T08:24:28.638Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="创建线程的几种方式"><a href="#创建线程的几种方式" class="headerlink" title="创建线程的几种方式"></a>创建线程的几种方式</h1><blockquote><p>继承Thread类</p><p>实现Runnable接口</p><p>通过Callable和FutureTask创建线程</p><p>通过线程池创建线程</p></blockquote><h2 id="1、继承Thread类"><a href="#1、继承Thread类" class="headerlink" title="1、继承Thread类"></a>1、继承Thread类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadDemo threadDemo = <span class="keyword">new</span> ThreadDemo();</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(threadDemo,<span class="string">"A"</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"线程启动了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2、实现Runnable接口"><a href="#2、实现Runnable接口" class="headerlink" title="2、实现Runnable接口"></a>2、实现Runnable接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunnableDemo demo = <span class="keyword">new</span> RunnableDemo();</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(demo,<span class="string">"A"</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"线程启动了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3、Callable和FutureTask"><a href="#3、Callable和FutureTask" class="headerlink" title="3、Callable和FutureTask"></a>3、Callable和FutureTask</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableDemo</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        CallableDemo demo = <span class="keyword">new</span> CallableDemo();</span><br><span class="line">        FutureTask&lt;String&gt; task = <span class="keyword">new</span> FutureTask&lt;String&gt;(demo);</span><br><span class="line">        <span class="keyword">new</span> Thread(task,<span class="string">"A"</span>).start();</span><br><span class="line">        System.out.println(task.get());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"线程启动了！"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"启动了"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Callable是可以有返回值的，通过线程执行完毕调用<code>get()</code>方法获得</p><h2 id="4、通过线程池启动"><a href="#4、通过线程池启动" class="headerlink" title="4、通过线程池启动"></a>4、通过线程池启动</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: wys</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/7/30 10:17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@FileName</span>: ThreadPoolDemo</span></span><br><span class="line"><span class="comment"> *     int corePoolSize, 核心线程数量</span></span><br><span class="line"><span class="comment"> *     int maximumPoolSize, 最大线程数量</span></span><br><span class="line"><span class="comment"> *     long keepAliveTime,  保持存活的时间</span></span><br><span class="line"><span class="comment"> *     TimeUnit unit,      时间计算的规则</span></span><br><span class="line"><span class="comment"> *     BlockingQueue&lt;Runnable&gt; workQueue, 阻塞队列</span></span><br><span class="line"><span class="comment"> *     ThreadFactory threadFactory,   线程工厂模式</span></span><br><span class="line"><span class="comment"> *     RejectedExecutionHandler handler 四种拒绝策略</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>, TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> LinkedBlockingQueue&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">                Executors.defaultThreadFactory(),</span><br><span class="line">                <span class="keyword">new</span> ThreadPoolExecutor.AbortPolicy());</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">                executor.execute(<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        System.out.println(Thread.currentThread().getName()+<span class="string">"执行了"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        executor.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>线程池核心就是。。上面的7中参数。。一定要记住</p><p><strong>四种拒绝策略：</strong></p><ul><li><strong>AbortPolicy</strong>：如果满了就报错</li><li><strong>CallerRunsPolicy</strong>：哪来的就回拿去，意思就是让本来的线程去执行</li><li><strong>DiscardOldestPolicy</strong>：如果满了就与第一个执行的线程竞争一下cpu资源，如果成功就执行，不成功就拒绝掉，不会报错</li><li><strong>DiscardPolicy</strong>：如果满了就直接拒绝掉，不会报错</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="并发" scheme="http://wysblogs.top/categories/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="并发" scheme="http://wysblogs.top/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试场景题</title>
-    <link href="http://wysblogs.top/2020/07/30/%E9%9D%A2%E8%AF%95%E5%9C%BA%E6%99%AF%E9%A2%98/"/>
-    <id>http://wysblogs.top/2020/07/30/面试场景题/</id>
-    <published>2020-07-30T01:30:17.000Z</published>
-    <updated>2020-07-30T01:56:05.350Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="面试场景题"><a href="#面试场景题" class="headerlink" title="面试场景题"></a>面试场景题</h1><p><strong>1、一个是用户信息文件, 保存了1亿的用户信息, 一个是用户浏览商品的记录的文件, 保存了500万的用户浏览记录, 怎么合并这两个文件? (内存为1G)</strong></p><p><strong>文件中怎么快速找出浏览记录大于5的数据?</strong></p><p>暂空</p><p><strong>2、现有1T的数据，内存只有1G，该怎么对他们排序</strong></p><p>外部排序。多路归并</p><p><strong>3、不知道大小的数据流取其中100个数，怎样的取法能最随机</strong></p><p>暂空</p><p><strong>4、n个物品每个物品都有一定价值，分给2个人，怎么分两个人的价值差最小</strong></p><p>暂空</p><p><strong>5、假设百度每个页面能放100个网页，每个页面都有一个评分，怎样快速找到第8页的所有网页</strong></p><p>暂空</p><p><strong>6、如果一个sql执行慢，可能是什么原因造成的，你说说如果是你碰到了，你打算怎么排查?</strong></p><p>暂空</p><p><strong>7、两个数字 int a=10 int b=20 如何不经过第三个变量来交换，结果为 a=20 b=10</strong></p><p>使用位运算</p><p>a = a^b</p><p>b = a^b</p><p>a = a^b</p><p><strong>8、假如有上亿条数据，你如何快速找到其中一条你想要的数据（几种简单的算法）</strong></p><p>暂空</p><p><strong>9、每秒几十万并发的秒杀系统为什么会频繁发生GC？</strong></p><p>暂空</p><p><strong>10、日均百万级交易系统如何优化JVM？</strong></p><p>暂空</p><p><strong>11、如何从含有100亿个整数的文件中找出其中最大的100个？</strong></p><p>暂空</p><p><strong>12、tomcat在并发场景中，应该如何优化tomcat，比如再下次8g内存的服务器上，部署4个tomcat，怎么做可以合理调优</strong></p><p>暂空</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="面试" scheme="http://wysblogs.top/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="面试" scheme="http://wysblogs.top/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql锁详解</title>
-    <link href="http://wysblogs.top/2020/07/25/mysql%E9%94%81%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/07/25/mysql锁详解/</id>
-    <published>2020-07-24T18:19:16.000Z</published>
-    <updated>2020-07-26T01:51:15.220Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql锁详解"><a href="#mysql锁详解" class="headerlink" title="mysql锁详解"></a>mysql锁详解</h1><p>mysql的锁可以用两种情况区分</p><p>按粒度分为 行锁,页锁,表锁 </p><p>按用法有共享锁和排他锁</p><h2 id="按粒度来分"><a href="#按粒度来分" class="headerlink" title="按粒度来分"></a>按粒度来分</h2><h3 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h3><p>行锁是锁粒度最细的一个锁了,表示只对自己当前操作的行加锁.</p><p>行锁操作可以大大的减少数据库操作带来的冲突,但是加速开销太大</p><p>行锁分为共享锁和排他锁.</p><p>特点: 开销大,可能会出现死锁,并发程度高,锁冲突概率最低.</p><h3 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h3><p>表锁是mysql锁粒度最大的一个锁, 表示对当前操作的整张表都加锁, 资源消耗大, 被大部分引擎都支持.</p><p>表锁分为 共享锁 和 排他锁</p><p>特点: 开销小, 加锁快, 不会出现死锁, 锁粒度大, 发生冲突的概率最大, 并发性最低.</p><h3 id="页锁"><a href="#页锁" class="headerlink" title="页锁"></a>页锁</h3><p>页级锁是mysql中锁粒度一般的锁, 一般都是在行锁和表锁之间.</p><p>表锁速度快,但是冲突多, 行锁冲突少, 但是速度慢, 于是采用 页锁的比较多.</p><p>页锁是一次锁定相邻的一组记录开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</p><h2 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h2><p>悲观锁是一种悲观的并发控制线程访问的一个方法.</p><p>它可以阻止一个事务以影响其他用户的方式来修改数据.</p><p>如果一个事务的操作的某行数据加了锁, 那么只有当这个事务把锁释放了, 其他事物才能够执行和该锁冲突的操作.</p><p>悲观锁主要用于数据竞争比较激烈的环境 还有 并发冲突时维护锁的成本低于回滚成本的环境中.</p><p><strong>使用:</strong>如果要对数据修改,先给这个数据添加排他锁,如果添加失败,那么说明正在被使用, 因此要等待或者抛异常.</p><p>优点: 保证了数据的安全和完整性</p><p>缺点: 效率低,会让数据库产生额外开销,还有可能出现死锁, 在只读的事务中不会产生冲突, 这样做会增加系统开销, 降低了并行.</p><h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><p>乐观锁是一种乐观的并发控制线程访问的一个方法.</p><p>它假设在并发处理事务时,都不会相互影响, 各事务能够在不产生锁的情况下处理各自影响的那部分数据.</p><p>就是只在提交的时候进行判断是否冲突</p><p>提交数据时判断有没有其他事务修改数据, 如果数据被修改了,那么就回滚.</p><p>乐观锁不会使用数据库提供的锁机制, 一般的实现乐观锁的方式就是记录数据版本, 即添加一行字段 version , 如果提交时发现字段一致, 就更新数据 , 否则就回滚.</p><p>实现乐观锁两种方式: 版本号 和 时间戳</p><p>乐观锁原理就是 CAS 操作</p><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>innodb 支持行锁 和 表锁 默认是支持行锁</p><p>innodb行锁是个索引加锁实现的, 意思就是只有通过索引条件检索数据, InnoDB才使用行级锁, 否则 InnoDB使用表锁 , 实际中我们要注意这种情况, 不然会产生大量冲突.</p><p>当表有多个索引的时候,不同的事务可以使用不同的索引锁定不同的行,另外,不论 是使用主键索引、唯一索引或普通索引,InnoDB 都会使用行锁来对数据加锁。</p><p>即便 在 数据库设置了索引, 但是是否用索引 还是根据mysql 通过判断不同 执行计划代价来决定的, 如果 mysql 认为全表扫描效率高, 例如一些很小的表, 他就不会使用索引, 这种情况下 就会使用 表锁.</p><h2 id="索引和锁"><a href="#索引和锁" class="headerlink" title="索引和锁"></a>索引和锁</h2><p>在mysql中, 行锁不是直接锁记录, 而是锁的时索引.</p><p>索引分为主键索引和非主键索引, 如果mysql操作了主键索引, 那么就锁主键索引, 如果走的索引是 非主键索引, 那么先锁非主键索引, 再锁相关的主键索引.</p><p><strong>死锁:</strong>一个事务锁了主键索引, 另一个事务锁了非主键索引, 在等主键索引, 就造成了死锁.</p><p>死锁后 InnoDB都可以检查到, 并使一个事务释放锁并回退, 另一个获取锁完成事务.</p><p>*<em>避免死锁: *</em></p><ul><li>尽量有序访问表</li><li>尽量一次锁定所需要的所有资源</li><li>也可以升级锁粒度</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
-    
-    
-      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
     
   </entry>
   

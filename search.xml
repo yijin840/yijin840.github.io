@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[zookeeper基础]]></title>
+    <url>%2F2020%2F08%2F19%2Fzookeeper%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[杭州端点科技二面]]></title>
+    <url>%2F2020%2F08%2F18%2F%E6%9D%AD%E5%B7%9E%E7%AB%AF%E7%82%B9%E7%A7%91%E6%8A%80%E4%BA%8C%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[杭州端点科技二面 时间很紧。就在我面完北森二面的当天晚上。很仓促，我还没做好心理准备。 开始介绍了一下自己和项目 着重说了说邮箱实现的过程。 1、spring bean的生命周期。 我只知道 创建 - 使用 - 销毁。。 底层原理没怎么去记。 2、拦截器和过滤器区别 拦截器（Interceptor）基于spring容器，过滤器（Filter）基于sevelet容器。 。剩下的不知道了。 3、Spring懒加载 主要是针对bean的。只有在使用到bean的时候才加载。如果直接就创建的话属于饿汉式模式 4、讲一下AOP和IOC 说了说AOP的作用，应用在哪方面，底层是基于什么是实现的。之后说了IOC的作用 5、关系型数据库和非关系型数据库区别 关系型数据库是字段和对象属性是一一对应的。 非关系型数据库不需要一一对应。是一种key-value形式在存储的。 6、redis是多线程还是单线程 单线程。。说了说为什么是单线程。 7、数据库有三千万的数据，redis缓存了30w的数据，如何保证这30w的数据一定是热点数据 缓存淘汰策略。。volitale-lru淘汰最近最久使用的。 8、淘汰策略有哪些 6种。。都说一说 9、mybatis的#{}和&amp;{} 10、innodb的数据结构是什么 Hash表和B+树。。 11、dubbo的暴露服务的过程 12、AIO和BIO，NIO 13、Netty的粘包和拆包 一点都没了解 14、zookeeper集群存储容器 15、wait和sleep的区别 16、java实现阻塞队列怎么去实现的 17、生产者消费者模型 18、字符串四则运算。怎么去实现的 两个栈。一个是通过一个存储数据，一个存储符号。 然后运算一下 19、你有什么问题 1、说一说自己哪里需要提升。 自己的项目经验有些不足。多了解了解分布式 多去学习一下rabbitmq，spring cloud，docker之类的。 2、问一下公司的技术栈]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[北森云计算二面]]></title>
+    <url>%2F2020%2F08%2F18%2F%E5%8C%97%E6%A3%AE%E4%BA%91%E8%AE%A1%E7%AE%97%E4%BA%8C%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[北森云计算二面因为面的是.net，但是我是学java的。。所以面试面的让我有点不舒服（好多都不会。。） 开始介绍一下自己 说了说自己的信息还有项目 然后面试官说主要做的主要是web项目，然后就开始问我web方面的一些内容 1、HTTP是什么 2、HTTP基于什么实现的 3、TCP和UDP区别 4、HTTP状态码你知道几个 5、请求的类型有哪些（get、post、delete、put） 6、get和post请求的区别（除了可以隐藏表单的作用） 7、前端请求发送到后台时，后台是怎么样找到处理请求的类的（我说反射，面试官说还有工厂模式也可以） 8、redis为什么那么快 9、redis怎么保证高并发的 我说加锁，他说那个是防止数据库崩溃的，我说消息队列，那个是异步处理请求的。。然后我没答上来 可以通过限流的方式来进行，两种算法。令牌桶还有漏桶算法 10、mysql索引的类型，你了解哪些索引 11、主键索引和唯一索引的区别 12、主键索引一定是自增么 不一定。设置自增属性的列必须是主键 或者 加 UNIQUE索引 主键索引有唯一性，即不可以重复输入相同的值。 13、哪些想问的 知道就是知道，不知道就是不知道，不要绕。。 然后说我答得不好，测评做的也很差。。让我再做一份。]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java1.8特性之Stream流式算法]]></title>
     <url>%2F2020%2F08%2F17%2FJava1-8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81%E5%BC%8F%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -29,7 +56,7 @@
   <entry>
     <title><![CDATA[计算机网络面试知识]]></title>
     <url>%2F2020%2F08%2F13%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[计算机网络面试知识HTTP是什么？HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。 HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。 在浏览器输出URL执行后会发生什么？ 查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器 浏览器向IP对应的web服务器发送一个HTTP请求 服务器响应请求，发回网页内容 浏览器解析网页内容 OSI，TCP/IP，五层协议的体系结构OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。 五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。]]></content>
+    <content type="text"><![CDATA[计算机网络面试知识HTTP是什么？HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。 HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。 在浏览器输出URL执行后会发生什么？ 查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器 浏览器向IP对应的web服务器发送一个HTTP请求 服务器响应请求，发回网页内容 浏览器解析网页内容 OSI，TCP/IP，五层协议的体系结构OSI分层 （7层）：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 TCP/IP分层（4层）：网络接口层、 网际层、运输层、 应用层。 五层协议 （5层）：物理层、数据链路层、网络层、运输层、 应用层。 HTTP状态码Get请求和Post请求区别##]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
