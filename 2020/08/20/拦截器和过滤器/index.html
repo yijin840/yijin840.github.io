@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="拦截器和过滤器">
+<meta name="description" content="拦截器和过滤器过滤器（Filter） 拦截器（Intercetption） 过滤器（Filter） 过滤器依赖于Servlet容器 过滤器基于函数回调，可以对几乎所有请求进行过滤 过滤器只能在容器初始化的时候调用一次 过滤器一般可以做统一字符编码，或者过滤一些字符  拦截器（Intercetption） 拦截器依赖于Spring容器 拦截器基于反射机制，属于面向切面的一个应用 拦截器只能对acti">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拦截器和过滤器">
 <meta property="og:url" content="http://wysblogs.top/2020/08/20/拦截器和过滤器/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
-<meta property="og:description" content="拦截器和过滤器">
+<meta property="og:description" content="拦截器和过滤器过滤器（Filter） 拦截器（Intercetption） 过滤器（Filter） 过滤器依赖于Servlet容器 过滤器基于函数回调，可以对几乎所有请求进行过滤 过滤器只能在容器初始化的时候调用一次 过滤器一般可以做统一字符编码，或者过滤一些字符  拦截器（Intercetption） 拦截器依赖于Spring容器 拦截器基于反射机制，属于面向切面的一个应用 拦截器只能对acti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-20T06:46:16.105Z">
+<meta property="og:updated_time" content="2020-08-21T04:33:20.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拦截器和过滤器">
-<meta name="twitter:description" content="拦截器和过滤器">
+<meta name="twitter:description" content="拦截器和过滤器过滤器（Filter） 拦截器（Intercetption） 过滤器（Filter） 过滤器依赖于Servlet容器 过滤器基于函数回调，可以对几乎所有请求进行过滤 过滤器只能在容器初始化的时候调用一次 过滤器一般可以做统一字符编码，或者过滤一些字符  拦截器（Intercetption） 拦截器依赖于Spring容器 拦截器基于反射机制，属于面向切面的一个应用 拦截器只能对acti">
 
 
 
@@ -398,7 +398,22 @@
       
 
       
-        <h1 id="拦截器和过滤器"><a href="#拦截器和过滤器" class="headerlink" title="拦截器和过滤器"></a>拦截器和过滤器</h1>
+        <h1 id="拦截器和过滤器"><a href="#拦截器和过滤器" class="headerlink" title="拦截器和过滤器"></a>拦截器和过滤器</h1><p><strong>过滤器（Filter）</strong></p>
+<p><strong>拦截器（Intercetption）</strong></p>
+<h2 id="过滤器（Filter）"><a href="#过滤器（Filter）" class="headerlink" title="过滤器（Filter）"></a>过滤器（Filter）</h2><ul>
+<li>过滤器依赖于Servlet容器</li>
+<li>过滤器基于函数回调，可以对几乎所有请求进行过滤</li>
+<li>过滤器只能在容器初始化的时候调用一次</li>
+<li>过滤器一般可以做统一字符编码，或者过滤一些字符</li>
+</ul>
+<h2 id="拦截器（Intercetption）"><a href="#拦截器（Intercetption）" class="headerlink" title="拦截器（Intercetption）"></a>拦截器（Intercetption）</h2><ul>
+<li>拦截器依赖于Spring容器</li>
+<li>拦截器基于反射机制，属于面向切面的一个应用</li>
+<li>拦截器只能对action请求起作用</li>
+<li>在action的生命周期中，拦截器可以被多次调用</li>
+<li>拦截器可以获取IOC容器中的各个bean</li>
+</ul>
+
       
     </div>
     
@@ -543,7 +558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拦截器和过滤器"><span class="nav-number">1.</span> <span class="nav-text">拦截器和过滤器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拦截器和过滤器"><span class="nav-number">1.</span> <span class="nav-text">拦截器和过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器（Filter）"><span class="nav-number">1.1.</span> <span class="nav-text">过滤器（Filter）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拦截器（Intercetption）"><span class="nav-number">1.2.</span> <span class="nav-text">拦截器（Intercetption）</span></a></li></ol></li></ol></div>
             
 
           </div>

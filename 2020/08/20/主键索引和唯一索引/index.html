@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="mysql,">
 
 
 
@@ -88,14 +88,18 @@
 
 
 
+<meta name="description" content="主键索引和唯一索引区别 主键索引一定是唯一索引，唯一索引不一定是主键索引 主键可以标志某一行的记录，防止数据更新不会冲突 主键同样也是和外键一起构成参照完整性约束，防止数据不一致   一个表中可以有多个唯一性索引，但是只能有一个主键 主键列不允许空值，而唯一性索引列允许空值 主键产生唯一的聚集索引，唯一索引产生唯一的非聚集索引">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主键索引和唯一索引">
 <meta property="og:url" content="http://wysblogs.top/2020/08/20/主键索引和唯一索引/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
+<meta property="og:description" content="主键索引和唯一索引区别 主键索引一定是唯一索引，唯一索引不一定是主键索引 主键可以标志某一行的记录，防止数据更新不会冲突 主键同样也是和外键一起构成参照完整性约束，防止数据不一致   一个表中可以有多个唯一性索引，但是只能有一个主键 主键列不允许空值，而唯一性索引列允许空值 主键产生唯一的聚集索引，唯一索引产生唯一的非聚集索引">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-20T06:46:41.230Z">
+<meta property="og:updated_time" content="2020-08-21T04:08:48.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主键索引和唯一索引">
+<meta name="twitter:description" content="主键索引和唯一索引区别 主键索引一定是唯一索引，唯一索引不一定是主键索引 主键可以标志某一行的记录，防止数据更新不会冲突 主键同样也是和外键一起构成参照完整性约束，防止数据不一致   一个表中可以有多个唯一性索引，但是只能有一个主键 主键列不允许空值，而唯一性索引列允许空值 主键产生唯一的聚集索引，唯一索引产生唯一的非聚集索引">
 
 
 
@@ -340,6 +344,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -372,7 +398,17 @@
       
 
       
-        
+        <h1 id="主键索引和唯一索引"><a href="#主键索引和唯一索引" class="headerlink" title="主键索引和唯一索引"></a>主键索引和唯一索引</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li><strong>主键索引一定是唯一索引，唯一索引不一定是主键索引</strong><ul>
+<li>主键可以标志某一行的记录，防止数据更新不会冲突</li>
+<li>主键同样也是和外键一起构成参照完整性约束，防止数据不一致</li>
+</ul>
+</li>
+<li><strong>一个表中可以有多个唯一性索引，但是只能有一个主键</strong></li>
+<li><strong>主键列不允许空值，而唯一性索引列允许空值</strong></li>
+<li><strong>主键产生唯一的聚集索引，唯一索引产生唯一的非聚集索引</strong></li>
+</ul>
+
       
     </div>
     
@@ -404,6 +440,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
       
 
       
@@ -484,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,6 +638,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主键索引和唯一索引"><span class="nav-number">1.</span> <span class="nav-text">主键索引和唯一索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.1.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
