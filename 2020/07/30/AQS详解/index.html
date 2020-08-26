@@ -97,7 +97,9 @@
 <meta property="og:description" content="AQS详解AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。 AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个int类型的state变量，用来表示同步状态。 lock包中的锁并没有直接继承AQS，而是定义了一个Sync类去继承AQS，原因是为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png">
-<meta property="og:updated_time" content="2020-08-09T16:53:57.909Z">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-d8386b404a820482d3080939e434d4a9_720w.jpg">
+<meta property="og:image" content="https://picb.zhimg.com/80/v2-649ab6887475f84e6951469136b788e7_720w.jpg">
+<meta property="og:updated_time" content="2020-08-24T07:20:21.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AQS详解">
 <meta name="twitter:description" content="AQS详解AQS(AbstractQueuedSynchronizer类)是JUC并发包中一个很关键的存在。 AQS是一个队列同步器，这是一个用来构建锁和同步器的框架，在内部定义了一个int类型的state变量，用来表示同步状态。 lock包中的锁并没有直接继承AQS，而是定义了一个Sync类去继承AQS，原因是为了解耦合，锁是面向用户的，同步器是线程控制，通过聚合，两者相互隔离，可以有效地关注各">
@@ -406,7 +408,18 @@
 <p>AQS是通过<strong>FIFO双向的同步队列</strong>进行同步状态的管理，当有线程获取锁失败后，就被放在<strong>队列的末尾</strong>。</p>
 <p><img src="https://pic3.zhimg.com/80/v2-a8ed401aa4ce0f7d93ff6d777400aff7_720w.png" alt="img"></p>
 <p><strong>头节点是持有锁的节点。</strong></p>
-<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2>
+<h2 id="ReentrantLock加锁和释放锁原理"><a href="#ReentrantLock加锁和释放锁原理" class="headerlink" title="ReentrantLock加锁和释放锁原理"></a>ReentrantLock加锁和释放锁原理</h2><p>AQS有一个核心变量 <code>state</code>，用来表示加锁的状态，一般初始值为0，</p>
+<p>除了这个之外还有一个 <strong>关键变量</strong> <code>exclusiveOwnerThread</code>，用来记录当前加锁的线程是哪个，表示当前独占者线程。</p>
+<p>这个变量是AQS继承的一个抽象类 <code>AbstractOwnableSynchronizer</code></p>
+<p><img src="https://pic1.zhimg.com/80/v2-d8386b404a820482d3080939e434d4a9_720w.jpg" alt="img"></p>
+<p>如果使用<code>ReentrantLock</code>的<code>lock()</code>方法，会采用CAS的方式将state变量从0变为1，加锁的数量就是state变量的大小</p>
+<h2 id="互斥锁的原理"><a href="#互斥锁的原理" class="headerlink" title="互斥锁的原理"></a>互斥锁的原理</h2><p>如果有两个线程，线程1和线程2，线程1加锁了，然后过来一个线程2也要加锁，但是看到锁标志位 state 已经变成1了</p>
+<p>然后线程2再看一下是不是自己之前加过锁了，然后看线程不是自己的线程，就会加锁失败</p>
+<p>最后线程2会把自己放进AQS的一个等待队列中，如果线程1释放锁之后，自己就可以去竞争了</p>
+<p>线程1释放锁的过程是先把state变量置为0，再把当前加锁线程的变量置为null</p>
+<p>之后等待线程2从等待队列中唤醒，然后开始通过CAS的方式去将state变量置为1，把当前加锁线程变量置为自己当前的线程，最后再从等待队列中出列</p>
+<p><img src="https://picb.zhimg.com/80/v2-649ab6887475f84e6951469136b788e7_720w.jpg" alt="img"></p>
+
       
     </div>
     
@@ -551,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">111</span>
+                  <span class="site-state-item-count">112</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -646,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AQS详解"><span class="nav-number">1.</span> <span class="nav-text">AQS详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点"><span class="nav-number">1.1.</span> <span class="nav-text">节点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AQS详解"><span class="nav-number">1.</span> <span class="nav-text">AQS详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReentrantLock加锁和释放锁原理"><span class="nav-number">1.1.</span> <span class="nav-text">ReentrantLock加锁和释放锁原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互斥锁的原理"><span class="nav-number">1.2.</span> <span class="nav-text">互斥锁的原理</span></a></li></ol></li></ol></div>
             
 
           </div>
