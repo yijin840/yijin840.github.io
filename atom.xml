@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wysblogs.top/"/>
-  <updated>2020-08-21T23:31:14.706Z</updated>
+  <updated>2020-08-29T05:02:06.708Z</updated>
   <id>http://wysblogs.top/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>秒杀系统设计</title>
-    <link href="http://wysblogs.top/2020/08/22/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://wysblogs.top/2020/08/22/秒杀系统设计/</id>
-    <published>2020-08-21T23:31:14.000Z</published>
-    <updated>2020-08-21T23:31:14.706Z</updated>
+    <title>mysql日志</title>
+    <link href="http://wysblogs.top/2020/08/29/mysql%E6%97%A5%E5%BF%97/"/>
+    <id>http://wysblogs.top/2020/08/29/mysql日志/</id>
+    <published>2020-08-29T03:25:52.000Z</published>
+    <updated>2020-08-29T05:02:06.708Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql日志"><a href="#mysql日志" class="headerlink" title="mysql日志"></a>mysql日志</h1><p>mysql日志用来记录Mysql数据库运行期间发生的变化，Mysql数据库客户端连接情况，sql语句执行情况和错误信息，如果数据库遭到意外损坏时，我们可以通过日志查看出错原因，同时对数据库进行恢复。</p><blockquote><p>重做日志（redo log）</p><p>回滚日志 （undo log）</p><p>二进制日志（binlog）</p><p>错误日志（errorlog）</p><p>慢查询日志（slow query log）</p><p>一般查询日志（general log）</p><p>中继日志（relay log）</p></blockquote><h2 id="重做日志（redo-log）"><a href="#重做日志（redo-log）" class="headerlink" title="重做日志（redo log）"></a>重做日志（redo log）</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统知识总结</title>
+    <link href="http://wysblogs.top/2020/08/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>http://wysblogs.top/2020/08/28/操作系统知识总结/</id>
+    <published>2020-08-28T07:00:40.000Z</published>
+    <updated>2020-08-28T07:00:40.941Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
     
@@ -38,13 +63,84 @@
   </entry>
   
   <entry>
+    <title>redis缓存预热</title>
+    <link href="http://wysblogs.top/2020/08/26/redis%E7%BC%93%E5%AD%98%E9%A2%84%E7%83%AD/"/>
+    <id>http://wysblogs.top/2020/08/26/redis缓存预热/</id>
+    <published>2020-08-26T05:48:58.000Z</published>
+    <updated>2020-08-26T05:48:58.651Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql慢查询</title>
+    <link href="http://wysblogs.top/2020/08/26/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://wysblogs.top/2020/08/26/mysql慢查询/</id>
+    <published>2020-08-26T05:47:31.000Z</published>
+    <updated>2020-08-29T03:25:03.470Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql慢查询"><a href="#mysql慢查询" class="headerlink" title="mysql慢查询"></a>mysql慢查询</h1><p>慢查询意思就是mysql的sql语句查询效率低下</p><p>我们在程序中肯定要求sql查询效率越高越好，所以必须得解决慢查询问题。</p><p>大多数人一想到数据库优化，第一想法就是添加索引，然后尽量避免索引失效情况，使用explain进行分析索引情况，但是很少人去思考怎么找到特别慢的sql语句到底是哪一个。</p><h2 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h2><p>要想优化慢查询，首先我们得分析一下慢查询日志，这个日志记录的是超过阈值执行时间的sql语句</p><p>但是一般来说不建议开启，开启也会消耗一部分性能</p><p><strong>long_query_time</strong>阈值由这个参数进行控制，默认是10秒</p><p>我们可以设置成3秒或者是自己结合情况设置的阈值</p><p><strong>mysql-slow.log</strong>慢查询日志名称，可以通过查看这个来发现运行效率低下的sql语句</p><h2 id="日志分析工具"><a href="#日志分析工具" class="headerlink" title="日志分析工具"></a>日志分析工具</h2><p><strong>mysqldumpslow</strong></p><p>我们手动分析日志效率肯定特别低，还要考虑很多种情况，所以一般都是采用工具来进行分析的</p><p>mysql就提供了这样的一个工具<strong>mysqldumpslow</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-s：排序方式，值如下</span><br><span class="line">    c：查询次数</span><br><span class="line">    t：查询时间</span><br><span class="line">    l：锁定时间</span><br><span class="line">    r：返回记录</span><br><span class="line">    ac：平均查询次数</span><br><span class="line">    al：平均锁定时间</span><br><span class="line">    ar：平均返回记录书</span><br><span class="line">    at：平均查询时间</span><br><span class="line">-t：top N查询</span><br><span class="line">-g：正则表达式</span><br></pre></td></tr></table></figure><p>之后我们就可以通过优化sql语句来提高性能</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://wysblogs.top/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://wysblogs.top/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>秒杀系统设计</title>
+    <link href="http://wysblogs.top/2020/08/22/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://wysblogs.top/2020/08/22/秒杀系统设计/</id>
+    <published>2020-08-21T23:31:14.000Z</published>
+    <updated>2020-08-28T15:02:11.314Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="秒杀系统设计"><a href="#秒杀系统设计" class="headerlink" title="秒杀系统设计"></a>秒杀系统设计</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在做秒杀系统之前我们首先要了解一下秒杀系统到底是什么</p><p>如果用过淘宝或者京东的话，它们会有一个在<strong>预定时间放出只有部分存货的商品</strong></p><p>而且预定人数可能特别多，所以我们需要考虑很多问题。</p><p><strong>QPS：每秒请求数。</strong></p><h2 id="高并发问题"><a href="#高并发问题" class="headerlink" title="高并发问题"></a>高并发问题</h2><p>这个就是最常见的问题，也是秒杀系统的特点，<strong>在特别短的时间内，大量用户访问</strong></p><p>一台Redis可以顶住3-4w的QPS，再高一点我们就考虑<strong>缓存雪崩</strong>，<strong>缓存击穿</strong>，<strong>缓存穿透</strong>这些问题了，</p><p>这个问题我们可以采用redis集群来解决，因为到时候库存会提前预热到redis中，商品秒杀结束后可以通过异步方式对库存进行修改</p><p><strong>redis</strong></p><p>redis有<strong>主从同步</strong>，<strong>读写分离</strong>，还有<strong>哨兵模式</strong>，而且redis本身还有<strong>持久化</strong>方式，所以在<strong>高可用</strong>上面还是挺好的。</p><p>可以让多台slave去进行读操作，然后少部分进行写操作，然后使用哨兵去监控这些slave。</p><p><strong>nginx</strong></p><h2 id="超卖问题"><a href="#超卖问题" class="headerlink" title="超卖问题"></a>超卖问题</h2><p>超卖是我们最担心的一个问题，到时候如果预售100个商品，但是下单售出的却是200个，这对商家而言，确实是一个特别不好的事。</p><p>所以这个就是我们优先解决的一个地方</p><h2 id="恶意请求"><a href="#恶意请求" class="headerlink" title="恶意请求"></a>恶意请求</h2><p>如果到时候有人用脚本恶意去发送大量请求购买，一个人可以购买特别多的商品，对别人而言也是不太友好地，这个秒杀活动也就没有什么意义了。</p><h2 id="链接暴露"><a href="#链接暴露" class="headerlink" title="链接暴露"></a>链接暴露</h2><p>就是在开发者模式下查找到商品的秒杀的后台地址，到时候可能有人就会提前通过这个地址去进行抢购，对别人而言肯定是不公平的。</p><h2 id="数据库问题"><a href="#数据库问题" class="headerlink" title="数据库问题"></a>数据库问题</h2><p>如果秒杀时间段内，可能有每秒上万甚至几十万的QPS直接打到数据库上，数据库直接就崩溃了，而且还可能连累到你的其他服务，小公司还可能会使整个网站崩溃，所以这个问题也是非常需要重视的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="http://wysblogs.top/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面试" scheme="http://wysblogs.top/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>volitale关键字详解</title>
     <link href="http://wysblogs.top/2020/08/21/volitale%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/"/>
     <id>http://wysblogs.top/2020/08/21/volitale关键字详解/</id>
     <published>2020-08-21T05:30:24.000Z</published>
-    <updated>2020-08-24T07:39:04.674Z</updated>
+    <updated>2020-08-26T03:24:02.571Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="volitale关键字详解"><a href="#volitale关键字详解" class="headerlink" title="volitale关键字详解"></a>volitale关键字详解</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="volitale关键字详解"><a href="#volitale关键字详解" class="headerlink" title="volitale关键字详解"></a>volitale关键字详解</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>volatile</strong> 是JVM提供的一个轻量级同步关键字，主要有<strong>禁止指令重排</strong>和解决<strong>缓存一致性</strong>特点。</p><p>voiatile拥有<strong>可见性</strong>，<strong>一致性</strong>，但不包括<strong>原子性</strong></p><h2 id="JMM模型"><a href="#JMM模型" class="headerlink" title="JMM模型"></a>JMM模型</h2><p><code>java内存模型</code>，主要是用来解释volatile关键字所存在的概念，并不是真实存在的。</p><p>所有的<strong>共享变量</strong>都存在主内存，每个线程私有的变量都存在工作内存，线程对变量的所有操作都必须在工作内存中完成，不同线程之间也不能读取对方的变量，不同线程的值需要通过主内存中转来完成。</p><p><img src="https://picb.zhimg.com/80/v2-f0364f6f863d5730e2b962ac6b3387e2_720w.jpg" alt="img"></p><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p><strong>加锁可以解决可见性问题</strong></p><p>一个线程在获得锁前都是使用工作内存中的变量副本，获得锁之后，就会清空工作内存，然后读取主内存的最新值，操作完成后，会把工作内存的值刷新到主内存，然后释放锁。</p><p>获取不到锁的线程都在阻塞，所以变量每次都是最新的值。</p><p><strong>volatile也可以解决可见性问题</strong></p><p>我们都知道加锁可以解决，但是volatile也可以解决可见性</p><p>如果用volatile修饰共享变量之后，线程每次去读取这个值，都会把当前工作内存中的值设置失效，然后读取主内存中的这个值，而如果有线程修改了这个变量，同时也会刷新到主内存。</p><p><strong>MESI缓存一致性协议</strong></p><p>这个协议，通俗来说，就是每次CPU写数据时，会通知其他CPU，把他们缓存的值设置失效，然后重新获取。</p><p>其中有一个<strong>总线嗅探机制</strong>，和上面一样，CPU都是通过嗅探总线上面的数据来判断自己工作内存中的数据是否失效。</p><p>但是也会产生一个问题</p><p><strong>总线风暴</strong>：如果采用大量的volatile的话，就会不断的去主内存进行嗅探和不断地进行CAS循环，导致总线带宽到达峰值。</p><h3 id="禁止指令重排"><a href="#禁止指令重排" class="headerlink" title="禁止指令重排"></a>禁止指令重排</h3><p>上面我们讲了讲可见性的一些问题，除此之外，volatile还有一个禁止指令重排的功能。</p><p>如果大家学了单例模式，就可以明白volatile指令重排的意义了。</p><p><strong>重排</strong></p><p>编译器为了提高性能，在编译阶段会对既定的代码执行顺序进行重排</p><p>比如</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure><p>那么在执行的时候可能会先执行第二条语句，然后在执行第一条语句，这就是一个简单的重排过程。</p><p><img src="https://pic3.zhimg.com/80/v2-8ce58830ca5051bbb5deff4e9bc22599_720w.jpeg" alt="img"></p><p>这个就是所有过程中可能出现重排序的地方。</p><ul><li>编译器优化的重排序。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序;</li><li>指令级并行的重排序。现代处理器采用了指令级并行技术来将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序;</li><li>内存系统的重排序。由于处理器使用缓存和读/写缓冲区，这使得加载和存储操作看上去可能是在乱序执行的。</li></ul><h3 id="内存屏障"><a href="#内存屏障" class="headerlink" title="内存屏障"></a>内存屏障</h3><p><strong>volatile禁止指令重排</strong></p><p>我们知道了有重排这个东西，但是怎么样解决指令重排的呢？</p><p>java编译器在生成指令时，会在适当的位置插入<code>内存屏障</code>指令来禁止特定类型的处理器重排序。</p><p><strong>volatile会在写指令的前后加上内存屏障，在读操作之后加上两个内存屏障</strong>。</p><p><strong>写</strong></p><p><img src="https://picb.zhimg.com/80/v2-1c459334f09b418add91ac2831f4113f_720w.jpg" alt="img"></p><p><strong>读</strong></p><p><img src="https://pic2.zhimg.com/80/v2-5e909190712322fe1f0a861c9871d7fa_720w.jpg" alt="img"></p><p><strong>但是volatile无法解决原子性</strong>，原因就是多个线程操作一个变量的话，    读写操作不是原子性的，如果要保证原子操作，可以去使用原子类，AtomicInteger之类的。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>volatile一般用于作为触发器，可以实现轻量级同步</li><li>volatile读写都是无锁的，所以效率高，但是不能代替sychronized</li><li>volatile只能作用于属性</li><li>提供了可见性</li><li>提供了内存屏障</li><li>单例双重检查应用</li></ul>]]></content>
     
     <summary type="html">
     
@@ -326,9 +422,9 @@
     <link href="http://wysblogs.top/2020/08/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86/"/>
     <id>http://wysblogs.top/2020/08/13/计算机网络面试知识/</id>
     <published>2020-08-13T04:24:52.000Z</published>
-    <updated>2020-08-21T05:58:40.408Z</updated>
+    <updated>2020-08-26T04:45:19.375Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p><h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul><li><strong>1开头</strong>： 信息，服务器收到请求，需要请求者继续执行操作</li><li><strong>2开头：</strong>成功，操作被成功接收并处理</li><li><strong>3开头</strong>：重定向，需要进一步的操作以完成请求</li><li><strong>4开头</strong>：客户端错误，请求包含语法错误或无法完成请求</li><li><strong>5开头</strong>： 服务器错误，服务器在处理请求的过程中发生了错误</li></ul><p>200 OK</p><p>404 未发现</p><p>301 重定向</p><h2 id="TCP和UDP区别"><a href="#TCP和UDP区别" class="headerlink" title="TCP和UDP区别"></a>TCP和UDP区别</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><ul><li>TCP是一个可靠的，面向连接的协议，在进行收发数据时候，必须建立连接，一个TCP必须经过三次 “会话” 才能建立起来。</li><li>TCP断开连接必须经过四次挥手阶段</li><li>TCP对系统资源要求较高</li><li>TCP保证了消息的顺序和正确性</li></ul><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><ul><li>UDP是一个非连接的，不可靠的消息，在发送消息的途中可能会丢包</li><li>UDP对系统资源要求较低</li><li>Ping命令采用的就是UDP形式的协议</li></ul><h2 id="Get请求和Post请求区别"><a href="#Get请求和Post请求区别" class="headerlink" title="Get请求和Post请求区别"></a>Get请求和Post请求区别</h2><ul><li>get发送请求时，数据会附在URL上面，以 ? 形式分割，参数用&amp;连接</li><li>post把提交的数据放在HTTP包中</li><li>get长度受限于URL的长度，如果没有限制的话，可以无限长</li><li>post是没有大小限制</li><li>post的安全性比get高</li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络面试知识"><a href="#计算机网络面试知识" class="headerlink" title="计算机网络面试知识"></a>计算机网络面试知识</h1><h2 id="HTTP是什么？"><a href="#HTTP是什么？" class="headerlink" title="HTTP是什么？"></a>HTTP是什么？</h2><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。</p><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><h2 id="在浏览器输出URL执行后会发生什么？"><a href="#在浏览器输出URL执行后会发生什么？" class="headerlink" title="在浏览器输出URL执行后会发生什么？"></a>在浏览器输出URL执行后会发生什么？</h2><ul><li>查找域名对应的IP地址。这一步会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li><li>浏览器向IP对应的web服务器发送一个HTTP请求</li><li>服务器响应请求，发回网页内容</li><li>浏览器解析网页内容</li></ul><h2 id="OSI，TCP-IP，五层协议的体系结构"><a href="#OSI，TCP-IP，五层协议的体系结构" class="headerlink" title="OSI，TCP/IP，五层协议的体系结构"></a>OSI，TCP/IP，五层协议的体系结构</h2><p><strong>OSI分层 （7层）</strong>：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。 </p><p><strong>TCP/IP分层（4层）</strong>：网络接口层、 网际层、运输层、 应用层。 </p><p><strong>五层协议   （5层）</strong>：物理层、数据链路层、网络层、运输层、 应用层。</p><h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul><li><strong>1开头</strong>： 信息，服务器收到请求，需要请求者继续执行操作</li><li><strong>2开头：</strong>成功，操作被成功接收并处理</li><li><strong>3开头</strong>：重定向，需要进一步的操作以完成请求</li><li><strong>4开头</strong>：客户端错误，请求包含语法错误或无法完成请求</li><li><strong>5开头</strong>： 服务器错误，服务器在处理请求的过程中发生了错误</li></ul><p>200 OK</p><p>404 未发现</p><p>301 重定向</p><h2 id="TCP和UDP区别"><a href="#TCP和UDP区别" class="headerlink" title="TCP和UDP区别"></a>TCP和UDP区别</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><ul><li>TCP是一个可靠的，面向连接的协议，在进行收发数据时候，必须建立连接，一个TCP必须经过三次 “会话” 才能建立起来。</li><li>TCP断开连接必须经过四次挥手阶段</li><li>TCP对系统资源要求较高</li><li>TCP保证了消息的顺序和正确性</li></ul><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><ul><li>UDP是一个非连接的，不可靠的消息，在发送消息的途中可能会丢包</li><li>UDP对系统资源要求较低</li><li>Ping命令采用的就是UDP形式的协议</li></ul><h2 id="Get请求和Post请求区别"><a href="#Get请求和Post请求区别" class="headerlink" title="Get请求和Post请求区别"></a>Get请求和Post请求区别</h2><ul><li>get发送请求时，数据会附在URL上面，以 ? 形式分割，参数用&amp;连接</li><li>post把提交的数据放在HTTP包中</li><li>get长度受限于URL的长度，如果没有限制的话，可以无限长</li><li>post是没有大小限制</li><li>post的安全性比get高</li></ul><h2 id="HTTP和HTTPS区别"><a href="#HTTP和HTTPS区别" class="headerlink" title="HTTP和HTTPS区别"></a>HTTP和HTTPS区别</h2><p>HTTPS是基于HTTP的，在HTTP基础上添加一个SSL密匙来确保网络传输之间的安全性。</p>]]></content>
     
     <summary type="html">
     
@@ -393,102 +489,6 @@
     
     
       <category term="面经" scheme="http://wysblogs.top/tags/%E9%9D%A2%E7%BB%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IP地址范围</title>
-    <link href="http://wysblogs.top/2020/08/09/IP%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4/"/>
-    <id>http://wysblogs.top/2020/08/09/IP地址范围/</id>
-    <published>2020-08-09T03:18:10.000Z</published>
-    <updated>2020-08-09T03:21:21.827Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="IP地址范围"><a href="#IP地址范围" class="headerlink" title="IP地址范围"></a>IP地址范围</h1><p>IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来<strong>屏蔽物理地址的差异</strong>。</p><h2 id="1、A类IP地址"><a href="#1、A类IP地址" class="headerlink" title="1、A类IP地址"></a>1、A类IP地址</h2><p>一个A类IP地址是指， 在IP地址的四段du号码中，第一段号码为网zhi络号码，剩下的三dao段号码为本地计算机的号码。A类IP地址中网络的标识长度为8位，主机标识的长度为24位，A类网络地址数量较少，有126个网络，每个网络可以容纳主机数达1600多万台。</p><p><strong>A类IP地址 地址范围1.0.0.1到127.255.255.254。</strong></p><h2 id="2、B类IP地址"><a href="#2、B类IP地址" class="headerlink" title="2、B类IP地址"></a>2、B类IP地址</h2><p>一个B类IP地址是指，在IP地址的四段号码中，前两段号码为网络号码。B类IP地址中网络的标识长度为16位，主机标识的长度为16位，B类网络地址适用于中等规模的网络，有16384个网络，每个网络所能容纳的计算机数为6万多台。</p><p><strong>B类IP地址地址范围128.0.0.1-191.255.255.254。</strong></p><h2 id="3、C类IP地址"><a href="#3、C类IP地址" class="headerlink" title="3、C类IP地址"></a>3、C类IP地址</h2><p>一个C类IP地址是指，在IP地址的四段号码中，前三段号码为网络号码，剩下的一段号码为本地计算机的号码。C类IP地址中网络的标识长度为24位，主机标识的长度为8位，C类网络地址数量较多，有209万余个网络。适用于小规模的局域网络，每个网络最多只能包含254台计算机。</p><p><strong>C类IP地址范围192.0.0.1-223.255.255.254。</strong></p><h2 id="4、D类IP地址"><a href="#4、D类IP地址" class="headerlink" title="4、D类IP地址"></a>4、D类IP地址</h2><p>D类IP地址在历史上被叫做多播地址，即组播地址。在以太网中，多播地址命名了一组应该在这个网络中应用接收到一个分组的站点。多播地址的最高位必须是“1110”，<strong>范围从224.0.0.0到239.255.255.255。</strong></p><h2 id="5、E类IP地址"><a href="#5、E类IP地址" class="headerlink" title="5、E类IP地址"></a>5、E类IP地址</h2><p><strong>E类IP地址中是以“11110”开头</strong>，E类IP地址都保留用于将来和实验使用。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://wysblogs.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="http://wysblogs.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LinkedHashMap详解</title>
-    <link href="http://wysblogs.top/2020/08/05/LinkedHashMap%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wysblogs.top/2020/08/05/LinkedHashMap详解/</id>
-    <published>2020-08-05T02:45:31.000Z</published>
-    <updated>2020-08-17T01:18:11.699Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LinkedHashMap详解"><a href="#LinkedHashMap详解" class="headerlink" title="LinkedHashMap详解"></a>LinkedHashMap详解</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这个也是一个map集合，底层继承的是<code>HashMap</code>，而且实现了Map接口，所以特性和HashMap一样，但是唯一不同的就是输出顺序不一样。</p><p><strong>特点：</strong>LinkedHashMap 是根据插入或访问顺序实现有序输出的HashMap</p><p><strong>数据结构：</strong>采用的是HashMap+双向链表    </p><p><strong>应用：</strong>LRU 缓存过期策略</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://pic4.zhimg.com/80/v2-a821a76fb84ce6223598c89ae8ebe7b0_720w.jpg" alt="img"></p><h2 id="LinkedHashMap和HashMap区别"><a href="#LinkedHashMap和HashMap区别" class="headerlink" title="LinkedHashMap和HashMap区别"></a>LinkedHashMap和HashMap区别</h2><p><code>LinkedHashMap</code>比<code>HashMap</code>多了一个双向链表的维护。</p><p>其他地方和Map并没有什么区别，对于<code>put()</code>方法来说，重写了<code>put()</code>方法中的<code>newNode()</code></p><p><strong>插入顺序来说：</strong>最常用的放在链表的最末端，最不常用的放在链表的开头。</p><p><strong>两个重要方法：</strong></p><ul><li><code>removeEldestEntry(Map.Entry&lt;K,V&gt; eldest)</code> 来判断是否是最久未被使用的元素。</li><li><code>afterNodeInsertion(boolean evict)</code> 判断是否需要删除最久未被使用的元素。</li></ul><h2 id="AccessOrder模式"><a href="#AccessOrder模式" class="headerlink" title="AccessOrder模式"></a>AccessOrder模式</h2><p>LinkedHashMap可以设置两种遍历顺序：</p><ul><li>访问顺序（access-ordered）</li><li>插入顺序（insertion-ordered）</li><li><strong>默认是插入顺序的</strong></li></ul><p>对于 <strong>访问顺序</strong> 来说，他是LRU算法的实现，即<strong>最近最少使用的</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以通过这个方法来选择是否采用访问顺序</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> accessOrder;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">float</span> loadFactor,</span></span></span><br><span class="line"><span class="function"><span class="params">                     <span class="keyword">boolean</span> accessOrder)</span></span></span><br></pre></td></tr></table></figure><p><strong>一般要扩展成<code>LRUMap</code>时要使用这个模式。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://wysblogs.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://wysblogs.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security学习</title>
-    <link href="http://wysblogs.top/2020/08/05/Spring-Security%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://wysblogs.top/2020/08/05/Spring-Security学习/</id>
-    <published>2020-08-05T02:05:41.000Z</published>
-    <updated>2020-08-05T02:05:41.852Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mybatis基础知识</title>
-    <link href="http://wysblogs.top/2020/07/30/Mybatis%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://wysblogs.top/2020/07/30/Mybatis基础知识/</id>
-    <published>2020-07-30T01:48:38.000Z</published>
-    <updated>2020-08-13T03:56:51.916Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Mybatis基础知识"><a href="#Mybatis基础知识" class="headerlink" title="Mybatis基础知识"></a>Mybatis基础知识</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。</p><p>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Ordinary Java Object,普通的 Java对象)映射成数据库中的记录</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>基于Sql语句编程，解耦合，SQL全部写在XML中，方便管理，而且不会对应用程序或者数据库设计造成任何影响</li><li>兼容性好，支持各类数据库</li><li>支持对象和数据库的ORM字段关系映射</li></ul><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul><li>sql语句编写工作量大。</li><li>sql语句依赖于数据库，移植性差。</li></ul><h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><strong>1、#{}和${}的区别是什么？</strong></p><p>#{}是预编译处理，${}是字符串替换。</p><p>Mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值；</p><p>Mybatis在处理${}时，就是把${}替换成变量的值。</p><p>使用#{}可以有效的防止SQL注入，提高系统安全性。</p><p><strong>2、当实体类中的属性名和表中的字段名不一样 ，怎么办 ？</strong></p><p>1、在查询的sql语句中定义字段名的别名，让字段名的别名和实体类属性名一致。</p><p>2、 通过&lt;resultMap&gt;来映射字段名和实体类属性名的一一对应的关系。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="mybatis" scheme="http://wysblogs.top/categories/mybatis/"/>
-    
-    
-      <category term="mybatis" scheme="http://wysblogs.top/tags/mybatis/"/>
     
   </entry>
   
