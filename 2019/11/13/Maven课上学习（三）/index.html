@@ -92,22 +92,22 @@
 <meta name="keywords" content="Maven学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven课上学习（三）">
-<meta property="og:url" content="http://www.wysblogs.top/2019/11/13/Maven课上学习（三）/index.html">
+<meta property="og:url" content="http://wysblogs.top/2019/11/13/Maven课上学习（三）/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="Maven课上学习（三）依赖如果A依赖B，B依赖C，那么A→B和B→C都是直接依赖，而A→C是间接依赖。 依赖传递范围设定score：作用域，控制依赖传递  test 仅适用于第一类jar包，其不会向下传递   provided 仅适用于第二类jar包，其不会向下传递   runtime 仅适用于第三类jar包，会向下传递   compile 默认值。适用于第四类jar包，会向下传递   syst">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E7%BB%9F%E4%B8%80%E4%B8%8E%E7%AE%A1%E7%90%86.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%9B%B4%E6%8E%A5%E7%BB%A7%E6%89%BF1.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%9B%B4%E6%8E%A5%E7%BB%A7%E6%89%BF2.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630264399.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630271787.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630280300.png">
-<meta property="og:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630289145.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E7%BB%9F%E4%B8%80%E4%B8%8E%E7%AE%A1%E7%90%86.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%9B%B4%E6%8E%A5%E7%BB%A7%E6%89%BF1.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%9B%B4%E6%8E%A5%E7%BB%A7%E6%89%BF2.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630264399.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630271787.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630280300.png">
+<meta property="og:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1573630289145.png">
 <meta property="og:updated_time" content="2019-11-13T07:45:32.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven课上学习（三）">
 <meta name="twitter:description" content="Maven课上学习（三）依赖如果A依赖B，B依赖C，那么A→B和B→C都是直接依赖，而A→C是间接依赖。 依赖传递范围设定score：作用域，控制依赖传递  test 仅适用于第一类jar包，其不会向下传递   provided 仅适用于第二类jar包，其不会向下传递   runtime 仅适用于第三类jar包，会向下传递   compile 默认值。适用于第四类jar包，会向下传递   syst">
-<meta name="twitter:image" content="http://www.wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E7%BB%9F%E4%B8%80%E4%B8%8E%E7%AE%A1%E7%90%86.png">
+<meta name="twitter:image" content="http://wysblogs.top/upload/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E7%BB%9F%E4%B8%80%E4%B8%8E%E7%AE%A1%E7%90%86.png">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wysblogs.top/2019/11/13/Maven课上学习（三）/">
+  <link rel="canonical" href="http://wysblogs.top/2019/11/13/Maven课上学习（三）/">
 
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wysblogs.top/2019/11/13/Maven课上学习（三）/">
+    <link itemprop="mainEntityOfPage" href="http://wysblogs.top/2019/11/13/Maven课上学习（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wys">
@@ -493,7 +493,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.wysblogs.top/2019/11/13/Maven课上学习（三）/" title="Maven课上学习（三）">http://www.wysblogs.top/2019/11/13/Maven课上学习（三）/</a>
+    <a href="http://wysblogs.top/2019/11/13/Maven课上学习（三）/" title="Maven课上学习（三）">http://wysblogs.top/2019/11/13/Maven课上学习（三）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
