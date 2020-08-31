@@ -92,25 +92,25 @@
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM虚拟机知识点">
-<meta property="og:url" content="http://wysblogs.top/2020/07/11/JVM虚拟机知识点/index.html">
+<meta property="og:url" content="http://www.wysblogs.top/2020/07/11/JVM虚拟机知识点/index.html">
 <meta property="og:site_name" content="wys&#39;blogs">
 <meta property="og:description" content="JVM虚拟机知识点运行时数据区运行时数据区就是jvm运行java文件时，会把管理的内存分为好几个部分，每一个部分就是一个运行时数据区。 结构图 线程共享的区域方法区：存放类信息，静态变量，常量，运行时常量池 的区域 堆：几乎所有的对象存放的地方，同时也是GC的主要区域 ​    数组也存放在堆中  分代处理：目的是为了更好的回收内存和分配内存 新生代：Eden空间，From Survivor空间，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/markword.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E9%AA%8C%E8%AF%81.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%A0%86%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB.png">
-<meta property="og:image" content="http://wysblogs.top/upload/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/markword.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E9%AA%8C%E8%AF%81.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E5%A0%86%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB.png">
+<meta property="og:image" content="http://www.wysblogs.top/upload/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90.png">
 <meta property="og:updated_time" content="2020-07-27T07:47:23.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM虚拟机知识点">
 <meta name="twitter:description" content="JVM虚拟机知识点运行时数据区运行时数据区就是jvm运行java文件时，会把管理的内存分为好几个部分，每一个部分就是一个运行时数据区。 结构图 线程共享的区域方法区：存放类信息，静态变量，常量，运行时常量池 的区域 堆：几乎所有的对象存放的地方，同时也是GC的主要区域 ​    数组也存放在堆中  分代处理：目的是为了更好的回收内存和分配内存 新生代：Eden空间，From Survivor空间，">
-<meta name="twitter:image" content="http://wysblogs.top/upload/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
+<meta name="twitter:image" content="http://www.wysblogs.top/upload/jvm/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://wysblogs.top/2020/07/11/JVM虚拟机知识点/">
+  <link rel="canonical" href="http://www.wysblogs.top/2020/07/11/JVM虚拟机知识点/">
 
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wysblogs.top/2020/07/11/JVM虚拟机知识点/">
+    <link itemprop="mainEntityOfPage" href="http://www.wysblogs.top/2020/07/11/JVM虚拟机知识点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wys">
@@ -683,7 +683,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wysblogs.top/2020/07/11/JVM虚拟机知识点/" title="JVM虚拟机知识点">http://wysblogs.top/2020/07/11/JVM虚拟机知识点/</a>
+    <a href="http://www.wysblogs.top/2020/07/11/JVM虚拟机知识点/" title="JVM虚拟机知识点">http://www.wysblogs.top/2020/07/11/JVM虚拟机知识点/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
